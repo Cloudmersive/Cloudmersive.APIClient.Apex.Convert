@@ -57,6 +57,132 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Gets PDF Form fields and values
+     * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagPdfFormFields
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPdfFormFields editPdfGetFormFields(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagPdfFormFields) client.invoke(
+            'POST', '/convert/edit/pdf/form/get-fields', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagPdfFormFields.class
+        );
+    }
+    /**
+     * Get PDF document metadata
+     * Returns the metadata from the PDF document, including Title, Author, etc.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagPdfMetadata
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPdfMetadata editPdfGetMetadata(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagPdfMetadata) client.invoke(
+            'POST', '/convert/edit/pdf/get-metadata', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagPdfMetadata.class
+        );
+    }
+    /**
+     * Rasterize a PDF to an image-based PDF
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfRasterize(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/rasterize', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Sets ands fills PDF Form field values
+     * Fill in the form fields in a PDF form with specific values.  Use form/get-fields to enumerate the available fields and their data types in an input form.
+     * @param fieldValues  (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfSetFormFields(Map<String, Object> params) {
+        client.assertNotNull(params.get('fieldValues'), 'fieldValues');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/form/set-fields',
+            (SwagSetPdfFormFieldsRequest) params.get('fieldValues'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Sets PDF document metadata
+     * Sets (writes) metadata into the input PDF document, including Title, Author, etc.
+     * @param request  (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object editPdfSetMetadata(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/edit/pdf/set-metadata',
+            (SwagSetPdfMetadataRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
      * Encrypt, password-protect and set restricted permissions on a PDF
      * Encrypt a PDF document with a password, and set permissions on the PDF.  Set an owner password to control owner (editor/creator) permissions [required], and set a user (reader) password to control the viewer of the PDF [optional].  Set the reader password to null to omit the password.  Restrict or allow printing, copying content, document assembly, editing (read-only), form filling, modification of annotations, and degraded printing through document Digital Rights Management (DRM).
      * @param ownerPassword Password of a owner (creator/editor) of the PDF file (required) (required)

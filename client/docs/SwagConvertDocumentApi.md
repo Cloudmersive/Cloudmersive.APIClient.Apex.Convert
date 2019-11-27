@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**convertDocumentPdfToPngSingle**](SwagConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | PDF to Single PNG image
 [**convertDocumentPdfToPptx**](SwagConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | PDF to PowerPoint PPTX
 [**convertDocumentPdfToTxt**](SwagConvertDocumentApi.md#convertDocumentPdfToTxt) | **POST** /convert/pdf/to/txt | PDF to Text
+[**convertDocumentPngArrayToPdf**](SwagConvertDocumentApi.md#convertDocumentPngArrayToPdf) | **POST** /convert/png/to/pdf | PNG Array to PDF
 [**convertDocumentPptToPdf**](SwagConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | PowerPoint PPT (97-03) to PDF
 [**convertDocumentPptToPptx**](SwagConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | PowerPoint PPT (97-03) to PPTX
 [**convertDocumentPptxToPdf**](SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | PowerPoint PPTX to PDF
@@ -806,6 +807,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagTextConversionResult**](SwagTextConversionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentPngArrayToPdf"></a>
+# **convertDocumentPngArrayToPdf**
+> Blob convertDocumentPngArrayToPdf(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+PNG Array to PDF
+
+Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile10' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentPngArrayToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on. |
+ **inputFile3** | **Blob**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **Blob**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **Blob**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **Blob**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **Blob**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **Blob**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **Blob**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **Blob**| Tenth input file to perform the operation on. | [optional]
+
+### Return type
+
+**Blob**
 
 ### Authorization
 

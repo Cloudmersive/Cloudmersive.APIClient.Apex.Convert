@@ -442,6 +442,51 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * PNG Array to PDF
+     * Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentPngArrayToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile1'), 'inputFile1');
+        client.assertNotNull(params.get('inputFile2'), 'inputFile2');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
+        form.addAll(client.makeParam('inputFile2', (Blob) params.get('inputFile2')));
+        form.addAll(client.makeParam('inputFile3', (Blob) params.get('inputFile3')));
+        form.addAll(client.makeParam('inputFile4', (Blob) params.get('inputFile4')));
+        form.addAll(client.makeParam('inputFile5', (Blob) params.get('inputFile5')));
+        form.addAll(client.makeParam('inputFile6', (Blob) params.get('inputFile6')));
+        form.addAll(client.makeParam('inputFile7', (Blob) params.get('inputFile7')));
+        form.addAll(client.makeParam('inputFile8', (Blob) params.get('inputFile8')));
+        form.addAll(client.makeParam('inputFile9', (Blob) params.get('inputFile9')));
+        form.addAll(client.makeParam('inputFile10', (Blob) params.get('inputFile10')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/png/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * PowerPoint PPT (97-03) to PDF
      * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)

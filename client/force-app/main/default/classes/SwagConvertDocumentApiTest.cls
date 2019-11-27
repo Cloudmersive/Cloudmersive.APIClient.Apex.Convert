@@ -529,6 +529,48 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * PNG Array to PDF
+     *
+     * Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     */
+    @isTest
+    private static void convertDocumentPngArrayToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile10' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentPngArrayToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * PowerPoint PPT (97-03) to PDF
      *
      * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
