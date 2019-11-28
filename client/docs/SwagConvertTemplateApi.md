@@ -27,7 +27,7 @@ Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
-    'templateDefinition' => 'templateDefinition_example'
+    'templateDefinition' => Object.getExample()
 };
 
 try {
@@ -44,7 +44,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
- **templateDefinition** | **String**| Template definition for the document, including what values to replace | [optional]
+ **templateDefinition** | [**Object**](.md)| Template definition for the document, including what values to replace | [optional]
 
 ### Return type
 

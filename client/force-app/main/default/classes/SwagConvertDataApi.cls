@@ -26,7 +26,7 @@ public class SwagConvertDataApi {
     }
 
     /**
-     * CSV to JSON conversion
+     * Convert CSV to JSON conversion
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -52,7 +52,7 @@ public class SwagConvertDataApi {
         );
     }
     /**
-     * Excel (97-2003) XLS to JSON conversion
+     * Convert Excel (97-2003) XLS to JSON conversion
      * Convert an Excel (97-2003) XLS file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -78,7 +78,7 @@ public class SwagConvertDataApi {
         );
     }
     /**
-     * Excel XLSX to JSON conversion
+     * Convert Excel XLSX to JSON conversion
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object
@@ -104,7 +104,7 @@ public class SwagConvertDataApi {
         );
     }
     /**
-     * XML to JSON conversion
+     * Convert XML to JSON conversion
      * Convert an XML string or file into JSON
      * @param inputFile Input file to perform the operation on. (required)
      * @return Object

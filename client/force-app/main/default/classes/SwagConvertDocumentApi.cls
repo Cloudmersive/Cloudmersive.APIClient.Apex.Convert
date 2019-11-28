@@ -130,7 +130,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * CSV to Excel XLSX
+     * Convert CSV to Excel XLSX Spreadsheet
      * Convert CSV file to Office Excel XLSX Workbooks file format.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -156,7 +156,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Word DOC (97-03) to DOCX
+     * Convert Word DOC (97-03) Document to DOCX
      * Convert/upgrade Office Word (97-2003 Format) Documents (doc) to the modern DOCX format
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -182,7 +182,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Word DOC (97-03) to PDF
+     * Convert Word DOC (97-03) Document to PDF
      * Convert Office Word (97-2003 Format) Documents (doc) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -208,7 +208,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Word DOCX to PDF
+     * Convert Word DOCX Document to PDF
      * Convert Office Word Documents (docx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -234,7 +234,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Word DOCX to Text
+     * Convert Word DOCX Document to Text
      * Convert Office Word Documents (docx) to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -260,7 +260,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * HTML to PDF
+     * Convert HTML to PDF Document
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -286,7 +286,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * HTML to PNG array
+     * Convert HTML to PNG image array
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagPdfToPngResult
@@ -312,7 +312,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PDF to Word DOCX
+     * Convert PDF to Word DOCX Document
      * Convert standard PDF to Office Word Documents (docx).    Converts a PDF at high fidelity into Word format, where it can be easily edited and processed.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -338,7 +338,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PDF to PNG Array
+     * Convert PDF to PNG Image Array
      * Convert PDF document to PNG array, one image per page.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagPdfToPngResult
@@ -364,7 +364,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PDF to Single PNG image
+     * Convert PDF to Single PNG image
      * Convert PDF document to a single tall PNG image, by stacking/concatenating the images vertically into a single &quot;tall&quot; image
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -390,7 +390,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PDF to PowerPoint PPTX
+     * Convert PDF to PowerPoint PPTX Presentation
      * Convert standard PDF to Office PowerPoint Presentation (pptx).  Converts a PDF file at high fidelity into PowerPoint format, where it can be easily edited and processed.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -416,7 +416,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PDF to Text
+     * Convert PDF Document to Text
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -442,7 +442,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PNG Array to PDF
+     * Convert PNG Array to PDF
      * Convert an array of PNG images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on. (required)
@@ -487,7 +487,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PowerPoint PPT (97-03) to PDF
+     * Convert PowerPoint PPT (97-03) Presentation to PDF
      * Convert Office PowerPoint (97-2003) Documents (ppt) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -513,7 +513,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PowerPoint PPT (97-03) to PPTX
+     * Convert PowerPoint PPT (97-03) Presentation to PPTX
      * Convert/upgrade Office PowerPoint (97-2003) Documents (ppt) to modern PPTX
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -539,7 +539,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PowerPoint PPTX to PDF
+     * Convert PowerPoint PPTX Presentation to PDF
      * Convert Office PowerPoint Documents (pptx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -565,7 +565,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * PowerPoint PPTX to Text
+     * Convert PowerPoint PPTX Presentation to Text
      * Convert Office PowerPoint Documents (pptx) to standard Text
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -591,7 +591,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Excel XLS (97-03) to CSV
+     * Convert Excel XLS (97-03) Spreadsheet to CSV
      * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to standard CSV format.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -617,7 +617,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Excel XLS (97-03) to PDF
+     * Convert Excel XLS (97-03) Spreadsheet to PDF
      * Convert Office Excel (97-2003) Workbooks (xls) to standard PDF.  Converts all worksheets in the workbook to PDF.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -643,7 +643,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Excel XLS (97-03) to XLSX
+     * Convert Excel XLS (97-03) Spreadsheet to XLSX
      * Convert/upgrade Office Excel (97-2003) Workbooks (xls) to modern XLSX format.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -669,7 +669,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Excel XLSX to CSV
+     * Convert Excel XLSX Spreadsheet to CSV
      * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
@@ -698,7 +698,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Excel XLSX to PDF
+     * Convert Excel XLSX Spreadsheet to PDF
      * Convert Office Excel Workbooks (XLSX) to standard PDF.  Converts all worksheets in the workbook to PDF.  Supports both XLSX and XLSB Excel file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -724,7 +724,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Excel XLSX to Text
+     * Convert Excel XLSX Spreadsheet to Text
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
