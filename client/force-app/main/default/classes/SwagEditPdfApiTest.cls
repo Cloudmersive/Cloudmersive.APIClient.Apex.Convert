@@ -1,6 +1,41 @@
 @isTest
 private class SwagEditPdfApiTest {
     /**
+     * Remove / delete pages from a PDF document
+     *
+     * Remove one or more pages from a PDF document
+     */
+    @isTest
+    private static void editPdfDeletePagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'pageStart' => 56,
+            'pageEnd' => 56
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfDeletePages(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Encrypt and password-protect a PDF
      *
      * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
@@ -102,6 +137,43 @@ private class SwagEditPdfApiTest {
     }
 
     /**
+     * Insert / copy pages from one PDF document into another
+     *
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     */
+    @isTest
+    private static void editPdfInsertPagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'sourceFile' => Blob.valueOf('Sample text file\nContents'),
+            'destinationFile' => Blob.valueOf('Sample text file\nContents'),
+            'pageStartSource' => 56,
+            'pageEndSource' => 56,
+            'pageInsertBeforeDesitnation' => 56
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfInsertPages(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Rasterize a PDF to an image-based PDF
      *
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
@@ -185,8 +257,8 @@ private class SwagEditPdfApiTest {
 
         SwagClient client;
         SwagEditPdfApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagEditPdfApi(client);
@@ -194,9 +266,9 @@ private class SwagEditPdfApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.editPdfSetMetadata(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfSetMetadata(params);
         System.assertEquals(expectedResponse, response);
     }
 

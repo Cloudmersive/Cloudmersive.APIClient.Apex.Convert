@@ -26,6 +26,39 @@ public class SwagEditPdfApi {
     }
 
     /**
+     * Remove / delete pages from a PDF document
+     * Remove one or more pages from a PDF document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfDeletePages(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('pageStart'), 'pageStart');
+        client.assertNotNull(params.get('pageEnd'), 'pageEnd');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/pages/delete', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'pageStart' => (Integer) params.get('pageStart'),
+                'pageEnd' => (Integer) params.get('pageEnd')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Encrypt and password-protect a PDF
      * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
      * @param inputFile Input file to perform the operation on. (required)
@@ -109,6 +142,45 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Insert / copy pages from one PDF document into another
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfInsertPages(Map<String, Object> params) {
+        client.assertNotNull(params.get('sourceFile'), 'sourceFile');
+        client.assertNotNull(params.get('destinationFile'), 'destinationFile');
+        client.assertNotNull(params.get('pageStartSource'), 'pageStartSource');
+        client.assertNotNull(params.get('pageEndSource'), 'pageEndSource');
+        client.assertNotNull(params.get('pageInsertBeforeDesitnation'), 'pageInsertBeforeDesitnation');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('sourceFile', (Blob) params.get('sourceFile')));
+        form.addAll(client.makeParam('destinationFile', (Blob) params.get('destinationFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/pages/insert', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'pageStartSource' => (Integer) params.get('pageStartSource'),
+                'pageEndSource' => (Integer) params.get('pageEndSource'),
+                'pageInsertBeforeDesitnation' => (Integer) params.get('pageInsertBeforeDesitnation')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Rasterize a PDF to an image-based PDF
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
      * @param inputFile Input file to perform the operation on. (required)
@@ -162,15 +234,15 @@ public class SwagEditPdfApi {
      * Sets PDF document metadata
      * Sets (writes) metadata into the input PDF document, including Title, Author, etc.
      * @param request  (required)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object editPdfSetMetadata(Map<String, Object> params) {
+    public Blob editPdfSetMetadata(Map<String, Object> params) {
         client.assertNotNull(params.get('request'), 'request');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/edit/pdf/set-metadata',
             (SwagSetPdfMetadataRequest) params.get('request'),
             query, form,
@@ -179,7 +251,7 @@ public class SwagEditPdfApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**

@@ -4,15 +4,70 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**editPdfDeletePages**](SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**editPdfEncrypt**](SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**editPdfGetFormFields**](SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**editPdfGetMetadata**](SwagEditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
+[**editPdfInsertPages**](SwagEditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 [**editPdfRasterize**](SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**editPdfSetFormFields**](SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
 [**editPdfSetMetadata**](SwagEditPdfApi.md#editPdfSetMetadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 [**editPdfSetPermissions**](SwagEditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**editPdfWatermarkText**](SwagEditPdfApi.md#editPdfWatermarkText) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
 
+
+<a name="editPdfDeletePages"></a>
+# **editPdfDeletePages**
+> Blob editPdfDeletePages(inputFile, pageStart, pageEnd)
+
+Remove / delete pages from a PDF document
+
+Remove one or more pages from a PDF document
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'pageStart' => 56,
+    'pageEnd' => 56
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfDeletePages(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **pageStart** | **Integer**| Page number (1 based) to start deleting pages from (inclusive). |
+ **pageEnd** | **Integer**| Page number (1 based) to stop deleting pages from (inclusive). |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
 
 <a name="editPdfEncrypt"></a>
 # **editPdfEncrypt**
@@ -165,6 +220,63 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="editPdfInsertPages"></a>
+# **editPdfInsertPages**
+> Blob editPdfInsertPages(sourceFile, destinationFile, pageStartSource, pageEndSource, pageInsertBeforeDesitnation)
+
+Insert / copy pages from one PDF document into another
+
+Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'sourceFile' => Blob.valueOf('Sample text file\nContents'),
+    'destinationFile' => Blob.valueOf('Sample text file\nContents'),
+    'pageStartSource' => 56,
+    'pageEndSource' => 56,
+    'pageInsertBeforeDesitnation' => 56
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfInsertPages(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sourceFile** | **Blob**| Source PDF file to copy pages from. |
+ **destinationFile** | **Blob**| Destination PDF file to copy pages into. |
+ **pageStartSource** | **Integer**| Page number (1 based) to start copying pages from (inclusive) in the Source file. |
+ **pageEndSource** | **Integer**| Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. |
+ **pageInsertBeforeDesitnation** | **Integer**| Page number (1 based) to insert the pages before in the Destination file. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="editPdfRasterize"></a>
 # **editPdfRasterize**
 > Blob editPdfRasterize(inputFile)
@@ -265,7 +377,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfSetMetadata"></a>
 # **editPdfSetMetadata**
-> Object editPdfSetMetadata(request)
+> Blob editPdfSetMetadata(request)
 
 Sets PDF document metadata
 
@@ -286,7 +398,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.editPdfSetMetadata(params);
+    Blob result = api.editPdfSetMetadata(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -301,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 

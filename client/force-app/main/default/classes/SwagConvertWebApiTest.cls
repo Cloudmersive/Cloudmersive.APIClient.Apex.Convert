@@ -67,6 +67,39 @@ private class SwagConvertWebApiTest {
     }
 
     /**
+     * Convert HTML string to PNG
+     *
+     * Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
+     */
+    @isTest
+    private static void convertWebHtmlToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagHtmlToPngRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagConvertWebApi api;
+        Object response;
+        Object expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertWebApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"{}"');
+        expectedResponse = null;
+        response = (Object) api.convertWebHtmlToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Markdown to HTML
      *
      * Convert a markdown file (.md) to HTML
