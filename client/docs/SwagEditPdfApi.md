@@ -4,6 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**editPdfDecrypt**](SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 [**editPdfDeletePages**](SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**editPdfEncrypt**](SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**editPdfGetFormFields**](SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
@@ -15,6 +16,57 @@ Method | HTTP request | Description
 [**editPdfSetPermissions**](SwagEditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**editPdfWatermarkText**](SwagEditPdfApi.md#editPdfWatermarkText) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
 
+
+<a name="editPdfDecrypt"></a>
+# **editPdfDecrypt**
+> Blob editPdfDecrypt(password, inputFile)
+
+Decrypt and password-protect a PDF
+
+Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'password' => 'password_example',
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfDecrypt(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Valid password for the PDF file |
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
 
 <a name="editPdfDeletePages"></a>
 # **editPdfDeletePages**
@@ -71,7 +123,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfEncrypt"></a>
 # **editPdfEncrypt**
-> Blob editPdfEncrypt(inputFile, userPassword, ownerPassword)
+> Blob editPdfEncrypt(inputFile, userPassword, ownerPassword, encryptionKeyLength)
 
 Encrypt and password-protect a PDF
 
@@ -89,7 +141,8 @@ Apikey.setApiKey('YOUR API KEY');
 Map<String, Object> params = new Map<String, Object>{
     'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'userPassword' => 'userPassword_example',
-    'ownerPassword' => 'ownerPassword_example'
+    'ownerPassword' => 'ownerPassword_example',
+    'encryptionKeyLength' => 'encryptionKeyLength_example'
 };
 
 try {
@@ -108,6 +161,7 @@ Name | Type | Description  | Notes
  **inputFile** | **Blob**| Input file to perform the operation on. |
  **userPassword** | **String**| Password of a user (reader) of the PDF file | [optional]
  **ownerPassword** | **String**| Password of a owner (creator/editor) of the PDF file | [optional]
+ **encryptionKeyLength** | **String**| Possible values are &quot;128&quot; (128-bit RC4 encryption) and &quot;256&quot; (256-bit AES encryption).  Default is 256. | [optional]
 
 ### Return type
 
@@ -426,7 +480,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfSetPermissions"></a>
 # **editPdfSetPermissions**
-> Blob editPdfSetPermissions(ownerPassword, inputFile, userPassword, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting)
+> Blob editPdfSetPermissions(ownerPassword, userPassword, inputFile, encryptionKeyLength, allowPrinting, allowDocumentAssembly, allowContentExtraction, allowFormFilling, allowEditing, allowAnnotations, allowDegradedPrinting)
 
 Encrypt, password-protect and set restricted permissions on a PDF
 
@@ -443,8 +497,9 @@ Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
     'ownerPassword' => 'ownerPassword_example',
-    'inputFile' => Blob.valueOf('Sample text file\nContents'),
     'userPassword' => 'userPassword_example',
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'encryptionKeyLength' => 'encryptionKeyLength_example',
     'allowPrinting' => true,
     'allowDocumentAssembly' => true,
     'allowContentExtraction' => true,
@@ -468,8 +523,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ownerPassword** | **String**| Password of a owner (creator/editor) of the PDF file (required) |
+ **userPassword** | **String**| Password of a user (reader) of the PDF file (optional) |
  **inputFile** | **Blob**| Input file to perform the operation on. |
- **userPassword** | **String**| Password of a user (reader) of the PDF file (optional) | [optional]
+ **encryptionKeyLength** | **String**| Possible values are &quot;128&quot; (128-bit RC4 encryption) and &quot;256&quot; (256-bit AES encryption).  Default is 256. | [optional]
  **allowPrinting** | **Boolean**| Set to false to disable printing through DRM.  Default is true. | [optional]
  **allowDocumentAssembly** | **Boolean**| Set to false to disable document assembly through DRM.  Default is true. | [optional]
  **allowContentExtraction** | **Boolean**| Set to false to disable copying/extracting content out of the PDF through DRM.  Default is true. | [optional]

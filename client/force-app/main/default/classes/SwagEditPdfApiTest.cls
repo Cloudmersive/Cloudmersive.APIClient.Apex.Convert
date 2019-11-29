@@ -1,6 +1,40 @@
 @isTest
 private class SwagEditPdfApiTest {
     /**
+     * Decrypt and password-protect a PDF
+     *
+     * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+     */
+    @isTest
+    private static void editPdfDecryptTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'password' => 'password_example',
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfDecrypt(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Remove / delete pages from a PDF document
      *
      * Remove one or more pages from a PDF document
@@ -50,7 +84,8 @@ private class SwagEditPdfApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'userPassword' => 'userPassword_example',
-            'ownerPassword' => 'ownerPassword_example'
+            'ownerPassword' => 'ownerPassword_example',
+            'encryptionKeyLength' => 'encryptionKeyLength_example'
         };
 
         SwagClient client;
@@ -286,8 +321,9 @@ private class SwagEditPdfApiTest {
 
         Map<String, Object> params = new Map<String, Object>{
             'ownerPassword' => 'ownerPassword_example',
-            'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'userPassword' => 'userPassword_example',
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'encryptionKeyLength' => 'encryptionKeyLength_example',
             'allowPrinting' => true,
             'allowDocumentAssembly' => true,
             'allowContentExtraction' => true,
