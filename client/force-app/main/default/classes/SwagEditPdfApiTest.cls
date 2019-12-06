@@ -1,6 +1,75 @@
 @isTest
 private class SwagEditPdfApiTest {
     /**
+     * Decrypt and password-protect a PDF
+     *
+     * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
+     */
+    @isTest
+    private static void editPdfDecryptTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'password' => 'password_example',
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfDecrypt(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Remove / delete pages from a PDF document
+     *
+     * Remove one or more pages from a PDF document
+     */
+    @isTest
+    private static void editPdfDeletePagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'pageStart' => 56,
+            'pageEnd' => 56
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfDeletePages(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Encrypt and password-protect a PDF
      *
      * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
@@ -15,7 +84,8 @@ private class SwagEditPdfApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'userPassword' => 'userPassword_example',
-            'ownerPassword' => 'ownerPassword_example'
+            'ownerPassword' => 'ownerPassword_example',
+            'encryptionKeyLength' => 'encryptionKeyLength_example'
         };
 
         SwagClient client;
@@ -98,6 +168,43 @@ private class SwagEditPdfApiTest {
         res.setBody('{\r\n  "Keywords" : "Keywords",\r\n  "Title" : "Title",\r\n  "Author" : "Author",\r\n  "DateCreated" : "2000-01-23T04:56:07.000+00:00",\r\n  "Creator" : "Creator",\r\n  "Successful" : true,\r\n  "Subject" : "Subject",\r\n  "DateModified" : "2000-01-23T04:56:07.000+00:00"\r\n}');
         expectedResponse = SwagPdfMetadata.getExample();
         response = (SwagPdfMetadata) api.editPdfGetMetadata(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Insert / copy pages from one PDF document into another
+     *
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
+     */
+    @isTest
+    private static void editPdfInsertPagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'sourceFile' => Blob.valueOf('Sample text file\nContents'),
+            'destinationFile' => Blob.valueOf('Sample text file\nContents'),
+            'pageStartSource' => 56,
+            'pageEndSource' => 56,
+            'pageInsertBeforeDesitnation' => 56
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfInsertPages(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -185,8 +292,8 @@ private class SwagEditPdfApiTest {
 
         SwagClient client;
         SwagEditPdfApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagEditPdfApi(client);
@@ -194,9 +301,9 @@ private class SwagEditPdfApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.editPdfSetMetadata(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editPdfSetMetadata(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -214,8 +321,9 @@ private class SwagEditPdfApiTest {
 
         Map<String, Object> params = new Map<String, Object>{
             'ownerPassword' => 'ownerPassword_example',
-            'inputFile' => Blob.valueOf('Sample text file\nContents'),
             'userPassword' => 'userPassword_example',
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'encryptionKeyLength' => 'encryptionKeyLength_example',
             'allowPrinting' => true,
             'allowDocumentAssembly' => true,
             'allowContentExtraction' => true,

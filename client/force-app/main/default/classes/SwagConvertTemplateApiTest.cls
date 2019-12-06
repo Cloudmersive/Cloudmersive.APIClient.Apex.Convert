@@ -14,7 +14,7 @@ private class SwagConvertTemplateApiTest {
 
         Map<String, Object> params = new Map<String, Object>{
             'inputFile' => Blob.valueOf('Sample text file\nContents'),
-            'templateDefinition' => 'templateDefinition_example'
+            'templateDefinition' => Object.getExample()
         };
 
         SwagClient client;

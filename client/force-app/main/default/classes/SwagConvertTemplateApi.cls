@@ -46,7 +46,7 @@ public class SwagConvertTemplateApi {
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>{
-                'templateDefinition' => (String) params.get('templateDefinition')
+                'templateDefinition' => (Object) params.get('templateDefinition')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },

@@ -52,9 +52,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get body from a DOCX
+     * Get body from a Word DOCX document
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return SwagGetDocxBodyResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -76,9 +76,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get content of a footer from a DOCX
+     * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return SwagGetDocxHeadersAndFootersResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -100,9 +100,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get images from a DOCX
+     * Get images from a Word DOCX document
      * Returns the images defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return SwagGetDocxImagesResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -124,9 +124,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get sections from a DOCX
+     * Get sections from a Word DOCX document
      * Returns the sections defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return SwagGetDocxSectionsResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -148,9 +148,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get styles from a DOCX
+     * Get styles from a Word DOCX document
      * Returns the styles defined in the Word Document (DOCX) format file
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return SwagGetDocxStylesResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -172,9 +172,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get tables in DOCX
+     * Get tables in Word DOCX document
      * Returns all the table objects in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document input request (required)
      * @return SwagGetDocxTablesResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -196,9 +196,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Insert image into a DOCX
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Insert image into a Word DOCX document
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagDocxInsertImageResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -220,9 +220,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Insert a new paragraph into a DOCX
-     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).
-     * @param reqConfig  (required)
+     * Insert a new paragraph into a Word DOCX document
+     * Adds a new paragraph into a DOCX and returns the result.  You can insert at the beginning/end of a document, or before/after an existing object using its Path (location within the document).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagInsertDocxInsertParagraphRespons
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -244,9 +244,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Insert a new table into a DOCX
-     * Adds a new table into a DOCX and returns the result
-     * @param reqConfig  (required)
+     * Insert a new table into a Word DOCX document
+     * Adds a new table into a DOCX and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagInsertDocxTablesResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -268,9 +268,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Remove headers and footers from DOCX
-     * Remove all headers, or footers, or both from a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Remove headers and footers from Word DOCX document
+     * Remove all headers, or footers, or both from a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagRemoveDocxHeadersAndFootersRespo
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -292,9 +292,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Delete any object in a DOCX
-     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.
-     * @param reqConfig  (required)
+     * Delete any object in a Word DOCX document
+     * Delete any object, such as a paragraph, table, image, etc. from a Word Document (DOCX).  Pass in the Path of the object you would like to delete.  You can call other functions such as Get-Tables, Get-Images, Get-Body, etc. to get the paths of the objects in the document.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagDocxRemoveObjectResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -316,9 +316,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Replace string in DOCX
+     * Replace string in Word DOCX document
      * Replace all instances of a string in an Office Word Document (docx)
-     * @param reqConfig  (required)
+     * @param reqConfig Document string replacement configuration input (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -340,9 +340,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Set the footer in a DOCX
-     * Set the footer in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the footer in a Word DOCX document
+     * Set the footer in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagDocxSetFooterResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -364,9 +364,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Add page number to footer in a DOCX
-     * Set the footer in a Word Document (DOCX) to contain a page number
-     * @param reqConfig  (required)
+     * Add page number to footer in a Word DOCX document
+     * Set the footer in a Word Document (DOCX) to contain a page number.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagDocxSetFooterResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -388,9 +388,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Set the header in a DOCX
-     * Set the header in a Word Document (DOCX)
-     * @param reqConfig  (required)
+     * Set the header in a Word DOCX document
+     * Set the header in a Word Document (DOCX).  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
      * @return SwagDocxSetHeaderResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -414,7 +414,7 @@ public class SwagEditDocumentApi {
     /**
      * Download result from document editing
      * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
-     * @param reqConfig  (required)
+     * @param reqConfig Cloudmersive Document URL to complete editing on (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -436,9 +436,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Replace string in PPTX
+     * Replace string in PowerPoint PPTX presentation
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
-     * @param reqConfig  (required)
+     * @param reqConfig Replacement document configuration input (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -460,9 +460,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return SwagGetXlsxColumnsResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -484,9 +484,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get images from a XLSX worksheet
+     * Get images from a Excel XLSX spreadsheet, worksheet
      * Returns the images defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return SwagGetXlsxImagesResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -508,9 +508,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get rows and cells from a XLSX worksheet
+     * Get rows and cells from a Word XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return SwagGetXlsxRowsAndCellsResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -532,9 +532,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get styles from a XLSX worksheet
+     * Get styles from a Excel XLSX spreadsheet, worksheet
      * Returns the style defined in the Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return SwagGetXlsxStylesResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -556,9 +556,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get worksheets from a XLSX
+     * Get worksheets from a Excel XLSX spreadsheet
      * Returns the worksheets (tabs) defined in the Excel Spreadsheet (XLSX) format file
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return SwagGetXlsxWorksheetsResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -580,9 +580,9 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Insert a new worksheet into an XLSX spreadsheet
+     * Insert a new worksheet into an Excel XLSX spreadsheet
      * Inserts a new worksheet into an Excel Spreadsheet
-     * @param input  (required)
+     * @param input Document input request (required)
      * @return SwagInsertXlsxWorksheetResponse
      * @throws Swagger.ApiException if fails to make API call
      */
