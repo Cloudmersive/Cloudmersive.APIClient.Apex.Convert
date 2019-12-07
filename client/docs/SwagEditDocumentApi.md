@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editDocumentBeginEditing**](SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
 [**editDocumentDocxBody**](SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
+[**editDocumentDocxDeletePages**](SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxGetHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**editDocumentDocxGetImages**](SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 [**editDocumentDocxGetSections**](SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -14,6 +15,8 @@ Method | HTTP request | Description
 [**editDocumentDocxInsertImage**](SwagEditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 [**editDocumentDocxInsertParagraph**](SwagEditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 [**editDocumentDocxInsertTable**](SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
+[**editDocumentDocxInsertTableRow**](SwagEditDocumentApi.md#editDocumentDocxInsertTableRow) | **POST** /convert/edit/docx/insert-table-row | Insert a new row into an existing table in a Word DOCX document
+[**editDocumentDocxPages**](SwagEditDocumentApi.md#editDocumentDocxPages) | **POST** /convert/edit/docx/get-pages | Get pages and content from a Word DOCX document
 [**editDocumentDocxRemoveHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxRemoveHeadersAndFooters) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 [**editDocumentDocxRemoveObject**](SwagEditDocumentApi.md#editDocumentDocxRemoveObject) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 [**editDocumentDocxReplace**](SwagEditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
@@ -118,6 +121,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagGetDocxBodyResponse**](SwagGetDocxBodyResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxDeletePages"></a>
+# **editDocumentDocxDeletePages**
+> Blob editDocumentDocxDeletePages(reqConfig)
+
+Delete, remove pages from a Word DOCX document
+
+Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagRemoveDocxPagesRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentDocxDeletePages(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagRemoveDocxPagesRequest**](SwagRemoveDocxPagesRequest.md)| Document input request |
+
+### Return type
+
+**Blob**
 
 ### Authorization
 
@@ -510,6 +562,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagInsertDocxTablesResponse**](SwagInsertDocxTablesResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxInsertTableRow"></a>
+# **editDocumentDocxInsertTableRow**
+> SwagInsertDocxTableRowResponse editDocumentDocxInsertTableRow(reqConfig)
+
+Insert a new row into an existing table in a Word DOCX document
+
+Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagInsertDocxTableRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagInsertDocxTableRowResponse result = api.editDocumentDocxInsertTableRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagInsertDocxTableRowRequest**](SwagInsertDocxTableRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagInsertDocxTableRowResponse**](SwagInsertDocxTableRowResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxPages"></a>
+# **editDocumentDocxPages**
+> SwagGetDocxPagesResponse editDocumentDocxPages(reqConfig)
+
+Get pages and content from a Word DOCX document
+
+Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagGetDocxPagesRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetDocxPagesResponse result = api.editDocumentDocxPages(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagGetDocxPagesRequest**](SwagGetDocxPagesRequest.md)| Document input request |
+
+### Return type
+
+[**SwagGetDocxPagesResponse**](SwagGetDocxPagesResponse.md)
 
 ### Authorization
 

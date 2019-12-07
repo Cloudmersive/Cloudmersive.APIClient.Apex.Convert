@@ -67,6 +67,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Delete, remove pages from a Word DOCX document
+     *
+     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     */
+    @isTest
+    private static void editDocumentDocxDeletePagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagRemoveDocxPagesRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentDocxDeletePages(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get content of a footer from a Word DOCX document
      *
      * Returns the footer content from a Word Document (DOCX) format file
@@ -327,6 +360,72 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagInsertDocxTablesResponse.getExample();
         response = (SwagInsertDocxTablesResponse) api.editDocumentDocxInsertTable(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Insert a new row into an existing table in a Word DOCX document
+     *
+     * Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     */
+    @isTest
+    private static void editDocumentDocxInsertTableRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagInsertDocxTableRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagInsertDocxTableRowResponse response;
+        SwagInsertDocxTableRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagInsertDocxTableRowResponse.getExample();
+        response = (SwagInsertDocxTableRowResponse) api.editDocumentDocxInsertTableRow(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Get pages and content from a Word DOCX document
+     *
+     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     */
+    @isTest
+    private static void editDocumentDocxPagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagGetDocxPagesRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagGetDocxPagesResponse response;
+        SwagGetDocxPagesResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Pages" : [ {\r\n    "PageNumber" : 0,\r\n    "Paragraphs" : [ {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    }, {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    } ]\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Paragraphs" : [ {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    }, {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    } ]\r\n  } ],\r\n  "PageCount" : 6,\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagGetDocxPagesResponse.getExample();
+        response = (SwagGetDocxPagesResponse) api.editDocumentDocxPages(params);
         System.assertEquals(expectedResponse, response);
     }
 

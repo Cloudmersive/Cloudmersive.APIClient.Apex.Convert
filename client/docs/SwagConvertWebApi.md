@@ -4,7 +4,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**convertWebHtmlToDocx**](SwagConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to DOCX
+[**convertWebHtmlToDocx**](SwagConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to Word DOCX Document
 [**convertWebHtmlToPdf**](SwagConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
 [**convertWebHtmlToPng**](SwagConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG
 [**convertWebMdToHtml**](SwagConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 # **convertWebHtmlToDocx**
 > Blob convertWebHtmlToDocx(inputRequest)
 
-Convert HTML to DOCX
+Convert HTML to Word DOCX Document
 
 Convert HTML to Office Word Document (DOCX) format
 

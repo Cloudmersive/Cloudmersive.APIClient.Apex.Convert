@@ -172,6 +172,39 @@ private class SwagEditPdfApiTest {
     }
 
     /**
+     * Get text in a PDF document by page
+     *
+     * Gets the text in a PDF by page
+     */
+    @isTest
+    private static void editPdfGetPdfTextByPagesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditPdfApi api;
+        SwagPdfTextByPageResult response;
+        SwagPdfTextByPageResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditPdfApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Pages" : [ {\r\n    "PageNumber" : 0,\r\n    "PageText" : "PageText"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "PageText" : "PageText"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagPdfTextByPageResult.getExample();
+        response = (SwagPdfTextByPageResult) api.editPdfGetPdfTextByPages(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Insert / copy pages from one PDF document into another
      *
      * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).

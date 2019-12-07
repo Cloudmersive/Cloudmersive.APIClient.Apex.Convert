@@ -1,7 +1,7 @@
 @isTest
 private class SwagConvertWebApiTest {
     /**
-     * Convert HTML to DOCX
+     * Convert HTML to Word DOCX Document
      *
      * Convert HTML to Office Word Document (DOCX) format
      */

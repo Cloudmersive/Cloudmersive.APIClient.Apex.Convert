@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**editPdfEncrypt**](SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 [**editPdfGetFormFields**](SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**editPdfGetMetadata**](SwagEditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
+[**editPdfGetPdfTextByPages**](SwagEditPdfApi.md#editPdfGetPdfTextByPages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
 [**editPdfInsertPages**](SwagEditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 [**editPdfRasterize**](SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**editPdfSetFormFields**](SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
@@ -264,6 +265,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagPdfMetadata**](SwagPdfMetadata.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfGetPdfTextByPages"></a>
+# **editPdfGetPdfTextByPages**
+> SwagPdfTextByPageResult editPdfGetPdfTextByPages(inputFile)
+
+Get text in a PDF document by page
+
+Gets the text in a PDF by page
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagPdfTextByPageResult result = api.editPdfGetPdfTextByPages(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagPdfTextByPageResult**](SwagPdfTextByPageResult.md)
 
 ### Authorization
 

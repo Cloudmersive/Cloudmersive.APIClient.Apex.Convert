@@ -76,6 +76,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Delete, remove pages from a Word DOCX document
+     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * @param reqConfig Document input request (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxDeletePages(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/delete-pages',
+            (SwagRemoveDocxPagesRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -265,6 +289,54 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagInsertDocxTablesResponse.class
+        );
+    }
+    /**
+     * Insert a new row into an existing table in a Word DOCX document
+     * Adds a new table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @return SwagInsertDocxTableRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagInsertDocxTableRowResponse editDocumentDocxInsertTableRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagInsertDocxTableRowResponse) client.invoke(
+            'POST', '/convert/edit/docx/insert-table-row',
+            (SwagInsertDocxTableRowRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagInsertDocxTableRowResponse.class
+        );
+    }
+    /**
+     * Get pages and content from a Word DOCX document
+     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * @param reqConfig Document input request (required)
+     * @return SwagGetDocxPagesResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxPagesResponse editDocumentDocxPages(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetDocxPagesResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-pages',
+            (SwagGetDocxPagesRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxPagesResponse.class
         );
     }
     /**
