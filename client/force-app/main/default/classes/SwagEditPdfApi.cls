@@ -174,6 +174,32 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Get text in a PDF document by page
+     * Gets the text in a PDF by page
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagPdfTextByPageResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPdfTextByPageResult editPdfGetPdfTextByPages(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagPdfTextByPageResult) client.invoke(
+            'POST', '/convert/edit/pdf/pages/get-text', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagPdfTextByPageResult.class
+        );
+    }
+    /**
      * Insert / copy pages from one PDF document into another
      * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
      * @param sourceFile Source PDF file to copy pages from. (required)

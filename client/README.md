@@ -104,7 +104,7 @@ Class | Method | HTTP request | Description
 *SwagConvertImageApi* | [**convertImageMultipageImageFormatConvert**](docs/SwagConvertImageApi.md#convertImageMultipageImageFormatConvert) | **POST** /convert/image-multipage/{format1}/to/{format2} | Multi-page image format conversion
 *SwagConvertTemplateApi* | [**convertTemplateApplyDocxTemplate**](docs/SwagConvertTemplateApi.md#convertTemplateApplyDocxTemplate) | **POST** /convert/template/docx/apply | Apply Word DOCX template
 *SwagConvertTemplateApi* | [**convertTemplateApplyHtmlTemplate**](docs/SwagConvertTemplateApi.md#convertTemplateApplyHtmlTemplate) | **POST** /convert/template/html/apply | Apply HTML template
-*SwagConvertWebApi* | [**convertWebHtmlToDocx**](docs/SwagConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to DOCX
+*SwagConvertWebApi* | [**convertWebHtmlToDocx**](docs/SwagConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to Word DOCX Document
 *SwagConvertWebApi* | [**convertWebHtmlToPdf**](docs/SwagConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
 *SwagConvertWebApi* | [**convertWebHtmlToPng**](docs/SwagConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG
 *SwagConvertWebApi* | [**convertWebMdToHtml**](docs/SwagConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *SwagConvertWebApi* | [**convertWebUrlToScreenshot**](docs/SwagConvertWebApi.md#convertWebUrlToScreenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
 *SwagEditDocumentApi* | [**editDocumentBeginEditing**](docs/SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
 *SwagEditDocumentApi* | [**editDocumentDocxBody**](docs/SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxDeletePages**](docs/SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetHeadersAndFooters**](docs/SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetImages**](docs/SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetSections**](docs/SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -120,6 +121,8 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxInsertImage**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertParagraph**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertTable**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxInsertTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertTableRow) | **POST** /convert/edit/docx/insert-table-row | Insert a new row into an existing table in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxPages**](docs/SwagEditDocumentApi.md#editDocumentDocxPages) | **POST** /convert/edit/docx/get-pages | Get pages and content from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxRemoveHeadersAndFooters**](docs/SwagEditDocumentApi.md#editDocumentDocxRemoveHeadersAndFooters) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxRemoveObject**](docs/SwagEditDocumentApi.md#editDocumentDocxRemoveObject) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxReplace**](docs/SwagEditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
@@ -139,6 +142,7 @@ Class | Method | HTTP request | Description
 *SwagEditPdfApi* | [**editPdfEncrypt**](docs/SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 *SwagEditPdfApi* | [**editPdfGetFormFields**](docs/SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 *SwagEditPdfApi* | [**editPdfGetMetadata**](docs/SwagEditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
+*SwagEditPdfApi* | [**editPdfGetPdfTextByPages**](docs/SwagEditPdfApi.md#editPdfGetPdfTextByPages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
 *SwagEditPdfApi* | [**editPdfInsertPages**](docs/SwagEditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 *SwagEditPdfApi* | [**editPdfRasterize**](docs/SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 *SwagEditPdfApi* | [**editPdfSetFormFields**](docs/SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
@@ -183,6 +187,7 @@ Class | Method | HTTP request | Description
  - [SwagDocxImage](docs/SwagDocxImage.md)
  - [SwagDocxInsertImageRequest](docs/SwagDocxInsertImageRequest.md)
  - [SwagDocxInsertImageResponse](docs/SwagDocxInsertImageResponse.md)
+ - [SwagDocxPage](docs/SwagDocxPage.md)
  - [SwagDocxParagraph](docs/SwagDocxParagraph.md)
  - [SwagDocxRemoveObjectRequest](docs/SwagDocxRemoveObjectRequest.md)
  - [SwagDocxRemoveObjectResponse](docs/SwagDocxRemoveObjectResponse.md)
@@ -208,6 +213,8 @@ Class | Method | HTTP request | Description
  - [SwagGetDocxHeadersAndFootersResponse](docs/SwagGetDocxHeadersAndFootersResponse.md)
  - [SwagGetDocxImagesRequest](docs/SwagGetDocxImagesRequest.md)
  - [SwagGetDocxImagesResponse](docs/SwagGetDocxImagesResponse.md)
+ - [SwagGetDocxPagesRequest](docs/SwagGetDocxPagesRequest.md)
+ - [SwagGetDocxPagesResponse](docs/SwagGetDocxPagesResponse.md)
  - [SwagGetDocxSectionsRequest](docs/SwagGetDocxSectionsRequest.md)
  - [SwagGetDocxSectionsResponse](docs/SwagGetDocxSectionsResponse.md)
  - [SwagGetDocxStylesRequest](docs/SwagGetDocxStylesRequest.md)
@@ -234,6 +241,8 @@ Class | Method | HTTP request | Description
  - [SwagHtmlToPngRequest](docs/SwagHtmlToPngRequest.md)
  - [SwagInsertDocxInsertParagraphRequest](docs/SwagInsertDocxInsertParagraphRequest.md)
  - [SwagInsertDocxInsertParagraphRespons](docs/SwagInsertDocxInsertParagraphRespons.md)
+ - [SwagInsertDocxTableRowRequest](docs/SwagInsertDocxTableRowRequest.md)
+ - [SwagInsertDocxTableRowResponse](docs/SwagInsertDocxTableRowResponse.md)
  - [SwagInsertDocxTablesRequest](docs/SwagInsertDocxTablesRequest.md)
  - [SwagInsertDocxTablesResponse](docs/SwagInsertDocxTablesResponse.md)
  - [SwagInsertXlsxWorksheetRequest](docs/SwagInsertXlsxWorksheetRequest.md)
@@ -244,9 +253,12 @@ Class | Method | HTTP request | Description
  - [SwagPdfFormField](docs/SwagPdfFormField.md)
  - [SwagPdfFormFields](docs/SwagPdfFormFields.md)
  - [SwagPdfMetadata](docs/SwagPdfMetadata.md)
+ - [SwagPdfPageText](docs/SwagPdfPageText.md)
+ - [SwagPdfTextByPageResult](docs/SwagPdfTextByPageResult.md)
  - [SwagPdfToPngResult](docs/SwagPdfToPngResult.md)
  - [SwagRemoveDocxHeadersAndFootersReque](docs/SwagRemoveDocxHeadersAndFootersReque.md)
  - [SwagRemoveDocxHeadersAndFootersRespo](docs/SwagRemoveDocxHeadersAndFootersRespo.md)
+ - [SwagRemoveDocxPagesRequest](docs/SwagRemoveDocxPagesRequest.md)
  - [SwagReplaceStringRequest](docs/SwagReplaceStringRequest.md)
  - [SwagScreenshotRequest](docs/SwagScreenshotRequest.md)
  - [SwagSetFormFieldValue](docs/SwagSetFormFieldValue.md)
