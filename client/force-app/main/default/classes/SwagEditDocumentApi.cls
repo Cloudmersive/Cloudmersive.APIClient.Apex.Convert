@@ -76,6 +76,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Create a blank Word DOCX document
+     * Returns a blank Word DOCX Document format file
+     * @param input Document input request (required)
+     * @return SwagCreateBlankDocxResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagCreateBlankDocxResponse editDocumentDocxCreateBlankDocument(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagCreateBlankDocxResponse) client.invoke(
+            'POST', '/convert/edit/docx/create/blank',
+            (SwagCreateBlankDocxRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagCreateBlankDocxResponse.class
+        );
+    }
+    /**
      * Delete, remove pages from a Word DOCX document
      * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -556,6 +580,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Update, set contents of a table cell in an existing table in a Word DOCX document
+     * Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @return SwagUpdateDocxTableCellResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUpdateDocxTableCellResponse editDocumentDocxUpdateTableCell(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUpdateDocxTableCellResponse) client.invoke(
+            'POST', '/convert/edit/docx/update-table-cell',
+            (SwagUpdateDocxTableCellRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUpdateDocxTableCellResponse.class
+        );
+    }
+    /**
      * Update, set contents of a table row in an existing table in a Word DOCX document
      * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
      * @param reqConfig Document input request (required)
@@ -625,6 +673,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Create a blank Excel XLSX spreadsheet
+     * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+     * @param input Document input request (required)
+     * @return SwagCreateBlankSpreadsheetResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagCreateBlankSpreadsheetResponse editDocumentXlsxCreateBlankSpreadsheet(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagCreateBlankSpreadsheetResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/create/blank',
+            (SwagCreateBlankSpreadsheetRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagCreateBlankSpreadsheetResponse.class
         );
     }
     /**

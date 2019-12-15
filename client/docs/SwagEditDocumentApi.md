@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editDocumentBeginEditing**](SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
 [**editDocumentDocxBody**](SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
+[**editDocumentDocxCreateBlankDocument**](SwagEditDocumentApi.md#editDocumentDocxCreateBlankDocument) | **POST** /convert/edit/docx/create/blank | Create a blank Word DOCX document
 [**editDocumentDocxDeletePages**](SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxDeleteTableRow**](SwagEditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 [**editDocumentDocxGetHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
@@ -26,9 +27,11 @@ Method | HTTP request | Description
 [**editDocumentDocxSetFooter**](SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
 [**editDocumentDocxSetFooterAddPageNumber**](SwagEditDocumentApi.md#editDocumentDocxSetFooterAddPageNumber) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
 [**editDocumentDocxSetHeader**](SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
+[**editDocumentDocxUpdateTableCell**](SwagEditDocumentApi.md#editDocumentDocxUpdateTableCell) | **POST** /convert/edit/docx/update-table-cell | Update, set contents of a table cell in an existing table in a Word DOCX document
 [**editDocumentDocxUpdateTableRow**](SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
 [**editDocumentFinishEditing**](SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
 [**editDocumentPptxReplace**](SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
+[**editDocumentXlsxCreateBlankSpreadsheet**](SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 [**editDocumentXlsxGetColumns**](SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetImages**](SwagEditDocumentApi.md#editDocumentXlsxGetImages) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetRowsAndCells**](SwagEditDocumentApi.md#editDocumentXlsxGetRowsAndCells) | **POST** /convert/edit/xlsx/get-rows-and-cells | Get rows and cells from a Word XLSX spreadsheet, worksheet
@@ -125,6 +128,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagGetDocxBodyResponse**](SwagGetDocxBodyResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxCreateBlankDocument"></a>
+# **editDocumentDocxCreateBlankDocument**
+> SwagCreateBlankDocxResponse editDocumentDocxCreateBlankDocument(input)
+
+Create a blank Word DOCX document
+
+Returns a blank Word DOCX Document format file
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagCreateBlankDocxRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagCreateBlankDocxResponse result = api.editDocumentDocxCreateBlankDocument(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagCreateBlankDocxRequest**](SwagCreateBlankDocxRequest.md)| Document input request |
+
+### Return type
+
+[**SwagCreateBlankDocxResponse**](SwagCreateBlankDocxResponse.md)
 
 ### Authorization
 
@@ -1115,6 +1167,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="editDocumentDocxUpdateTableCell"></a>
+# **editDocumentDocxUpdateTableCell**
+> SwagUpdateDocxTableCellResponse editDocumentDocxUpdateTableCell(reqConfig)
+
+Update, set contents of a table cell in an existing table in a Word DOCX document
+
+Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagUpdateDocxTableCellRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUpdateDocxTableCellResponse result = api.editDocumentDocxUpdateTableCell(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagUpdateDocxTableCellRequest**](SwagUpdateDocxTableCellRequest.md)| Document input request |
+
+### Return type
+
+[**SwagUpdateDocxTableCellResponse**](SwagUpdateDocxTableCellResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="editDocumentDocxUpdateTableRow"></a>
 # **editDocumentDocxUpdateTableRow**
 > SwagUpdateDocxTableRowResponse editDocumentDocxUpdateTableRow(reqConfig)
@@ -1252,6 +1353,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentXlsxCreateBlankSpreadsheet"></a>
+# **editDocumentXlsxCreateBlankSpreadsheet**
+> SwagCreateBlankSpreadsheetResponse editDocumentXlsxCreateBlankSpreadsheet(input)
+
+Create a blank Excel XLSX spreadsheet
+
+Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagCreateBlankSpreadsheetRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagCreateBlankSpreadsheetResponse result = api.editDocumentXlsxCreateBlankSpreadsheet(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagCreateBlankSpreadsheetRequest**](SwagCreateBlankSpreadsheetRequest.md)| Document input request |
+
+### Return type
+
+[**SwagCreateBlankSpreadsheetResponse**](SwagCreateBlankSpreadsheetResponse.md)
 
 ### Authorization
 

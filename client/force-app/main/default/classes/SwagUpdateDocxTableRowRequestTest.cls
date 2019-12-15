@@ -85,7 +85,7 @@ private class SwagUpdateDocxTableRowRequestTest {
         System.assertEquals('inputFileBytes', propertyMappings.get('InputFileBytes'));
         System.assertEquals('inputFileUrl', propertyMappings.get('InputFileUrl'));
         System.assertEquals('rowToUpdate', propertyMappings.get('RowToUpdate'));
-        System.assertEquals('tableRowRowIndex', propertyMappings.get('TableRowRowIndex'));
+        System.assertEquals('tableRowIndex', propertyMappings.get('TableRowIndex'));
         System.assertEquals('existingTablePath', propertyMappings.get('ExistingTablePath'));
     }
 }

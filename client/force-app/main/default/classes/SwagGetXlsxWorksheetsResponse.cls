@@ -21,7 +21,7 @@ public class SwagGetXlsxWorksheetsResponse implements Swagger.MappedProperties {
     public Boolean successful { get; set; }
 
     /**
-     * Styles in the DOCX document
+     * Worksheets in the Excel XLSX spreadsheet
      * @return worksheets
      */
     public List<SwagXlsxWorksheet> worksheets { get; set; }

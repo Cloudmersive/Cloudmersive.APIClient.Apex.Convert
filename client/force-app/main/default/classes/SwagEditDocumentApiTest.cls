@@ -67,6 +67,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Create a blank Word DOCX document
+     *
+     * Returns a blank Word DOCX Document format file
+     */
+    @isTest
+    private static void editDocumentDocxCreateBlankDocumentTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagCreateBlankDocxRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagCreateBlankDocxResponse response;
+        SwagCreateBlankDocxResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagCreateBlankDocxResponse.getExample();
+        response = (SwagCreateBlankDocxResponse) api.editDocumentDocxCreateBlankDocument(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Delete, remove pages from a Word DOCX document
      *
      * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
@@ -727,6 +760,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Update, set contents of a table cell in an existing table in a Word DOCX document
+     *
+     * Sets the contents of a table cell into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     */
+    @isTest
+    private static void editDocumentDocxUpdateTableCellTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagUpdateDocxTableCellRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagUpdateDocxTableCellResponse response;
+        SwagUpdateDocxTableCellResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagUpdateDocxTableCellResponse.getExample();
+        response = (SwagUpdateDocxTableCellResponse) api.editDocumentDocxUpdateTableCell(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Update, set contents of a table row in an existing table in a Word DOCX document
      *
      * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
@@ -822,6 +888,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.editDocumentPptxReplace(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Create a blank Excel XLSX spreadsheet
+     *
+     * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
+     */
+    @isTest
+    private static void editDocumentXlsxCreateBlankSpreadsheetTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagCreateBlankSpreadsheetRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagCreateBlankSpreadsheetResponse response;
+        SwagCreateBlankSpreadsheetResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagCreateBlankSpreadsheetResponse.getExample();
+        response = (SwagCreateBlankSpreadsheetResponse) api.editDocumentXlsxCreateBlankSpreadsheet(params);
         System.assertEquals(expectedResponse, response);
     }
 

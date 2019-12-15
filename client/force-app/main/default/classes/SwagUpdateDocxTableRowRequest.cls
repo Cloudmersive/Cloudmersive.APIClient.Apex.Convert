@@ -34,9 +34,9 @@ public class SwagUpdateDocxTableRowRequest implements Swagger.MappedProperties {
 
     /**
      * 0-based index of the Table Row to update
-     * @return tableRowRowIndex
+     * @return tableRowIndex
      */
-    public Integer tableRowRowIndex { get; set; }
+    public Integer tableRowIndex { get; set; }
 
     /**
      * Required; the path to the existing table to modify
@@ -48,7 +48,7 @@ public class SwagUpdateDocxTableRowRequest implements Swagger.MappedProperties {
         'InputFileBytes' => 'inputFileBytes',
         'InputFileUrl' => 'inputFileUrl',
         'RowToUpdate' => 'rowToUpdate',
-        'TableRowRowIndex' => 'tableRowRowIndex',
+        'TableRowIndex' => 'tableRowIndex',
         'ExistingTablePath' => 'existingTablePath'
     };
 
@@ -61,7 +61,7 @@ public class SwagUpdateDocxTableRowRequest implements Swagger.MappedProperties {
         updateDocxTableRowRequest.inputFileBytes = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         updateDocxTableRowRequest.inputFileUrl = 'aeiou';
         updateDocxTableRowRequest.rowToUpdate = SwagDocxTableRow.getExample();
-        updateDocxTableRowRequest.tableRowRowIndex = 123;
+        updateDocxTableRowRequest.tableRowIndex = 123;
         updateDocxTableRowRequest.existingTablePath = 'aeiou';
         return updateDocxTableRowRequest;
     }
@@ -72,7 +72,7 @@ public class SwagUpdateDocxTableRowRequest implements Swagger.MappedProperties {
             return this.inputFileBytes == updateDocxTableRowRequest.inputFileBytes
                 && this.inputFileUrl == updateDocxTableRowRequest.inputFileUrl
                 && this.rowToUpdate == updateDocxTableRowRequest.rowToUpdate
-                && this.tableRowRowIndex == updateDocxTableRowRequest.tableRowRowIndex
+                && this.tableRowIndex == updateDocxTableRowRequest.tableRowIndex
                 && this.existingTablePath == updateDocxTableRowRequest.existingTablePath;
         }
         return false;
@@ -83,7 +83,7 @@ public class SwagUpdateDocxTableRowRequest implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (inputFileBytes == null ? 0 : System.hashCode(inputFileBytes));
         hashCode = (17 * hashCode) + (inputFileUrl == null ? 0 : System.hashCode(inputFileUrl));
         hashCode = (17 * hashCode) + (rowToUpdate == null ? 0 : System.hashCode(rowToUpdate));
-        hashCode = (17 * hashCode) + (tableRowRowIndex == null ? 0 : System.hashCode(tableRowRowIndex));
+        hashCode = (17 * hashCode) + (tableRowIndex == null ? 0 : System.hashCode(tableRowIndex));
         hashCode = (17 * hashCode) + (existingTablePath == null ? 0 : System.hashCode(existingTablePath));
         return hashCode;
     }
