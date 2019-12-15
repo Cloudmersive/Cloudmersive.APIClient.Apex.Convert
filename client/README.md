@@ -113,11 +113,14 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentBeginEditing**](docs/SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
 *SwagEditDocumentApi* | [**editDocumentDocxBody**](docs/SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxDeletePages**](docs/SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxDeleteTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetHeadersAndFooters**](docs/SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetImages**](docs/SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetSections**](docs/SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetStyles**](docs/SwagEditDocumentApi.md#editDocumentDocxGetStyles) | **POST** /convert/edit/docx/get-styles | Get styles from a Word DOCX document
-*SwagEditDocumentApi* | [**editDocumentDocxGetTables**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get tables in Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxGetTableByIndex**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxGetTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTableRow) | **POST** /convert/edit/docx/get-table-row | Gets the contents of an existing table row in an existing table in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxGetTables**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get all tables in Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertImage**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertParagraph**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertTable**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
@@ -129,6 +132,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxSetFooter**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetFooterAddPageNumber**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFooterAddPageNumber) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetHeader**](docs/SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxUpdateTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentFinishEditing**](docs/SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
 *SwagEditDocumentApi* | [**editDocumentPptxReplace**](docs/SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 *SwagEditDocumentApi* | [**editDocumentXlsxGetColumns**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
@@ -178,6 +182,8 @@ Class | Method | HTTP request | Description
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
  - [SwagAutodetectToPngResult](docs/SwagAutodetectToPngResult.md)
  - [SwagConvertedPngPage](docs/SwagConvertedPngPage.md)
+ - [SwagDeleteDocxTableRowRequest](docs/SwagDeleteDocxTableRowRequest.md)
+ - [SwagDeleteDocxTableRowResponse](docs/SwagDeleteDocxTableRowResponse.md)
  - [SwagDocumentValidationError](docs/SwagDocumentValidationError.md)
  - [SwagDocumentValidationResult](docs/SwagDocumentValidationResult.md)
  - [SwagDocxBody](docs/SwagDocxBody.md)
@@ -219,6 +225,10 @@ Class | Method | HTTP request | Description
  - [SwagGetDocxSectionsResponse](docs/SwagGetDocxSectionsResponse.md)
  - [SwagGetDocxStylesRequest](docs/SwagGetDocxStylesRequest.md)
  - [SwagGetDocxStylesResponse](docs/SwagGetDocxStylesResponse.md)
+ - [SwagGetDocxTableByIndexRequest](docs/SwagGetDocxTableByIndexRequest.md)
+ - [SwagGetDocxTableByIndexResponse](docs/SwagGetDocxTableByIndexResponse.md)
+ - [SwagGetDocxTableRowRequest](docs/SwagGetDocxTableRowRequest.md)
+ - [SwagGetDocxTableRowResponse](docs/SwagGetDocxTableRowResponse.md)
  - [SwagGetDocxTablesRequest](docs/SwagGetDocxTablesRequest.md)
  - [SwagGetDocxTablesResponse](docs/SwagGetDocxTablesResponse.md)
  - [SwagGetImageInfoResult](docs/SwagGetImageInfoResult.md)
@@ -267,6 +277,8 @@ Class | Method | HTTP request | Description
  - [SwagSplitPdfResult](docs/SwagSplitPdfResult.md)
  - [SwagSplitXlsxWorksheetResult](docs/SwagSplitXlsxWorksheetResult.md)
  - [SwagTextConversionResult](docs/SwagTextConversionResult.md)
+ - [SwagUpdateDocxTableRowRequest](docs/SwagUpdateDocxTableRowRequest.md)
+ - [SwagUpdateDocxTableRowResponse](docs/SwagUpdateDocxTableRowResponse.md)
  - [SwagViewerResponse](docs/SwagViewerResponse.md)
  - [SwagWorksheetResult](docs/SwagWorksheetResult.md)
  - [SwagXlsxImage](docs/SwagXlsxImage.md)

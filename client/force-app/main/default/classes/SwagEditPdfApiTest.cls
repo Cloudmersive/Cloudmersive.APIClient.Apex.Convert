@@ -165,7 +165,7 @@ private class SwagEditPdfApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "Keywords" : "Keywords",\r\n  "Title" : "Title",\r\n  "Author" : "Author",\r\n  "DateCreated" : "2000-01-23T04:56:07.000+00:00",\r\n  "Creator" : "Creator",\r\n  "Successful" : true,\r\n  "Subject" : "Subject",\r\n  "DateModified" : "2000-01-23T04:56:07.000+00:00"\r\n}');
+        res.setBody('{\r\n  "Keywords" : "Keywords",\r\n  "PageCount" : 0,\r\n  "Title" : "Title",\r\n  "Author" : "Author",\r\n  "DateCreated" : "2000-01-23T04:56:07.000+00:00",\r\n  "Creator" : "Creator",\r\n  "Successful" : true,\r\n  "Subject" : "Subject",\r\n  "DateModified" : "2000-01-23T04:56:07.000+00:00"\r\n}');
         expectedResponse = SwagPdfMetadata.getExample();
         response = (SwagPdfMetadata) api.editPdfGetMetadata(params);
         System.assertEquals(expectedResponse, response);

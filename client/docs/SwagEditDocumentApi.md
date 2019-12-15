@@ -7,11 +7,14 @@ Method | HTTP request | Description
 [**editDocumentBeginEditing**](SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
 [**editDocumentDocxBody**](SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
 [**editDocumentDocxDeletePages**](SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
+[**editDocumentDocxDeleteTableRow**](SwagEditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 [**editDocumentDocxGetHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**editDocumentDocxGetImages**](SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 [**editDocumentDocxGetSections**](SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
 [**editDocumentDocxGetStyles**](SwagEditDocumentApi.md#editDocumentDocxGetStyles) | **POST** /convert/edit/docx/get-styles | Get styles from a Word DOCX document
-[**editDocumentDocxGetTables**](SwagEditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get tables in Word DOCX document
+[**editDocumentDocxGetTableByIndex**](SwagEditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
+[**editDocumentDocxGetTableRow**](SwagEditDocumentApi.md#editDocumentDocxGetTableRow) | **POST** /convert/edit/docx/get-table-row | Gets the contents of an existing table row in an existing table in a Word DOCX document
+[**editDocumentDocxGetTables**](SwagEditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get all tables in Word DOCX document
 [**editDocumentDocxInsertImage**](SwagEditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 [**editDocumentDocxInsertParagraph**](SwagEditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 [**editDocumentDocxInsertTable**](SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
@@ -23,6 +26,7 @@ Method | HTTP request | Description
 [**editDocumentDocxSetFooter**](SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
 [**editDocumentDocxSetFooterAddPageNumber**](SwagEditDocumentApi.md#editDocumentDocxSetFooterAddPageNumber) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
 [**editDocumentDocxSetHeader**](SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
+[**editDocumentDocxUpdateTableRow**](SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
 [**editDocumentFinishEditing**](SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
 [**editDocumentPptxReplace**](SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 [**editDocumentXlsxGetColumns**](SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
@@ -170,6 +174,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxDeleteTableRow"></a>
+# **editDocumentDocxDeleteTableRow**
+> SwagDeleteDocxTableRowResponse editDocumentDocxDeleteTableRow(reqConfig)
+
+Deletes a table row in an existing table in a Word DOCX document
+
+Deletes an existing table row in a Word DOCX Document and returns the result.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagDeleteDocxTableRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagDeleteDocxTableRowResponse result = api.editDocumentDocxDeleteTableRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagDeleteDocxTableRowRequest**](SwagDeleteDocxTableRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagDeleteDocxTableRowResponse**](SwagDeleteDocxTableRowResponse.md)
 
 ### Authorization
 
@@ -376,11 +429,109 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="editDocumentDocxGetTableByIndex"></a>
+# **editDocumentDocxGetTableByIndex**
+> SwagGetDocxTableByIndexResponse editDocumentDocxGetTableByIndex(reqConfig)
+
+Get a specific table by index in a Word DOCX document
+
+Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagGetDocxTableByIndexRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetDocxTableByIndexResponse result = api.editDocumentDocxGetTableByIndex(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagGetDocxTableByIndexRequest**](SwagGetDocxTableByIndexRequest.md)| Document input request |
+
+### Return type
+
+[**SwagGetDocxTableByIndexResponse**](SwagGetDocxTableByIndexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxGetTableRow"></a>
+# **editDocumentDocxGetTableRow**
+> SwagGetDocxTableRowResponse editDocumentDocxGetTableRow(reqConfig)
+
+Gets the contents of an existing table row in an existing table in a Word DOCX document
+
+Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagGetDocxTableRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetDocxTableRowResponse result = api.editDocumentDocxGetTableRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagGetDocxTableRowRequest**](SwagGetDocxTableRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagGetDocxTableRowResponse**](SwagGetDocxTableRowResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="editDocumentDocxGetTables"></a>
 # **editDocumentDocxGetTables**
 > SwagGetDocxTablesResponse editDocumentDocxGetTables(reqConfig)
 
-Get tables in Word DOCX document
+Get all tables in Word DOCX document
 
 Returns all the table objects in an Office Word Document (docx)
 
@@ -954,6 +1105,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDocxSetHeaderResponse**](SwagDocxSetHeaderResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxUpdateTableRow"></a>
+# **editDocumentDocxUpdateTableRow**
+> SwagUpdateDocxTableRowResponse editDocumentDocxUpdateTableRow(reqConfig)
+
+Update, set contents of a table row in an existing table in a Word DOCX document
+
+Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagUpdateDocxTableRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUpdateDocxTableRowResponse result = api.editDocumentDocxUpdateTableRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagUpdateDocxTableRowRequest**](SwagUpdateDocxTableRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagUpdateDocxTableRowResponse**](SwagUpdateDocxTableRowResponse.md)
 
 ### Authorization
 

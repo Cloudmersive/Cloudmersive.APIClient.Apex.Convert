@@ -100,6 +100,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Deletes a table row in an existing table in a Word DOCX document
+     * Deletes an existing table row in a Word DOCX Document and returns the result.
+     * @param reqConfig Document input request (required)
+     * @return SwagDeleteDocxTableRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDeleteDocxTableRowResponse editDocumentDocxDeleteTableRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagDeleteDocxTableRowResponse) client.invoke(
+            'POST', '/convert/edit/docx/delete-table-row',
+            (SwagDeleteDocxTableRowRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagDeleteDocxTableRowResponse.class
+        );
+    }
+    /**
      * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -196,7 +220,55 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get tables in Word DOCX document
+     * Get a specific table by index in a Word DOCX document
+     * Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+     * @param reqConfig Document input request (required)
+     * @return SwagGetDocxTableByIndexResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxTableByIndexResponse editDocumentDocxGetTableByIndex(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetDocxTableByIndexResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-table/by-index',
+            (SwagGetDocxTableByIndexRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxTableByIndexResponse.class
+        );
+    }
+    /**
+     * Gets the contents of an existing table row in an existing table in a Word DOCX document
+     * Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+     * @param reqConfig Document input request (required)
+     * @return SwagGetDocxTableRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxTableRowResponse editDocumentDocxGetTableRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetDocxTableRowResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-table-row',
+            (SwagGetDocxTableRowRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxTableRowResponse.class
+        );
+    }
+    /**
+     * Get all tables in Word DOCX document
      * Returns all the table objects in an Office Word Document (docx)
      * @param reqConfig Document input request (required)
      * @return SwagGetDocxTablesResponse
@@ -481,6 +553,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagDocxSetHeaderResponse.class
+        );
+    }
+    /**
+     * Update, set contents of a table row in an existing table in a Word DOCX document
+     * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @return SwagUpdateDocxTableRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUpdateDocxTableRowResponse editDocumentDocxUpdateTableRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUpdateDocxTableRowResponse) client.invoke(
+            'POST', '/convert/edit/docx/update-table-row',
+            (SwagUpdateDocxTableRowRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUpdateDocxTableRowResponse.class
         );
     }
     /**

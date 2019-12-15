@@ -90,5 +90,6 @@ private class SwagPdfMetadataTest {
         System.assertEquals('creator', propertyMappings.get('Creator'));
         System.assertEquals('dateModified', propertyMappings.get('DateModified'));
         System.assertEquals('dateCreated', propertyMappings.get('DateCreated'));
+        System.assertEquals('pageCount', propertyMappings.get('PageCount'));
     }
 }

@@ -100,6 +100,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Deletes a table row in an existing table in a Word DOCX document
+     *
+     * Deletes an existing table row in a Word DOCX Document and returns the result.
+     */
+    @isTest
+    private static void editDocumentDocxDeleteTableRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagDeleteDocxTableRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagDeleteDocxTableRowResponse response;
+        SwagDeleteDocxTableRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagDeleteDocxTableRowResponse.getExample();
+        response = (SwagDeleteDocxTableRowResponse) api.editDocumentDocxDeleteTableRow(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get content of a footer from a Word DOCX document
      *
      * Returns the footer content from a Word Document (DOCX) format file
@@ -232,7 +265,73 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
-     * Get tables in Word DOCX document
+     * Get a specific table by index in a Word DOCX document
+     *
+     * Returns the specific table object by its 0-based index in an Office Word Document (DOCX)
+     */
+    @isTest
+    private static void editDocumentDocxGetTableByIndexTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagGetDocxTableByIndexRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagGetDocxTableByIndexResponse response;
+        SwagGetDocxTableByIndexResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Table" : {\r\n    "CellHorizontalBorderType" : "CellHorizontalBorderType",\r\n    "LeftBorderType" : "LeftBorderType",\r\n    "TopBorderSize" : 2,\r\n    "TableRows" : [ {\r\n      "Path" : "Path",\r\n      "RowCells" : [ {\r\n        "Path" : "Path",\r\n        "CellWidthMode" : "CellWidthMode",\r\n        "CellWidth" : "CellWidth",\r\n        "CellIndex" : 6,\r\n        "CellShadingColor" : "CellShadingColor",\r\n        "Paragraphs" : [ {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        }, {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        } ],\r\n        "CellShadingFill" : "CellShadingFill",\r\n        "CellShadingPattern" : "CellShadingPattern"\r\n      }, {\r\n        "Path" : "Path",\r\n        "CellWidthMode" : "CellWidthMode",\r\n        "CellWidth" : "CellWidth",\r\n        "CellIndex" : 6,\r\n        "CellShadingColor" : "CellShadingColor",\r\n        "Paragraphs" : [ {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        }, {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        } ],\r\n        "CellShadingFill" : "CellShadingFill",\r\n        "CellShadingPattern" : "CellShadingPattern"\r\n      } ],\r\n      "RowIndex" : 0\r\n    }, {\r\n      "Path" : "Path",\r\n      "RowCells" : [ {\r\n        "Path" : "Path",\r\n        "CellWidthMode" : "CellWidthMode",\r\n        "CellWidth" : "CellWidth",\r\n        "CellIndex" : 6,\r\n        "CellShadingColor" : "CellShadingColor",\r\n        "Paragraphs" : [ {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        }, {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        } ],\r\n        "CellShadingFill" : "CellShadingFill",\r\n        "CellShadingPattern" : "CellShadingPattern"\r\n      }, {\r\n        "Path" : "Path",\r\n        "CellWidthMode" : "CellWidthMode",\r\n        "CellWidth" : "CellWidth",\r\n        "CellIndex" : 6,\r\n        "CellShadingColor" : "CellShadingColor",\r\n        "Paragraphs" : [ {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        }, {\r\n          "Path" : "Path",\r\n          "ContentRuns" : [ {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          }, {\r\n            "Path" : "Path",\r\n            "RunIndex" : 5,\r\n            "FontFamily" : "FontFamily",\r\n            "Italic" : true,\r\n            "FontSize" : "FontSize",\r\n            "TextItems" : [ {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            }, {\r\n              "Path" : "Path",\r\n              "TextIndex" : 5,\r\n              "TextContent" : "TextContent"\r\n            } ],\r\n            "Underline" : "Underline",\r\n            "Bold" : true\r\n          } ],\r\n          "ParagraphIndex" : 1,\r\n          "StyleID" : "StyleID"\r\n        } ],\r\n        "CellShadingFill" : "CellShadingFill",\r\n        "CellShadingPattern" : "CellShadingPattern"\r\n      } ],\r\n      "RowIndex" : 0\r\n    } ],\r\n    "CellVerticalBorderSpace" : 7,\r\n    "RightBorderSpace" : 1,\r\n    "CellVerticalBorderType" : "CellVerticalBorderType",\r\n    "TableIndentationMode" : "TableIndentationMode",\r\n    "RightBorderColor" : "RightBorderColor",\r\n    "CellHorizontalBorderSize" : 1,\r\n    "Width" : "Width",\r\n    "LeftBorderSize" : 2,\r\n    "WidthType" : "WidthType",\r\n    "TableID" : "TableID",\r\n    "Path" : "Path",\r\n    "StartBorderSpace" : 4,\r\n    "StartBorderColor" : "StartBorderColor",\r\n    "BottomBorderSize" : 9,\r\n    "BottomBorderColor" : "BottomBorderColor",\r\n    "BottomBorderSpace" : 3,\r\n    "CellHorizontalBorderSpace" : 1,\r\n    "LeftBorderColor" : "LeftBorderColor",\r\n    "EndBorderSpace" : 9,\r\n    "TableIndentationWidth" : 9,\r\n    "CellVerticalBorderSize" : 6,\r\n    "TopBorderSpace" : 7,\r\n    "BottomBorderType" : "BottomBorderType",\r\n    "LeftBorderSpace" : 4,\r\n    "EndBorderColor" : "EndBorderColor",\r\n    "TopBorderColor" : "TopBorderColor",\r\n    "TopBorderType" : "TopBorderType",\r\n    "CellVerticalBorderColor" : "CellVerticalBorderColor",\r\n    "RightBorderSize" : 7,\r\n    "StartBorderSize" : 1,\r\n    "StartBorderType" : "StartBorderType",\r\n    "EndBorderType" : "EndBorderType",\r\n    "RightBorderType" : "RightBorderType",\r\n    "EndBorderSize" : 5,\r\n    "CellHorizontalBorderColor" : "CellHorizontalBorderColor"\r\n  },\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagGetDocxTableByIndexResponse.getExample();
+        response = (SwagGetDocxTableByIndexResponse) api.editDocumentDocxGetTableByIndex(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Gets the contents of an existing table row in an existing table in a Word DOCX document
+     *
+     * Gets the contents of an existing table row in a Word DOCX Document and returns the result.
+     */
+    @isTest
+    private static void editDocumentDocxGetTableRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagGetDocxTableRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagGetDocxTableRowResponse response;
+        SwagGetDocxTableRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "RowResult" : {\r\n    "Path" : "Path",\r\n    "RowCells" : [ {\r\n      "Path" : "Path",\r\n      "CellWidthMode" : "CellWidthMode",\r\n      "CellWidth" : "CellWidth",\r\n      "CellIndex" : 6,\r\n      "CellShadingColor" : "CellShadingColor",\r\n      "Paragraphs" : [ {\r\n        "Path" : "Path",\r\n        "ContentRuns" : [ {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        }, {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        } ],\r\n        "ParagraphIndex" : 1,\r\n        "StyleID" : "StyleID"\r\n      }, {\r\n        "Path" : "Path",\r\n        "ContentRuns" : [ {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        }, {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        } ],\r\n        "ParagraphIndex" : 1,\r\n        "StyleID" : "StyleID"\r\n      } ],\r\n      "CellShadingFill" : "CellShadingFill",\r\n      "CellShadingPattern" : "CellShadingPattern"\r\n    }, {\r\n      "Path" : "Path",\r\n      "CellWidthMode" : "CellWidthMode",\r\n      "CellWidth" : "CellWidth",\r\n      "CellIndex" : 6,\r\n      "CellShadingColor" : "CellShadingColor",\r\n      "Paragraphs" : [ {\r\n        "Path" : "Path",\r\n        "ContentRuns" : [ {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        }, {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        } ],\r\n        "ParagraphIndex" : 1,\r\n        "StyleID" : "StyleID"\r\n      }, {\r\n        "Path" : "Path",\r\n        "ContentRuns" : [ {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        }, {\r\n          "Path" : "Path",\r\n          "RunIndex" : 5,\r\n          "FontFamily" : "FontFamily",\r\n          "Italic" : true,\r\n          "FontSize" : "FontSize",\r\n          "TextItems" : [ {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          }, {\r\n            "Path" : "Path",\r\n            "TextIndex" : 5,\r\n            "TextContent" : "TextContent"\r\n          } ],\r\n          "Underline" : "Underline",\r\n          "Bold" : true\r\n        } ],\r\n        "ParagraphIndex" : 1,\r\n        "StyleID" : "StyleID"\r\n      } ],\r\n      "CellShadingFill" : "CellShadingFill",\r\n      "CellShadingPattern" : "CellShadingPattern"\r\n    } ],\r\n    "RowIndex" : 0\r\n  },\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagGetDocxTableRowResponse.getExample();
+        response = (SwagGetDocxTableRowResponse) api.editDocumentDocxGetTableRow(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Get all tables in Word DOCX document
      *
      * Returns all the table objects in an Office Word Document (docx)
      */
@@ -624,6 +723,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagDocxSetHeaderResponse.getExample();
         response = (SwagDocxSetHeaderResponse) api.editDocumentDocxSetHeader(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Update, set contents of a table row in an existing table in a Word DOCX document
+     *
+     * Sets the contents of a table row into a DOCX Document and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     */
+    @isTest
+    private static void editDocumentDocxUpdateTableRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagUpdateDocxTableRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagUpdateDocxTableRowResponse response;
+        SwagUpdateDocxTableRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagUpdateDocxTableRowResponse.getExample();
+        response = (SwagUpdateDocxTableRowResponse) api.editDocumentDocxUpdateTableRow(params);
         System.assertEquals(expectedResponse, response);
     }
 

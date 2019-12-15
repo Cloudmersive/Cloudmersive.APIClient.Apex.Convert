@@ -62,6 +62,12 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
      */
     public Datetime dateCreated { get; set; }
 
+    /**
+     * The number of pages in the document
+     * @return pageCount
+     */
+    public Integer pageCount { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
         'Title' => 'title',
@@ -70,7 +76,8 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         'Author' => 'author',
         'Creator' => 'creator',
         'DateModified' => 'dateModified',
-        'DateCreated' => 'dateCreated'
+        'DateCreated' => 'dateCreated',
+        'PageCount' => 'pageCount'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -87,6 +94,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         pdfMetadata.creator = 'aeiou';
         pdfMetadata.dateModified = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
         pdfMetadata.dateCreated = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
+        pdfMetadata.pageCount = 123;
         return pdfMetadata;
     }
 
@@ -100,7 +108,8 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
                 && this.author == pdfMetadata.author
                 && this.creator == pdfMetadata.creator
                 && this.dateModified == pdfMetadata.dateModified
-                && this.dateCreated == pdfMetadata.dateCreated;
+                && this.dateCreated == pdfMetadata.dateCreated
+                && this.pageCount == pdfMetadata.pageCount;
         }
         return false;
     }
@@ -115,6 +124,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (creator == null ? 0 : System.hashCode(creator));
         hashCode = (17 * hashCode) + (dateModified == null ? 0 : System.hashCode(dateModified));
         hashCode = (17 * hashCode) + (dateCreated == null ? 0 : System.hashCode(dateCreated));
+        hashCode = (17 * hashCode) + (pageCount == null ? 0 : System.hashCode(pageCount));
         return hashCode;
     }
 }
