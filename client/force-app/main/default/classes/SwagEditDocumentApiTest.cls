@@ -925,6 +925,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by index
+     *
+     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     */
+    @isTest
+    private static void editDocumentXlsxGetCellByIndexTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagGetXlsxCellRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagGetXlsxCellResponse response;
+        SwagGetXlsxCellResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "Cell" : {\r\n    "Path" : "Path",\r\n    "Formula" : "Formula",\r\n    "StyleIndex" : 0,\r\n    "TextValue" : "TextValue",\r\n    "CellIdentifier" : "CellIdentifier"\r\n  }\r\n}');
+        expectedResponse = SwagGetXlsxCellResponse.getExample();
+        response = (SwagGetXlsxCellResponse) api.editDocumentXlsxGetCellByIndex(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
@@ -991,7 +1024,7 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
-     * Get rows and cells from a Word XLSX spreadsheet, worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      */

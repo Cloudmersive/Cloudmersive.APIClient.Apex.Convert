@@ -21,7 +21,7 @@ public class SwagGetXlsxColumnsResponse implements Swagger.MappedProperties {
     public Boolean successful { get; set; }
 
     /**
-     * Spreadsheet Columns in the DOCX document
+     * Spreadsheet Columns in the XLSX document
      * @return columns
      */
     public List<SwagXlsxSpreadsheetColumn> columns { get; set; }

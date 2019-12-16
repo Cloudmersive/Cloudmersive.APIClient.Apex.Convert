@@ -700,6 +700,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by index
+     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * @param input Document input request (required)
+     * @return SwagGetXlsxCellResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetXlsxCellResponse editDocumentXlsxGetCellByIndex(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetXlsxCellResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/get-cell/by-index',
+            (SwagGetXlsxCellRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetXlsxCellResponse.class
+        );
+    }
+    /**
      * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
@@ -748,7 +772,7 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get rows and cells from a Word XLSX spreadsheet, worksheet
+     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return SwagGetXlsxRowsAndCellsResponse

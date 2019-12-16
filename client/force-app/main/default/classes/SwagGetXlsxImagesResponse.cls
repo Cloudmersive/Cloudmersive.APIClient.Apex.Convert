@@ -21,7 +21,7 @@ public class SwagGetXlsxImagesResponse implements Swagger.MappedProperties {
     public Boolean successful { get; set; }
 
     /**
-     * Spreadsheet Columns in the DOCX document
+     * Spreadsheet Images in the XLSX document
      * @return images
      */
     public List<SwagXlsxImage> images { get; set; }

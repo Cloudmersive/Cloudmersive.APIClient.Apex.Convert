@@ -1,11 +1,11 @@
 
-# SwagGetXlsxColumnsResponse
+# SwagGetXlsxCellResponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **successful** | **Boolean** | True if successful, false otherwise |  [optional]
-**columns** | [**List&lt;SwagXlsxSpreadsheetColumn&gt;**](SwagXlsxSpreadsheetColumn.md) | Spreadsheet Columns in the XLSX document |  [optional]
+**cell** | [**SwagXlsxSpreadsheetCell**](SwagXlsxSpreadsheetCell.md) | Requested Cell in the Excel XLSX document |  [optional]
 
 
 

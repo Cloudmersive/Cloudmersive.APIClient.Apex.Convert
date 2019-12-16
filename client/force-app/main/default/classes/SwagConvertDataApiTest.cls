@@ -34,6 +34,39 @@ private class SwagConvertDataApiTest {
     }
 
     /**
+     * Convert JSON to XML conversion
+     *
+     * Convert a JSON object into XML
+     */
+    @isTest
+    private static void convertDataJsonToXmlTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'jsonObject' => Object.getExample()
+        };
+
+        SwagClient client;
+        SwagConvertDataApi api;
+        Object response;
+        Object expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDataApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"{}"');
+        expectedResponse = null;
+        response = (Object) api.convertDataJsonToXml(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Excel (97-2003) XLS to JSON conversion
      *
      * Convert an Excel (97-2003) XLS file to a JSON object array

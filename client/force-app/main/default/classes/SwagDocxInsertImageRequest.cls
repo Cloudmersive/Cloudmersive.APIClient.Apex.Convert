@@ -56,6 +56,18 @@ public class SwagDocxInsertImageRequest implements Swagger.MappedProperties {
      */
     public String insertPath { get; set; }
 
+    /**
+     * Optional: The width of the image in EMUs
+     * @return widthInEMUs
+     */
+    public Long widthInEMUs { get; set; }
+
+    /**
+     * Optional: The height of the image in EMUs
+     * @return heightInEMUs
+     */
+    public Long heightInEMUs { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'InputDocumentFileBytes' => 'inputDocumentFileBytes',
         'InputDocumentFileUrl' => 'inputDocumentFileUrl',
@@ -63,7 +75,9 @@ public class SwagDocxInsertImageRequest implements Swagger.MappedProperties {
         'InputImageFileUrl' => 'inputImageFileUrl',
         'ImageToAdd' => 'imageToAdd',
         'InsertPlacement' => 'insertPlacement',
-        'InsertPath' => 'insertPath'
+        'InsertPath' => 'insertPath',
+        'WidthInEMUs' => 'widthInEMUs',
+        'HeightInEMUs' => 'heightInEMUs'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -79,6 +93,8 @@ public class SwagDocxInsertImageRequest implements Swagger.MappedProperties {
         docxInsertImageRequest.imageToAdd = SwagDocxImage.getExample();
         docxInsertImageRequest.insertPlacement = 'aeiou';
         docxInsertImageRequest.insertPath = 'aeiou';
+        docxInsertImageRequest.widthInEMUs = 123456789L;
+        docxInsertImageRequest.heightInEMUs = 123456789L;
         return docxInsertImageRequest;
     }
 
@@ -91,7 +107,9 @@ public class SwagDocxInsertImageRequest implements Swagger.MappedProperties {
                 && this.inputImageFileUrl == docxInsertImageRequest.inputImageFileUrl
                 && this.imageToAdd == docxInsertImageRequest.imageToAdd
                 && this.insertPlacement == docxInsertImageRequest.insertPlacement
-                && this.insertPath == docxInsertImageRequest.insertPath;
+                && this.insertPath == docxInsertImageRequest.insertPath
+                && this.widthInEMUs == docxInsertImageRequest.widthInEMUs
+                && this.heightInEMUs == docxInsertImageRequest.heightInEMUs;
         }
         return false;
     }
@@ -105,6 +123,8 @@ public class SwagDocxInsertImageRequest implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (imageToAdd == null ? 0 : System.hashCode(imageToAdd));
         hashCode = (17 * hashCode) + (insertPlacement == null ? 0 : System.hashCode(insertPlacement));
         hashCode = (17 * hashCode) + (insertPath == null ? 0 : System.hashCode(insertPath));
+        hashCode = (17 * hashCode) + (widthInEMUs == null ? 0 : System.hashCode(widthInEMUs));
+        hashCode = (17 * hashCode) + (heightInEMUs == null ? 0 : System.hashCode(heightInEMUs));
         return hashCode;
     }
 }

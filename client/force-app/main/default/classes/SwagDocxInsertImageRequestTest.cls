@@ -89,5 +89,7 @@ private class SwagDocxInsertImageRequestTest {
         System.assertEquals('imageToAdd', propertyMappings.get('ImageToAdd'));
         System.assertEquals('insertPlacement', propertyMappings.get('InsertPlacement'));
         System.assertEquals('insertPath', propertyMappings.get('InsertPath'));
+        System.assertEquals('widthInEMUs', propertyMappings.get('WidthInEMUs'));
+        System.assertEquals('heightInEMUs', propertyMappings.get('HeightInEMUs'));
     }
 }

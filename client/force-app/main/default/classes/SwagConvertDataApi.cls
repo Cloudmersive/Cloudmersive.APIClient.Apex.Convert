@@ -52,6 +52,30 @@ public class SwagConvertDataApi {
         );
     }
     /**
+     * Convert JSON to XML conversion
+     * Convert a JSON object into XML
+     * @param jsonObject  (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDataJsonToXml(Map<String, Object> params) {
+        client.assertNotNull(params.get('jsonObject'), 'jsonObject');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/json/to/xml',
+            (Object) params.get('jsonObject'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
      * Convert Excel (97-2003) XLS to JSON conversion
      * Convert an Excel (97-2003) XLS file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)

@@ -21,7 +21,7 @@ public class SwagGetXlsxRowsAndCellsResponse implements Swagger.MappedProperties
     public Boolean successful { get; set; }
 
     /**
-     * Spreadsheet Rows in the DOCX document
+     * Spreadsheet Rows in the Excel XLSX document
      * @return rows
      */
     public List<SwagXlsxSpreadsheetRow> rows { get; set; }
