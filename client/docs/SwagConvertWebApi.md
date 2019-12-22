@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**convertWebHtmlToDocx**](SwagConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to Word DOCX Document
 [**convertWebHtmlToPdf**](SwagConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
-[**convertWebHtmlToPng**](SwagConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG
+[**convertWebHtmlToPng**](SwagConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG screenshot
+[**convertWebHtmlToTxt**](SwagConvertWebApi.md#convertWebHtmlToTxt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
+[**convertWebHtmlToTxt_0**](SwagConvertWebApi.md#convertWebHtmlToTxt_0) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
 [**convertWebMdToHtml**](SwagConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
 [**convertWebUrlToPdf**](SwagConvertWebApi.md#convertWebUrlToPdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
 [**convertWebUrlToScreenshot**](SwagConvertWebApi.md#convertWebUrlToScreenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
@@ -114,7 +116,7 @@ Name | Type | Description  | Notes
 # **convertWebHtmlToPng**
 > Object convertWebHtmlToPng(input)
 
-Convert HTML string to PNG
+Convert HTML string to PNG screenshot
 
 Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
 
@@ -149,6 +151,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="convertWebHtmlToTxt"></a>
+# **convertWebHtmlToTxt**
+> SwagUrlToTextResponse convertWebHtmlToTxt(input)
+
+Convert website URL page to text (txt)
+
+Converts a website URL page into text (txt); extracts text from HTML
+
+### Example
+```java
+SwagConvertWebApi api = new SwagConvertWebApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagUrlToTextRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagUrlToTextResponse result = api.convertWebHtmlToTxt(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagUrlToTextRequest**](SwagUrlToTextRequest.md)| HTML to Text request parameters |
+
+### Return type
+
+[**SwagUrlToTextResponse**](SwagUrlToTextResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="convertWebHtmlToTxt_0"></a>
+# **convertWebHtmlToTxt_0**
+> SwagHtmlToTextResponse convertWebHtmlToTxt_0(input)
+
+Convert HTML string to text (txt)
+
+Converts an HTML string input into text (txt); extracts text from HTML
+
+### Example
+```java
+SwagConvertWebApi api = new SwagConvertWebApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagHtmlToTextRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagHtmlToTextResponse result = api.convertWebHtmlToTxt_0(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagHtmlToTextRequest**](SwagHtmlToTextRequest.md)| HTML to Text request parameters |
+
+### Return type
+
+[**SwagHtmlToTextResponse**](SwagHtmlToTextResponse.md)
 
 ### Authorization
 

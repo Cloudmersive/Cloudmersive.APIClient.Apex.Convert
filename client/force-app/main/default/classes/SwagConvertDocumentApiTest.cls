@@ -100,7 +100,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Document to Text
+     * Convert Document to Text (txt)
      *
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
      */
@@ -265,7 +265,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Word DOCX Document to Text
+     * Convert Word DOCX Document to Text (txt)
      *
      * Convert Office Word Documents (docx) to text
      */
@@ -298,7 +298,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert HTML to PDF Document
+     * Convert HTML document file to PDF Document
      *
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      */
@@ -331,7 +331,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert HTML to PNG image array
+     * Convert HTML document file to PNG image array
      *
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      */
@@ -360,6 +360,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagPdfToPngResult.getExample();
         response = (SwagPdfToPngResult) api.convertDocumentHtmlToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * HTML Document file to Text (txt)
+     *
+     * HTML document to text
+     */
+    @isTest
+    private static void convertDocumentHtmlToTxtTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagTextConversionResult response;
+        SwagTextConversionResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "TextResult" : "TextResult",\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagTextConversionResult.getExample();
+        response = (SwagTextConversionResult) api.convertDocumentHtmlToTxt(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -529,7 +562,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert PDF Document to Text
+     * Convert PDF Document to Text (txt)
      *
      * PDF document to text
      */
@@ -703,7 +736,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert PowerPoint PPTX Presentation to Text
+     * Convert PowerPoint PPTX Presentation to Text (txt)
      *
      * Convert Office PowerPoint Documents (pptx) to standard Text
      */
@@ -902,7 +935,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to Text
+     * Convert Excel XLSX Spreadsheet to Text (txt)
      *
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      */

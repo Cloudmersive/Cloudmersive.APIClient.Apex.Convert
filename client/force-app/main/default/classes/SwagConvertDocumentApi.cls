@@ -104,7 +104,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Document to Text
+     * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -234,7 +234,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Word DOCX Document to Text
+     * Convert Word DOCX Document to Text (txt)
      * Convert Office Word Documents (docx) to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -260,7 +260,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert HTML to PDF Document
+     * Convert HTML document file to PDF Document
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -286,7 +286,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert HTML to PNG image array
+     * Convert HTML document file to PNG image array
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to an array of PNG images, one for each page.  To use external files in your HTML such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagPdfToPngResult
@@ -309,6 +309,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagPdfToPngResult.class
+        );
+    }
+    /**
+     * HTML Document file to Text (txt)
+     * HTML document to text
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagTextConversionResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagTextConversionResult convertDocumentHtmlToTxt(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagTextConversionResult) client.invoke(
+            'POST', '/convert/html/to/txt', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagTextConversionResult.class
         );
     }
     /**
@@ -442,7 +468,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert PDF Document to Text
+     * Convert PDF Document to Text (txt)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -591,7 +617,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert PowerPoint PPTX Presentation to Text
+     * Convert PowerPoint PPTX Presentation to Text (txt)
      * Convert Office PowerPoint Documents (pptx) to standard Text
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult
@@ -750,7 +776,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Excel XLSX Spreadsheet to Text
+     * Convert Excel XLSX Spreadsheet to Text (txt)
      * Convert Office Excel Workbooks (XLSX) to standard Text.  Converts all worksheets in the workbook to Text.  Supports both XLSX and XLSB file formats.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagTextConversionResult

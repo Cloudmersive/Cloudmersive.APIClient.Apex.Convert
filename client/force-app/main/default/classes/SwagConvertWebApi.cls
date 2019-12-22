@@ -74,7 +74,7 @@ public class SwagConvertWebApi {
         );
     }
     /**
-     * Convert HTML string to PNG
+     * Convert HTML string to PNG screenshot
      * Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input HTML to PNG request parameters (required)
      * @return Object
@@ -95,6 +95,54 @@ public class SwagConvertWebApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             Object.class
+        );
+    }
+    /**
+     * Convert website URL page to text (txt)
+     * Converts a website URL page into text (txt); extracts text from HTML
+     * @param input HTML to Text request parameters (required)
+     * @return SwagUrlToTextResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUrlToTextResponse convertWebHtmlToTxt(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUrlToTextResponse) client.invoke(
+            'POST', '/convert/web/url/to/txt',
+            (SwagUrlToTextRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUrlToTextResponse.class
+        );
+    }
+    /**
+     * Convert HTML string to text (txt)
+     * Converts an HTML string input into text (txt); extracts text from HTML
+     * @param input HTML to Text request parameters (required)
+     * @return SwagHtmlToTextResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagHtmlToTextResponse convertWebHtmlToTxt_0(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagHtmlToTextResponse) client.invoke(
+            'POST', '/convert/web/html/to/txt',
+            (SwagHtmlToTextRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagHtmlToTextResponse.class
         );
     }
     /**
