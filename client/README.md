@@ -71,7 +71,15 @@ Class | Method | HTTP request | Description
 *SwagConvertDataApi* | [**convertDataJsonToXml**](docs/SwagConvertDataApi.md#convertDataJsonToXml) | **POST** /convert/json/to/xml | Convert JSON to XML conversion
 *SwagConvertDataApi* | [**convertDataXlsToJson**](docs/SwagConvertDataApi.md#convertDataXlsToJson) | **POST** /convert/xls/to/json | Convert Excel (97-2003) XLS to JSON conversion
 *SwagConvertDataApi* | [**convertDataXlsxToJson**](docs/SwagConvertDataApi.md#convertDataXlsxToJson) | **POST** /convert/xlsx/to/json | Convert Excel XLSX to JSON conversion
+*SwagConvertDataApi* | [**convertDataXmlEditAddAttributeWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditAddAttributeWithXPath) | **POST** /convert/xml/edit/xpath/add-attribute | Adds an attribute to all XML nodes matching XPath expression
+*SwagConvertDataApi* | [**convertDataXmlEditAddChildWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditAddChildWithXPath) | **POST** /convert/xml/edit/xpath/add-child | Adds an XML node as a child to XML nodes matching XPath expression
+*SwagConvertDataApi* | [**convertDataXmlEditRemoveAllChildNodesWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditRemoveAllChildNodesWithXPath) | **POST** /convert/xml/edit/xpath/remove-all-children | Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+*SwagConvertDataApi* | [**convertDataXmlEditReplaceWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditReplaceWithXPath) | **POST** /convert/xml/edit/xpath/replace | Replaces XML nodes matching XPath expression with new node
+*SwagConvertDataApi* | [**convertDataXmlEditSetValueWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditSetValueWithXPath) | **POST** /convert/xml/edit/xpath/set-value | Sets the value contents of XML nodes matching XPath expression
+*SwagConvertDataApi* | [**convertDataXmlFilterWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlFilterWithXPath) | **POST** /convert/xml/select/xpath | Filter, select XML nodes using XPath expression, get results
+*SwagConvertDataApi* | [**convertDataXmlRemoveWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlRemoveWithXPath) | **POST** /convert/xml/edit/xpath/remove | Remove, delete XML nodes and items matching XPath expression
 *SwagConvertDataApi* | [**convertDataXmlToJson**](docs/SwagConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | Convert XML to JSON conversion
+*SwagConvertDataApi* | [**convertDataXmlTransformWithXsltToXml**](docs/SwagConvertDataApi.md#convertDataXmlTransformWithXsltToXml) | **POST** /convert/xml/transform/xslt/to/xml | Transform XML document file with XSLT into a new XML document
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectGetInfo**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectGetInfo) | **POST** /convert/autodetect/get-info | Get document type information
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
@@ -307,6 +315,13 @@ Class | Method | HTTP request | Description
  - [SwagXlsxSpreadsheetColumn](docs/SwagXlsxSpreadsheetColumn.md)
  - [SwagXlsxSpreadsheetRow](docs/SwagXlsxSpreadsheetRow.md)
  - [SwagXlsxWorksheet](docs/SwagXlsxWorksheet.md)
+ - [SwagXmlAddAttributeWithXPathResult](docs/SwagXmlAddAttributeWithXPathResult.md)
+ - [SwagXmlAddChildWithXPathResult](docs/SwagXmlAddChildWithXPathResult.md)
+ - [SwagXmlFIlterWithXPathResult](docs/SwagXmlFIlterWithXPathResult.md)
+ - [SwagXmlRemoveAllChildrenWithXPathRes](docs/SwagXmlRemoveAllChildrenWithXPathRes.md)
+ - [SwagXmlRemoveWithXPathResult](docs/SwagXmlRemoveWithXPathResult.md)
+ - [SwagXmlReplaceWithXPathResult](docs/SwagXmlReplaceWithXPathResult.md)
+ - [SwagXmlSetValueWithXPathResult](docs/SwagXmlSetValueWithXPathResult.md)
 
 
 ## Documentation for Authorization

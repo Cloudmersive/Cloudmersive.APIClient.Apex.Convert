@@ -55,15 +55,15 @@ public class SwagConvertDataApi {
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
      * @param jsonObject  (required)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDataJsonToXml(Map<String, Object> params) {
+    public Blob convertDataJsonToXml(Map<String, Object> params) {
         client.assertNotNull(params.get('jsonObject'), 'jsonObject');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/json/to/xml',
             (Object) params.get('jsonObject'),
             query, form,
@@ -72,7 +72,7 @@ public class SwagConvertDataApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -128,6 +128,231 @@ public class SwagConvertDataApi {
         );
     }
     /**
+     * Adds an attribute to all XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by adding an attribute to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlAttributeName Name of the XML attribute to add (required)
+     * @param xmlAttributeValue Value of the XML attribute to add (required)
+     * @return SwagXmlAddAttributeWithXPathResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlAddAttributeWithXPathResult convertDataXmlEditAddAttributeWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        client.assertNotNull(params.get('xmlAttributeName'), 'xmlAttributeName');
+        client.assertNotNull(params.get('xmlAttributeValue'), 'xmlAttributeValue');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlAddAttributeWithXPathResult) client.invoke(
+            'POST', '/convert/xml/edit/xpath/add-attribute', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression'),
+                'XmlAttributeName' => (String) params.get('xmlAttributeName'),
+                'XmlAttributeValue' => (String) params.get('xmlAttributeValue')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlAddAttributeWithXPathResult.class
+        );
+    }
+    /**
+     * Adds an XML node as a child to XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by adding an XML node as a child to all of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeToAdd XML Node to add as a child (required)
+     * @return SwagXmlAddChildWithXPathResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlAddChildWithXPathResult convertDataXmlEditAddChildWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        client.assertNotNull(params.get('xmlNodeToAdd'), 'xmlNodeToAdd');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlAddChildWithXPathResult) client.invoke(
+            'POST', '/convert/xml/edit/xpath/add-child', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression'),
+                'XmlNodeToAdd' => (String) params.get('xmlNodeToAdd')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlAddChildWithXPathResult.class
+        );
+    }
+    /**
+     * Removes, deletes all children of nodes matching XPath expression, but does not remove the nodes
+     * Return the reuslts of editing an XML document by removing all child nodes of the nodes that match an input XPath expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @return SwagXmlRemoveAllChildrenWithXPathRes
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlRemoveAllChildrenWithXPathRes convertDataXmlEditRemoveAllChildNodesWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlRemoveAllChildrenWithXPathRes) client.invoke(
+            'POST', '/convert/xml/edit/xpath/remove-all-children', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlRemoveAllChildrenWithXPathRes.class
+        );
+    }
+    /**
+     * Replaces XML nodes matching XPath expression with new node
+     * Return the reuslts of editing an XML document by replacing all of the nodes that match an input XPath expression with a new XML node expression.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlNodeReplacement XML Node replacement content (required)
+     * @return SwagXmlReplaceWithXPathResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlReplaceWithXPathResult convertDataXmlEditReplaceWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        client.assertNotNull(params.get('xmlNodeReplacement'), 'xmlNodeReplacement');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlReplaceWithXPathResult) client.invoke(
+            'POST', '/convert/xml/edit/xpath/replace', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression'),
+                'XmlNodeReplacement' => (String) params.get('xmlNodeReplacement')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlReplaceWithXPathResult.class
+        );
+    }
+    /**
+     * Sets the value contents of XML nodes matching XPath expression
+     * Return the reuslts of editing an XML document by setting the contents of all of the nodes that match an input XPath expression.  Supports elements and attributes.
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param xmlValue XML Value to set into the matching XML nodes (required)
+     * @return SwagXmlSetValueWithXPathResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlSetValueWithXPathResult convertDataXmlEditSetValueWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        client.assertNotNull(params.get('xmlValue'), 'xmlValue');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlSetValueWithXPathResult) client.invoke(
+            'POST', '/convert/xml/edit/xpath/set-value', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression'),
+                'XmlValue' => (String) params.get('xmlValue')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlSetValueWithXPathResult.class
+        );
+    }
+    /**
+     * Filter, select XML nodes using XPath expression, get results
+     * Return the reuslts of filtering, selecting an XML document with an XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagXmlFIlterWithXPathResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlFIlterWithXPathResult convertDataXmlFilterWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlFIlterWithXPathResult) client.invoke(
+            'POST', '/convert/xml/select/xpath', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlFIlterWithXPathResult.class
+        );
+    }
+    /**
+     * Remove, delete XML nodes and items matching XPath expression
+     * Return the reuslts of editing an XML document by removing all of the nodes that match an input XPath expression
+     * @param xpathExpression Valid XML XPath query expression (required)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagXmlRemoveWithXPathResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXmlRemoveWithXPathResult convertDataXmlRemoveWithXPath(Map<String, Object> params) {
+        client.assertNotNull(params.get('xpathExpression'), 'xpathExpression');
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXmlRemoveWithXPathResult) client.invoke(
+            'POST', '/convert/xml/edit/xpath/remove', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'XPathExpression' => (String) params.get('xpathExpression')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXmlRemoveWithXPathResult.class
+        );
+    }
+    /**
      * Convert XML to JSON conversion
      * Convert an XML string or file into JSON
      * @param inputFile Input file to perform the operation on. (required)
@@ -151,6 +376,35 @@ public class SwagConvertDataApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Object.class
+        );
+    }
+    /**
+     * Transform XML document file with XSLT into a new XML document
+     * Convert an XML string or file into JSON
+     * @param inputFile Input XML file to perform the operation on. (required)
+     * @param transformFile Input XSLT file to use to transform the input XML file. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDataXmlTransformWithXsltToXml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('transformFile'), 'transformFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+        form.addAll(client.makeParam('transformFile', (Blob) params.get('transformFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/xml/transform/xslt/to/xml', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
 }
