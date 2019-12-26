@@ -13,7 +13,7 @@
 /**
  * Result of performing a filter operation on XML input using XPath
  */
-public class SwagXmlFIlterWithXPathResult implements Swagger.MappedProperties {
+public class SwagXmlFilterWithXPathResult implements Swagger.MappedProperties {
     /**
      * True if the operation was successful, false otherwise
      * @return successful
@@ -42,24 +42,24 @@ public class SwagXmlFIlterWithXPathResult implements Swagger.MappedProperties {
         return propertyMappings;
     }
 
-    public SwagXmlFIlterWithXPathResult() {
+    public SwagXmlFilterWithXPathResult() {
         xmlNodes = new List<String>();
     }
 
-    public static SwagXmlFIlterWithXPathResult getExample() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult = new SwagXmlFIlterWithXPathResult();
-        xmlFIlterWithXPathResult.successful = true;
-        xmlFIlterWithXPathResult.xmlNodes = new List<String>{'aeiou'};
-        xmlFIlterWithXPathResult.resultCount = 123;
-        return xmlFIlterWithXPathResult;
+    public static SwagXmlFilterWithXPathResult getExample() {
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult = new SwagXmlFilterWithXPathResult();
+        xmlFilterWithXPathResult.successful = true;
+        xmlFilterWithXPathResult.xmlNodes = new List<String>{'aeiou'};
+        xmlFilterWithXPathResult.resultCount = 123;
+        return xmlFilterWithXPathResult;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof SwagXmlFIlterWithXPathResult) {
-            SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult = (SwagXmlFIlterWithXPathResult) obj;
-            return this.successful == xmlFIlterWithXPathResult.successful
-                && this.xmlNodes == xmlFIlterWithXPathResult.xmlNodes
-                && this.resultCount == xmlFIlterWithXPathResult.resultCount;
+        if (obj instanceof SwagXmlFilterWithXPathResult) {
+            SwagXmlFilterWithXPathResult xmlFilterWithXPathResult = (SwagXmlFilterWithXPathResult) obj;
+            return this.successful == xmlFilterWithXPathResult.successful
+                && this.xmlNodes == xmlFilterWithXPathResult.xmlNodes
+                && this.resultCount == xmlFilterWithXPathResult.resultCount;
         }
         return false;
     }

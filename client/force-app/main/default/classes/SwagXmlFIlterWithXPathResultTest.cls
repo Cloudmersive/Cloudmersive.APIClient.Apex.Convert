@@ -1,87 +1,87 @@
 @isTest
-private class SwagXmlFIlterWithXPathResultTest {
+private class SwagXmlFilterWithXPathResultTest {
     @isTest
     private static void equalsSameInstance() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = xmlFIlterWithXPathResult1;
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult3 = new SwagXmlFIlterWithXPathResult();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult4 = xmlFIlterWithXPathResult3;
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = xmlFilterWithXPathResult1;
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult3 = new SwagXmlFilterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult4 = xmlFilterWithXPathResult3;
 
-        System.assert(xmlFIlterWithXPathResult1.equals(xmlFIlterWithXPathResult2));
-        System.assert(xmlFIlterWithXPathResult2.equals(xmlFIlterWithXPathResult1));
-        System.assert(xmlFIlterWithXPathResult1.equals(xmlFIlterWithXPathResult1));
-        System.assert(xmlFIlterWithXPathResult3.equals(xmlFIlterWithXPathResult4));
-        System.assert(xmlFIlterWithXPathResult4.equals(xmlFIlterWithXPathResult3));
-        System.assert(xmlFIlterWithXPathResult3.equals(xmlFIlterWithXPathResult3));
+        System.assert(xmlFilterWithXPathResult1.equals(xmlFilterWithXPathResult2));
+        System.assert(xmlFilterWithXPathResult2.equals(xmlFilterWithXPathResult1));
+        System.assert(xmlFilterWithXPathResult1.equals(xmlFilterWithXPathResult1));
+        System.assert(xmlFilterWithXPathResult3.equals(xmlFilterWithXPathResult4));
+        System.assert(xmlFilterWithXPathResult4.equals(xmlFilterWithXPathResult3));
+        System.assert(xmlFilterWithXPathResult3.equals(xmlFilterWithXPathResult3));
     }
 
     @isTest
     private static void equalsIdenticalInstance() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult3 = new SwagXmlFIlterWithXPathResult();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult4 = new SwagXmlFIlterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult3 = new SwagXmlFilterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult4 = new SwagXmlFilterWithXPathResult();
 
-        System.assert(xmlFIlterWithXPathResult1.equals(xmlFIlterWithXPathResult2));
-        System.assert(xmlFIlterWithXPathResult2.equals(xmlFIlterWithXPathResult1));
-        System.assert(xmlFIlterWithXPathResult3.equals(xmlFIlterWithXPathResult4));
-        System.assert(xmlFIlterWithXPathResult4.equals(xmlFIlterWithXPathResult3));
+        System.assert(xmlFilterWithXPathResult1.equals(xmlFilterWithXPathResult2));
+        System.assert(xmlFilterWithXPathResult2.equals(xmlFilterWithXPathResult1));
+        System.assert(xmlFilterWithXPathResult3.equals(xmlFilterWithXPathResult4));
+        System.assert(xmlFilterWithXPathResult4.equals(xmlFilterWithXPathResult3));
     }
 
     @isTest
     private static void notEqualsUnlikeInstance() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = new SwagXmlFIlterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = new SwagXmlFilterWithXPathResult();
 
-        System.assertEquals(false, xmlFIlterWithXPathResult1.equals(xmlFIlterWithXPathResult2));
-        System.assertEquals(false, xmlFIlterWithXPathResult2.equals(xmlFIlterWithXPathResult1));
+        System.assertEquals(false, xmlFilterWithXPathResult1.equals(xmlFilterWithXPathResult2));
+        System.assertEquals(false, xmlFilterWithXPathResult2.equals(xmlFilterWithXPathResult1));
     }
 
     @isTest
     private static void notEqualsDifferentType() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = new SwagXmlFIlterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = new SwagXmlFilterWithXPathResult();
 
-        System.assertEquals(false, xmlFIlterWithXPathResult1.equals('foo'));
-        System.assertEquals(false, xmlFIlterWithXPathResult2.equals('foo'));
+        System.assertEquals(false, xmlFilterWithXPathResult1.equals('foo'));
+        System.assertEquals(false, xmlFilterWithXPathResult2.equals('foo'));
     }
 
     @isTest
     private static void notEqualsNull() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = new SwagXmlFIlterWithXPathResult();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult3;
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = new SwagXmlFilterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult3;
 
-        System.assertEquals(false, xmlFIlterWithXPathResult1.equals(xmlFIlterWithXPathResult3));
-        System.assertEquals(false, xmlFIlterWithXPathResult2.equals(xmlFIlterWithXPathResult3));
+        System.assertEquals(false, xmlFilterWithXPathResult1.equals(xmlFilterWithXPathResult3));
+        System.assertEquals(false, xmlFilterWithXPathResult2.equals(xmlFilterWithXPathResult3));
     }
 
     @isTest
     private static void consistentHashCodeValue() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = new SwagXmlFIlterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = new SwagXmlFilterWithXPathResult();
 
-        System.assertEquals(xmlFIlterWithXPathResult1.hashCode(), xmlFIlterWithXPathResult1.hashCode());
-        System.assertEquals(xmlFIlterWithXPathResult2.hashCode(), xmlFIlterWithXPathResult2.hashCode());
+        System.assertEquals(xmlFilterWithXPathResult1.hashCode(), xmlFilterWithXPathResult1.hashCode());
+        System.assertEquals(xmlFilterWithXPathResult2.hashCode(), xmlFilterWithXPathResult2.hashCode());
     }
 
     @isTest
     private static void equalInstancesHaveSameHashCode() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult1 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult2 = SwagXmlFIlterWithXPathResult.getExample();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult3 = new SwagXmlFIlterWithXPathResult();
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult4 = new SwagXmlFIlterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult1 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult2 = SwagXmlFilterWithXPathResult.getExample();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult3 = new SwagXmlFilterWithXPathResult();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult4 = new SwagXmlFilterWithXPathResult();
 
-        System.assert(xmlFIlterWithXPathResult1.equals(xmlFIlterWithXPathResult2));
-        System.assert(xmlFIlterWithXPathResult3.equals(xmlFIlterWithXPathResult4));
-        System.assertEquals(xmlFIlterWithXPathResult1.hashCode(), xmlFIlterWithXPathResult2.hashCode());
-        System.assertEquals(xmlFIlterWithXPathResult3.hashCode(), xmlFIlterWithXPathResult4.hashCode());
+        System.assert(xmlFilterWithXPathResult1.equals(xmlFilterWithXPathResult2));
+        System.assert(xmlFilterWithXPathResult3.equals(xmlFilterWithXPathResult4));
+        System.assertEquals(xmlFilterWithXPathResult1.hashCode(), xmlFilterWithXPathResult2.hashCode());
+        System.assertEquals(xmlFilterWithXPathResult3.hashCode(), xmlFilterWithXPathResult4.hashCode());
     }
 
     @isTest
     private static void maintainRenamedProperties() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult = new SwagXmlFIlterWithXPathResult();
-        Map<String, String> propertyMappings = xmlFIlterWithXPathResult.getPropertyMappings();
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult = new SwagXmlFilterWithXPathResult();
+        Map<String, String> propertyMappings = xmlFilterWithXPathResult.getPropertyMappings();
         System.assertEquals('successful', propertyMappings.get('Successful'));
         System.assertEquals('xmlNodes', propertyMappings.get('XmlNodes'));
         System.assertEquals('resultCount', propertyMappings.get('ResultCount'));
@@ -89,9 +89,9 @@ private class SwagXmlFIlterWithXPathResultTest {
 
     @isTest
     private static void defaultValuesPopulated() {
-        SwagXmlFIlterWithXPathResult xmlFIlterWithXPathResult = new SwagXmlFIlterWithXPathResult();
-        System.assertEquals(new List<String>(), xmlFIlterWithXPathResult.xmlNodes);
-        System.assertEquals(null, xmlFIlterWithXPathResult.successful);
-        System.assertEquals(null, xmlFIlterWithXPathResult.resultCount);
+        SwagXmlFilterWithXPathResult xmlFilterWithXPathResult = new SwagXmlFilterWithXPathResult();
+        System.assertEquals(new List<String>(), xmlFilterWithXPathResult.xmlNodes);
+        System.assertEquals(null, xmlFilterWithXPathResult.successful);
+        System.assertEquals(null, xmlFilterWithXPathResult.resultCount);
     }
 }

@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**convertDataXmlEditReplaceWithXPath**](SwagConvertDataApi.md#convertDataXmlEditReplaceWithXPath) | **POST** /convert/xml/edit/xpath/replace | Replaces XML nodes matching XPath expression with new node
 [**convertDataXmlEditSetValueWithXPath**](SwagConvertDataApi.md#convertDataXmlEditSetValueWithXPath) | **POST** /convert/xml/edit/xpath/set-value | Sets the value contents of XML nodes matching XPath expression
 [**convertDataXmlFilterWithXPath**](SwagConvertDataApi.md#convertDataXmlFilterWithXPath) | **POST** /convert/xml/select/xpath | Filter, select XML nodes using XPath expression, get results
+[**convertDataXmlQueryWithXQuery**](SwagConvertDataApi.md#convertDataXmlQueryWithXQuery) | **POST** /convert/xml/query/xquery | Query an XML file using XQuery query, get results
+[**convertDataXmlQueryWithXQueryMulti**](SwagConvertDataApi.md#convertDataXmlQueryWithXQueryMulti) | **POST** /convert/xml/query/xquery/multi | Query multiple XML files using XQuery query, get results
 [**convertDataXmlRemoveWithXPath**](SwagConvertDataApi.md#convertDataXmlRemoveWithXPath) | **POST** /convert/xml/edit/xpath/remove | Remove, delete XML nodes and items matching XPath expression
 [**convertDataXmlToJson**](SwagConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | Convert XML to JSON conversion
 [**convertDataXmlTransformWithXsltToXml**](SwagConvertDataApi.md#convertDataXmlTransformWithXsltToXml) | **POST** /convert/xml/transform/xslt/to/xml | Transform XML document file with XSLT into a new XML document
@@ -482,7 +484,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDataXmlFilterWithXPath"></a>
 # **convertDataXmlFilterWithXPath**
-> SwagXmlFIlterWithXPathResult convertDataXmlFilterWithXPath(xpathExpression, inputFile)
+> SwagXmlFilterWithXPathResult convertDataXmlFilterWithXPath(xpathExpression, inputFile)
 
 Filter, select XML nodes using XPath expression, get results
 
@@ -504,7 +506,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    SwagXmlFIlterWithXPathResult result = api.convertDataXmlFilterWithXPath(params);
+    SwagXmlFilterWithXPathResult result = api.convertDataXmlFilterWithXPath(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -520,7 +522,127 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SwagXmlFIlterWithXPathResult**](SwagXmlFIlterWithXPathResult.md)
+[**SwagXmlFilterWithXPathResult**](SwagXmlFilterWithXPathResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDataXmlQueryWithXQuery"></a>
+# **convertDataXmlQueryWithXQuery**
+> SwagXmlQueryWithXQueryResult convertDataXmlQueryWithXQuery(inputFile, xquery)
+
+Query an XML file using XQuery query, get results
+
+Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+
+### Example
+```java
+SwagConvertDataApi api = new SwagConvertDataApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'xquery' => 'xquery_example'
+};
+
+try {
+    // cross your fingers
+    SwagXmlQueryWithXQueryResult result = api.convertDataXmlQueryWithXQuery(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input XML file to perform the operation on. |
+ **xquery** | **String**| Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported |
+
+### Return type
+
+[**SwagXmlQueryWithXQueryResult**](SwagXmlQueryWithXQueryResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDataXmlQueryWithXQueryMulti"></a>
+# **convertDataXmlQueryWithXQueryMulti**
+> SwagXmlQueryWithXQueryMultiResult convertDataXmlQueryWithXQueryMulti(inputFile1, xquery, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+Query multiple XML files using XQuery query, get results
+
+Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(&quot;books.xml&quot;) or doc(&quot;restaurants.xml&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+
+### Example
+```java
+SwagConvertDataApi api = new SwagConvertDataApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'xquery' => 'xquery_example',
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile10' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagXmlQueryWithXQueryMultiResult result = api.convertDataXmlQueryWithXQueryMulti(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input XML file to perform the operation on. |
+ **xquery** | **String**| Valid XML XQuery 3.1 or earlier query expression; multi-line expressions are supported |
+ **inputFile2** | **Blob**| Second input XML file to perform the operation on. | [optional]
+ **inputFile3** | **Blob**| Third input XML file to perform the operation on. | [optional]
+ **inputFile4** | **Blob**| Fourth input XML file to perform the operation on. | [optional]
+ **inputFile5** | **Blob**| Fifth input XML file to perform the operation on. | [optional]
+ **inputFile6** | **Blob**| Sixth input XML file to perform the operation on. | [optional]
+ **inputFile7** | **Blob**| Seventh input XML file to perform the operation on. | [optional]
+ **inputFile8** | **Blob**| Eighth input XML file to perform the operation on. | [optional]
+ **inputFile9** | **Blob**| Ninth input XML file to perform the operation on. | [optional]
+ **inputFile10** | **Blob**| Tenth input XML file to perform the operation on. | [optional]
+
+### Return type
+
+[**SwagXmlQueryWithXQueryMultiResult**](SwagXmlQueryWithXQueryMultiResult.md)
 
 ### Authorization
 

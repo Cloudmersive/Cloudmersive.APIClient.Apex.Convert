@@ -77,6 +77,8 @@ Class | Method | HTTP request | Description
 *SwagConvertDataApi* | [**convertDataXmlEditReplaceWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditReplaceWithXPath) | **POST** /convert/xml/edit/xpath/replace | Replaces XML nodes matching XPath expression with new node
 *SwagConvertDataApi* | [**convertDataXmlEditSetValueWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlEditSetValueWithXPath) | **POST** /convert/xml/edit/xpath/set-value | Sets the value contents of XML nodes matching XPath expression
 *SwagConvertDataApi* | [**convertDataXmlFilterWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlFilterWithXPath) | **POST** /convert/xml/select/xpath | Filter, select XML nodes using XPath expression, get results
+*SwagConvertDataApi* | [**convertDataXmlQueryWithXQuery**](docs/SwagConvertDataApi.md#convertDataXmlQueryWithXQuery) | **POST** /convert/xml/query/xquery | Query an XML file using XQuery query, get results
+*SwagConvertDataApi* | [**convertDataXmlQueryWithXQueryMulti**](docs/SwagConvertDataApi.md#convertDataXmlQueryWithXQueryMulti) | **POST** /convert/xml/query/xquery/multi | Query multiple XML files using XQuery query, get results
 *SwagConvertDataApi* | [**convertDataXmlRemoveWithXPath**](docs/SwagConvertDataApi.md#convertDataXmlRemoveWithXPath) | **POST** /convert/xml/edit/xpath/remove | Remove, delete XML nodes and items matching XPath expression
 *SwagConvertDataApi* | [**convertDataXmlToJson**](docs/SwagConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | Convert XML to JSON conversion
 *SwagConvertDataApi* | [**convertDataXmlTransformWithXsltToXml**](docs/SwagConvertDataApi.md#convertDataXmlTransformWithXsltToXml) | **POST** /convert/xml/transform/xslt/to/xml | Transform XML document file with XSLT into a new XML document
@@ -317,7 +319,9 @@ Class | Method | HTTP request | Description
  - [SwagXlsxWorksheet](docs/SwagXlsxWorksheet.md)
  - [SwagXmlAddAttributeWithXPathResult](docs/SwagXmlAddAttributeWithXPathResult.md)
  - [SwagXmlAddChildWithXPathResult](docs/SwagXmlAddChildWithXPathResult.md)
- - [SwagXmlFIlterWithXPathResult](docs/SwagXmlFIlterWithXPathResult.md)
+ - [SwagXmlFilterWithXPathResult](docs/SwagXmlFilterWithXPathResult.md)
+ - [SwagXmlQueryWithXQueryMultiResult](docs/SwagXmlQueryWithXQueryMultiResult.md)
+ - [SwagXmlQueryWithXQueryResult](docs/SwagXmlQueryWithXQueryResult.md)
  - [SwagXmlRemoveAllChildrenWithXPathRes](docs/SwagXmlRemoveAllChildrenWithXPathRes.md)
  - [SwagXmlRemoveWithXPathResult](docs/SwagXmlRemoveWithXPathResult.md)
  - [SwagXmlReplaceWithXPathResult](docs/SwagXmlReplaceWithXPathResult.md)

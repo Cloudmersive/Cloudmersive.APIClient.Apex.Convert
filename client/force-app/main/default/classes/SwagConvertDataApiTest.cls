@@ -326,8 +326,8 @@ private class SwagConvertDataApiTest {
 
         SwagClient client;
         SwagConvertDataApi api;
-        SwagXmlFIlterWithXPathResult response;
-        SwagXmlFIlterWithXPathResult expectedResponse;
+        SwagXmlFilterWithXPathResult response;
+        SwagXmlFilterWithXPathResult expectedResponse;
 
         client = new SwagClient();
         api = new SwagConvertDataApi(client);
@@ -336,8 +336,85 @@ private class SwagConvertDataApiTest {
 
         res.setHeader('Content-Type', 'application/json');
         res.setBody('{\r\n  "XmlNodes" : [ "XmlNodes", "XmlNodes" ],\r\n  "ResultCount" : 0,\r\n  "Successful" : true\r\n}');
-        expectedResponse = SwagXmlFIlterWithXPathResult.getExample();
-        response = (SwagXmlFIlterWithXPathResult) api.convertDataXmlFilterWithXPath(params);
+        expectedResponse = SwagXmlFilterWithXPathResult.getExample();
+        response = (SwagXmlFilterWithXPathResult) api.convertDataXmlFilterWithXPath(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Query an XML file using XQuery query, get results
+     *
+     * Return the reuslts of querying a single XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for a single XML document as input.  Provided XML document is automatically loaded as the default context; to access elements in the document, simply refer to them without a document reference, such as bookstore/book
+     */
+    @isTest
+    private static void convertDataXmlQueryWithXQueryTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'xquery' => 'xquery_example'
+        };
+
+        SwagClient client;
+        SwagConvertDataApi api;
+        SwagXmlQueryWithXQueryResult response;
+        SwagXmlQueryWithXQueryResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDataApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ResultingXml" : "ResultingXml",\r\n  "ErrorMessage" : "ErrorMessage",\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagXmlQueryWithXQueryResult.getExample();
+        response = (SwagXmlQueryWithXQueryResult) api.convertDataXmlQueryWithXQuery(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Query multiple XML files using XQuery query, get results
+     *
+     * Return the reuslts of querying an XML document with an XQuery expression.  Supports XQuery 3.1 and earlier.  This API is optimized for multiple XML documents as input.  You can refer to the contents of a given document by name, for example doc(&quot;books.xml&quot;) or doc(&quot;restaurants.xml&quot;) if you included two input files named books.xml and restaurants.xml.  If input files contain no file name, they will default to file names input1.xml, input2.xml and so on.
+     */
+    @isTest
+    private static void convertDataXmlQueryWithXQueryMultiTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'xquery' => 'xquery_example',
+            'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile10' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDataApi api;
+        SwagXmlQueryWithXQueryMultiResult response;
+        SwagXmlQueryWithXQueryMultiResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDataApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ResultingXml" : "ResultingXml",\r\n  "ErrorMessage" : "ErrorMessage",\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagXmlQueryWithXQueryMultiResult.getExample();
+        response = (SwagXmlQueryWithXQueryMultiResult) api.convertDataXmlQueryWithXQueryMulti(params);
         System.assertEquals(expectedResponse, response);
     }
 
