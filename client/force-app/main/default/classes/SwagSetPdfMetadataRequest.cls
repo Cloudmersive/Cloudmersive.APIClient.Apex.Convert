@@ -11,17 +11,17 @@
  */
 
 /**
- * SwagSetPdfMetadataRequest
+ * Request to set PDF metadata
  */
 public class SwagSetPdfMetadataRequest implements Swagger.MappedProperties {
     /**
-     * Get inputFileBytes
+     * Input file contents bytes for the file to modify
      * @return inputFileBytes
      */
     public Blob inputFileBytes { get; set; }
 
     /**
-     * Get metadataToSet
+     * PDF metadata to set on the file
      * @return metadataToSet
      */
     public SwagPdfMetadata metadataToSet { get; set; }

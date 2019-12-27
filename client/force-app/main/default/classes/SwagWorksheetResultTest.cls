@@ -84,5 +84,6 @@ private class SwagWorksheetResultTest {
         Map<String, String> propertyMappings = worksheetResult.getPropertyMappings();
         System.assertEquals('worksheetNumber', propertyMappings.get('WorksheetNumber'));
         System.assertEquals('worksheetName', propertyMappings.get('WorksheetName'));
+        System.assertEquals('worksheetContents', propertyMappings.get('WorksheetContents'));
     }
 }

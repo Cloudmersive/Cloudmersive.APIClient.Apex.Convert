@@ -32,9 +32,16 @@ public class SwagWorksheetResult implements Swagger.MappedProperties {
      */
     public String URL { get; set; }
 
+    /**
+     * Contents of the worksheet in bytes
+     * @return worksheetContents
+     */
+    public Blob worksheetContents { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'WorksheetNumber' => 'worksheetNumber',
-        'WorksheetName' => 'worksheetName'
+        'WorksheetName' => 'worksheetName',
+        'WorksheetContents' => 'worksheetContents'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -46,6 +53,7 @@ public class SwagWorksheetResult implements Swagger.MappedProperties {
         worksheetResult.worksheetNumber = 123;
         worksheetResult.worksheetName = 'aeiou';
         worksheetResult.URL = 'aeiou';
+        worksheetResult.worksheetContents = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         return worksheetResult;
     }
 
@@ -54,7 +62,8 @@ public class SwagWorksheetResult implements Swagger.MappedProperties {
             SwagWorksheetResult worksheetResult = (SwagWorksheetResult) obj;
             return this.worksheetNumber == worksheetResult.worksheetNumber
                 && this.worksheetName == worksheetResult.worksheetName
-                && this.URL == worksheetResult.URL;
+                && this.URL == worksheetResult.URL
+                && this.worksheetContents == worksheetResult.worksheetContents;
         }
         return false;
     }
@@ -64,6 +73,7 @@ public class SwagWorksheetResult implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (worksheetNumber == null ? 0 : System.hashCode(worksheetNumber));
         hashCode = (17 * hashCode) + (worksheetName == null ? 0 : System.hashCode(worksheetName));
         hashCode = (17 * hashCode) + (URL == null ? 0 : System.hashCode(URL));
+        hashCode = (17 * hashCode) + (worksheetContents == null ? 0 : System.hashCode(worksheetContents));
         return hashCode;
     }
 }

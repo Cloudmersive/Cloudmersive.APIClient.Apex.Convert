@@ -4,19 +4,74 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**editPdfAddAnnotations**](SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 [**editPdfDecrypt**](SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 [**editPdfDeletePages**](SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 [**editPdfEncrypt**](SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
+[**editPdfGetAnnotations**](SwagEditPdfApi.md#editPdfGetAnnotations) | **POST** /convert/edit/pdf/annotations/list | Get PDF annotations, including comments in the document
 [**editPdfGetFormFields**](SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 [**editPdfGetMetadata**](SwagEditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
 [**editPdfGetPdfTextByPages**](SwagEditPdfApi.md#editPdfGetPdfTextByPages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
 [**editPdfInsertPages**](SwagEditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 [**editPdfRasterize**](SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
+[**editPdfRemoveAllAnnotations**](SwagEditPdfApi.md#editPdfRemoveAllAnnotations) | **POST** /convert/edit/pdf/annotations/remove-all | Remove all PDF annotations, including comments in the document
+[**editPdfRemoveAnnotationItem**](SwagEditPdfApi.md#editPdfRemoveAnnotationItem) | **POST** /convert/edit/pdf/annotations/remove-item | Remove a specific PDF annotation, comment in the document
+[**editPdfRotateAllPages**](SwagEditPdfApi.md#editPdfRotateAllPages) | **POST** /convert/edit/pdf/pages/rotate/all | Rotate all pages in a PDF document
+[**editPdfRotatePageRange**](SwagEditPdfApi.md#editPdfRotatePageRange) | **POST** /convert/edit/pdf/pages/rotate/page-range | Rotate a range, subset of pages in a PDF document
 [**editPdfSetFormFields**](SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
 [**editPdfSetMetadata**](SwagEditPdfApi.md#editPdfSetMetadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 [**editPdfSetPermissions**](SwagEditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 [**editPdfWatermarkText**](SwagEditPdfApi.md#editPdfWatermarkText) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
 
+
+<a name="editPdfAddAnnotations"></a>
+# **editPdfAddAnnotations**
+> Blob editPdfAddAnnotations(request)
+
+Add one or more PDF annotations, comments in the PDF document
+
+Adds one or more annotations, comments to a PDF document.
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagAddPdfAnnotationRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfAddAnnotations(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagAddPdfAnnotationRequest**](SwagAddPdfAnnotationRequest.md)|  |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="editPdfDecrypt"></a>
 # **editPdfDecrypt**
@@ -167,6 +222,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfGetAnnotations"></a>
+# **editPdfGetAnnotations**
+> SwagGetPdfAnnotationsResult editPdfGetAnnotations(inputFile)
+
+Get PDF annotations, including comments in the document
+
+Enumerates the annotations, including comments and notes, in a PDF document.
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagGetPdfAnnotationsResult result = api.editPdfGetAnnotations(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagGetPdfAnnotationsResult**](SwagGetPdfAnnotationsResult.md)
 
 ### Authorization
 
@@ -416,6 +520,212 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfRemoveAllAnnotations"></a>
+# **editPdfRemoveAllAnnotations**
+> Blob editPdfRemoveAllAnnotations(inputFile)
+
+Remove all PDF annotations, including comments in the document
+
+Removes all of the annotations, including comments and notes, in a PDF document.
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfRemoveAllAnnotations(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfRemoveAnnotationItem"></a>
+# **editPdfRemoveAnnotationItem**
+> Blob editPdfRemoveAnnotationItem(inputFile, annotationIndex)
+
+Remove a specific PDF annotation, comment in the document
+
+Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'annotationIndex' => 56
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfRemoveAnnotationItem(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **annotationIndex** | **Integer**| The 0-based index of the annotation in the document |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfRotateAllPages"></a>
+# **editPdfRotateAllPages**
+> Blob editPdfRotateAllPages(inputFile, rotationAngle)
+
+Rotate all pages in a PDF document
+
+Rotate all of the pages in a PDF document by a multiple of 90 degrees
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'rotationAngle' => 56
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfRotateAllPages(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **rotationAngle** | **Integer**| The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfRotatePageRange"></a>
+# **editPdfRotatePageRange**
+> Blob editPdfRotatePageRange(inputFile, rotationAngle, pageStart, pageEnd)
+
+Rotate a range, subset of pages in a PDF document
+
+Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'rotationAngle' => 56,
+    'pageStart' => 56,
+    'pageEnd' => 56
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfRotatePageRange(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **rotationAngle** | **Integer**| The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. |
+ **pageStart** | **Integer**| Page number (1 based) to start rotating pages from (inclusive). |
+ **pageEnd** | **Integer**| Page number (1 based) to stop rotating pages from (inclusive). |
 
 ### Return type
 

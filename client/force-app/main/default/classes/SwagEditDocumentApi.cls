@@ -101,7 +101,7 @@ public class SwagEditDocumentApi {
     }
     /**
      * Delete, remove pages from a Word DOCX document
-     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      * @param reqConfig Document input request (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
@@ -642,6 +642,30 @@ public class SwagEditDocumentApi {
         return (Blob) client.invoke(
             'POST', '/convert/edit/finish-editing',
             (SwagFinishEditingRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Delete, remove slides from a PowerPoint PPTX presentation document
+     * Edits the input PowerPoint PPTX presentation document to remove the specified slides
+     * @param reqConfig Presentation input request (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentPptxDeleteSlides(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pptx/delete-slides',
+            (SwagRemovePptxSlidesRequest) params.get('reqConfig'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxUpdateTableCell**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableCell) | **POST** /convert/edit/docx/update-table-cell | Update, set contents of a table cell in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxUpdateTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentFinishEditing**](docs/SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
+*SwagEditDocumentApi* | [**editDocumentPptxDeleteSlides**](docs/SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 *SwagEditDocumentApi* | [**editDocumentPptxReplace**](docs/SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateBlankSpreadsheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
@@ -160,14 +161,20 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentXlsxGetStyles**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetStyles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetWorksheets**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetWorksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxInsertWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxInsertWorksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
+*SwagEditPdfApi* | [**editPdfAddAnnotations**](docs/SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 *SwagEditPdfApi* | [**editPdfDecrypt**](docs/SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 *SwagEditPdfApi* | [**editPdfDeletePages**](docs/SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
 *SwagEditPdfApi* | [**editPdfEncrypt**](docs/SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
+*SwagEditPdfApi* | [**editPdfGetAnnotations**](docs/SwagEditPdfApi.md#editPdfGetAnnotations) | **POST** /convert/edit/pdf/annotations/list | Get PDF annotations, including comments in the document
 *SwagEditPdfApi* | [**editPdfGetFormFields**](docs/SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 *SwagEditPdfApi* | [**editPdfGetMetadata**](docs/SwagEditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
 *SwagEditPdfApi* | [**editPdfGetPdfTextByPages**](docs/SwagEditPdfApi.md#editPdfGetPdfTextByPages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
 *SwagEditPdfApi* | [**editPdfInsertPages**](docs/SwagEditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert / copy pages from one PDF document into another
 *SwagEditPdfApi* | [**editPdfRasterize**](docs/SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
+*SwagEditPdfApi* | [**editPdfRemoveAllAnnotations**](docs/SwagEditPdfApi.md#editPdfRemoveAllAnnotations) | **POST** /convert/edit/pdf/annotations/remove-all | Remove all PDF annotations, including comments in the document
+*SwagEditPdfApi* | [**editPdfRemoveAnnotationItem**](docs/SwagEditPdfApi.md#editPdfRemoveAnnotationItem) | **POST** /convert/edit/pdf/annotations/remove-item | Remove a specific PDF annotation, comment in the document
+*SwagEditPdfApi* | [**editPdfRotateAllPages**](docs/SwagEditPdfApi.md#editPdfRotateAllPages) | **POST** /convert/edit/pdf/pages/rotate/all | Rotate all pages in a PDF document
+*SwagEditPdfApi* | [**editPdfRotatePageRange**](docs/SwagEditPdfApi.md#editPdfRotatePageRange) | **POST** /convert/edit/pdf/pages/rotate/page-range | Rotate a range, subset of pages in a PDF document
 *SwagEditPdfApi* | [**editPdfSetFormFields**](docs/SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
 *SwagEditPdfApi* | [**editPdfSetMetadata**](docs/SwagEditPdfApi.md#editPdfSetMetadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 *SwagEditPdfApi* | [**editPdfSetPermissions**](docs/SwagEditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
@@ -182,6 +189,7 @@ Class | Method | HTTP request | Description
 *SwagMergeDocumentApi* | [**mergeDocumentXlsx**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsx) | **POST** /convert/merge/xlsx | Merge Two Excel XLSX Together
 *SwagMergeDocumentApi* | [**mergeDocumentXlsxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsxMulti) | **POST** /convert/merge/xlsx/multi | Merge Multple Excel XLSX Together
 *SwagSplitDocumentApi* | [**splitDocumentPdfByPage**](docs/SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
+*SwagSplitDocumentApi* | [**splitDocumentPptx**](docs/SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
 *SwagSplitDocumentApi* | [**splitDocumentXlsx**](docs/SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentDocxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
@@ -196,6 +204,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [SwagAddPdfAnnotationRequest](docs/SwagAddPdfAnnotationRequest.md)
  - [SwagAlternateFileFormatCandidate](docs/SwagAlternateFileFormatCandidate.md)
  - [SwagAutodetectDocumentValidationResu](docs/SwagAutodetectDocumentValidationResu.md)
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
@@ -255,6 +264,7 @@ Class | Method | HTTP request | Description
  - [SwagGetDocxTablesRequest](docs/SwagGetDocxTablesRequest.md)
  - [SwagGetDocxTablesResponse](docs/SwagGetDocxTablesResponse.md)
  - [SwagGetImageInfoResult](docs/SwagGetImageInfoResult.md)
+ - [SwagGetPdfAnnotationsResult](docs/SwagGetPdfAnnotationsResult.md)
  - [SwagGetXlsxCellRequest](docs/SwagGetXlsxCellRequest.md)
  - [SwagGetXlsxCellResponse](docs/SwagGetXlsxCellResponse.md)
  - [SwagGetXlsxColumnsRequest](docs/SwagGetXlsxColumnsRequest.md)
@@ -286,6 +296,7 @@ Class | Method | HTTP request | Description
  - [SwagInsertXlsxWorksheetResponse](docs/SwagInsertXlsxWorksheetResponse.md)
  - [SwagMultipageImageFormatConversionRe](docs/SwagMultipageImageFormatConversionRe.md)
  - [SwagPageConversionResult](docs/SwagPageConversionResult.md)
+ - [SwagPdfAnnotation](docs/SwagPdfAnnotation.md)
  - [SwagPdfDocument](docs/SwagPdfDocument.md)
  - [SwagPdfFormField](docs/SwagPdfFormField.md)
  - [SwagPdfFormFields](docs/SwagPdfFormFields.md)
@@ -293,15 +304,18 @@ Class | Method | HTTP request | Description
  - [SwagPdfPageText](docs/SwagPdfPageText.md)
  - [SwagPdfTextByPageResult](docs/SwagPdfTextByPageResult.md)
  - [SwagPdfToPngResult](docs/SwagPdfToPngResult.md)
+ - [SwagPresentationResult](docs/SwagPresentationResult.md)
  - [SwagRemoveDocxHeadersAndFootersReque](docs/SwagRemoveDocxHeadersAndFootersReque.md)
  - [SwagRemoveDocxHeadersAndFootersRespo](docs/SwagRemoveDocxHeadersAndFootersRespo.md)
  - [SwagRemoveDocxPagesRequest](docs/SwagRemoveDocxPagesRequest.md)
+ - [SwagRemovePptxSlidesRequest](docs/SwagRemovePptxSlidesRequest.md)
  - [SwagReplaceStringRequest](docs/SwagReplaceStringRequest.md)
  - [SwagScreenshotRequest](docs/SwagScreenshotRequest.md)
  - [SwagSetFormFieldValue](docs/SwagSetFormFieldValue.md)
  - [SwagSetPdfFormFieldsRequest](docs/SwagSetPdfFormFieldsRequest.md)
  - [SwagSetPdfMetadataRequest](docs/SwagSetPdfMetadataRequest.md)
  - [SwagSplitPdfResult](docs/SwagSplitPdfResult.md)
+ - [SwagSplitPptxPresentationResult](docs/SwagSplitPptxPresentationResult.md)
  - [SwagSplitXlsxWorksheetResult](docs/SwagSplitXlsxWorksheetResult.md)
  - [SwagTextConversionResult](docs/SwagTextConversionResult.md)
  - [SwagUpdateDocxTableCellRequest](docs/SwagUpdateDocxTableCellRequest.md)

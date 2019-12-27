@@ -26,6 +26,30 @@ public class SwagEditPdfApi {
     }
 
     /**
+     * Add one or more PDF annotations, comments in the PDF document
+     * Adds one or more annotations, comments to a PDF document.
+     * @param request  (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfAddAnnotations(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/annotations/add-item',
+            (SwagAddPdfAnnotationRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Decrypt and password-protect a PDF
      * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
      * @param password Valid password for the PDF file (required)
@@ -119,6 +143,32 @@ public class SwagEditPdfApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Get PDF annotations, including comments in the document
+     * Enumerates the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetPdfAnnotationsResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetPdfAnnotationsResult editPdfGetAnnotations(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetPdfAnnotationsResult) client.invoke(
+            'POST', '/convert/edit/pdf/annotations/list', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetPdfAnnotationsResult.class
         );
     }
     /**
@@ -258,6 +308,128 @@ public class SwagEditPdfApi {
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Remove all PDF annotations, including comments in the document
+     * Removes all of the annotations, including comments and notes, in a PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfRemoveAllAnnotations(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/annotations/remove-all', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Remove a specific PDF annotation, comment in the document
+     * Removes a specific annotation in a PDF document, using the AnnotationIndex.  To enumerate AnnotationIndex for all of the annotations in the PDF document, use the /edit/pdf/annotations/list API.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param annotationIndex The 0-based index of the annotation in the document (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfRemoveAnnotationItem(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('annotationIndex'), 'annotationIndex');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/annotations/remove-item', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'annotationIndex' => (Integer) params.get('annotationIndex')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Rotate all pages in a PDF document
+     * Rotate all of the pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfRotateAllPages(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('rotationAngle'), 'rotationAngle');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/pages/rotate/all', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'rotationAngle' => (Integer) params.get('rotationAngle')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Rotate a range, subset of pages in a PDF document
+     * Rotate a range of specific pages in a PDF document by a multiple of 90 degrees
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param rotationAngle The angle to rotate the page in degrees, must be a multiple of 90 degrees, e.g. 90, 180, 270, or -90, -180, -270, etc. (required)
+     * @param pageStart Page number (1 based) to start rotating pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop rotating pages from (inclusive). (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfRotatePageRange(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('rotationAngle'), 'rotationAngle');
+        client.assertNotNull(params.get('pageStart'), 'pageStart');
+        client.assertNotNull(params.get('pageEnd'), 'pageEnd');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/pages/rotate/page-range', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'rotationAngle' => (Integer) params.get('rotationAngle'),
+                'pageStart' => (Integer) params.get('pageStart'),
+                'pageEnd' => (Integer) params.get('pageEnd')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },

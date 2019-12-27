@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**editDocumentDocxUpdateTableCell**](SwagEditDocumentApi.md#editDocumentDocxUpdateTableCell) | **POST** /convert/edit/docx/update-table-cell | Update, set contents of a table cell in an existing table in a Word DOCX document
 [**editDocumentDocxUpdateTableRow**](SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
 [**editDocumentFinishEditing**](SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
+[**editDocumentPptxDeleteSlides**](SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 [**editDocumentPptxReplace**](SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 [**editDocumentXlsxCreateBlankSpreadsheet**](SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 [**editDocumentXlsxGetCellByIndex**](SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
@@ -194,7 +195,7 @@ Name | Type | Description  | Notes
 
 Delete, remove pages from a Word DOCX document
 
-Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
 
 ### Example
 ```java
@@ -1301,6 +1302,55 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reqConfig** | [**SwagFinishEditingRequest**](SwagFinishEditingRequest.md)| Cloudmersive Document URL to complete editing on |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentPptxDeleteSlides"></a>
+# **editDocumentPptxDeleteSlides**
+> Blob editDocumentPptxDeleteSlides(reqConfig)
+
+Delete, remove slides from a PowerPoint PPTX presentation document
+
+Edits the input PowerPoint PPTX presentation document to remove the specified slides
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagRemovePptxSlidesRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentPptxDeleteSlides(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagRemovePptxSlidesRequest**](SwagRemovePptxSlidesRequest.md)| Presentation input request |
 
 ### Return type
 

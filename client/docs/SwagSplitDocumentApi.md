@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**splitDocumentPdfByPage**](SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
+[**splitDocumentPptx**](SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
 [**splitDocumentXlsx**](SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 
 
@@ -59,9 +60,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="splitDocumentPptx"></a>
+# **splitDocumentPptx**
+> SwagSplitPptxPresentationResult splitDocumentPptx(inputFile, returnDocumentContents)
+
+Split a single PowerPoint Presentation PPTX into Separate Slides
+
+Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
+
+### Example
+```java
+SwagSplitDocumentApi api = new SwagSplitDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'returnDocumentContents' => true
+};
+
+try {
+    // cross your fingers
+    SwagSplitPptxPresentationResult result = api.splitDocumentPptx(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **returnDocumentContents** | **Boolean**| Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. | [optional]
+
+### Return type
+
+[**SwagSplitPptxPresentationResult**](SwagSplitPptxPresentationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="splitDocumentXlsx"></a>
 # **splitDocumentXlsx**
-> SwagSplitXlsxWorksheetResult splitDocumentXlsx(inputFile)
+> SwagSplitXlsxWorksheetResult splitDocumentXlsx(inputFile, returnDocumentContents)
 
 Split a single Excel XLSX into Separate Worksheets
 
@@ -77,7 +129,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'returnDocumentContents' => true
 };
 
 try {
@@ -94,6 +147,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **returnDocumentContents** | **Boolean**| Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. | [optional]
 
 ### Return type
 

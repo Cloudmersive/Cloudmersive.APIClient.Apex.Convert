@@ -55,9 +55,39 @@ public class SwagSplitDocumentApi {
         );
     }
     /**
+     * Split a single PowerPoint Presentation PPTX into Separate Slides
+     * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
+     * @return SwagSplitPptxPresentationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSplitPptxPresentationResult splitDocumentPptx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagSplitPptxPresentationResult) client.invoke(
+            'POST', '/convert/split/pptx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'returnDocumentContents' => (Boolean) params.get('returnDocumentContents')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagSplitPptxPresentationResult.class
+        );
+    }
+    /**
      * Split a single Excel XLSX into Separate Worksheets
      * Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
      * @return SwagSplitXlsxWorksheetResult
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -73,7 +103,9 @@ public class SwagSplitDocumentApi {
             'POST', '/convert/split/xlsx', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'returnDocumentContents' => (Boolean) params.get('returnDocumentContents')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },

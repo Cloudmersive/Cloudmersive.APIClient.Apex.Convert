@@ -102,7 +102,7 @@ private class SwagEditDocumentApiTest {
     /**
      * Delete, remove pages from a Word DOCX document
      *
-     * Returns the pages and contents of each page defined in the Word Document (DOCX) format file
+     * Returns the edited Word Document in the Word Document (DOCX) format file with the specified pages removed
      */
     @isTest
     private static void editDocumentDocxDeletePagesTest() {
@@ -855,6 +855,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.editDocumentFinishEditing(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Delete, remove slides from a PowerPoint PPTX presentation document
+     *
+     * Edits the input PowerPoint PPTX presentation document to remove the specified slides
+     */
+    @isTest
+    private static void editDocumentPptxDeleteSlidesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagRemovePptxSlidesRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentPptxDeleteSlides(params);
         System.assertEquals(expectedResponse, response);
     }
 
