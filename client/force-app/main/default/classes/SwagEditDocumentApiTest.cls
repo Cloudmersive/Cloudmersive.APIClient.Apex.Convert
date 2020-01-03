@@ -958,6 +958,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Create a new Excel XLSX spreadsheet from column and row data
+     *
+     * Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+     */
+    @isTest
+    private static void editDocumentXlsxCreateSpreadsheetFromDataTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagCreateSpreadsheetFromDataRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagCreateSpreadsheetFromDataRespons response;
+        SwagCreateSpreadsheetFromDataRespons expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagCreateSpreadsheetFromDataRespons.getExample();
+        response = (SwagCreateSpreadsheetFromDataRespons) api.editDocumentXlsxCreateSpreadsheetFromData(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
      *
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet

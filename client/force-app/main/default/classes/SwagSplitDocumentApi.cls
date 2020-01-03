@@ -26,6 +26,35 @@ public class SwagSplitDocumentApi {
     }
 
     /**
+     * Split a single Word Document DOCX into Separate Documents by Page
+     * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting document.  Default is true. (optional)
+     * @return SwagSplitDocxDocumentResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSplitDocxDocumentResult splitDocumentDocx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagSplitDocxDocumentResult) client.invoke(
+            'POST', '/convert/split/docx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'returnDocumentContents' => (Boolean) params.get('returnDocumentContents')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagSplitDocxDocumentResult.class
+        );
+    }
+    /**
      * Split a PDF file into separate PDF files, one per page
      * Split an input PDF file into separate pages, comprised of one PDF file per page.
      * @param inputFile Input file to perform the operation on. (required)
@@ -58,7 +87,7 @@ public class SwagSplitDocumentApi {
      * Split a single PowerPoint Presentation PPTX into Separate Slides
      * Split an PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentation files, with each containing exactly one slide.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param returnDocumentContents Set to true to return the contents of each Worksheet directly, set to false to only return URLs to each resulting worksheet.  Default is true. (optional)
+     * @param returnDocumentContents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. (optional)
      * @return SwagSplitPptxPresentationResult
      * @throws Swagger.ApiException if fails to make API call
      */

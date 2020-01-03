@@ -1,6 +1,40 @@
 @isTest
 private class SwagSplitDocumentApiTest {
     /**
+     * Split a single Word Document DOCX into Separate Documents by Page
+     *
+     * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
+     */
+    @isTest
+    private static void splitDocumentDocxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'returnDocumentContents' => true
+        };
+
+        SwagClient client;
+        SwagSplitDocumentApi api;
+        SwagSplitDocxDocumentResult response;
+        SwagSplitDocxDocumentResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagSplitDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ResultDocuments" : [ {\r\n    "DocumentContents" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "DocumentContents" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagSplitDocxDocumentResult.getExample();
+        response = (SwagSplitDocxDocumentResult) api.splitDocumentDocx(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Split a PDF file into separate PDF files, one per page
      *
      * Split an input PDF file into separate pages, comprised of one PDF file per page.

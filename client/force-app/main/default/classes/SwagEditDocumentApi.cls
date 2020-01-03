@@ -724,6 +724,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Create a new Excel XLSX spreadsheet from column and row data
+     * Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+     * @param input Document input request (required)
+     * @return SwagCreateSpreadsheetFromDataRespons
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagCreateSpreadsheetFromDataRespons editDocumentXlsxCreateSpreadsheetFromData(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagCreateSpreadsheetFromDataRespons) client.invoke(
+            'POST', '/convert/edit/xlsx/create/from/data',
+            (SwagCreateSpreadsheetFromDataRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagCreateSpreadsheetFromDataRespons.class
+        );
+    }
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
      * Returns the rows and cells defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)

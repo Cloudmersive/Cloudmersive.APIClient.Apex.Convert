@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**editDocumentPptxDeleteSlides**](SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 [**editDocumentPptxReplace**](SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 [**editDocumentXlsxCreateBlankSpreadsheet**](SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
+[**editDocumentXlsxCreateSpreadsheetFromData**](SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 [**editDocumentXlsxGetCellByIndex**](SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
 [**editDocumentXlsxGetColumns**](SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetImages**](SwagEditDocumentApi.md#editDocumentXlsxGetImages) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
@@ -1453,6 +1454,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagCreateBlankSpreadsheetResponse**](SwagCreateBlankSpreadsheetResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentXlsxCreateSpreadsheetFromData"></a>
+# **editDocumentXlsxCreateSpreadsheetFromData**
+> SwagCreateSpreadsheetFromDataRespons editDocumentXlsxCreateSpreadsheetFromData(input)
+
+Create a new Excel XLSX spreadsheet from column and row data
+
+Returns a new Excel XLSX Spreadsheet (XLSX) format file populated with column and row data specified as input
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagCreateSpreadsheetFromDataRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagCreateSpreadsheetFromDataRespons result = api.editDocumentXlsxCreateSpreadsheetFromData(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagCreateSpreadsheetFromDataRequest**](SwagCreateSpreadsheetFromDataRequest.md)| Document input request |
+
+### Return type
+
+[**SwagCreateSpreadsheetFromDataRespons**](SwagCreateSpreadsheetFromDataRespons.md)
 
 ### Authorization
 
