@@ -925,6 +925,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+     *
+     * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+     */
+    @isTest
+    private static void editDocumentXlsxClearCellByIndexTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagClearXlsxCellRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagClearXlsxCellResponse response;
+        SwagClearXlsxCellResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagClearXlsxCellResponse.getExample();
+        response = (SwagClearXlsxCellResponse) api.editDocumentXlsxClearCellByIndex(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Create a blank Excel XLSX spreadsheet
      *
      * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
@@ -987,6 +1020,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagCreateSpreadsheetFromDataRespons.getExample();
         response = (SwagCreateSpreadsheetFromDataRespons) api.editDocumentXlsxCreateSpreadsheetFromData(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Delete, remove worksheet from an Excel XLSX spreadsheet document
+     *
+     * Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+     */
+    @isTest
+    private static void editDocumentXlsxDeleteWorksheetTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagRemoveXlsxWorksheetRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Object response;
+        Object expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"{}"');
+        expectedResponse = null;
+        response = (Object) api.editDocumentXlsxDeleteWorksheet(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -1218,6 +1284,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagInsertXlsxWorksheetResponse.getExample();
         response = (SwagInsertXlsxWorksheetResponse) api.editDocumentXlsxInsertWorksheet(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+     *
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+     */
+    @isTest
+    private static void editDocumentXlsxSetCellByIndexTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagSetXlsxCellRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagSetXlsxCellResponse response;
+        SwagSetXlsxCellResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagSetXlsxCellResponse.getExample();
+        response = (SwagSetXlsxCellResponse) api.editDocumentXlsxSetCellByIndex(params);
         System.assertEquals(expectedResponse, response);
     }
 }

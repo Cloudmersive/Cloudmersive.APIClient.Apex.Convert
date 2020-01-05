@@ -700,6 +700,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+     * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+     * @param input Document input request (required)
+     * @return SwagClearXlsxCellResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagClearXlsxCellResponse editDocumentXlsxClearCellByIndex(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagClearXlsxCellResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/clear-cell/by-index',
+            (SwagClearXlsxCellRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagClearXlsxCellResponse.class
+        );
+    }
+    /**
      * Create a blank Excel XLSX spreadsheet
      * Returns a blank Excel XLSX Spreadsheet (XLSX) format file
      * @param input Document input request (required)
@@ -745,6 +769,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagCreateSpreadsheetFromDataRespons.class
+        );
+    }
+    /**
+     * Delete, remove worksheet from an Excel XLSX spreadsheet document
+     * Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+     * @param reqConfig Spreadsheet input request (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object editDocumentXlsxDeleteWorksheet(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/edit/xlsx/delete-worksheet',
+            (SwagRemoveXlsxWorksheetRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
         );
     }
     /**
@@ -913,6 +961,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagInsertXlsxWorksheetResponse.class
+        );
+    }
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
+     * @param input Document input request (required)
+     * @return SwagSetXlsxCellResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSetXlsxCellResponse editDocumentXlsxSetCellByIndex(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagSetXlsxCellResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/set-cell/by-index',
+            (SwagSetXlsxCellRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagSetXlsxCellResponse.class
         );
     }
 }

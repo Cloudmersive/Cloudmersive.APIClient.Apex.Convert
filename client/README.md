@@ -153,8 +153,10 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentFinishEditing**](docs/SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
 *SwagEditDocumentApi* | [**editDocumentPptxDeleteSlides**](docs/SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 *SwagEditDocumentApi* | [**editDocumentPptxReplace**](docs/SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
+*SwagEditDocumentApi* | [**editDocumentXlsxClearCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxClearCellByIndex) | **POST** /convert/edit/xlsx/clear-cell/by-index | Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateBlankSpreadsheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateSpreadsheetFromData**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
+*SwagEditDocumentApi* | [**editDocumentXlsxDeleteWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
 *SwagEditDocumentApi* | [**editDocumentXlsxGetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
 *SwagEditDocumentApi* | [**editDocumentXlsxGetColumns**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get rows and cells from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetImages**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetImages) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
@@ -162,6 +164,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentXlsxGetStyles**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetStyles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetWorksheets**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetWorksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxInsertWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxInsertWorksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
+*SwagEditDocumentApi* | [**editDocumentXlsxSetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxSetCellByIndex) | **POST** /convert/edit/xlsx/set-cell/by-index | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
 *SwagEditPdfApi* | [**editPdfAddAnnotations**](docs/SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 *SwagEditPdfApi* | [**editPdfDecrypt**](docs/SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 *SwagEditPdfApi* | [**editPdfDeletePages**](docs/SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove / delete pages from a PDF document
@@ -211,6 +214,8 @@ Class | Method | HTTP request | Description
  - [SwagAutodetectDocumentValidationResu](docs/SwagAutodetectDocumentValidationResu.md)
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
  - [SwagAutodetectToPngResult](docs/SwagAutodetectToPngResult.md)
+ - [SwagClearXlsxCellRequest](docs/SwagClearXlsxCellRequest.md)
+ - [SwagClearXlsxCellResponse](docs/SwagClearXlsxCellResponse.md)
  - [SwagConvertedPngPage](docs/SwagConvertedPngPage.md)
  - [SwagCreateBlankDocxRequest](docs/SwagCreateBlankDocxRequest.md)
  - [SwagCreateBlankDocxResponse](docs/SwagCreateBlankDocxResponse.md)
@@ -313,11 +318,14 @@ Class | Method | HTTP request | Description
  - [SwagRemoveDocxHeadersAndFootersRespo](docs/SwagRemoveDocxHeadersAndFootersRespo.md)
  - [SwagRemoveDocxPagesRequest](docs/SwagRemoveDocxPagesRequest.md)
  - [SwagRemovePptxSlidesRequest](docs/SwagRemovePptxSlidesRequest.md)
+ - [SwagRemoveXlsxWorksheetRequest](docs/SwagRemoveXlsxWorksheetRequest.md)
  - [SwagReplaceStringRequest](docs/SwagReplaceStringRequest.md)
  - [SwagScreenshotRequest](docs/SwagScreenshotRequest.md)
  - [SwagSetFormFieldValue](docs/SwagSetFormFieldValue.md)
  - [SwagSetPdfFormFieldsRequest](docs/SwagSetPdfFormFieldsRequest.md)
  - [SwagSetPdfMetadataRequest](docs/SwagSetPdfMetadataRequest.md)
+ - [SwagSetXlsxCellRequest](docs/SwagSetXlsxCellRequest.md)
+ - [SwagSetXlsxCellResponse](docs/SwagSetXlsxCellResponse.md)
  - [SwagSplitDocumentResult](docs/SwagSplitDocumentResult.md)
  - [SwagSplitDocxDocumentResult](docs/SwagSplitDocxDocumentResult.md)
  - [SwagSplitPdfResult](docs/SwagSplitPdfResult.md)
