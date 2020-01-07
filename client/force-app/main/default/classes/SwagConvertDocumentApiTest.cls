@@ -112,7 +112,8 @@ private class SwagConvertDocumentApiTest {
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'inputFile' => Blob.valueOf('Sample text file\nContents')
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'textFormattingMode' => 'textFormattingMode_example'
         };
 
         SwagClient client;
@@ -574,7 +575,8 @@ private class SwagConvertDocumentApiTest {
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'inputFile' => Blob.valueOf('Sample text file\nContents')
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'textFormattingMode' => 'textFormattingMode_example'
         };
 
         SwagClient client;

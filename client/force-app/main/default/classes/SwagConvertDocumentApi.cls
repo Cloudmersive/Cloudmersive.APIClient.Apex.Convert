@@ -107,6 +107,7 @@ public class SwagConvertDocumentApi {
      * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are \&#39;preserveWhitespace\&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and \&#39;minimizeWhitespace\&#39; which will not insert additional spaces into the document in most cases.  Default is \&#39;preserveWhitespace\&#39;. (optional)
      * @return SwagTextConversionResult
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -122,7 +123,9 @@ public class SwagConvertDocumentApi {
             'POST', '/convert/autodetect/to/txt', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'textFormattingMode' => (String) params.get('textFormattingMode')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
@@ -471,6 +474,7 @@ public class SwagConvertDocumentApi {
      * Convert PDF Document to Text (txt)
      * PDF document to text
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting PDF to text.  Possible values are \&#39;preserveWhitespace\&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and \&#39;minimizeWhitespace\&#39; which will not insert additional spaces into the document in most cases.  Default is \&#39;preserveWhitespace\&#39;. (optional)
      * @return SwagTextConversionResult
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -486,7 +490,9 @@ public class SwagConvertDocumentApi {
             'POST', '/convert/pdf/to/txt', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'textFormattingMode' => (String) params.get('textFormattingMode')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
