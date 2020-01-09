@@ -148,6 +148,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Deletes a range of multiple table rows in an existing table in a Word DOCX document
+     * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+     * @param reqConfig Document input request (required)
+     * @return SwagDeleteDocxTableRowRangeResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDeleteDocxTableRowRangeResponse editDocumentDocxDeleteTableRowRange(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagDeleteDocxTableRowRangeResponse) client.invoke(
+            'POST', '/convert/edit/docx/delete-table-row/range',
+            (SwagDeleteDocxTableRowRangeRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagDeleteDocxTableRowRangeResponse.class
+        );
+    }
+    /**
      * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -796,8 +820,32 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+     * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+     * @param input Document input request (required)
+     * @return SwagGetXlsxCellByIdentifierResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetXlsxCellByIdentifierResponse editDocumentXlsxGetCellByIdentifier(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetXlsxCellByIdentifierResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/get-cell/by-identifier',
+            (SwagGetXlsxCellByIdentifierRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetXlsxCellByIdentifierResponse.class
+        );
+    }
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return SwagGetXlsxCellResponse
      * @throws Swagger.ApiException if fails to make API call
@@ -961,6 +1009,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagInsertXlsxWorksheetResponse.class
+        );
+    }
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+     * @param input Document input request (required)
+     * @return SwagSetXlsxCellByIdentifierResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSetXlsxCellByIdentifierResponse editDocumentXlsxSetCellByIdentifier(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagSetXlsxCellByIdentifierResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/set-cell/by-identifier',
+            (SwagSetXlsxCellByIdentifierRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagSetXlsxCellByIdentifierResponse.class
         );
     }
     /**

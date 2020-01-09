@@ -21,7 +21,7 @@ public class SwagDocxTableRow implements Swagger.MappedProperties {
     public Integer rowIndex { get; set; }
 
     /**
-     * The Path of the location of this object; leave blank for new tables
+     * The Path of the location of this table row object; leave blank for new tables
      * @return path
      */
     public String path { get; set; }

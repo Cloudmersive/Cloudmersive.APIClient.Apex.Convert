@@ -166,6 +166,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Deletes a range of multiple table rows in an existing table in a Word DOCX document
+     *
+     * Deletes a range of 1 or more existing table rows in a Word DOCX Document and returns the result.
+     */
+    @isTest
+    private static void editDocumentDocxDeleteTableRowRangeTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagDeleteDocxTableRowRangeRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagDeleteDocxTableRowRangeResponse response;
+        SwagDeleteDocxTableRowRangeResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagDeleteDocxTableRowRangeResponse.getExample();
+        response = (SwagDeleteDocxTableRowRangeResponse) api.editDocumentDocxDeleteTableRowRange(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get content of a footer from a Word DOCX document
      *
      * Returns the footer content from a Word Document (DOCX) format file
@@ -1057,9 +1090,42 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
+     *
+     * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
+     */
+    @isTest
+    private static void editDocumentXlsxGetCellByIdentifierTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagGetXlsxCellByIdentifierRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagGetXlsxCellByIdentifierResponse response;
+        SwagGetXlsxCellByIdentifierResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "Cell" : {\r\n    "Path" : "Path",\r\n    "Formula" : "Formula",\r\n    "StyleIndex" : 0,\r\n    "TextValue" : "TextValue",\r\n    "CellIdentifier" : "CellIdentifier"\r\n  }\r\n}');
+        expectedResponse = SwagGetXlsxCellByIdentifierResponse.getExample();
+        response = (SwagGetXlsxCellByIdentifierResponse) api.editDocumentXlsxGetCellByIdentifier(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by index
      *
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the value and definition of a specific cell in a specific row in the Excel Spreadsheet worksheet
      */
     @isTest
     private static void editDocumentXlsxGetCellByIndexTest() {
@@ -1284,6 +1350,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagInsertXlsxWorksheetResponse.getExample();
         response = (SwagInsertXlsxWorksheetResponse) api.editDocumentXlsxInsertWorksheet(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
+     *
+     * Sets, updates the contents of a specific cell in an Excel XLSX spreadsheet, worksheet using its cell identifier (e.g. A1, B22, C33) in the worksheet
+     */
+    @isTest
+    private static void editDocumentXlsxSetCellByIdentifierTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagSetXlsxCellByIdentifierRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagSetXlsxCellByIdentifierResponse response;
+        SwagSetXlsxCellByIdentifierResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagSetXlsxCellByIdentifierResponse.getExample();
+        response = (SwagSetXlsxCellByIdentifierResponse) api.editDocumentXlsxSetCellByIdentifier(params);
         System.assertEquals(expectedResponse, response);
     }
 

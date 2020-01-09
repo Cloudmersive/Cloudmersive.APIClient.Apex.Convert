@@ -21,7 +21,7 @@ public class SwagDocxTable implements Swagger.MappedProperties {
     public String tableID { get; set; }
 
     /**
-     * The Path of the location of this object; leave blank for new tables
+     * The Path of the location of this table object; leave blank for new tables
      * @return path
      */
     public String path { get; set; }
