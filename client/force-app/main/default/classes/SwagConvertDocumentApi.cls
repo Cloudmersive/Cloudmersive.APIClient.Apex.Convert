@@ -211,6 +211,32 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Word DOC (97-03) Document to Text (txt)
+     * Convert Office Word DOC (97-03) Document (doc) to text
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagTextConversionResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagTextConversionResult convertDocumentDocToTxt(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagTextConversionResult) client.invoke(
+            'POST', '/convert/doc/to/txt', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagTextConversionResult.class
+        );
+    }
+    /**
      * Convert Word DOCX Document to PDF
      * Convert Office Word Documents (docx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)

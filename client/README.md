@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentCsvToXlsx**](docs/SwagConvertDocumentApi.md#convertDocumentCsvToXlsx) | **POST** /convert/csv/to/xlsx | Convert CSV to Excel XLSX Spreadsheet
 *SwagConvertDocumentApi* | [**convertDocumentDocToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 *SwagConvertDocumentApi* | [**convertDocumentDocToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
+*SwagConvertDocumentApi* | [**convertDocumentDocToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentDocToTxt) | **POST** /convert/doc/to/txt | Convert Word DOC (97-03) Document to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentDocxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
 *SwagConvertDocumentApi* | [**convertDocumentDocxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToTxt) | **POST** /convert/docx/to/txt | Convert Word DOCX Document to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
@@ -198,6 +199,7 @@ Class | Method | HTTP request | Description
 *SwagSplitDocumentApi* | [**splitDocumentDocx**](docs/SwagSplitDocumentApi.md#splitDocumentDocx) | **POST** /convert/split/docx | Split a single Word Document DOCX into Separate Documents by Page
 *SwagSplitDocumentApi* | [**splitDocumentPdfByPage**](docs/SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 *SwagSplitDocumentApi* | [**splitDocumentPptx**](docs/SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
+*SwagSplitDocumentApi* | [**splitDocumentTxtByLine**](docs/SwagSplitDocumentApi.md#splitDocumentTxtByLine) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
 *SwagSplitDocumentApi* | [**splitDocumentXlsx**](docs/SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentDocxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
@@ -339,8 +341,10 @@ Class | Method | HTTP request | Description
  - [SwagSplitDocxDocumentResult](docs/SwagSplitDocxDocumentResult.md)
  - [SwagSplitPdfResult](docs/SwagSplitPdfResult.md)
  - [SwagSplitPptxPresentationResult](docs/SwagSplitPptxPresentationResult.md)
+ - [SwagSplitTextDocumentByLinesResult](docs/SwagSplitTextDocumentByLinesResult.md)
  - [SwagSplitXlsxWorksheetResult](docs/SwagSplitXlsxWorksheetResult.md)
  - [SwagTextConversionResult](docs/SwagTextConversionResult.md)
+ - [SwagTextDocumentLine](docs/SwagTextDocumentLine.md)
  - [SwagUpdateDocxTableCellRequest](docs/SwagUpdateDocxTableCellRequest.md)
  - [SwagUpdateDocxTableCellResponse](docs/SwagUpdateDocxTableCellResponse.md)
  - [SwagUpdateDocxTableRowRequest](docs/SwagUpdateDocxTableRowRequest.md)

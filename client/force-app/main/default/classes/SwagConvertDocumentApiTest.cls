@@ -233,6 +233,39 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Word DOC (97-03) Document to Text (txt)
+     *
+     * Convert Office Word DOC (97-03) Document (doc) to text
+     */
+    @isTest
+    private static void convertDocumentDocToTxtTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagTextConversionResult response;
+        SwagTextConversionResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "TextResult" : "TextResult",\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagTextConversionResult.getExample();
+        response = (SwagTextConversionResult) api.convertDocumentDocToTxt(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Word DOCX Document to PDF
      *
      * Convert Office Word Documents (docx) to standard PDF

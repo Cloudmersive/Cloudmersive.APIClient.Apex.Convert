@@ -113,6 +113,32 @@ public class SwagSplitDocumentApi {
         );
     }
     /**
+     * Split a single Text file (txt) into lines
+     * Split a Text (txt) Document by line, returning each line separately in order.  Supports multiple types of newlines.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagSplitTextDocumentByLinesResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSplitTextDocumentByLinesResult splitDocumentTxtByLine(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagSplitTextDocumentByLinesResult) client.invoke(
+            'POST', '/convert/split/txt/by-line', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagSplitTextDocumentByLinesResult.class
+        );
+    }
+    /**
      * Split a single Excel XLSX into Separate Worksheets
      * Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
      * @param inputFile Input file to perform the operation on. (required)
