@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**editDocumentDocxDeletePages**](SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxDeleteTableRow**](SwagEditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 [**editDocumentDocxDeleteTableRowRange**](SwagEditDocumentApi.md#editDocumentDocxDeleteTableRowRange) | **POST** /convert/edit/docx/delete-table-row/range | Deletes a range of multiple table rows in an existing table in a Word DOCX document
+[**editDocumentDocxGetComments**](SwagEditDocumentApi.md#editDocumentDocxGetComments) | **POST** /convert/edit/docx/get-comments/flat-list | Get comments from a Word DOCX document as a flat list
+[**editDocumentDocxGetCommentsHierarchical**](SwagEditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
 [**editDocumentDocxGetHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**editDocumentDocxGetImages**](SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 [**editDocumentDocxGetSections**](SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -17,6 +19,7 @@ Method | HTTP request | Description
 [**editDocumentDocxGetTableByIndex**](SwagEditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
 [**editDocumentDocxGetTableRow**](SwagEditDocumentApi.md#editDocumentDocxGetTableRow) | **POST** /convert/edit/docx/get-table-row | Gets the contents of an existing table row in an existing table in a Word DOCX document
 [**editDocumentDocxGetTables**](SwagEditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get all tables in Word DOCX document
+[**editDocumentDocxInsertCommentOnParagraph**](SwagEditDocumentApi.md#editDocumentDocxInsertCommentOnParagraph) | **POST** /convert/edit/docx/insert-comment/on/paragraph | Insert a new comment into a Word DOCX document attached to a paragraph
 [**editDocumentDocxInsertImage**](SwagEditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 [**editDocumentDocxInsertParagraph**](SwagEditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 [**editDocumentDocxInsertTable**](SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
@@ -333,6 +336,104 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDeleteDocxTableRowRangeResponse**](SwagDeleteDocxTableRowRangeResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxGetComments"></a>
+# **editDocumentDocxGetComments**
+> SwagGetDocxCommentsResponse editDocumentDocxGetComments(reqConfig)
+
+Get comments from a Word DOCX document as a flat list
+
+Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagGetDocxGetCommentsRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetDocxCommentsResponse result = api.editDocumentDocxGetComments(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagGetDocxGetCommentsRequest**](SwagGetDocxGetCommentsRequest.md)| Document input request |
+
+### Return type
+
+[**SwagGetDocxCommentsResponse**](SwagGetDocxCommentsResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxGetCommentsHierarchical"></a>
+# **editDocumentDocxGetCommentsHierarchical**
+> SwagGetDocxCommentsHierarchicalRespo editDocumentDocxGetCommentsHierarchical(reqConfig)
+
+Get comments from a Word DOCX document hierarchically
+
+Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagGetDocxGetCommentsHierarchicalRe.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetDocxCommentsHierarchicalRespo result = api.editDocumentDocxGetCommentsHierarchical(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagGetDocxGetCommentsHierarchicalRe**](SwagGetDocxGetCommentsHierarchicalRe.md)| Document input request |
+
+### Return type
+
+[**SwagGetDocxCommentsHierarchicalRespo**](SwagGetDocxCommentsHierarchicalRespo.md)
 
 ### Authorization
 
@@ -676,6 +777,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagGetDocxTablesResponse**](SwagGetDocxTablesResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxInsertCommentOnParagraph"></a>
+# **editDocumentDocxInsertCommentOnParagraph**
+> SwagInsertDocxCommentOnParagraphResp editDocumentDocxInsertCommentOnParagraph(reqConfig)
+
+Insert a new comment into a Word DOCX document attached to a paragraph
+
+Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagDocxInsertCommentOnParagraphRequ.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagInsertDocxCommentOnParagraphResp result = api.editDocumentDocxInsertCommentOnParagraph(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagDocxInsertCommentOnParagraphRequ**](SwagDocxInsertCommentOnParagraphRequ.md)| Document input request |
+
+### Return type
+
+[**SwagInsertDocxCommentOnParagraphResp**](SwagInsertDocxCommentOnParagraphResp.md)
 
 ### Authorization
 

@@ -172,6 +172,54 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get comments from a Word DOCX document as a flat list
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
+     * @param reqConfig Document input request (required)
+     * @return SwagGetDocxCommentsResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxCommentsResponse editDocumentDocxGetComments(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetDocxCommentsResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-comments/flat-list',
+            (SwagGetDocxGetCommentsRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxCommentsResponse.class
+        );
+    }
+    /**
+     * Get comments from a Word DOCX document hierarchically
+     * Returns the comments and review annotations stored in the Word Document (DOCX) format file hierarchically, where reply comments are nested as children under top-level comments in the results returned.
+     * @param reqConfig Document input request (required)
+     * @return SwagGetDocxCommentsHierarchicalRespo
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxCommentsHierarchicalRespo editDocumentDocxGetCommentsHierarchical(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetDocxCommentsHierarchicalRespo) client.invoke(
+            'POST', '/convert/edit/docx/get-comments/hierarchical',
+            (SwagGetDocxGetCommentsHierarchicalRe) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxCommentsHierarchicalRespo.class
+        );
+    }
+    /**
      * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -337,6 +385,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagGetDocxTablesResponse.class
+        );
+    }
+    /**
+     * Insert a new comment into a Word DOCX document attached to a paragraph
+     * Adds a new comment into a Word DOCX document attached to a paragraph and returns the result.  Call Finish Editing on the output URL to complete the operation.
+     * @param reqConfig Document input request (required)
+     * @return SwagInsertDocxCommentOnParagraphResp
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagInsertDocxCommentOnParagraphResp editDocumentDocxInsertCommentOnParagraph(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagInsertDocxCommentOnParagraphResp) client.invoke(
+            'POST', '/convert/edit/docx/insert-comment/on/paragraph',
+            (SwagDocxInsertCommentOnParagraphRequ) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagInsertDocxCommentOnParagraphResp.class
         );
     }
     /**

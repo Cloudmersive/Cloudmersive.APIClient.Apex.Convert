@@ -11,23 +11,23 @@
  */
 
 /**
- * SwagGetDocxPagesResponse
+ * Result of getting pages from a Word Document DOCX
  */
 public class SwagGetDocxPagesResponse implements Swagger.MappedProperties {
     /**
-     * Get successful
+     * True if successful, false otherwise
      * @return successful
      */
     public Boolean successful { get; set; }
 
     /**
-     * Get pages
+     * Pages in the document
      * @return pages
      */
     public List<SwagDocxPage> pages { get; set; }
 
     /**
-     * Get pageCount
+     * Count of pages
      * @return pageCount
      */
     public Integer pageCount { get; set; }

@@ -11,7 +11,7 @@
  */
 
 /**
- * SwagDocxPage
+ * One page in a Word Document DOCX
  */
 public class SwagDocxPage implements Swagger.MappedProperties {
     /**

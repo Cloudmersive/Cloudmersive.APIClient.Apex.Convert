@@ -132,6 +132,8 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxDeletePages**](docs/SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxDeleteTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxDeleteTableRowRange**](docs/SwagEditDocumentApi.md#editDocumentDocxDeleteTableRowRange) | **POST** /convert/edit/docx/delete-table-row/range | Deletes a range of multiple table rows in an existing table in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxGetComments**](docs/SwagEditDocumentApi.md#editDocumentDocxGetComments) | **POST** /convert/edit/docx/get-comments/flat-list | Get comments from a Word DOCX document as a flat list
+*SwagEditDocumentApi* | [**editDocumentDocxGetCommentsHierarchical**](docs/SwagEditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
 *SwagEditDocumentApi* | [**editDocumentDocxGetHeadersAndFooters**](docs/SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetImages**](docs/SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetSections**](docs/SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
@@ -139,6 +141,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxGetTableByIndex**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTableRow) | **POST** /convert/edit/docx/get-table-row | Gets the contents of an existing table row in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetTables**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTables) | **POST** /convert/edit/docx/get-tables | Get all tables in Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxInsertCommentOnParagraph**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertCommentOnParagraph) | **POST** /convert/edit/docx/insert-comment/on/paragraph | Insert a new comment into a Word DOCX document attached to a paragraph
 *SwagEditDocumentApi* | [**editDocumentDocxInsertImage**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertImage) | **POST** /convert/edit/docx/insert-image | Insert image into a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertParagraph**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertParagraph) | **POST** /convert/edit/docx/insert-paragraph | Insert a new paragraph into a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxInsertTable**](docs/SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
@@ -236,9 +239,11 @@ Class | Method | HTTP request | Description
  - [SwagDocumentValidationResult](docs/SwagDocumentValidationResult.md)
  - [SwagDocxBody](docs/SwagDocxBody.md)
  - [SwagDocxCellStyle](docs/SwagDocxCellStyle.md)
+ - [SwagDocxComment](docs/SwagDocxComment.md)
  - [SwagDocxFooter](docs/SwagDocxFooter.md)
  - [SwagDocxHeader](docs/SwagDocxHeader.md)
  - [SwagDocxImage](docs/SwagDocxImage.md)
+ - [SwagDocxInsertCommentOnParagraphRequ](docs/SwagDocxInsertCommentOnParagraphRequ.md)
  - [SwagDocxInsertImageRequest](docs/SwagDocxInsertImageRequest.md)
  - [SwagDocxInsertImageResponse](docs/SwagDocxInsertImageResponse.md)
  - [SwagDocxPage](docs/SwagDocxPage.md)
@@ -259,10 +264,15 @@ Class | Method | HTTP request | Description
  - [SwagDocxTemplateApplicationRequest](docs/SwagDocxTemplateApplicationRequest.md)
  - [SwagDocxTemplateOperation](docs/SwagDocxTemplateOperation.md)
  - [SwagDocxText](docs/SwagDocxText.md)
+ - [SwagDocxTopLevelComment](docs/SwagDocxTopLevelComment.md)
  - [SwagExifValue](docs/SwagExifValue.md)
  - [SwagFinishEditingRequest](docs/SwagFinishEditingRequest.md)
  - [SwagGetDocxBodyRequest](docs/SwagGetDocxBodyRequest.md)
  - [SwagGetDocxBodyResponse](docs/SwagGetDocxBodyResponse.md)
+ - [SwagGetDocxCommentsHierarchicalRespo](docs/SwagGetDocxCommentsHierarchicalRespo.md)
+ - [SwagGetDocxCommentsResponse](docs/SwagGetDocxCommentsResponse.md)
+ - [SwagGetDocxGetCommentsHierarchicalRe](docs/SwagGetDocxGetCommentsHierarchicalRe.md)
+ - [SwagGetDocxGetCommentsRequest](docs/SwagGetDocxGetCommentsRequest.md)
  - [SwagGetDocxHeadersAndFootersRequest](docs/SwagGetDocxHeadersAndFootersRequest.md)
  - [SwagGetDocxHeadersAndFootersResponse](docs/SwagGetDocxHeadersAndFootersResponse.md)
  - [SwagGetDocxImagesRequest](docs/SwagGetDocxImagesRequest.md)
@@ -304,6 +314,7 @@ Class | Method | HTTP request | Description
  - [SwagHtmlToPngRequest](docs/SwagHtmlToPngRequest.md)
  - [SwagHtmlToTextRequest](docs/SwagHtmlToTextRequest.md)
  - [SwagHtmlToTextResponse](docs/SwagHtmlToTextResponse.md)
+ - [SwagInsertDocxCommentOnParagraphResp](docs/SwagInsertDocxCommentOnParagraphResp.md)
  - [SwagInsertDocxInsertParagraphRequest](docs/SwagInsertDocxInsertParagraphRequest.md)
  - [SwagInsertDocxInsertParagraphRespons](docs/SwagInsertDocxInsertParagraphRespons.md)
  - [SwagInsertDocxTableRowRequest](docs/SwagInsertDocxTableRowRequest.md)
