@@ -263,6 +263,82 @@ private class SwagMergeDocumentApiTest {
     }
 
     /**
+     * Merge Two Text (TXT) Files Together
+     *
+     * Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+     */
+    @isTest
+    private static void mergeDocumentTxtTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile2' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagMergeDocumentApi api;
+        Object response;
+        Object expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagMergeDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"{}"');
+        expectedResponse = null;
+        response = (Object) api.mergeDocumentTxt(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Merge Multple Text (TXT) Files Together
+     *
+     * Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+     */
+    @isTest
+    private static void mergeDocumentTxtMultiTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile10' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagMergeDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagMergeDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.mergeDocumentTxtMulti(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Merge Two Excel XLSX Together
      *
      * Combine two Office Excel spreadsheets (xlsx) into a single Office Excel spreadsheet

@@ -155,7 +155,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxSetHeader**](docs/SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxUpdateTableCell**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableCell) | **POST** /convert/edit/docx/update-table-cell | Update, set contents of a table cell in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxUpdateTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
-*SwagEditDocumentApi* | [**editDocumentFinishEditing**](docs/SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Download result from document editing
+*SwagEditDocumentApi* | [**editDocumentFinishEditing**](docs/SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Finish editing document, and download result from document editing
 *SwagEditDocumentApi* | [**editDocumentPptxDeleteSlides**](docs/SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 *SwagEditDocumentApi* | [**editDocumentPptxReplace**](docs/SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 *SwagEditDocumentApi* | [**editDocumentXlsxClearCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxClearCellByIndex) | **POST** /convert/edit/xlsx/clear-cell/by-index | Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
@@ -190,6 +190,15 @@ Class | Method | HTTP request | Description
 *SwagEditPdfApi* | [**editPdfSetMetadata**](docs/SwagEditPdfApi.md#editPdfSetMetadata) | **POST** /convert/edit/pdf/set-metadata | Sets PDF document metadata
 *SwagEditPdfApi* | [**editPdfSetPermissions**](docs/SwagEditPdfApi.md#editPdfSetPermissions) | **POST** /convert/edit/pdf/encrypt/set-permissions | Encrypt, password-protect and set restricted permissions on a PDF
 *SwagEditPdfApi* | [**editPdfWatermarkText**](docs/SwagEditPdfApi.md#editPdfWatermarkText) | **POST** /convert/edit/pdf/watermark/text | Add a text watermark to a PDF
+*SwagEditTextApi* | [**editTextBase64Decode**](docs/SwagEditTextApi.md#editTextBase64Decode) | **POST** /convert/edit/text/encoding/base64/decode | Base 64 decode, convert base 64 string to binary content
+*SwagEditTextApi* | [**editTextBase64Detect**](docs/SwagEditTextApi.md#editTextBase64Detect) | **POST** /convert/edit/text/encoding/base64/detect | Detect, check if text string is base 64 encoded
+*SwagEditTextApi* | [**editTextBase64Encode**](docs/SwagEditTextApi.md#editTextBase64Encode) | **POST** /convert/edit/text/encoding/base64/encode | Base 64 encode, convert binary or file data to a text string
+*SwagEditTextApi* | [**editTextChangeLineEndings**](docs/SwagEditTextApi.md#editTextChangeLineEndings) | **POST** /convert/edit/text/line-endings/change | Set, change line endings of a text file
+*SwagEditTextApi* | [**editTextDetectLineEndings**](docs/SwagEditTextApi.md#editTextDetectLineEndings) | **POST** /convert/edit/text/line-endings/detect | Detect line endings of a text file
+*SwagEditTextApi* | [**editTextRemoveAllWhitespace**](docs/SwagEditTextApi.md#editTextRemoveAllWhitespace) | **POST** /convert/edit/text/remove/whitespace/all | Remove whitespace from text string
+*SwagEditTextApi* | [**editTextRemoveHtml**](docs/SwagEditTextApi.md#editTextRemoveHtml) | **POST** /convert/edit/text/remove/html | Remove HTML from text string
+*SwagEditTextApi* | [**editTextTextEncodingDetect**](docs/SwagEditTextApi.md#editTextTextEncodingDetect) | **POST** /convert/edit/text/encoding/detect | Detect text encoding of file
+*SwagEditTextApi* | [**editTextTrimWhitespace**](docs/SwagEditTextApi.md#editTextTrimWhitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
 *SwagMergeDocumentApi* | [**mergeDocumentDocx**](docs/SwagMergeDocumentApi.md#mergeDocumentDocx) | **POST** /convert/merge/docx | Merge Two Word DOCX Together
 *SwagMergeDocumentApi* | [**mergeDocumentDocxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentDocxMulti) | **POST** /convert/merge/docx/multi | Merge Multple Word DOCX Together
 *SwagMergeDocumentApi* | [**mergeDocumentPdf**](docs/SwagMergeDocumentApi.md#mergeDocumentPdf) | **POST** /convert/merge/pdf | Merge Two PDF Files Together
@@ -197,12 +206,15 @@ Class | Method | HTTP request | Description
 *SwagMergeDocumentApi* | [**mergeDocumentPng**](docs/SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Multple PNG Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentPptx**](docs/SwagMergeDocumentApi.md#mergeDocumentPptx) | **POST** /convert/merge/pptx | Merge Two PowerPoint PPTX Together
 *SwagMergeDocumentApi* | [**mergeDocumentPptxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentPptxMulti) | **POST** /convert/merge/pptx/multi | Merge Multple PowerPoint PPTX Together
+*SwagMergeDocumentApi* | [**mergeDocumentTxt**](docs/SwagMergeDocumentApi.md#mergeDocumentTxt) | **POST** /convert/merge/txt | Merge Two Text (TXT) Files Together
+*SwagMergeDocumentApi* | [**mergeDocumentTxtMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentTxtMulti) | **POST** /convert/merge/txt/multi | Merge Multple Text (TXT) Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentXlsx**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsx) | **POST** /convert/merge/xlsx | Merge Two Excel XLSX Together
 *SwagMergeDocumentApi* | [**mergeDocumentXlsxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsxMulti) | **POST** /convert/merge/xlsx/multi | Merge Multple Excel XLSX Together
 *SwagSplitDocumentApi* | [**splitDocumentDocx**](docs/SwagSplitDocumentApi.md#splitDocumentDocx) | **POST** /convert/split/docx | Split a single Word Document DOCX into Separate Documents by Page
 *SwagSplitDocumentApi* | [**splitDocumentPdfByPage**](docs/SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 *SwagSplitDocumentApi* | [**splitDocumentPptx**](docs/SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
 *SwagSplitDocumentApi* | [**splitDocumentTxtByLine**](docs/SwagSplitDocumentApi.md#splitDocumentTxtByLine) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
+*SwagSplitDocumentApi* | [**splitDocumentTxtByString**](docs/SwagSplitDocumentApi.md#splitDocumentTxtByString) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 *SwagSplitDocumentApi* | [**splitDocumentXlsx**](docs/SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentDocxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
@@ -222,6 +234,13 @@ Class | Method | HTTP request | Description
  - [SwagAutodetectDocumentValidationResu](docs/SwagAutodetectDocumentValidationResu.md)
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
  - [SwagAutodetectToPngResult](docs/SwagAutodetectToPngResult.md)
+ - [SwagBase64DecodeRequest](docs/SwagBase64DecodeRequest.md)
+ - [SwagBase64DecodeResponse](docs/SwagBase64DecodeResponse.md)
+ - [SwagBase64DetectRequest](docs/SwagBase64DetectRequest.md)
+ - [SwagBase64DetectResponse](docs/SwagBase64DetectResponse.md)
+ - [SwagBase64EncodeRequest](docs/SwagBase64EncodeRequest.md)
+ - [SwagBase64EncodeResponse](docs/SwagBase64EncodeResponse.md)
+ - [SwagChangeLineEndingResponse](docs/SwagChangeLineEndingResponse.md)
  - [SwagClearXlsxCellRequest](docs/SwagClearXlsxCellRequest.md)
  - [SwagClearXlsxCellResponse](docs/SwagClearXlsxCellResponse.md)
  - [SwagConvertedPngPage](docs/SwagConvertedPngPage.md)
@@ -235,6 +254,7 @@ Class | Method | HTTP request | Description
  - [SwagDeleteDocxTableRowRangeResponse](docs/SwagDeleteDocxTableRowRangeResponse.md)
  - [SwagDeleteDocxTableRowRequest](docs/SwagDeleteDocxTableRowRequest.md)
  - [SwagDeleteDocxTableRowResponse](docs/SwagDeleteDocxTableRowResponse.md)
+ - [SwagDetectLineEndingsResponse](docs/SwagDetectLineEndingsResponse.md)
  - [SwagDocumentValidationError](docs/SwagDocumentValidationError.md)
  - [SwagDocumentValidationResult](docs/SwagDocumentValidationResult.md)
  - [SwagDocxBody](docs/SwagDocxBody.md)
@@ -337,7 +357,11 @@ Class | Method | HTTP request | Description
  - [SwagRemoveDocxHeadersAndFootersReque](docs/SwagRemoveDocxHeadersAndFootersReque.md)
  - [SwagRemoveDocxHeadersAndFootersRespo](docs/SwagRemoveDocxHeadersAndFootersRespo.md)
  - [SwagRemoveDocxPagesRequest](docs/SwagRemoveDocxPagesRequest.md)
+ - [SwagRemoveHtmlFromTextRequest](docs/SwagRemoveHtmlFromTextRequest.md)
+ - [SwagRemoveHtmlFromTextResponse](docs/SwagRemoveHtmlFromTextResponse.md)
  - [SwagRemovePptxSlidesRequest](docs/SwagRemovePptxSlidesRequest.md)
+ - [SwagRemoveWhitespaceFromTextRequest](docs/SwagRemoveWhitespaceFromTextRequest.md)
+ - [SwagRemoveWhitespaceFromTextResponse](docs/SwagRemoveWhitespaceFromTextResponse.md)
  - [SwagRemoveXlsxWorksheetRequest](docs/SwagRemoveXlsxWorksheetRequest.md)
  - [SwagReplaceStringRequest](docs/SwagReplaceStringRequest.md)
  - [SwagScreenshotRequest](docs/SwagScreenshotRequest.md)
@@ -353,9 +377,12 @@ Class | Method | HTTP request | Description
  - [SwagSplitPdfResult](docs/SwagSplitPdfResult.md)
  - [SwagSplitPptxPresentationResult](docs/SwagSplitPptxPresentationResult.md)
  - [SwagSplitTextDocumentByLinesResult](docs/SwagSplitTextDocumentByLinesResult.md)
+ - [SwagSplitTextDocumentByStringResult](docs/SwagSplitTextDocumentByStringResult.md)
  - [SwagSplitXlsxWorksheetResult](docs/SwagSplitXlsxWorksheetResult.md)
  - [SwagTextConversionResult](docs/SwagTextConversionResult.md)
+ - [SwagTextDocumentElement](docs/SwagTextDocumentElement.md)
  - [SwagTextDocumentLine](docs/SwagTextDocumentLine.md)
+ - [SwagTextEncodingDetectResponse](docs/SwagTextEncodingDetectResponse.md)
  - [SwagUpdateDocxTableCellRequest](docs/SwagUpdateDocxTableCellRequest.md)
  - [SwagUpdateDocxTableCellResponse](docs/SwagUpdateDocxTableCellResponse.md)
  - [SwagUpdateDocxTableRowRequest](docs/SwagUpdateDocxTableRowRequest.md)

@@ -139,6 +139,38 @@ public class SwagSplitDocumentApi {
         );
     }
     /**
+     * Split a single Text file (txt) by a string delimiter
+     * Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param splitDelimiter Required; String to split up the input file on (required)
+     * @param skipEmptyElements Optional; If true, empty elements will be skipped in the output (optional)
+     * @return SwagSplitTextDocumentByStringResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSplitTextDocumentByStringResult splitDocumentTxtByString(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('splitDelimiter'), 'splitDelimiter');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagSplitTextDocumentByStringResult) client.invoke(
+            'POST', '/convert/split/txt/by-string', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'splitDelimiter' => (String) params.get('splitDelimiter'),
+                'skipEmptyElements' => (Boolean) params.get('skipEmptyElements')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagSplitTextDocumentByStringResult.class
+        );
+    }
+    /**
      * Split a single Excel XLSX into Separate Worksheets
      * Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.
      * @param inputFile Input file to perform the operation on. (required)

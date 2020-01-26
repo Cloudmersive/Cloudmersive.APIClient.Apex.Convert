@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentDocxToTxt"></a>
 # **convertDocumentDocxToTxt**
-> SwagTextConversionResult convertDocumentDocxToTxt(inputFile)
+> SwagTextConversionResult convertDocumentDocxToTxt(inputFile, textFormattingMode)
 
 Convert Word DOCX Document to Text (txt)
 
@@ -497,7 +497,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'textFormattingMode' => 'textFormattingMode_example'
 };
 
 try {
@@ -514,6 +515,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **textFormattingMode** | **String**| Optional; specify how whitespace should be handled when converting the document to text.  Possible values are \&#39;preserveWhitespace\&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and \&#39;minimizeWhitespace\&#39; which will not insert additional spaces into the document in most cases.  Default is \&#39;minimizeWhitespace\&#39;. | [optional]
 
 ### Return type
 

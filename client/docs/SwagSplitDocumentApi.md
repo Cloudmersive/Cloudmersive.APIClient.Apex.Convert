@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**splitDocumentPdfByPage**](SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 [**splitDocumentPptx**](SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
 [**splitDocumentTxtByLine**](SwagSplitDocumentApi.md#splitDocumentTxtByLine) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
+[**splitDocumentTxtByString**](SwagSplitDocumentApi.md#splitDocumentTxtByString) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 [**splitDocumentXlsx**](SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 
 
@@ -203,6 +204,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagSplitTextDocumentByLinesResult**](SwagSplitTextDocumentByLinesResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="splitDocumentTxtByString"></a>
+# **splitDocumentTxtByString**
+> SwagSplitTextDocumentByStringResult splitDocumentTxtByString(inputFile, splitDelimiter, skipEmptyElements)
+
+Split a single Text file (txt) by a string delimiter
+
+Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+
+### Example
+```java
+SwagSplitDocumentApi api = new SwagSplitDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'splitDelimiter' => 'splitDelimiter_example',
+    'skipEmptyElements' => true
+};
+
+try {
+    // cross your fingers
+    SwagSplitTextDocumentByStringResult result = api.splitDocumentTxtByString(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **splitDelimiter** | **String**| Required; String to split up the input file on |
+ **skipEmptyElements** | **Boolean**| Optional; If true, empty elements will be skipped in the output | [optional]
+
+### Return type
+
+[**SwagSplitTextDocumentByStringResult**](SwagSplitTextDocumentByStringResult.md)
 
 ### Authorization
 

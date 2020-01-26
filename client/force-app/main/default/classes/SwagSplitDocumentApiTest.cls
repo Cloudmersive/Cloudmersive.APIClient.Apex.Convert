@@ -136,6 +136,41 @@ private class SwagSplitDocumentApiTest {
     }
 
     /**
+     * Split a single Text file (txt) by a string delimiter
+     *
+     * Split a Text (txt) Document by a string delimiter, returning each component of the string as an array of strings.
+     */
+    @isTest
+    private static void splitDocumentTxtByStringTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'splitDelimiter' => 'splitDelimiter_example',
+            'skipEmptyElements' => true
+        };
+
+        SwagClient client;
+        SwagSplitDocumentApi api;
+        SwagSplitTextDocumentByStringResult response;
+        SwagSplitTextDocumentByStringResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagSplitDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "ElementCount" : 6,\r\n  "ResultElements" : [ {\r\n    "ElementNumber" : 0,\r\n    "ElementContents" : "ElementContents"\r\n  }, {\r\n    "ElementNumber" : 0,\r\n    "ElementContents" : "ElementContents"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagSplitTextDocumentByStringResult.getExample();
+        response = (SwagSplitTextDocumentByStringResult) api.splitDocumentTxtByString(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Split a single Excel XLSX into Separate Worksheets
      *
      * Split an Excel XLSX Spreadsheet, comprised of multiple Worksheets (or Tabs) into separate Excel XLSX spreadsheet files, with each containing exactly one Worksheet.

@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**mergeDocumentPng**](SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Multple PNG Files Together
 [**mergeDocumentPptx**](SwagMergeDocumentApi.md#mergeDocumentPptx) | **POST** /convert/merge/pptx | Merge Two PowerPoint PPTX Together
 [**mergeDocumentPptxMulti**](SwagMergeDocumentApi.md#mergeDocumentPptxMulti) | **POST** /convert/merge/pptx/multi | Merge Multple PowerPoint PPTX Together
+[**mergeDocumentTxt**](SwagMergeDocumentApi.md#mergeDocumentTxt) | **POST** /convert/merge/txt | Merge Two Text (TXT) Files Together
+[**mergeDocumentTxtMulti**](SwagMergeDocumentApi.md#mergeDocumentTxtMulti) | **POST** /convert/merge/txt/multi | Merge Multple Text (TXT) Files Together
 [**mergeDocumentXlsx**](SwagMergeDocumentApi.md#mergeDocumentXlsx) | **POST** /convert/merge/xlsx | Merge Two Excel XLSX Together
 [**mergeDocumentXlsxMulti**](SwagMergeDocumentApi.md#mergeDocumentXlsxMulti) | **POST** /convert/merge/xlsx/multi | Merge Multple Excel XLSX Together
 
@@ -386,6 +388,124 @@ Map<String, Object> params = new Map<String, Object>{
 try {
     // cross your fingers
     Blob result = api.mergeDocumentPptxMulti(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on. |
+ **inputFile3** | **Blob**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **Blob**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **Blob**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **Blob**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **Blob**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **Blob**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **Blob**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **Blob**| Tenth input file to perform the operation on. | [optional]
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="mergeDocumentTxt"></a>
+# **mergeDocumentTxt**
+> Object mergeDocumentTxt(inputFile1, inputFile2)
+
+Merge Two Text (TXT) Files Together
+
+Combine two Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+
+### Example
+```java
+SwagMergeDocumentApi api = new SwagMergeDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Object result = api.mergeDocumentTxt(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on (more than 2 can be supplied). |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="mergeDocumentTxtMulti"></a>
+# **mergeDocumentTxtMulti**
+> Blob mergeDocumentTxtMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+Merge Multple Text (TXT) Files Together
+
+Combine multiple Text (.TXT) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.
+
+### Example
+```java
+SwagMergeDocumentApi api = new SwagMergeDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile10' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.mergeDocumentTxtMulti(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions

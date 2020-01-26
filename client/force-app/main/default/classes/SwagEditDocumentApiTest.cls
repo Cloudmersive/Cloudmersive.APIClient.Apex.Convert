@@ -3,7 +3,7 @@ private class SwagEditDocumentApiTest {
     /**
      * Begin editing a document
      *
-     * Uploads a document to Cloudmersive to begin a series of one or more editing operations
+     * Uploads a document to Cloudmersive to begin a series of one or more editing operations.  To edit a document, first call Begin Editing on the document.  Then perform operations on the document using the secure URL returned from BeginEditing, such as Word DOCX Delete Pages and Insert Table.  Finally, perform finish editing on the URL to return the resulting edited document.  The editing URL is temporary and only stored in-memory cache, and will automatically expire from the cache after 30 minutes, and cannot be directly accessed.
      */
     @isTest
     private static void editDocumentBeginEditingTest() {
@@ -69,7 +69,7 @@ private class SwagEditDocumentApiTest {
     /**
      * Create a blank Word DOCX document
      *
-     * Returns a blank Word DOCX Document format file
+     * Returns a blank Word DOCX Document format file.  The file is blank, with no contents.  Use additional editing commands such as Insert Paragraph or Insert Table or Insert Image to populate the document.
      */
     @isTest
     private static void editDocumentDocxCreateBlankDocumentTest() {
@@ -958,7 +958,7 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
-     * Download result from document editing
+     * Finish editing document, and download result from document editing
      *
      * Once done editing a document, download the result.  Begin editing a document by calling begin-editing, then perform operations, then call finish-editing to get the result.
      */
