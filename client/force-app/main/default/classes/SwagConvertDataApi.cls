@@ -54,7 +54,7 @@ public class SwagConvertDataApi {
     /**
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
-     * @param jsonObject  (required)
+     * @param jsonObject Input JSON to convert to XML (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */

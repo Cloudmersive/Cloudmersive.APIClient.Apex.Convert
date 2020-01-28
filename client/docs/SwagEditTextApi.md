@@ -9,8 +9,12 @@ Method | HTTP request | Description
 [**editTextBase64Encode**](SwagEditTextApi.md#editTextBase64Encode) | **POST** /convert/edit/text/encoding/base64/encode | Base 64 encode, convert binary or file data to a text string
 [**editTextChangeLineEndings**](SwagEditTextApi.md#editTextChangeLineEndings) | **POST** /convert/edit/text/line-endings/change | Set, change line endings of a text file
 [**editTextDetectLineEndings**](SwagEditTextApi.md#editTextDetectLineEndings) | **POST** /convert/edit/text/line-endings/detect | Detect line endings of a text file
+[**editTextFindRegex**](SwagEditTextApi.md#editTextFindRegex) | **POST** /convert/edit/text/find/regex | Find a regular expression regex in text input
+[**editTextFindSimple**](SwagEditTextApi.md#editTextFindSimple) | **POST** /convert/edit/text/find/string | Find a string in text input
 [**editTextRemoveAllWhitespace**](SwagEditTextApi.md#editTextRemoveAllWhitespace) | **POST** /convert/edit/text/remove/whitespace/all | Remove whitespace from text string
 [**editTextRemoveHtml**](SwagEditTextApi.md#editTextRemoveHtml) | **POST** /convert/edit/text/remove/html | Remove HTML from text string
+[**editTextReplaceRegex**](SwagEditTextApi.md#editTextReplaceRegex) | **POST** /convert/edit/text/replace/regex | Replace a string in text with a regex regular expression string
+[**editTextReplaceSimple**](SwagEditTextApi.md#editTextReplaceSimple) | **POST** /convert/edit/text/replace/string | Replace a string in text with another string value
 [**editTextTextEncodingDetect**](SwagEditTextApi.md#editTextTextEncodingDetect) | **POST** /convert/edit/text/encoding/detect | Detect text encoding of file
 [**editTextTrimWhitespace**](SwagEditTextApi.md#editTextTrimWhitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
 
@@ -49,7 +53,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SwagBase64DecodeRequest**](SwagBase64DecodeRequest.md)|  |
+ **request** | [**SwagBase64DecodeRequest**](SwagBase64DecodeRequest.md)| Input request |
 
 ### Return type
 
@@ -98,7 +102,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SwagBase64DetectRequest**](SwagBase64DetectRequest.md)|  |
+ **request** | [**SwagBase64DetectRequest**](SwagBase64DetectRequest.md)| Input request |
 
 ### Return type
 
@@ -147,7 +151,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SwagBase64EncodeRequest**](SwagBase64EncodeRequest.md)|  |
+ **request** | [**SwagBase64EncodeRequest**](SwagBase64EncodeRequest.md)| Input request |
 
 ### Return type
 
@@ -262,6 +266,104 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="editTextFindRegex"></a>
+# **editTextFindRegex**
+> SwagFindStringRegexResponse editTextFindRegex(request)
+
+Find a regular expression regex in text input
+
+Find all occurrences of the input regular expression in the input content, and returns the matches
+
+### Example
+```java
+SwagEditTextApi api = new SwagEditTextApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagFindStringRegexRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagFindStringRegexResponse result = api.editTextFindRegex(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagFindStringRegexRequest**](SwagFindStringRegexRequest.md)| Input request |
+
+### Return type
+
+[**SwagFindStringRegexResponse**](SwagFindStringRegexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editTextFindSimple"></a>
+# **editTextFindSimple**
+> SwagFindStringSimpleResponse editTextFindSimple(request)
+
+Find a string in text input
+
+Finds all occurrences of the input string in the input content, and returns the matches
+
+### Example
+```java
+SwagEditTextApi api = new SwagEditTextApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagFindStringSimpleRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagFindStringSimpleResponse result = api.editTextFindSimple(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagFindStringSimpleRequest**](SwagFindStringSimpleRequest.md)| Input request |
+
+### Return type
+
+[**SwagFindStringSimpleResponse**](SwagFindStringSimpleResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="editTextRemoveAllWhitespace"></a>
 # **editTextRemoveAllWhitespace**
 > SwagRemoveWhitespaceFromTextResponse editTextRemoveAllWhitespace(request)
@@ -296,7 +398,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SwagRemoveWhitespaceFromTextRequest**](SwagRemoveWhitespaceFromTextRequest.md)|  |
+ **request** | [**SwagRemoveWhitespaceFromTextRequest**](SwagRemoveWhitespaceFromTextRequest.md)| Input request |
 
 ### Return type
 
@@ -345,11 +447,109 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SwagRemoveHtmlFromTextRequest**](SwagRemoveHtmlFromTextRequest.md)|  |
+ **request** | [**SwagRemoveHtmlFromTextRequest**](SwagRemoveHtmlFromTextRequest.md)| Input request |
 
 ### Return type
 
 [**SwagRemoveHtmlFromTextResponse**](SwagRemoveHtmlFromTextResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editTextReplaceRegex"></a>
+# **editTextReplaceRegex**
+> SwagReplaceStringRegexResponse editTextReplaceRegex(request)
+
+Replace a string in text with a regex regular expression string
+
+Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+
+### Example
+```java
+SwagEditTextApi api = new SwagEditTextApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagReplaceStringRegexRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagReplaceStringRegexResponse result = api.editTextReplaceRegex(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagReplaceStringRegexRequest**](SwagReplaceStringRegexRequest.md)| Input request |
+
+### Return type
+
+[**SwagReplaceStringRegexResponse**](SwagReplaceStringRegexResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editTextReplaceSimple"></a>
+# **editTextReplaceSimple**
+> SwagReplaceStringSimpleResponse editTextReplaceSimple(request)
+
+Replace a string in text with another string value
+
+Replaces all occurrences of the input string in the input content, and returns the result
+
+### Example
+```java
+SwagEditTextApi api = new SwagEditTextApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagReplaceStringSimpleRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagReplaceStringSimpleResponse result = api.editTextReplaceSimple(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagReplaceStringSimpleRequest**](SwagReplaceStringSimpleRequest.md)| Input request |
+
+### Return type
+
+[**SwagReplaceStringSimpleResponse**](SwagReplaceStringSimpleResponse.md)
 
 ### Authorization
 
@@ -443,7 +643,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**SwagRemoveWhitespaceFromTextRequest**](SwagRemoveWhitespaceFromTextRequest.md)|  |
+ **request** | [**SwagRemoveWhitespaceFromTextRequest**](SwagRemoveWhitespaceFromTextRequest.md)| Input request |
 
 ### Return type
 

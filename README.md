@@ -121,11 +121,11 @@ Class | Method | HTTP request | Description
 *SwagConvertWebApi* | [**convertWebHtmlToDocx**](docs/SwagConvertWebApi.md#convertWebHtmlToDocx) | **POST** /convert/html/to/docx | Convert HTML to Word DOCX Document
 *SwagConvertWebApi* | [**convertWebHtmlToPdf**](docs/SwagConvertWebApi.md#convertWebHtmlToPdf) | **POST** /convert/web/html/to/pdf | Convert HTML string to PDF
 *SwagConvertWebApi* | [**convertWebHtmlToPng**](docs/SwagConvertWebApi.md#convertWebHtmlToPng) | **POST** /convert/web/html/to/png | Convert HTML string to PNG screenshot
-*SwagConvertWebApi* | [**convertWebHtmlToTxt**](docs/SwagConvertWebApi.md#convertWebHtmlToTxt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
-*SwagConvertWebApi* | [**convertWebHtmlToTxt_0**](docs/SwagConvertWebApi.md#convertWebHtmlToTxt_0) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
+*SwagConvertWebApi* | [**convertWebHtmlToTxt**](docs/SwagConvertWebApi.md#convertWebHtmlToTxt) | **POST** /convert/web/html/to/txt | Convert HTML string to text (txt)
 *SwagConvertWebApi* | [**convertWebMdToHtml**](docs/SwagConvertWebApi.md#convertWebMdToHtml) | **POST** /convert/web/md/to/html | Convert Markdown to HTML
 *SwagConvertWebApi* | [**convertWebUrlToPdf**](docs/SwagConvertWebApi.md#convertWebUrlToPdf) | **POST** /convert/web/url/to/pdf | Convert a URL to PDF
 *SwagConvertWebApi* | [**convertWebUrlToScreenshot**](docs/SwagConvertWebApi.md#convertWebUrlToScreenshot) | **POST** /convert/web/url/to/screenshot | Take screenshot of URL
+*SwagConvertWebApi* | [**convertWebUrlToTxt**](docs/SwagConvertWebApi.md#convertWebUrlToTxt) | **POST** /convert/web/url/to/txt | Convert website URL page to text (txt)
 *SwagEditDocumentApi* | [**editDocumentBeginEditing**](docs/SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
 *SwagEditDocumentApi* | [**editDocumentDocxBody**](docs/SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxCreateBlankDocument**](docs/SwagEditDocumentApi.md#editDocumentDocxCreateBlankDocument) | **POST** /convert/edit/docx/create/blank | Create a blank Word DOCX document
@@ -195,8 +195,12 @@ Class | Method | HTTP request | Description
 *SwagEditTextApi* | [**editTextBase64Encode**](docs/SwagEditTextApi.md#editTextBase64Encode) | **POST** /convert/edit/text/encoding/base64/encode | Base 64 encode, convert binary or file data to a text string
 *SwagEditTextApi* | [**editTextChangeLineEndings**](docs/SwagEditTextApi.md#editTextChangeLineEndings) | **POST** /convert/edit/text/line-endings/change | Set, change line endings of a text file
 *SwagEditTextApi* | [**editTextDetectLineEndings**](docs/SwagEditTextApi.md#editTextDetectLineEndings) | **POST** /convert/edit/text/line-endings/detect | Detect line endings of a text file
+*SwagEditTextApi* | [**editTextFindRegex**](docs/SwagEditTextApi.md#editTextFindRegex) | **POST** /convert/edit/text/find/regex | Find a regular expression regex in text input
+*SwagEditTextApi* | [**editTextFindSimple**](docs/SwagEditTextApi.md#editTextFindSimple) | **POST** /convert/edit/text/find/string | Find a string in text input
 *SwagEditTextApi* | [**editTextRemoveAllWhitespace**](docs/SwagEditTextApi.md#editTextRemoveAllWhitespace) | **POST** /convert/edit/text/remove/whitespace/all | Remove whitespace from text string
 *SwagEditTextApi* | [**editTextRemoveHtml**](docs/SwagEditTextApi.md#editTextRemoveHtml) | **POST** /convert/edit/text/remove/html | Remove HTML from text string
+*SwagEditTextApi* | [**editTextReplaceRegex**](docs/SwagEditTextApi.md#editTextReplaceRegex) | **POST** /convert/edit/text/replace/regex | Replace a string in text with a regex regular expression string
+*SwagEditTextApi* | [**editTextReplaceSimple**](docs/SwagEditTextApi.md#editTextReplaceSimple) | **POST** /convert/edit/text/replace/string | Replace a string in text with another string value
 *SwagEditTextApi* | [**editTextTextEncodingDetect**](docs/SwagEditTextApi.md#editTextTextEncodingDetect) | **POST** /convert/edit/text/encoding/detect | Detect text encoding of file
 *SwagEditTextApi* | [**editTextTrimWhitespace**](docs/SwagEditTextApi.md#editTextTrimWhitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
 *SwagMergeDocumentApi* | [**mergeDocumentDocx**](docs/SwagMergeDocumentApi.md#mergeDocumentDocx) | **POST** /convert/merge/docx | Merge Two Word DOCX Together
@@ -225,6 +229,9 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentXlsxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 *SwagValidateDocumentApi* | [**validateDocumentXmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
 *SwagViewerToolsApi* | [**viewerToolsCreateSimple**](docs/SwagViewerToolsApi.md#viewerToolsCreateSimple) | **POST** /convert/viewer/create/web/simple | Create a web-based viewer
+*SwagZipArchiveApi* | [**zipArchiveZipCreate**](docs/SwagZipArchiveApi.md#zipArchiveZipCreate) | **POST** /convert/archive/zip/create | Compress files to create a new zip archive
+*SwagZipArchiveApi* | [**zipArchiveZipCreateAdvanced**](docs/SwagZipArchiveApi.md#zipArchiveZipCreateAdvanced) | **POST** /convert/archive/zip/create/advanced | Compress files and folders to create a new zip archive with advanced options
+*SwagZipArchiveApi* | [**zipArchiveZipExtract**](docs/SwagZipArchiveApi.md#zipArchiveZipExtract) | **POST** /convert/archive/zip/extract | Extract, decompress files and folders from a zip archive
 
 
 ## Documentation for Models
@@ -250,6 +257,7 @@ Class | Method | HTTP request | Description
  - [SwagCreateBlankSpreadsheetResponse](docs/SwagCreateBlankSpreadsheetResponse.md)
  - [SwagCreateSpreadsheetFromDataRequest](docs/SwagCreateSpreadsheetFromDataRequest.md)
  - [SwagCreateSpreadsheetFromDataRespons](docs/SwagCreateSpreadsheetFromDataRespons.md)
+ - [SwagCreateZipArchiveRequest](docs/SwagCreateZipArchiveRequest.md)
  - [SwagDeleteDocxTableRowRangeRequest](docs/SwagDeleteDocxTableRowRangeRequest.md)
  - [SwagDeleteDocxTableRowRangeResponse](docs/SwagDeleteDocxTableRowRangeResponse.md)
  - [SwagDeleteDocxTableRowRequest](docs/SwagDeleteDocxTableRowRequest.md)
@@ -286,6 +294,12 @@ Class | Method | HTTP request | Description
  - [SwagDocxText](docs/SwagDocxText.md)
  - [SwagDocxTopLevelComment](docs/SwagDocxTopLevelComment.md)
  - [SwagExifValue](docs/SwagExifValue.md)
+ - [SwagFindRegexMatch](docs/SwagFindRegexMatch.md)
+ - [SwagFindStringMatch](docs/SwagFindStringMatch.md)
+ - [SwagFindStringRegexRequest](docs/SwagFindStringRegexRequest.md)
+ - [SwagFindStringRegexResponse](docs/SwagFindStringRegexResponse.md)
+ - [SwagFindStringSimpleRequest](docs/SwagFindStringSimpleRequest.md)
+ - [SwagFindStringSimpleResponse](docs/SwagFindStringSimpleResponse.md)
  - [SwagFinishEditingRequest](docs/SwagFinishEditingRequest.md)
  - [SwagGetDocxBodyRequest](docs/SwagGetDocxBodyRequest.md)
  - [SwagGetDocxBodyResponse](docs/SwagGetDocxBodyResponse.md)
@@ -363,7 +377,11 @@ Class | Method | HTTP request | Description
  - [SwagRemoveWhitespaceFromTextRequest](docs/SwagRemoveWhitespaceFromTextRequest.md)
  - [SwagRemoveWhitespaceFromTextResponse](docs/SwagRemoveWhitespaceFromTextResponse.md)
  - [SwagRemoveXlsxWorksheetRequest](docs/SwagRemoveXlsxWorksheetRequest.md)
+ - [SwagReplaceStringRegexRequest](docs/SwagReplaceStringRegexRequest.md)
+ - [SwagReplaceStringRegexResponse](docs/SwagReplaceStringRegexResponse.md)
  - [SwagReplaceStringRequest](docs/SwagReplaceStringRequest.md)
+ - [SwagReplaceStringSimpleRequest](docs/SwagReplaceStringSimpleRequest.md)
+ - [SwagReplaceStringSimpleResponse](docs/SwagReplaceStringSimpleResponse.md)
  - [SwagScreenshotRequest](docs/SwagScreenshotRequest.md)
  - [SwagSetFormFieldValue](docs/SwagSetFormFieldValue.md)
  - [SwagSetPdfFormFieldsRequest](docs/SwagSetPdfFormFieldsRequest.md)
@@ -405,6 +423,9 @@ Class | Method | HTTP request | Description
  - [SwagXmlRemoveWithXPathResult](docs/SwagXmlRemoveWithXPathResult.md)
  - [SwagXmlReplaceWithXPathResult](docs/SwagXmlReplaceWithXPathResult.md)
  - [SwagXmlSetValueWithXPathResult](docs/SwagXmlSetValueWithXPathResult.md)
+ - [SwagZipDirectory](docs/SwagZipDirectory.md)
+ - [SwagZipExtractResponse](docs/SwagZipExtractResponse.md)
+ - [SwagZipFile](docs/SwagZipFile.md)
 
 
 ## Documentation for Authorization

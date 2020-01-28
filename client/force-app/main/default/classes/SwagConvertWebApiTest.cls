@@ -100,45 +100,12 @@ private class SwagConvertWebApiTest {
     }
 
     /**
-     * Convert website URL page to text (txt)
-     *
-     * Converts a website URL page into text (txt); extracts text from HTML
-     */
-    @isTest
-    private static void convertWebHtmlToTxtTest() {
-        HttpResponse res = new HttpResponse();
-        res.setStatusCode(200);
-        res.setStatus('OK');
-        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
-
-        Map<String, Object> params = new Map<String, Object>{
-            'input' => SwagUrlToTextRequest.getExample()
-        };
-
-        SwagClient client;
-        SwagConvertWebApi api;
-        SwagUrlToTextResponse response;
-        SwagUrlToTextResponse expectedResponse;
-
-        client = new SwagClient();
-        api = new SwagConvertWebApi(client);
-        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
-            client.setApiKey('foo-bar-api-key');
-
-        res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "Successful" : true,\r\n  "TextContentResult" : "TextContentResult"\r\n}');
-        expectedResponse = SwagUrlToTextResponse.getExample();
-        response = (SwagUrlToTextResponse) api.convertWebHtmlToTxt(params);
-        System.assertEquals(expectedResponse, response);
-    }
-
-    /**
      * Convert HTML string to text (txt)
      *
      * Converts an HTML string input into text (txt); extracts text from HTML
      */
     @isTest
-    private static void convertWebHtmlToTxt_0Test() {
+    private static void convertWebHtmlToTxtTest() {
         HttpResponse res = new HttpResponse();
         res.setStatusCode(200);
         res.setStatus('OK');
@@ -161,7 +128,7 @@ private class SwagConvertWebApiTest {
         res.setHeader('Content-Type', 'application/json');
         res.setBody('{\r\n  "Successful" : true,\r\n  "TextContentResult" : "TextContentResult"\r\n}');
         expectedResponse = SwagHtmlToTextResponse.getExample();
-        response = (SwagHtmlToTextResponse) api.convertWebHtmlToTxt_0(params);
+        response = (SwagHtmlToTextResponse) api.convertWebHtmlToTxt(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -261,6 +228,39 @@ private class SwagConvertWebApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertWebUrlToScreenshot(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert website URL page to text (txt)
+     *
+     * Converts a website URL page into text (txt); extracts text from HTML
+     */
+    @isTest
+    private static void convertWebUrlToTxtTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagUrlToTextRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagConvertWebApi api;
+        SwagUrlToTextResponse response;
+        SwagUrlToTextResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertWebApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "TextContentResult" : "TextContentResult"\r\n}');
+        expectedResponse = SwagUrlToTextResponse.getExample();
+        response = (SwagUrlToTextResponse) api.convertWebUrlToTxt(params);
         System.assertEquals(expectedResponse, response);
     }
 }

@@ -167,6 +167,72 @@ private class SwagEditTextApiTest {
     }
 
     /**
+     * Find a regular expression regex in text input
+     *
+     * Find all occurrences of the input regular expression in the input content, and returns the matches
+     */
+    @isTest
+    private static void editTextFindRegexTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagFindStringRegexRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditTextApi api;
+        SwagFindStringRegexResponse response;
+        SwagFindStringRegexResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditTextApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Matches" : [ {\r\n    "MatchGroups" : [ "MatchGroups", "MatchGroups" ],\r\n    "ContainingLine" : "ContainingLine",\r\n    "MatchValue" : "MatchValue",\r\n    "CharacterOffsetStart" : 0,\r\n    "CharacterOffsetEnd" : 6\r\n  }, {\r\n    "MatchGroups" : [ "MatchGroups", "MatchGroups" ],\r\n    "ContainingLine" : "ContainingLine",\r\n    "MatchValue" : "MatchValue",\r\n    "CharacterOffsetStart" : 0,\r\n    "CharacterOffsetEnd" : 6\r\n  } ],\r\n  "MatchCount" : 1,\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagFindStringRegexResponse.getExample();
+        response = (SwagFindStringRegexResponse) api.editTextFindRegex(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Find a string in text input
+     *
+     * Finds all occurrences of the input string in the input content, and returns the matches
+     */
+    @isTest
+    private static void editTextFindSimpleTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagFindStringSimpleRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditTextApi api;
+        SwagFindStringSimpleResponse response;
+        SwagFindStringSimpleResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditTextApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Matches" : [ {\r\n    "ContainingLine" : "ContainingLine",\r\n    "CharacterOffsetStart" : 0,\r\n    "CharacterOffsetEnd" : 6\r\n  }, {\r\n    "ContainingLine" : "ContainingLine",\r\n    "CharacterOffsetStart" : 0,\r\n    "CharacterOffsetEnd" : 6\r\n  } ],\r\n  "MatchCount" : 1,\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagFindStringSimpleResponse.getExample();
+        response = (SwagFindStringSimpleResponse) api.editTextFindSimple(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Remove whitespace from text string
      *
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
@@ -229,6 +295,72 @@ private class SwagEditTextApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "TextContentResult" : "TextContentResult"\r\n}');
         expectedResponse = SwagRemoveHtmlFromTextResponse.getExample();
         response = (SwagRemoveHtmlFromTextResponse) api.editTextRemoveHtml(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Replace a string in text with a regex regular expression string
+     *
+     * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+     */
+    @isTest
+    private static void editTextReplaceRegexTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagReplaceStringRegexRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditTextApi api;
+        SwagReplaceStringRegexResponse response;
+        SwagReplaceStringRegexResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditTextApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "TextContentResult" : "TextContentResult"\r\n}');
+        expectedResponse = SwagReplaceStringRegexResponse.getExample();
+        response = (SwagReplaceStringRegexResponse) api.editTextReplaceRegex(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Replace a string in text with another string value
+     *
+     * Replaces all occurrences of the input string in the input content, and returns the result
+     */
+    @isTest
+    private static void editTextReplaceSimpleTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'request' => SwagReplaceStringSimpleRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditTextApi api;
+        SwagReplaceStringSimpleResponse response;
+        SwagReplaceStringSimpleResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditTextApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "TextContentResult" : "TextContentResult"\r\n}');
+        expectedResponse = SwagReplaceStringSimpleResponse.getExample();
+        response = (SwagReplaceStringSimpleResponse) api.editTextReplaceSimple(params);
         System.assertEquals(expectedResponse, response);
     }
 

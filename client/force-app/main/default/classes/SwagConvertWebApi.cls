@@ -98,37 +98,13 @@ public class SwagConvertWebApi {
         );
     }
     /**
-     * Convert website URL page to text (txt)
-     * Converts a website URL page into text (txt); extracts text from HTML
-     * @param input HTML to Text request parameters (required)
-     * @return SwagUrlToTextResponse
-     * @throws Swagger.ApiException if fails to make API call
-     */
-    public SwagUrlToTextResponse convertWebHtmlToTxt(Map<String, Object> params) {
-        client.assertNotNull(params.get('input'), 'input');
-        List<Swagger.Param> query = new List<Swagger.Param>();
-        List<Swagger.Param> form = new List<Swagger.Param>();
-
-        return (SwagUrlToTextResponse) client.invoke(
-            'POST', '/convert/web/url/to/txt',
-            (SwagUrlToTextRequest) params.get('input'),
-            query, form,
-            new Map<String, Object>(),
-            new Map<String, Object>(),
-            new List<String>{ 'application/json' },
-            new List<String>{ 'application/json' },
-            new List<String> { 'Apikey' },
-            SwagUrlToTextResponse.class
-        );
-    }
-    /**
      * Convert HTML string to text (txt)
      * Converts an HTML string input into text (txt); extracts text from HTML
      * @param input HTML to Text request parameters (required)
      * @return SwagHtmlToTextResponse
      * @throws Swagger.ApiException if fails to make API call
      */
-    public SwagHtmlToTextResponse convertWebHtmlToTxt_0(Map<String, Object> params) {
+    public SwagHtmlToTextResponse convertWebHtmlToTxt(Map<String, Object> params) {
         client.assertNotNull(params.get('input'), 'input');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
@@ -217,6 +193,30 @@ public class SwagConvertWebApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert website URL page to text (txt)
+     * Converts a website URL page into text (txt); extracts text from HTML
+     * @param input HTML to Text request parameters (required)
+     * @return SwagUrlToTextResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagUrlToTextResponse convertWebUrlToTxt(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagUrlToTextResponse) client.invoke(
+            'POST', '/convert/web/url/to/txt',
+            (SwagUrlToTextRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagUrlToTextResponse.class
         );
     }
 }

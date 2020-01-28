@@ -28,7 +28,7 @@ public class SwagEditTextApi {
     /**
      * Base 64 decode, convert base 64 string to binary content
      * Decodes / converts base 64 UTF-8 text string to binary content
-     * @param request  (required)
+     * @param request Input request (required)
      * @return SwagBase64DecodeResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -52,7 +52,7 @@ public class SwagEditTextApi {
     /**
      * Detect, check if text string is base 64 encoded
      * Checks, detects if input string is base 64 encoded
-     * @param request  (required)
+     * @param request Input request (required)
      * @return SwagBase64DetectResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -76,7 +76,7 @@ public class SwagEditTextApi {
     /**
      * Base 64 encode, convert binary or file data to a text string
      * Encodes / converts binary or file data to a text string
-     * @param request  (required)
+     * @param request Input request (required)
      * @return SwagBase64EncodeResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -154,9 +154,57 @@ public class SwagEditTextApi {
         );
     }
     /**
+     * Find a regular expression regex in text input
+     * Find all occurrences of the input regular expression in the input content, and returns the matches
+     * @param request Input request (required)
+     * @return SwagFindStringRegexResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagFindStringRegexResponse editTextFindRegex(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagFindStringRegexResponse) client.invoke(
+            'POST', '/convert/edit/text/find/regex',
+            (SwagFindStringRegexRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagFindStringRegexResponse.class
+        );
+    }
+    /**
+     * Find a string in text input
+     * Finds all occurrences of the input string in the input content, and returns the matches
+     * @param request Input request (required)
+     * @return SwagFindStringSimpleResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagFindStringSimpleResponse editTextFindSimple(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagFindStringSimpleResponse) client.invoke(
+            'POST', '/convert/edit/text/find/string',
+            (SwagFindStringSimpleRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagFindStringSimpleResponse.class
+        );
+    }
+    /**
      * Remove whitespace from text string
      * Removes all whitespace from text, leaving behind only non-whitespace characters.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return SwagRemoveWhitespaceFromTextResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -180,7 +228,7 @@ public class SwagEditTextApi {
     /**
      * Remove HTML from text string
      * Removes HTML from text, leaving behind only text.  Formatted text will become plain text.  Important for protecting against HTML and Cross-Site-Scripting attacks.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return SwagRemoveHtmlFromTextResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -199,6 +247,54 @@ public class SwagEditTextApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagRemoveHtmlFromTextResponse.class
+        );
+    }
+    /**
+     * Replace a string in text with a regex regular expression string
+     * Replaces all occurrences of the input regular expression regex string in the input content, and returns the result
+     * @param request Input request (required)
+     * @return SwagReplaceStringRegexResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagReplaceStringRegexResponse editTextReplaceRegex(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagReplaceStringRegexResponse) client.invoke(
+            'POST', '/convert/edit/text/replace/regex',
+            (SwagReplaceStringRegexRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagReplaceStringRegexResponse.class
+        );
+    }
+    /**
+     * Replace a string in text with another string value
+     * Replaces all occurrences of the input string in the input content, and returns the result
+     * @param request Input request (required)
+     * @return SwagReplaceStringSimpleResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagReplaceStringSimpleResponse editTextReplaceSimple(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagReplaceStringSimpleResponse) client.invoke(
+            'POST', '/convert/edit/text/replace/string',
+            (SwagReplaceStringSimpleRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagReplaceStringSimpleResponse.class
         );
     }
     /**
@@ -230,7 +326,7 @@ public class SwagEditTextApi {
     /**
      * Trim leading and trailing whitespace from text string
      * Trim leading and trailing whitespace from text, leaving behind a trimmed string.  Whitespace includes newlines, spaces and other whitespace characters.
-     * @param request  (required)
+     * @param request Input request (required)
      * @return SwagRemoveWhitespaceFromTextResponse
      * @throws Swagger.ApiException if fails to make API call
      */

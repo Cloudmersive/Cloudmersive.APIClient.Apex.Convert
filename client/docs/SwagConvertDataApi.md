@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **jsonObject** | **Object**|  |
+ **jsonObject** | **Object**| Input JSON to convert to XML |
 
 ### Return type
 
