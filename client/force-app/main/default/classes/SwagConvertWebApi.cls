@@ -161,7 +161,7 @@ public class SwagConvertWebApi {
 
         return (Blob) client.invoke(
             'POST', '/convert/web/url/to/pdf',
-            (SwagScreenshotRequest) params.get('input'),
+            (SwagUrlToPdfRequest) params.get('input'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

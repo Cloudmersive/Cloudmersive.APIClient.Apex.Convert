@@ -80,7 +80,7 @@ public class SwagEditPdfApi {
         );
     }
     /**
-     * Remove / delete pages from a PDF document
+     * Remove, delete pages from a PDF document
      * Remove one or more pages from a PDF document
      * @param inputFile Input file to perform the operation on. (required)
      * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
@@ -250,7 +250,7 @@ public class SwagEditPdfApi {
         );
     }
     /**
-     * Insert / copy pages from one PDF document into another
+     * Insert, copy pages from one PDF document into another
      * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).
      * @param sourceFile Source PDF file to copy pages from. (required)
      * @param destinationFile Destination PDF file to copy pages into. (required)

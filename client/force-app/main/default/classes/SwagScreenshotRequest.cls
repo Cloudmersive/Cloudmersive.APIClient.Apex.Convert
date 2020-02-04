@@ -27,7 +27,7 @@ public class SwagScreenshotRequest implements Swagger.MappedProperties {
     public Integer extraLoadingWait { get; set; }
 
     /**
-     * Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024, supply -1 to measure the full screen height of the page and attempt to take a screen-height screenshot
+     * Optional: Width of the screenshot in pixels; supply 0 to default to 1280 x 1024
      * @return screenshotWidth
      */
     public Integer screenshotWidth { get; set; }

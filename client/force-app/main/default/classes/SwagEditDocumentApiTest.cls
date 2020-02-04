@@ -1255,9 +1255,9 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
-     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
+     * Get columns from a Excel XLSX spreadsheet, worksheet
      *
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Returns the columns defined in the Excel Spreadsheet worksheet
      */
     @isTest
     private static void editDocumentXlsxGetColumnsTest() {

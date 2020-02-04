@@ -940,8 +940,8 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Get rows and cells from a Excel XLSX spreadsheet, worksheet
-     * Returns the rows and cells defined in the Excel Spreadsheet worksheet
+     * Get columns from a Excel XLSX spreadsheet, worksheet
+     * Returns the columns defined in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
      * @return SwagGetXlsxColumnsResponse
      * @throws Swagger.ApiException if fails to make API call

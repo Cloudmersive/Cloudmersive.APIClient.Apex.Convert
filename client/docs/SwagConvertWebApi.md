@@ -277,7 +277,7 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'input' => SwagScreenshotRequest.getExample()
+    'input' => SwagUrlToPdfRequest.getExample()
 };
 
 try {
@@ -293,7 +293,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input** | [**SwagScreenshotRequest**](SwagScreenshotRequest.md)| URL to PDF request parameters |
+ **input** | [**SwagUrlToPdfRequest**](SwagUrlToPdfRequest.md)| URL to PDF request parameters |
 
 ### Return type
 

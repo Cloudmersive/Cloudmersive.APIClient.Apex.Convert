@@ -178,7 +178,7 @@ private class SwagConvertWebApiTest {
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'input' => SwagScreenshotRequest.getExample()
+            'input' => SwagUrlToPdfRequest.getExample()
         };
 
         SwagClient client;
