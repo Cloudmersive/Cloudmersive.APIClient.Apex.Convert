@@ -1189,6 +1189,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
+     *
+     * Enables the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+     */
+    @isTest
+    private static void editDocumentXlsxEnableSharedWorkbookTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagEnableSharedWorkbookRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagEnableSharedWorkbookResponse response;
+        SwagEnableSharedWorkbookResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagEnableSharedWorkbookResponse.getExample();
+        response = (SwagEnableSharedWorkbookResponse) api.editDocumentXlsxEnableSharedWorkbook(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
      *
      * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet

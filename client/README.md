@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateBlankSpreadsheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateSpreadsheetFromData**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 *SwagEditDocumentApi* | [**editDocumentXlsxDeleteWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
+*SwagEditDocumentApi* | [**editDocumentXlsxEnableSharedWorkbook**](docs/SwagEditDocumentApi.md#editDocumentXlsxEnableSharedWorkbook) | **POST** /convert/edit/xlsx/configuration/enable-shared-workbook | Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetCellByIdentifier**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetCellByIdentifier) | **POST** /convert/edit/xlsx/get-cell/by-identifier | Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
 *SwagEditDocumentApi* | [**editDocumentXlsxGetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
 *SwagEditDocumentApi* | [**editDocumentXlsxGetColumns**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get columns from a Excel XLSX spreadsheet, worksheet
@@ -293,6 +294,8 @@ Class | Method | HTTP request | Description
  - [SwagDocxTemplateOperation](docs/SwagDocxTemplateOperation.md)
  - [SwagDocxText](docs/SwagDocxText.md)
  - [SwagDocxTopLevelComment](docs/SwagDocxTopLevelComment.md)
+ - [SwagEnableSharedWorkbookRequest](docs/SwagEnableSharedWorkbookRequest.md)
+ - [SwagEnableSharedWorkbookResponse](docs/SwagEnableSharedWorkbookResponse.md)
  - [SwagExifValue](docs/SwagExifValue.md)
  - [SwagFindRegexMatch](docs/SwagFindRegexMatch.md)
  - [SwagFindStringMatch](docs/SwagFindStringMatch.md)

@@ -11,9 +11,9 @@
  */
 
 /**
- * Input to a Insert Worksheets request
+ * Input to a Enabled Shared Workbook request
  */
-public class SwagInsertXlsxWorksheetRequest implements Swagger.MappedProperties {
+public class SwagEnableSharedWorkbookRequest implements Swagger.MappedProperties {
     /**
      * Optional: Bytes of the input file to operate on
      * @return inputFileBytes
@@ -26,36 +26,27 @@ public class SwagInsertXlsxWorksheetRequest implements Swagger.MappedProperties 
      */
     public String inputFileUrl { get; set; }
 
-    /**
-     * Workersheet to insert
-     * @return worksheetToInsert
-     */
-    public SwagXlsxWorksheet worksheetToInsert { get; set; }
-
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'InputFileBytes' => 'inputFileBytes',
-        'InputFileUrl' => 'inputFileUrl',
-        'WorksheetToInsert' => 'worksheetToInsert'
+        'InputFileUrl' => 'inputFileUrl'
     };
 
     public Map<String, String> getPropertyMappings() {
         return propertyMappings;
     }
 
-    public static SwagInsertXlsxWorksheetRequest getExample() {
-        SwagInsertXlsxWorksheetRequest insertXlsxWorksheetRequest = new SwagInsertXlsxWorksheetRequest();
-        insertXlsxWorksheetRequest.inputFileBytes = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
-        insertXlsxWorksheetRequest.inputFileUrl = 'aeiou';
-        insertXlsxWorksheetRequest.worksheetToInsert = SwagXlsxWorksheet.getExample();
-        return insertXlsxWorksheetRequest;
+    public static SwagEnableSharedWorkbookRequest getExample() {
+        SwagEnableSharedWorkbookRequest enableSharedWorkbookRequest = new SwagEnableSharedWorkbookRequest();
+        enableSharedWorkbookRequest.inputFileBytes = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        enableSharedWorkbookRequest.inputFileUrl = 'aeiou';
+        return enableSharedWorkbookRequest;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof SwagInsertXlsxWorksheetRequest) {
-            SwagInsertXlsxWorksheetRequest insertXlsxWorksheetRequest = (SwagInsertXlsxWorksheetRequest) obj;
-            return this.inputFileBytes == insertXlsxWorksheetRequest.inputFileBytes
-                && this.inputFileUrl == insertXlsxWorksheetRequest.inputFileUrl
-                && this.worksheetToInsert == insertXlsxWorksheetRequest.worksheetToInsert;
+        if (obj instanceof SwagEnableSharedWorkbookRequest) {
+            SwagEnableSharedWorkbookRequest enableSharedWorkbookRequest = (SwagEnableSharedWorkbookRequest) obj;
+            return this.inputFileBytes == enableSharedWorkbookRequest.inputFileBytes
+                && this.inputFileUrl == enableSharedWorkbookRequest.inputFileUrl;
         }
         return false;
     }
@@ -64,7 +55,6 @@ public class SwagInsertXlsxWorksheetRequest implements Swagger.MappedProperties 
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (inputFileBytes == null ? 0 : System.hashCode(inputFileBytes));
         hashCode = (17 * hashCode) + (inputFileUrl == null ? 0 : System.hashCode(inputFileUrl));
-        hashCode = (17 * hashCode) + (worksheetToInsert == null ? 0 : System.hashCode(worksheetToInsert));
         return hashCode;
     }
 }

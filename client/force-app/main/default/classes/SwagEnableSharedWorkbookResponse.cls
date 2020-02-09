@@ -11,9 +11,9 @@
  */
 
 /**
- * Result of running a insert worksheet command
+ * Result of running a Enable Shared Workbook command
  */
-public class SwagInsertXlsxWorksheetResponse implements Swagger.MappedProperties {
+public class SwagEnableSharedWorkbookResponse implements Swagger.MappedProperties {
     /**
      * True if successful, false otherwise
      * @return successful
@@ -35,18 +35,18 @@ public class SwagInsertXlsxWorksheetResponse implements Swagger.MappedProperties
         return propertyMappings;
     }
 
-    public static SwagInsertXlsxWorksheetResponse getExample() {
-        SwagInsertXlsxWorksheetResponse insertXlsxWorksheetResponse = new SwagInsertXlsxWorksheetResponse();
-        insertXlsxWorksheetResponse.successful = true;
-        insertXlsxWorksheetResponse.editedDocumentURL = 'aeiou';
-        return insertXlsxWorksheetResponse;
+    public static SwagEnableSharedWorkbookResponse getExample() {
+        SwagEnableSharedWorkbookResponse enableSharedWorkbookResponse = new SwagEnableSharedWorkbookResponse();
+        enableSharedWorkbookResponse.successful = true;
+        enableSharedWorkbookResponse.editedDocumentURL = 'aeiou';
+        return enableSharedWorkbookResponse;
     }
 
     public Boolean equals(Object obj) {
-        if (obj instanceof SwagInsertXlsxWorksheetResponse) {
-            SwagInsertXlsxWorksheetResponse insertXlsxWorksheetResponse = (SwagInsertXlsxWorksheetResponse) obj;
-            return this.successful == insertXlsxWorksheetResponse.successful
-                && this.editedDocumentURL == insertXlsxWorksheetResponse.editedDocumentURL;
+        if (obj instanceof SwagEnableSharedWorkbookResponse) {
+            SwagEnableSharedWorkbookResponse enableSharedWorkbookResponse = (SwagEnableSharedWorkbookResponse) obj;
+            return this.successful == enableSharedWorkbookResponse.successful
+                && this.editedDocumentURL == enableSharedWorkbookResponse.editedDocumentURL;
         }
         return false;
     }

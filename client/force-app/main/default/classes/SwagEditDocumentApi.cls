@@ -892,6 +892,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
+     * Enables the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+     * @param input Document input request (required)
+     * @return SwagEnableSharedWorkbookResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEnableSharedWorkbookResponse editDocumentXlsxEnableSharedWorkbook(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagEnableSharedWorkbookResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/configuration/enable-shared-workbook',
+            (SwagEnableSharedWorkbookRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagEnableSharedWorkbookResponse.class
+        );
+    }
+    /**
      * Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
      * Returns the value of a specific cell based on its identifier (e.g. A1, B22, C33, etc.) in the Excel Spreadsheet worksheet
      * @param input Document input request (required)
