@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateBlankSpreadsheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateSpreadsheetFromData**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 *SwagEditDocumentApi* | [**editDocumentXlsxDeleteWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
+*SwagEditDocumentApi* | [**editDocumentXlsxDisableSharedWorkbook**](docs/SwagEditDocumentApi.md#editDocumentXlsxDisableSharedWorkbook) | **POST** /convert/edit/xlsx/configuration/disable-shared-workbook | Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxEnableSharedWorkbook**](docs/SwagEditDocumentApi.md#editDocumentXlsxEnableSharedWorkbook) | **POST** /convert/edit/xlsx/configuration/enable-shared-workbook | Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetCellByIdentifier**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetCellByIdentifier) | **POST** /convert/edit/xlsx/get-cell/by-identifier | Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
 *SwagEditDocumentApi* | [**editDocumentXlsxGetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
@@ -264,6 +265,8 @@ Class | Method | HTTP request | Description
  - [SwagDeleteDocxTableRowRequest](docs/SwagDeleteDocxTableRowRequest.md)
  - [SwagDeleteDocxTableRowResponse](docs/SwagDeleteDocxTableRowResponse.md)
  - [SwagDetectLineEndingsResponse](docs/SwagDetectLineEndingsResponse.md)
+ - [SwagDisableSharedWorkbookRequest](docs/SwagDisableSharedWorkbookRequest.md)
+ - [SwagDisableSharedWorkbookResponse](docs/SwagDisableSharedWorkbookResponse.md)
  - [SwagDocumentValidationError](docs/SwagDocumentValidationError.md)
  - [SwagDocumentValidationResult](docs/SwagDocumentValidationResult.md)
  - [SwagDocxBody](docs/SwagDocxBody.md)

@@ -1189,6 +1189,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
+     *
+     * Disable the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+     */
+    @isTest
+    private static void editDocumentXlsxDisableSharedWorkbookTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagDisableSharedWorkbookRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagDisableSharedWorkbookResponse response;
+        SwagDisableSharedWorkbookResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagDisableSharedWorkbookResponse.getExample();
+        response = (SwagDisableSharedWorkbookResponse) api.editDocumentXlsxDisableSharedWorkbook(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
      *
      * Enables the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet

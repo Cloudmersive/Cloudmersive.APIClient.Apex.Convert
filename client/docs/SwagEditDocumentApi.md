@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**editDocumentXlsxCreateBlankSpreadsheet**](SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 [**editDocumentXlsxCreateSpreadsheetFromData**](SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 [**editDocumentXlsxDeleteWorksheet**](SwagEditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
+[**editDocumentXlsxDisableSharedWorkbook**](SwagEditDocumentApi.md#editDocumentXlsxDisableSharedWorkbook) | **POST** /convert/edit/xlsx/configuration/disable-shared-workbook | Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
 [**editDocumentXlsxEnableSharedWorkbook**](SwagEditDocumentApi.md#editDocumentXlsxEnableSharedWorkbook) | **POST** /convert/edit/xlsx/configuration/enable-shared-workbook | Enable Shared Workbook (legacy) in Excel XLSX spreadsheet
 [**editDocumentXlsxGetCellByIdentifier**](SwagEditDocumentApi.md#editDocumentXlsxGetCellByIdentifier) | **POST** /convert/edit/xlsx/get-cell/by-identifier | Get cell from an Excel XLSX spreadsheet, worksheet by cell identifier
 [**editDocumentXlsxGetCellByIndex**](SwagEditDocumentApi.md#editDocumentXlsxGetCellByIndex) | **POST** /convert/edit/xlsx/get-cell/by-index | Get cell from an Excel XLSX spreadsheet, worksheet by index
@@ -1807,6 +1808,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentXlsxDisableSharedWorkbook"></a>
+# **editDocumentXlsxDisableSharedWorkbook**
+> SwagDisableSharedWorkbookResponse editDocumentXlsxDisableSharedWorkbook(input)
+
+Disable Shared Workbook (legacy) in Excel XLSX spreadsheet
+
+Disable the Shared Workbook (legacy) mode in an Excel XLSX spreadsheet
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagDisableSharedWorkbookRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagDisableSharedWorkbookResponse result = api.editDocumentXlsxDisableSharedWorkbook(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagDisableSharedWorkbookRequest**](SwagDisableSharedWorkbookRequest.md)| Document input request |
+
+### Return type
+
+[**SwagDisableSharedWorkbookResponse**](SwagDisableSharedWorkbookResponse.md)
 
 ### Authorization
 
