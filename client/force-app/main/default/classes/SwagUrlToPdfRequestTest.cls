@@ -85,5 +85,6 @@ private class SwagUrlToPdfRequestTest {
         System.assertEquals('url', propertyMappings.get('Url'));
         System.assertEquals('extraLoadingWait', propertyMappings.get('ExtraLoadingWait'));
         System.assertEquals('includeBackgroundGraphics', propertyMappings.get('IncludeBackgroundGraphics'));
+        System.assertEquals('scaleFactor', propertyMappings.get('ScaleFactor'));
     }
 }

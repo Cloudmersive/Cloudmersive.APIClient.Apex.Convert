@@ -32,10 +32,17 @@ public class SwagUrlToPdfRequest implements Swagger.MappedProperties {
      */
     public Boolean includeBackgroundGraphics { get; set; }
 
+    /**
+     * Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%
+     * @return scaleFactor
+     */
+    public Integer scaleFactor { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Url' => 'url',
         'ExtraLoadingWait' => 'extraLoadingWait',
-        'IncludeBackgroundGraphics' => 'includeBackgroundGraphics'
+        'IncludeBackgroundGraphics' => 'includeBackgroundGraphics',
+        'ScaleFactor' => 'scaleFactor'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -47,6 +54,7 @@ public class SwagUrlToPdfRequest implements Swagger.MappedProperties {
         urlToPdfRequest.url = 'aeiou';
         urlToPdfRequest.extraLoadingWait = 123;
         urlToPdfRequest.includeBackgroundGraphics = true;
+        urlToPdfRequest.scaleFactor = 123;
         return urlToPdfRequest;
     }
 
@@ -55,7 +63,8 @@ public class SwagUrlToPdfRequest implements Swagger.MappedProperties {
             SwagUrlToPdfRequest urlToPdfRequest = (SwagUrlToPdfRequest) obj;
             return this.url == urlToPdfRequest.url
                 && this.extraLoadingWait == urlToPdfRequest.extraLoadingWait
-                && this.includeBackgroundGraphics == urlToPdfRequest.includeBackgroundGraphics;
+                && this.includeBackgroundGraphics == urlToPdfRequest.includeBackgroundGraphics
+                && this.scaleFactor == urlToPdfRequest.scaleFactor;
         }
         return false;
     }
@@ -65,6 +74,7 @@ public class SwagUrlToPdfRequest implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (url == null ? 0 : System.hashCode(url));
         hashCode = (17 * hashCode) + (extraLoadingWait == null ? 0 : System.hashCode(extraLoadingWait));
         hashCode = (17 * hashCode) + (includeBackgroundGraphics == null ? 0 : System.hashCode(includeBackgroundGraphics));
+        hashCode = (17 * hashCode) + (scaleFactor == null ? 0 : System.hashCode(scaleFactor));
         return hashCode;
     }
 }
