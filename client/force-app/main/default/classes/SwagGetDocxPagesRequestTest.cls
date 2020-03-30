@@ -84,5 +84,6 @@ private class SwagGetDocxPagesRequestTest {
         Map<String, String> propertyMappings = getDocxPagesRequest.getPropertyMappings();
         System.assertEquals('inputFileBytes', propertyMappings.get('InputFileBytes'));
         System.assertEquals('inputFileUrl', propertyMappings.get('InputFileUrl'));
+        System.assertEquals('maximumPages', propertyMappings.get('MaximumPages'));
     }
 }

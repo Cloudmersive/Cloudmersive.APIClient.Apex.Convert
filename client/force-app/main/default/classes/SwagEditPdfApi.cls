@@ -227,6 +227,7 @@ public class SwagEditPdfApi {
      * Get text in a PDF document by page
      * Gets the text in a PDF by page
      * @param inputFile Input file to perform the operation on. (required)
+     * @param textFormattingMode Optional; specify how whitespace should be handled when converting the document to text.  Possible values are \&#39;preserveWhitespace\&#39; which will attempt to preserve whitespace in the document and relative positioning of text within the document, and \&#39;minimizeWhitespace\&#39; which will not insert additional spaces into the document in most cases.  Default is \&#39;preserveWhitespace\&#39;. (optional)
      * @return SwagPdfTextByPageResult
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -242,7 +243,9 @@ public class SwagEditPdfApi {
             'POST', '/convert/edit/pdf/pages/get-text', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'textFormattingMode' => (String) params.get('textFormattingMode')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },

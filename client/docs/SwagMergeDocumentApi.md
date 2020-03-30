@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**mergeDocumentDocxMulti**](SwagMergeDocumentApi.md#mergeDocumentDocxMulti) | **POST** /convert/merge/docx/multi | Merge Multple Word DOCX Together
 [**mergeDocumentPdf**](SwagMergeDocumentApi.md#mergeDocumentPdf) | **POST** /convert/merge/pdf | Merge Two PDF Files Together
 [**mergeDocumentPdfMulti**](SwagMergeDocumentApi.md#mergeDocumentPdfMulti) | **POST** /convert/merge/pdf/multi | Merge Multple PDF Files Together
-[**mergeDocumentPng**](SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Multple PNG Files Together
+[**mergeDocumentPng**](SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Two PNG Files Together
+[**mergeDocumentPngMulti**](SwagMergeDocumentApi.md#mergeDocumentPngMulti) | **POST** /convert/merge/png/vertical/multi | Merge Multple PNG Files Together
 [**mergeDocumentPptx**](SwagMergeDocumentApi.md#mergeDocumentPptx) | **POST** /convert/merge/pptx | Merge Two PowerPoint PPTX Together
 [**mergeDocumentPptxMulti**](SwagMergeDocumentApi.md#mergeDocumentPptxMulti) | **POST** /convert/merge/pptx/multi | Merge Multple PowerPoint PPTX Together
 [**mergeDocumentTxt**](SwagMergeDocumentApi.md#mergeDocumentTxt) | **POST** /convert/merge/txt | Merge Two Text (TXT) Files Together
@@ -257,9 +258,9 @@ Name | Type | Description  | Notes
 # **mergeDocumentPng**
 > Blob mergeDocumentPng(inputFile1, inputFile2)
 
-Merge Multple PNG Files Together
+Merge Two PNG Files Together
 
-Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+Combine two PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
 
 ### Example
 ```java
@@ -290,6 +291,73 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile1** | **Blob**| First input file to perform the operation on. |
  **inputFile2** | **Blob**| Second input file to perform the operation on (more than 2 can be supplied). |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="mergeDocumentPngMulti"></a>
+# **mergeDocumentPngMulti**
+> Blob mergeDocumentPngMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+Merge Multple PNG Files Together
+
+Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+
+### Example
+```java
+SwagMergeDocumentApi api = new SwagMergeDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile10' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.mergeDocumentPngMulti(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on. |
+ **inputFile3** | **Blob**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **Blob**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **Blob**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **Blob**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **Blob**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **Blob**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **Blob**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **Blob**| Tenth input file to perform the operation on. | [optional]
 
 ### Return type
 

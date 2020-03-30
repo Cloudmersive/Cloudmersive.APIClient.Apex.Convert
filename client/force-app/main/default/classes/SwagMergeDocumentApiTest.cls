@@ -153,9 +153,9 @@ private class SwagMergeDocumentApiTest {
     }
 
     /**
-     * Merge Multple PNG Files Together
+     * Merge Two PNG Files Together
      *
-     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     * Combine two PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
      */
     @isTest
     private static void mergeDocumentPngTest() {
@@ -183,6 +183,48 @@ private class SwagMergeDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.mergeDocumentPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Merge Multple PNG Files Together
+     *
+     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     */
+    @isTest
+    private static void mergeDocumentPngMultiTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile10' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagMergeDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagMergeDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.mergeDocumentPngMulti(params);
         System.assertEquals(expectedResponse, response);
     }
 

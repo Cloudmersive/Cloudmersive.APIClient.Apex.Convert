@@ -26,9 +26,16 @@ public class SwagGetDocxPagesRequest implements Swagger.MappedProperties {
      */
     public String inputFileUrl { get; set; }
 
+    /**
+     * Optional: Maximum number of pages to return; set to 0 or do not supply to return all pages
+     * @return maximumPages
+     */
+    public Integer maximumPages { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'InputFileBytes' => 'inputFileBytes',
-        'InputFileUrl' => 'inputFileUrl'
+        'InputFileUrl' => 'inputFileUrl',
+        'MaximumPages' => 'maximumPages'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -39,6 +46,7 @@ public class SwagGetDocxPagesRequest implements Swagger.MappedProperties {
         SwagGetDocxPagesRequest getDocxPagesRequest = new SwagGetDocxPagesRequest();
         getDocxPagesRequest.inputFileBytes = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         getDocxPagesRequest.inputFileUrl = 'aeiou';
+        getDocxPagesRequest.maximumPages = 123;
         return getDocxPagesRequest;
     }
 
@@ -46,7 +54,8 @@ public class SwagGetDocxPagesRequest implements Swagger.MappedProperties {
         if (obj instanceof SwagGetDocxPagesRequest) {
             SwagGetDocxPagesRequest getDocxPagesRequest = (SwagGetDocxPagesRequest) obj;
             return this.inputFileBytes == getDocxPagesRequest.inputFileBytes
-                && this.inputFileUrl == getDocxPagesRequest.inputFileUrl;
+                && this.inputFileUrl == getDocxPagesRequest.inputFileUrl
+                && this.maximumPages == getDocxPagesRequest.maximumPages;
         }
         return false;
     }
@@ -55,6 +64,7 @@ public class SwagGetDocxPagesRequest implements Swagger.MappedProperties {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (inputFileBytes == null ? 0 : System.hashCode(inputFileBytes));
         hashCode = (17 * hashCode) + (inputFileUrl == null ? 0 : System.hashCode(inputFileUrl));
+        hashCode = (17 * hashCode) + (maximumPages == null ? 0 : System.hashCode(maximumPages));
         return hashCode;
     }
 }

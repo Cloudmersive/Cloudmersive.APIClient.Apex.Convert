@@ -174,8 +174,8 @@ public class SwagMergeDocumentApi {
         );
     }
     /**
-     * Merge Multple PNG Files Together
-     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     * Merge Two PNG Files Together
+     * Combine two PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
      * @return Blob
@@ -193,6 +193,51 @@ public class SwagMergeDocumentApi {
 
         return (Blob) client.invoke(
             'POST', '/convert/merge/png/vertical', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Merge Multple PNG Files Together
+     * Combine multiple PNG files into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob mergeDocumentPngMulti(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile1'), 'inputFile1');
+        client.assertNotNull(params.get('inputFile2'), 'inputFile2');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
+        form.addAll(client.makeParam('inputFile2', (Blob) params.get('inputFile2')));
+        form.addAll(client.makeParam('inputFile3', (Blob) params.get('inputFile3')));
+        form.addAll(client.makeParam('inputFile4', (Blob) params.get('inputFile4')));
+        form.addAll(client.makeParam('inputFile5', (Blob) params.get('inputFile5')));
+        form.addAll(client.makeParam('inputFile6', (Blob) params.get('inputFile6')));
+        form.addAll(client.makeParam('inputFile7', (Blob) params.get('inputFile7')));
+        form.addAll(client.makeParam('inputFile8', (Blob) params.get('inputFile8')));
+        form.addAll(client.makeParam('inputFile9', (Blob) params.get('inputFile9')));
+        form.addAll(client.makeParam('inputFile10', (Blob) params.get('inputFile10')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/merge/png/vertical/multi', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
