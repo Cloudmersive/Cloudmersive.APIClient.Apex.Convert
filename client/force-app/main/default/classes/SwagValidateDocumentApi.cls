@@ -131,7 +131,7 @@ public class SwagValidateDocumentApi {
     }
     /**
      * Validate a PDF document file
-     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagDocumentValidationResult
      * @throws Swagger.ApiException if fails to make API call

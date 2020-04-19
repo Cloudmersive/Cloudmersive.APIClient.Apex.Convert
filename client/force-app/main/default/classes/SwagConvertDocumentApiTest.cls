@@ -904,9 +904,9 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Excel XLSX Spreadsheet to CSV
+     * Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
      *
-     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
      */
     @isTest
     private static void convertDocumentXlsxToCsvTest() {
@@ -934,6 +934,40 @@ private class SwagConvertDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertDocumentXlsxToCsv(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+     *
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+     */
+    @isTest
+    private static void convertDocumentXlsxToCsvMultiTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'outputEncoding' => 'outputEncoding_example'
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagCsvCollection response;
+        SwagCsvCollection expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "CsvFiles" : [ {\r\n    "FileContents" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Title" : "Title"\r\n  }, {\r\n    "FileContents" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Title" : "Title"\r\n  } ],\r\n  "FileCount" : 0,\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagCsvCollection.getExample();
+        response = (SwagCsvCollection) api.convertDocumentXlsxToCsvMulti(params);
         System.assertEquals(expectedResponse, response);
     }
 

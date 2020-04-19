@@ -83,6 +83,7 @@ private class SwagDocumentValidationResultTest {
         SwagDocumentValidationResult documentValidationResult = new SwagDocumentValidationResult();
         Map<String, String> propertyMappings = documentValidationResult.getPropertyMappings();
         System.assertEquals('documentIsValid', propertyMappings.get('DocumentIsValid'));
+        System.assertEquals('passwordProtected', propertyMappings.get('PasswordProtected'));
         System.assertEquals('errorCount', propertyMappings.get('ErrorCount'));
         System.assertEquals('warningCount', propertyMappings.get('WarningCount'));
         System.assertEquals('errorsAndWarnings', propertyMappings.get('ErrorsAndWarnings'));
@@ -93,6 +94,7 @@ private class SwagDocumentValidationResultTest {
         SwagDocumentValidationResult documentValidationResult = new SwagDocumentValidationResult();
         System.assertEquals(new List<SwagDocumentValidationError>(), documentValidationResult.errorsAndWarnings);
         System.assertEquals(null, documentValidationResult.documentIsValid);
+        System.assertEquals(null, documentValidationResult.passwordProtected);
         System.assertEquals(null, documentValidationResult.errorCount);
         System.assertEquals(null, documentValidationResult.warningCount);
     }

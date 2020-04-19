@@ -756,10 +756,10 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Excel XLSX Spreadsheet to CSV
-     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.
+     * Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format.  Supports both XLSX and XLSB file Excel formats.  If the input file contains multiple worksheets, the first one is used.  If you wish to convert all of the worksheets (not just the first one), be sure to use the xlsx/to/csv/multi API.
      * @param inputFile Input file to perform the operation on. (required)
-     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8 and UTF-32.  Default is UTF-32. (optional)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -782,6 +782,35 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+     * Convert Office Excel Workbooks (XLSX) to standard Comma-Separated Values (CSV) format, with support for multiple worksheets.  Supports both XLSX and XLSB file Excel formats.  Returns multiple CSV files, one for each worksheet (tab) in the spreadsheet.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param outputEncoding Optional, set the output text encoding for the result; possible values are UTF-8, ASCII and UTF-32.  Default is UTF-8. (optional)
+     * @return SwagCsvCollection
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagCsvCollection convertDocumentXlsxToCsvMulti(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagCsvCollection) client.invoke(
+            'POST', '/convert/xlsx/to/csv/multi', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'outputEncoding' => (String) params.get('outputEncoding')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagCsvCollection.class
         );
     }
     /**

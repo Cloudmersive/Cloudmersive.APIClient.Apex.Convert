@@ -60,7 +60,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentDocxValidation(params);
         System.assertEquals(expectedResponse, response);
@@ -93,7 +93,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentExecutableValidation(params);
         System.assertEquals(expectedResponse, response);
@@ -126,7 +126,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentJsonValidation(params);
         System.assertEquals(expectedResponse, response);
@@ -135,7 +135,7 @@ private class SwagValidateDocumentApiTest {
     /**
      * Validate a PDF document file
      *
-     * Validate a PDF document; if the document is not valid, identifies the errors in the document
+     * Validate a PDF document; if the document is not valid, identifies the errors in the document.  Also checks if the PDF is password protected.
      */
     @isTest
     private static void validateDocumentPdfValidationTest() {
@@ -159,7 +159,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentPdfValidation(params);
         System.assertEquals(expectedResponse, response);
@@ -192,7 +192,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentPptxValidation(params);
         System.assertEquals(expectedResponse, response);
@@ -225,7 +225,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentXlsxValidation(params);
         System.assertEquals(expectedResponse, response);
@@ -258,7 +258,7 @@ private class SwagValidateDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "ErrorCount" : 0\r\n}');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentXmlValidation(params);
         System.assertEquals(expectedResponse, response);

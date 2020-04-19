@@ -21,6 +21,12 @@ public class SwagDocumentValidationResult implements Swagger.MappedProperties {
     public Boolean documentIsValid { get; set; }
 
     /**
+     * True if the document is password protected, false otherwise
+     * @return passwordProtected
+     */
+    public Boolean passwordProtected { get; set; }
+
+    /**
      * Number of validation errors found in the document
      * @return errorCount
      */
@@ -40,6 +46,7 @@ public class SwagDocumentValidationResult implements Swagger.MappedProperties {
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'DocumentIsValid' => 'documentIsValid',
+        'PasswordProtected' => 'passwordProtected',
         'ErrorCount' => 'errorCount',
         'WarningCount' => 'warningCount',
         'ErrorsAndWarnings' => 'errorsAndWarnings'
@@ -56,6 +63,7 @@ public class SwagDocumentValidationResult implements Swagger.MappedProperties {
     public static SwagDocumentValidationResult getExample() {
         SwagDocumentValidationResult documentValidationResult = new SwagDocumentValidationResult();
         documentValidationResult.documentIsValid = true;
+        documentValidationResult.passwordProtected = true;
         documentValidationResult.errorCount = 123;
         documentValidationResult.warningCount = 123;
         documentValidationResult.errorsAndWarnings = new List<SwagDocumentValidationError>{SwagDocumentValidationError.getExample()};
@@ -66,6 +74,7 @@ public class SwagDocumentValidationResult implements Swagger.MappedProperties {
         if (obj instanceof SwagDocumentValidationResult) {
             SwagDocumentValidationResult documentValidationResult = (SwagDocumentValidationResult) obj;
             return this.documentIsValid == documentValidationResult.documentIsValid
+                && this.passwordProtected == documentValidationResult.passwordProtected
                 && this.errorCount == documentValidationResult.errorCount
                 && this.warningCount == documentValidationResult.warningCount
                 && this.errorsAndWarnings == documentValidationResult.errorsAndWarnings;
@@ -76,6 +85,7 @@ public class SwagDocumentValidationResult implements Swagger.MappedProperties {
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (documentIsValid == null ? 0 : System.hashCode(documentIsValid));
+        hashCode = (17 * hashCode) + (passwordProtected == null ? 0 : System.hashCode(passwordProtected));
         hashCode = (17 * hashCode) + (errorCount == null ? 0 : System.hashCode(errorCount));
         hashCode = (17 * hashCode) + (warningCount == null ? 0 : System.hashCode(warningCount));
         hashCode = (17 * hashCode) + (errorsAndWarnings == null ? 0 : System.hashCode(errorsAndWarnings));

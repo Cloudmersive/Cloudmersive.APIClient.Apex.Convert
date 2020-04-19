@@ -109,7 +109,8 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentXlsToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 *SwagConvertDocumentApi* | [**convertDocumentXlsToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 *SwagConvertDocumentApi* | [**convertDocumentXlsToXlsx**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
-*SwagConvertDocumentApi* | [**convertDocumentXlsxToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV
+*SwagConvertDocumentApi* | [**convertDocumentXlsxToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
+*SwagConvertDocumentApi* | [**convertDocumentXlsxToCsvMulti**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToCsvMulti) | **POST** /convert/xlsx/to/csv/multi | Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
 *SwagConvertDocumentApi* | [**convertDocumentXlsxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
 *SwagConvertDocumentApi* | [**convertDocumentXlsxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
 *SwagConvertImageApi* | [**convertImageGetImageInfo**](docs/SwagConvertImageApi.md#convertImageGetImageInfo) | **POST** /convert/image/get-info | Get information about an image
@@ -261,6 +262,8 @@ Class | Method | HTTP request | Description
  - [SwagCreateSpreadsheetFromDataRequest](docs/SwagCreateSpreadsheetFromDataRequest.md)
  - [SwagCreateSpreadsheetFromDataRespons](docs/SwagCreateSpreadsheetFromDataRespons.md)
  - [SwagCreateZipArchiveRequest](docs/SwagCreateZipArchiveRequest.md)
+ - [SwagCsvCollection](docs/SwagCsvCollection.md)
+ - [SwagCsvFileResult](docs/SwagCsvFileResult.md)
  - [SwagDeleteDocxTableRowRangeRequest](docs/SwagDeleteDocxTableRowRangeRequest.md)
  - [SwagDeleteDocxTableRowRangeResponse](docs/SwagDeleteDocxTableRowRangeResponse.md)
  - [SwagDeleteDocxTableRowRequest](docs/SwagDeleteDocxTableRowRequest.md)
