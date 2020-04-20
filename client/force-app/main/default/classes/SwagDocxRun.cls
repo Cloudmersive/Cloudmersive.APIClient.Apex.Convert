@@ -21,7 +21,7 @@ public class SwagDocxRun implements Swagger.MappedProperties {
     public Integer runIndex { get; set; }
 
     /**
-     * The Path of the location of this object; leave blank for new tables
+     * The Path of the location of this Run object; leave blank for creation
      * @return path
      */
     public String path { get; set; }

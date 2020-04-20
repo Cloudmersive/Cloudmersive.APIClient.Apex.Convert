@@ -21,7 +21,7 @@ public class SwagDocxText implements Swagger.MappedProperties {
     public Integer textIndex { get; set; }
 
     /**
-     * The Path of the location of this object; leave blank for new tables
+     * The Path of the location of this Text object; leave blank for creation
      * @return path
      */
     public String path { get; set; }

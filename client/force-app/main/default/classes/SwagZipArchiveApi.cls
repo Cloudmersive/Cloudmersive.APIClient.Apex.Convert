@@ -28,22 +28,45 @@ public class SwagZipArchiveApi {
     /**
      * Compress files to create a new zip archive
      * Create a new zip archive by compressing input files.
-     * @return Object
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (optional)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object zipArchiveZipCreate() {
+    public Blob zipArchiveZipCreate(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile1'), 'inputFile1');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
+        form.addAll(client.makeParam('inputFile2', (Blob) params.get('inputFile2')));
+        form.addAll(client.makeParam('inputFile3', (Blob) params.get('inputFile3')));
+        form.addAll(client.makeParam('inputFile4', (Blob) params.get('inputFile4')));
+        form.addAll(client.makeParam('inputFile5', (Blob) params.get('inputFile5')));
+        form.addAll(client.makeParam('inputFile6', (Blob) params.get('inputFile6')));
+        form.addAll(client.makeParam('inputFile7', (Blob) params.get('inputFile7')));
+        form.addAll(client.makeParam('inputFile8', (Blob) params.get('inputFile8')));
+        form.addAll(client.makeParam('inputFile9', (Blob) params.get('inputFile9')));
+        form.addAll(client.makeParam('inputFile10', (Blob) params.get('inputFile10')));
+
+        return (Blob) client.invoke(
             'POST', '/convert/archive/zip/create', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -61,6 +84,60 @@ public class SwagZipArchiveApi {
         return (Object) client.invoke(
             'POST', '/convert/archive/zip/create/advanced',
             (SwagCreateZipArchiveRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Decrypt and remove password protection on a zip file
+     * Decrypts and removes password protection from an encrypted zip file with the specified password
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param zipPassword Required; Password for the input archive (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object zipArchiveZipDecrypt(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('zipPassword'), 'zipPassword');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Object) client.invoke(
+            'POST', '/convert/archive/zip/decrypt', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'zipPassword' => (String) params.get('zipPassword')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Encrypt and password protect a zip file
+     * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+     * @param encryptionRequest Encryption request (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object zipArchiveZipEncryptAdvanced(Map<String, Object> params) {
+        client.assertNotNull(params.get('encryptionRequest'), 'encryptionRequest');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/archive/zip/encrypt/advanced',
+            (SwagZipEncryptionAdvancedRequest) params.get('encryptionRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

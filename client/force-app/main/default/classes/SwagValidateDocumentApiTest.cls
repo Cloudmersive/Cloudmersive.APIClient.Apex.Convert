@@ -100,6 +100,39 @@ private class SwagValidateDocumentApiTest {
     }
 
     /**
+     * Validate a GZip Archive file (gzip or gz)
+     *
+     * Validate a GZip archive file (GZIP or GZ)
+     */
+    @isTest
+    private static void validateDocumentGZipValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentGZipValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a JSON file
      *
      * Validate a JSON (JavaScript Object Notation) document file; if the document is not valid, identifies the errors in the document
@@ -199,6 +232,72 @@ private class SwagValidateDocumentApiTest {
     }
 
     /**
+     * Validate a RAR Archive file (RAR)
+     *
+     * Validate a RAR archive file (RAR)
+     */
+    @isTest
+    private static void validateDocumentRarValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentRarValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Validate a TAR Tarball Archive file (TAR)
+     *
+     * Validate a TAR tarball archive file (TAR)
+     */
+    @isTest
+    private static void validateDocumentTarValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentTarValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a Excel document (XLSX)
      *
      * Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
@@ -261,6 +360,39 @@ private class SwagValidateDocumentApiTest {
         res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentXmlValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Validate a Zip Archive file (zip)
+     *
+     * Validate a Zip archive file (ZIP)
+     */
+    @isTest
+    private static void validateDocumentZipValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentZipValidation(params);
         System.assertEquals(expectedResponse, response);
     }
 }

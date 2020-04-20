@@ -21,7 +21,7 @@ public class SwagDocxParagraph implements Swagger.MappedProperties {
     public Integer paragraphIndex { get; set; }
 
     /**
-     * The Path of the location of this object; leave blank for new tables
+     * The Path of the location of this Paragraph object; leave blank during creation
      * @return path
      */
     public String path { get; set; }

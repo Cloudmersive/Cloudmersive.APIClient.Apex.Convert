@@ -12,10 +12,23 @@ private class SwagZipArchiveApiTest {
         res.setStatus('OK');
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile10' => Blob.valueOf('Sample text file\nContents')
+        };
+
         SwagClient client;
         SwagZipArchiveApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagZipArchiveApi(client);
@@ -23,9 +36,9 @@ private class SwagZipArchiveApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.zipArchiveZipCreate();
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.zipArchiveZipCreate(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -59,6 +72,73 @@ private class SwagZipArchiveApiTest {
         res.setBody('"{}"');
         expectedResponse = null;
         response = (Object) api.zipArchiveZipCreateAdvanced(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Decrypt and remove password protection on a zip file
+     *
+     * Decrypts and removes password protection from an encrypted zip file with the specified password
+     */
+    @isTest
+    private static void zipArchiveZipDecryptTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'zipPassword' => 'zipPassword_example'
+        };
+
+        SwagClient client;
+        SwagZipArchiveApi api;
+        Object response;
+        Object expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagZipArchiveApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"{}"');
+        expectedResponse = null;
+        response = (Object) api.zipArchiveZipDecrypt(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Encrypt and password protect a zip file
+     *
+     * Encrypts and password protects an existing zip file with the specified password and encryption algorithm
+     */
+    @isTest
+    private static void zipArchiveZipEncryptAdvancedTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'encryptionRequest' => SwagZipEncryptionAdvancedRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagZipArchiveApi api;
+        Object response;
+        Object expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagZipArchiveApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"{}"');
+        expectedResponse = null;
+        response = (Object) api.zipArchiveZipEncryptAdvanced(params);
         System.assertEquals(expectedResponse, response);
     }
 

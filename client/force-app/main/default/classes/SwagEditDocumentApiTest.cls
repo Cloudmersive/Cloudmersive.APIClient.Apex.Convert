@@ -199,6 +199,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Find matching paragraphs in a Word DOCX document
+     *
+     * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+     */
+    @isTest
+    private static void editDocumentDocxFindParagraphTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagFindDocxParagraphRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagFindDocxParagraphResponse response;
+        SwagFindDocxParagraphResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Count" : 0,\r\n  "Successful" : true,\r\n  "MatchingParagraphs" : [ {\r\n    "Path" : "Path",\r\n    "ContentRuns" : [ {\r\n      "Path" : "Path",\r\n      "RunIndex" : 5,\r\n      "FontFamily" : "FontFamily",\r\n      "Italic" : true,\r\n      "FontSize" : "FontSize",\r\n      "TextItems" : [ {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      }, {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      } ],\r\n      "Underline" : "Underline",\r\n      "Bold" : true\r\n    }, {\r\n      "Path" : "Path",\r\n      "RunIndex" : 5,\r\n      "FontFamily" : "FontFamily",\r\n      "Italic" : true,\r\n      "FontSize" : "FontSize",\r\n      "TextItems" : [ {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      }, {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      } ],\r\n      "Underline" : "Underline",\r\n      "Bold" : true\r\n    } ],\r\n    "ParagraphIndex" : 1,\r\n    "StyleID" : "StyleID"\r\n  }, {\r\n    "Path" : "Path",\r\n    "ContentRuns" : [ {\r\n      "Path" : "Path",\r\n      "RunIndex" : 5,\r\n      "FontFamily" : "FontFamily",\r\n      "Italic" : true,\r\n      "FontSize" : "FontSize",\r\n      "TextItems" : [ {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      }, {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      } ],\r\n      "Underline" : "Underline",\r\n      "Bold" : true\r\n    }, {\r\n      "Path" : "Path",\r\n      "RunIndex" : 5,\r\n      "FontFamily" : "FontFamily",\r\n      "Italic" : true,\r\n      "FontSize" : "FontSize",\r\n      "TextItems" : [ {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      }, {\r\n        "Path" : "Path",\r\n        "TextIndex" : 5,\r\n        "TextContent" : "TextContent"\r\n      } ],\r\n      "Underline" : "Underline",\r\n      "Bold" : true\r\n    } ],\r\n    "ParagraphIndex" : 1,\r\n    "StyleID" : "StyleID"\r\n  } ]\r\n}');
+        expectedResponse = SwagFindDocxParagraphResponse.getExample();
+        response = (SwagFindDocxParagraphResponse) api.editDocumentDocxFindParagraph(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get comments from a Word DOCX document as a flat list
      *
      * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
@@ -789,6 +822,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.editDocumentDocxReplace(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Replace matching paragraphs in a Word DOCX document
+     *
+     * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+     */
+    @isTest
+    private static void editDocumentDocxReplaceParagraphTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'reqConfig' => SwagReplaceDocxParagraphRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagReplaceDocxParagraphResponse response;
+        SwagReplaceDocxParagraphResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagReplaceDocxParagraphResponse.getExample();
+        response = (SwagReplaceDocxParagraphResponse) api.editDocumentDocxReplaceParagraph(params);
         System.assertEquals(expectedResponse, response);
     }
 

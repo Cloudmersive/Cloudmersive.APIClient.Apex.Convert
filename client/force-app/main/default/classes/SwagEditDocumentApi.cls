@@ -172,6 +172,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Find matching paragraphs in a Word DOCX document
+     * Returns the paragraphs defined in the Word Document (DOCX) format file that match the input criteria
+     * @param reqConfig Document input request (required)
+     * @return SwagFindDocxParagraphResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagFindDocxParagraphResponse editDocumentDocxFindParagraph(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagFindDocxParagraphResponse) client.invoke(
+            'POST', '/convert/edit/docx/find/paragraph',
+            (SwagFindDocxParagraphRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagFindDocxParagraphResponse.class
+        );
+    }
+    /**
      * Get comments from a Word DOCX document as a flat list
      * Returns the comments and review annotations stored in the Word Document (DOCX) format file as a flattened list (not as a hierarchy of comments and replies).
      * @param reqConfig Document input request (required)
@@ -601,6 +625,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Replace matching paragraphs in a Word DOCX document
+     * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
+     * @param reqConfig Document input request (required)
+     * @return SwagReplaceDocxParagraphResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagReplaceDocxParagraphResponse editDocumentDocxReplaceParagraph(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagReplaceDocxParagraphResponse) client.invoke(
+            'POST', '/convert/edit/docx/replace/paragraph',
+            (SwagReplaceDocxParagraphRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagReplaceDocxParagraphResponse.class
         );
     }
     /**
