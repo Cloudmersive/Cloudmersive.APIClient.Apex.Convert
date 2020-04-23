@@ -34,6 +34,39 @@ private class SwagValidateDocumentApiTest {
     }
 
     /**
+     * Validate a CSV file document (CSV)
+     *
+     * Validate a CSV file document (CSV); if the document is not valid, identifies the errors in the document
+     */
+    @isTest
+    private static void validateDocumentCsvValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentCsvValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate a Word document (DOCX)
      *
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document

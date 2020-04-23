@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 <a name="convertDataCsvToJson"></a>
 # **convertDataCsvToJson**
-> Object convertDataCsvToJson(inputFile)
+> Object convertDataCsvToJson(inputFile, columnNamesFromFirstRow)
 
 Convert CSV to JSON conversion
 
@@ -39,7 +39,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'columnNamesFromFirstRow' => true
 };
 
 try {
@@ -56,6 +57,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **columnNamesFromFirstRow** | **Boolean**| Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. | [optional]
 
 ### Return type
 

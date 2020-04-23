@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**validateDocumentAutodetectValidation**](SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
+[**validateDocumentCsvValidation**](SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 [**validateDocumentDocxValidation**](SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
 [**validateDocumentExecutableValidation**](SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
 [**validateDocumentGZipValidation**](SwagValidateDocumentApi.md#validateDocumentGZipValidation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
@@ -57,6 +58,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagAutodetectDocumentValidationResu**](SwagAutodetectDocumentValidationResu.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="validateDocumentCsvValidation"></a>
+# **validateDocumentCsvValidation**
+> SwagDocumentValidationResult validateDocumentCsvValidation(inputFile)
+
+Validate a CSV file document (CSV)
+
+Validate a CSV file document (CSV); if the document is not valid, identifies the errors in the document
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagDocumentValidationResult result = api.validateDocumentCsvValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
 
 ### Authorization
 

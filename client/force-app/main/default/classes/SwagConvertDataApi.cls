@@ -29,6 +29,7 @@ public class SwagConvertDataApi {
      * Convert CSV to JSON conversion
      * Convert a CSV file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
      * @return Object
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -44,7 +45,9 @@ public class SwagConvertDataApi {
             'POST', '/convert/csv/to/json', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'columnNamesFromFirstRow' => (Boolean) params.get('columnNamesFromFirstRow')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
