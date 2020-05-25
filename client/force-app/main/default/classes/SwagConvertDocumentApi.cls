@@ -104,6 +104,74 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert File to Thumbnail Image
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDocumentAutodetectToThumbnail(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Object) client.invoke(
+            'POST', '/convert/autodetect/to/thumbnail', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'maxWidth' => (Integer) params.get('maxWidth'),
+                'maxHeight' => (Integer) params.get('maxHeight'),
+                'extension' => (String) params.get('extension')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Convert File to Thumbnail Image Object
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. (optional)
+     * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
+     * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
+     * @return SwagAutodetectToThumbnailsResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagAutodetectToThumbnailsResult convertDocumentAutodetectToThumbnailsAdvanced(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagAutodetectToThumbnailsResult) client.invoke(
+            'POST', '/convert/autodetect/to/thumbnail/advanced', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'pages' => (Integer) params.get('pages'),
+                'maxWidth' => (Integer) params.get('maxWidth'),
+                'maxHeight' => (Integer) params.get('maxHeight'),
+                'extension' => (String) params.get('extension')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagAutodetectToThumbnailsResult.class
+        );
+    }
+    /**
      * Convert Document to Text (txt)
      * Automatically detect file type and convert it to Text.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT) and PDF files.  For spreadsheets, all worksheets will be included.  If you wish to exclude certain pages, worksheets, slides, etc. use the Split document API first, or the delete pages/slides/worksheet APIs first to adjust the document to the target state prior to converting to text.
      * @param inputFile Input file to perform the operation on. (required)
@@ -263,6 +331,32 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert DOCX document to PNG image array
+     * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocxToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocxToPngResult convertDocumentDocxToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocxToPngResult) client.invoke(
+            'POST', '/convert/docx/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocxToPngResult.class
+        );
+    }
+    /**
      * Convert Word DOCX Document to Text (txt)
      * Convert Office Word Documents (docx) to text
      * @param inputFile Input file to perform the operation on. (required)
@@ -289,6 +383,120 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagTextConversionResult.class
+        );
+    }
+    /**
+     * Convert Email EML file to HTML string
+     * Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @return SwagEmlToHtmlResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEmlToHtmlResult convertDocumentEmlToHtml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagEmlToHtmlResult) client.invoke(
+            'POST', '/convert/eml/to/html', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'bodyOnly' => (Boolean) params.get('bodyOnly'),
+                'includeAttachments' => (Boolean) params.get('includeAttachments')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagEmlToHtmlResult.class
+        );
+    }
+    /**
+     * Convert Email EML file to PDF document
+     * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDocumentEmlToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Object) client.invoke(
+            'POST', '/convert/eml/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'bodyOnly' => (Boolean) params.get('bodyOnly')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Get PNG icon file for the file extension
+     * Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDocumentGetFileTypeIcon(Map<String, Object> params) {
+        client.assertNotNull(params.get('fileExtension'), 'fileExtension');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/autodetect/get-icon', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileExtension' => (String) params.get('fileExtension'),
+                'iconSize' => (Integer) params.get('iconSize')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Get PNG icon byte array for the file extension
+     * Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+     * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
+     * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
+     * @return SwagGetFileTypeIconResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetFileTypeIconResult convertDocumentGetFileTypeIconAdvanced(Map<String, Object> params) {
+        client.assertNotNull(params.get('fileExtension'), 'fileExtension');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetFileTypeIconResult) client.invoke(
+            'POST', '/convert/autodetect/get-icon-advanced', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'fileExtension' => (String) params.get('fileExtension'),
+                'iconSize' => (Integer) params.get('iconSize')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetFileTypeIconResult.class
         );
     }
     /**
@@ -367,6 +575,66 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagTextConversionResult.class
+        );
+    }
+    /**
+     * Convert Email MSG file to HTML string
+     * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @param includeAttachments Optional; If false, the response object will not include any attachment files from the input file. Default is true. (optional)
+     * @return SwagMsgToHtmlResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagMsgToHtmlResult convertDocumentMsgToHtml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagMsgToHtmlResult) client.invoke(
+            'POST', '/convert/msg/to/html', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'bodyOnly' => (Boolean) params.get('bodyOnly'),
+                'includeAttachments' => (Boolean) params.get('includeAttachments')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagMsgToHtmlResult.class
+        );
+    }
+    /**
+     * Convert Email MSG file to PDF document
+     * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDocumentMsgToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Object) client.invoke(
+            'POST', '/convert/msg/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'bodyOnly' => (Boolean) params.get('bodyOnly')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Object.class
         );
     }
     /**
@@ -652,6 +920,32 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert PowerPoint PPTX to PNG image array
+     * Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagPptxToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPptxToPngResult convertDocumentPptxToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagPptxToPngResult) client.invoke(
+            'POST', '/convert/pptx/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagPptxToPngResult.class
+        );
+    }
+    /**
      * Convert PowerPoint PPTX Presentation to Text (txt)
      * Convert Office PowerPoint Documents (pptx) to standard Text
      * @param inputFile Input file to perform the operation on. (required)
@@ -837,6 +1131,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert Excel XLSX spreadsheet to PNG image array
+     * Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagXlsxToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXlsxToPngResult convertDocumentXlsxToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXlsxToPngResult) client.invoke(
+            'POST', '/convert/xlsx/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXlsxToPngResult.class
         );
     }
     /**

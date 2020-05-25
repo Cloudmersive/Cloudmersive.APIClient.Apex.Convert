@@ -85,16 +85,25 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectGetInfo**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectGetInfo) | **POST** /convert/autodetect/get-info | Get document type information
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
+*SwagConvertDocumentApi* | [**convertDocumentAutodetectToThumbnail**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
+*SwagConvertDocumentApi* | [**convertDocumentAutodetectToThumbnailsAdvanced**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnailsAdvanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToTxt) | **POST** /convert/autodetect/to/txt | Convert Document to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentCsvToXlsx**](docs/SwagConvertDocumentApi.md#convertDocumentCsvToXlsx) | **POST** /convert/csv/to/xlsx | Convert CSV to Excel XLSX Spreadsheet
 *SwagConvertDocumentApi* | [**convertDocumentDocToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 *SwagConvertDocumentApi* | [**convertDocumentDocToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
 *SwagConvertDocumentApi* | [**convertDocumentDocToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentDocToTxt) | **POST** /convert/doc/to/txt | Convert Word DOC (97-03) Document to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentDocxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
+*SwagConvertDocumentApi* | [**convertDocumentDocxToPng**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToPng) | **POST** /convert/docx/to/png | Convert DOCX document to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentDocxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToTxt) | **POST** /convert/docx/to/txt | Convert Word DOCX Document to Text (txt)
+*SwagConvertDocumentApi* | [**convertDocumentEmlToHtml**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToHtml) | **POST** /convert/eml/to/html | Convert Email EML file to HTML string
+*SwagConvertDocumentApi* | [**convertDocumentEmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
+*SwagConvertDocumentApi* | [**convertDocumentGetFileTypeIcon**](docs/SwagConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
+*SwagConvertDocumentApi* | [**convertDocumentGetFileTypeIconAdvanced**](docs/SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon-advanced | Get PNG icon byte array for the file extension
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToPng**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML document file to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToTxt) | **POST** /convert/html/to/txt | HTML Document file to Text (txt)
+*SwagConvertDocumentApi* | [**convertDocumentMsgToHtml**](docs/SwagConvertDocumentApi.md#convertDocumentMsgToHtml) | **POST** /convert/msg/to/html | Convert Email MSG file to HTML string
+*SwagConvertDocumentApi* | [**convertDocumentMsgToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentMsgToPdf) | **POST** /convert/msg/to/pdf | Convert Email MSG file to PDF document
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocxRasterize**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
@@ -105,6 +114,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentPptToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | Convert PowerPoint PPT (97-03) Presentation to PDF
 *SwagConvertDocumentApi* | [**convertDocumentPptToPptx**](docs/SwagConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
 *SwagConvertDocumentApi* | [**convertDocumentPptxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
+*SwagConvertDocumentApi* | [**convertDocumentPptxToPng**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToPng) | **POST** /convert/pptx/to/png | Convert PowerPoint PPTX to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentPptxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | Convert PowerPoint PPTX Presentation to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentXlsToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 *SwagConvertDocumentApi* | [**convertDocumentXlsToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
@@ -112,6 +122,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentXlsxToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
 *SwagConvertDocumentApi* | [**convertDocumentXlsxToCsvMulti**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToCsvMulti) | **POST** /convert/xlsx/to/csv/multi | Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
 *SwagConvertDocumentApi* | [**convertDocumentXlsxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
+*SwagConvertDocumentApi* | [**convertDocumentXlsxToPng**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToPng) | **POST** /convert/xlsx/to/png | Convert Excel XLSX spreadsheet to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentXlsxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
 *SwagConvertImageApi* | [**convertImageGetImageInfo**](docs/SwagConvertImageApi.md#convertImageGetImageInfo) | **POST** /convert/image/get-info | Get information about an image
 *SwagConvertImageApi* | [**convertImageImageFormatConvert**](docs/SwagConvertImageApi.md#convertImageImageFormatConvert) | **POST** /convert/image/{format1}/to/{format2} | Image format conversion
@@ -229,9 +240,11 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentCsvValidation**](docs/SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 *SwagValidateDocumentApi* | [**validateDocumentDocxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
+*SwagValidateDocumentApi* | [**validateDocumentEmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 *SwagValidateDocumentApi* | [**validateDocumentExecutableValidation**](docs/SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
 *SwagValidateDocumentApi* | [**validateDocumentGZipValidation**](docs/SwagValidateDocumentApi.md#validateDocumentGZipValidation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
 *SwagValidateDocumentApi* | [**validateDocumentJsonValidation**](docs/SwagValidateDocumentApi.md#validateDocumentJsonValidation) | **POST** /convert/validate/json | Validate a JSON file
+*SwagValidateDocumentApi* | [**validateDocumentMsgValidation**](docs/SwagValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
 *SwagValidateDocumentApi* | [**validateDocumentPdfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPdfValidation) | **POST** /convert/validate/pdf | Validate a PDF document file
 *SwagValidateDocumentApi* | [**validateDocumentPptxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPptxValidation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 *SwagValidateDocumentApi* | [**validateDocumentRarValidation**](docs/SwagValidateDocumentApi.md#validateDocumentRarValidation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
@@ -254,6 +267,7 @@ Class | Method | HTTP request | Description
  - [SwagAutodetectDocumentValidationResu](docs/SwagAutodetectDocumentValidationResu.md)
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
  - [SwagAutodetectToPngResult](docs/SwagAutodetectToPngResult.md)
+ - [SwagAutodetectToThumbnailsResult](docs/SwagAutodetectToThumbnailsResult.md)
  - [SwagBase64DecodeRequest](docs/SwagBase64DecodeRequest.md)
  - [SwagBase64DecodeResponse](docs/SwagBase64DecodeResponse.md)
  - [SwagBase64DetectRequest](docs/SwagBase64DetectRequest.md)
@@ -309,7 +323,10 @@ Class | Method | HTTP request | Description
  - [SwagDocxTemplateApplicationRequest](docs/SwagDocxTemplateApplicationRequest.md)
  - [SwagDocxTemplateOperation](docs/SwagDocxTemplateOperation.md)
  - [SwagDocxText](docs/SwagDocxText.md)
+ - [SwagDocxToPngResult](docs/SwagDocxToPngResult.md)
  - [SwagDocxTopLevelComment](docs/SwagDocxTopLevelComment.md)
+ - [SwagEmlAttachment](docs/SwagEmlAttachment.md)
+ - [SwagEmlToHtmlResult](docs/SwagEmlToHtmlResult.md)
  - [SwagEnableSharedWorkbookRequest](docs/SwagEnableSharedWorkbookRequest.md)
  - [SwagEnableSharedWorkbookResponse](docs/SwagEnableSharedWorkbookResponse.md)
  - [SwagExifValue](docs/SwagExifValue.md)
@@ -344,6 +361,7 @@ Class | Method | HTTP request | Description
  - [SwagGetDocxTableRowResponse](docs/SwagGetDocxTableRowResponse.md)
  - [SwagGetDocxTablesRequest](docs/SwagGetDocxTablesRequest.md)
  - [SwagGetDocxTablesResponse](docs/SwagGetDocxTablesResponse.md)
+ - [SwagGetFileTypeIconResult](docs/SwagGetFileTypeIconResult.md)
  - [SwagGetImageInfoResult](docs/SwagGetImageInfoResult.md)
  - [SwagGetPdfAnnotationsResult](docs/SwagGetPdfAnnotationsResult.md)
  - [SwagGetXlsxCellByIdentifierRequest](docs/SwagGetXlsxCellByIdentifierRequest.md)
@@ -378,6 +396,8 @@ Class | Method | HTTP request | Description
  - [SwagInsertDocxTablesResponse](docs/SwagInsertDocxTablesResponse.md)
  - [SwagInsertXlsxWorksheetRequest](docs/SwagInsertXlsxWorksheetRequest.md)
  - [SwagInsertXlsxWorksheetResponse](docs/SwagInsertXlsxWorksheetResponse.md)
+ - [SwagMsgAttachment](docs/SwagMsgAttachment.md)
+ - [SwagMsgToHtmlResult](docs/SwagMsgToHtmlResult.md)
  - [SwagMultipageImageFormatConversionRe](docs/SwagMultipageImageFormatConversionRe.md)
  - [SwagPageConversionResult](docs/SwagPageConversionResult.md)
  - [SwagPdfAnnotation](docs/SwagPdfAnnotation.md)
@@ -388,6 +408,7 @@ Class | Method | HTTP request | Description
  - [SwagPdfPageText](docs/SwagPdfPageText.md)
  - [SwagPdfTextByPageResult](docs/SwagPdfTextByPageResult.md)
  - [SwagPdfToPngResult](docs/SwagPdfToPngResult.md)
+ - [SwagPptxToPngResult](docs/SwagPptxToPngResult.md)
  - [SwagPresentationResult](docs/SwagPresentationResult.md)
  - [SwagRemoveDocxHeadersAndFootersReque](docs/SwagRemoveDocxHeadersAndFootersReque.md)
  - [SwagRemoveDocxHeadersAndFootersRespo](docs/SwagRemoveDocxHeadersAndFootersRespo.md)
@@ -424,6 +445,7 @@ Class | Method | HTTP request | Description
  - [SwagTextDocumentElement](docs/SwagTextDocumentElement.md)
  - [SwagTextDocumentLine](docs/SwagTextDocumentLine.md)
  - [SwagTextEncodingDetectResponse](docs/SwagTextEncodingDetectResponse.md)
+ - [SwagThumbnail](docs/SwagThumbnail.md)
  - [SwagUpdateDocxTableCellRequest](docs/SwagUpdateDocxTableCellRequest.md)
  - [SwagUpdateDocxTableCellResponse](docs/SwagUpdateDocxTableCellResponse.md)
  - [SwagUpdateDocxTableRowRequest](docs/SwagUpdateDocxTableRowRequest.md)
@@ -437,6 +459,7 @@ Class | Method | HTTP request | Description
  - [SwagXlsxSpreadsheetCell](docs/SwagXlsxSpreadsheetCell.md)
  - [SwagXlsxSpreadsheetColumn](docs/SwagXlsxSpreadsheetColumn.md)
  - [SwagXlsxSpreadsheetRow](docs/SwagXlsxSpreadsheetRow.md)
+ - [SwagXlsxToPngResult](docs/SwagXlsxToPngResult.md)
  - [SwagXlsxWorksheet](docs/SwagXlsxWorksheet.md)
  - [SwagXmlAddAttributeWithXPathResult](docs/SwagXmlAddAttributeWithXPathResult.md)
  - [SwagXmlAddChildWithXPathResult](docs/SwagXmlAddChildWithXPathResult.md)

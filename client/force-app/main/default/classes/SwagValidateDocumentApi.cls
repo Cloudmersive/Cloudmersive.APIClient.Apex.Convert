@@ -104,6 +104,32 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Validate if an EML file is executable
+     * Validate if an input file is an EML email file; if the document is not valid
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentEmlValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/eml', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
      * Validate if a file is executable
      * Validate if an input file is a binary executable file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
@@ -172,6 +198,32 @@ public class SwagValidateDocumentApi {
 
         return (SwagDocumentValidationResult) client.invoke(
             'POST', '/convert/validate/json', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
+     * Validate if an MSG file is executable
+     * Validate if an input file is an MSG email file; if the document is not valid
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentMsgValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/msg', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

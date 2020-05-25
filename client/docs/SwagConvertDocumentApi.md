@@ -7,16 +7,25 @@ Method | HTTP request | Description
 [**convertDocumentAutodetectGetInfo**](SwagConvertDocumentApi.md#convertDocumentAutodetectGetInfo) | **POST** /convert/autodetect/get-info | Get document type information
 [**convertDocumentAutodetectToPdf**](SwagConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
 [**convertDocumentAutodetectToPngArray**](SwagConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
+[**convertDocumentAutodetectToThumbnail**](SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
+[**convertDocumentAutodetectToThumbnailsAdvanced**](SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnailsAdvanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
 [**convertDocumentAutodetectToTxt**](SwagConvertDocumentApi.md#convertDocumentAutodetectToTxt) | **POST** /convert/autodetect/to/txt | Convert Document to Text (txt)
 [**convertDocumentCsvToXlsx**](SwagConvertDocumentApi.md#convertDocumentCsvToXlsx) | **POST** /convert/csv/to/xlsx | Convert CSV to Excel XLSX Spreadsheet
 [**convertDocumentDocToDocx**](SwagConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 [**convertDocumentDocToPdf**](SwagConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
 [**convertDocumentDocToTxt**](SwagConvertDocumentApi.md#convertDocumentDocToTxt) | **POST** /convert/doc/to/txt | Convert Word DOC (97-03) Document to Text (txt)
 [**convertDocumentDocxToPdf**](SwagConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
+[**convertDocumentDocxToPng**](SwagConvertDocumentApi.md#convertDocumentDocxToPng) | **POST** /convert/docx/to/png | Convert DOCX document to PNG image array
 [**convertDocumentDocxToTxt**](SwagConvertDocumentApi.md#convertDocumentDocxToTxt) | **POST** /convert/docx/to/txt | Convert Word DOCX Document to Text (txt)
+[**convertDocumentEmlToHtml**](SwagConvertDocumentApi.md#convertDocumentEmlToHtml) | **POST** /convert/eml/to/html | Convert Email EML file to HTML string
+[**convertDocumentEmlToPdf**](SwagConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
+[**convertDocumentGetFileTypeIcon**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
+[**convertDocumentGetFileTypeIconAdvanced**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon-advanced | Get PNG icon byte array for the file extension
 [**convertDocumentHtmlToPdf**](SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
 [**convertDocumentHtmlToPng**](SwagConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML document file to PNG image array
 [**convertDocumentHtmlToTxt**](SwagConvertDocumentApi.md#convertDocumentHtmlToTxt) | **POST** /convert/html/to/txt | HTML Document file to Text (txt)
+[**convertDocumentMsgToHtml**](SwagConvertDocumentApi.md#convertDocumentMsgToHtml) | **POST** /convert/msg/to/html | Convert Email MSG file to HTML string
+[**convertDocumentMsgToPdf**](SwagConvertDocumentApi.md#convertDocumentMsgToPdf) | **POST** /convert/msg/to/pdf | Convert Email MSG file to PDF document
 [**convertDocumentPdfToDocx**](SwagConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 [**convertDocumentPdfToDocxRasterize**](SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 [**convertDocumentPdfToPngArray**](SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
@@ -27,6 +36,7 @@ Method | HTTP request | Description
 [**convertDocumentPptToPdf**](SwagConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | Convert PowerPoint PPT (97-03) Presentation to PDF
 [**convertDocumentPptToPptx**](SwagConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
 [**convertDocumentPptxToPdf**](SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
+[**convertDocumentPptxToPng**](SwagConvertDocumentApi.md#convertDocumentPptxToPng) | **POST** /convert/pptx/to/png | Convert PowerPoint PPTX to PNG image array
 [**convertDocumentPptxToTxt**](SwagConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | Convert PowerPoint PPTX Presentation to Text (txt)
 [**convertDocumentXlsToCsv**](SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 [**convertDocumentXlsToPdf**](SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
@@ -34,6 +44,7 @@ Method | HTTP request | Description
 [**convertDocumentXlsxToCsv**](SwagConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
 [**convertDocumentXlsxToCsvMulti**](SwagConvertDocumentApi.md#convertDocumentXlsxToCsvMulti) | **POST** /convert/xlsx/to/csv/multi | Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
 [**convertDocumentXlsxToPdf**](SwagConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
+[**convertDocumentXlsxToPng**](SwagConvertDocumentApi.md#convertDocumentXlsxToPng) | **POST** /convert/xlsx/to/png | Convert Excel XLSX spreadsheet to PNG image array
 [**convertDocumentXlsxToTxt**](SwagConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
 
 
@@ -174,6 +185,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagAutodetectToPngResult**](SwagAutodetectToPngResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentAutodetectToThumbnail"></a>
+# **convertDocumentAutodetectToThumbnail**
+> Object convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension)
+
+Convert File to Thumbnail Image
+
+Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'maxWidth' => 56,
+    'maxHeight' => 56,
+    'extension' => 'extension_example'
+};
+
+try {
+    // cross your fingers
+    Object result = api.convertDocumentAutodetectToThumbnail(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **maxWidth** | **Integer**| Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. | [optional]
+ **maxHeight** | **Integer**| Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. | [optional]
+ **extension** | **String**| Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. | [optional]
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentAutodetectToThumbnailsAdvanced"></a>
+# **convertDocumentAutodetectToThumbnailsAdvanced**
+> SwagAutodetectToThumbnailsResult convertDocumentAutodetectToThumbnailsAdvanced(inputFile, pages, maxWidth, maxHeight, extension)
+
+Convert File to Thumbnail Image Object
+
+Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'pages' => 56,
+    'maxWidth' => 56,
+    'maxHeight' => 56,
+    'extension' => 'extension_example'
+};
+
+try {
+    // cross your fingers
+    SwagAutodetectToThumbnailsResult result = api.convertDocumentAutodetectToThumbnailsAdvanced(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **pages** | **Integer**| Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. | [optional]
+ **maxWidth** | **Integer**| Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. | [optional]
+ **maxHeight** | **Integer**| Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. | [optional]
+ **extension** | **String**| Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. | [optional]
+
+### Return type
+
+[**SwagAutodetectToThumbnailsResult**](SwagAutodetectToThumbnailsResult.md)
 
 ### Authorization
 
@@ -480,6 +603,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="convertDocumentDocxToPng"></a>
+# **convertDocumentDocxToPng**
+> SwagDocxToPngResult convertDocumentDocxToPng(inputFile)
+
+Convert DOCX document to PNG image array
+
+Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagDocxToPngResult result = api.convertDocumentDocxToPng(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagDocxToPngResult**](SwagDocxToPngResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="convertDocumentDocxToTxt"></a>
 # **convertDocumentDocxToTxt**
 > SwagTextConversionResult convertDocumentDocxToTxt(inputFile, textFormattingMode)
@@ -529,6 +701,212 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentEmlToHtml"></a>
+# **convertDocumentEmlToHtml**
+> SwagEmlToHtmlResult convertDocumentEmlToHtml(inputFile, bodyOnly, includeAttachments)
+
+Convert Email EML file to HTML string
+
+Convert Outlook Email EML file to HTML string and attachments. Supports images if they are base 64 inline.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'bodyOnly' => true,
+    'includeAttachments' => true
+};
+
+try {
+    // cross your fingers
+    SwagEmlToHtmlResult result = api.convertDocumentEmlToHtml(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **bodyOnly** | **Boolean**| Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. | [optional]
+ **includeAttachments** | **Boolean**| Optional; If false, the response object will not include any attachment files from the input file. Default is true. | [optional]
+
+### Return type
+
+[**SwagEmlToHtmlResult**](SwagEmlToHtmlResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentEmlToPdf"></a>
+# **convertDocumentEmlToPdf**
+> Object convertDocumentEmlToPdf(inputFile, bodyOnly)
+
+Convert Email EML file to PDF document
+
+Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'bodyOnly' => true
+};
+
+try {
+    // cross your fingers
+    Object result = api.convertDocumentEmlToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **bodyOnly** | **Boolean**| Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. | [optional]
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentGetFileTypeIcon"></a>
+# **convertDocumentGetFileTypeIcon**
+> Object convertDocumentGetFileTypeIcon(fileExtension, iconSize)
+
+Get PNG icon file for the file extension
+
+Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'fileExtension' => 'fileExtension_example',
+    'iconSize' => 56
+};
+
+try {
+    // cross your fingers
+    Object result = api.convertDocumentGetFileTypeIcon(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fileExtension** | **String**| Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. |
+ **iconSize** | **Integer**| Optional; The desired width of the icon, preserving its aspect ratio. | [optional]
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="convertDocumentGetFileTypeIconAdvanced"></a>
+# **convertDocumentGetFileTypeIconAdvanced**
+> SwagGetFileTypeIconResult convertDocumentGetFileTypeIconAdvanced(fileExtension, iconSize)
+
+Get PNG icon byte array for the file extension
+
+Returns a PNG icon for the given file format extension directly as a byte array. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'fileExtension' => 'fileExtension_example',
+    'iconSize' => 56
+};
+
+try {
+    // cross your fingers
+    SwagGetFileTypeIconResult result = api.convertDocumentGetFileTypeIconAdvanced(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fileExtension** | **String**| Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. |
+ **iconSize** | **Integer**| Optional; The desired width of the icon, preserving its aspect ratio. | [optional]
+
+### Return type
+
+[**SwagGetFileTypeIconResult**](SwagGetFileTypeIconResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="convertDocumentHtmlToPdf"></a>
@@ -668,6 +1046,110 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagTextConversionResult**](SwagTextConversionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentMsgToHtml"></a>
+# **convertDocumentMsgToHtml**
+> SwagMsgToHtmlResult convertDocumentMsgToHtml(inputFile, bodyOnly, includeAttachments)
+
+Convert Email MSG file to HTML string
+
+Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'bodyOnly' => true,
+    'includeAttachments' => true
+};
+
+try {
+    // cross your fingers
+    SwagMsgToHtmlResult result = api.convertDocumentMsgToHtml(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **bodyOnly** | **Boolean**| Optional; If true, the HTML string will only include the body of the MSG. Other information such as subject will still be given as properties in the response object. Default is false. | [optional]
+ **includeAttachments** | **Boolean**| Optional; If false, the response object will not include any attachment files from the input file. Default is true. | [optional]
+
+### Return type
+
+[**SwagMsgToHtmlResult**](SwagMsgToHtmlResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentMsgToPdf"></a>
+# **convertDocumentMsgToPdf**
+> Object convertDocumentMsgToPdf(inputFile, bodyOnly)
+
+Convert Email MSG file to PDF document
+
+Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'bodyOnly' => true
+};
+
+try {
+    // cross your fingers
+    Object result = api.convertDocumentMsgToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **bodyOnly** | **Boolean**| Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. | [optional]
+
+### Return type
+
+**Object**
 
 ### Authorization
 
@@ -1188,6 +1670,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="convertDocumentPptxToPng"></a>
+# **convertDocumentPptxToPng**
+> SwagPptxToPngResult convertDocumentPptxToPng(inputFile)
+
+Convert PowerPoint PPTX to PNG image array
+
+Converts a PowerPoint Presentation (PPTX) file to an array of PNG images, one for each page.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagPptxToPngResult result = api.convertDocumentPptxToPng(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagPptxToPngResult**](SwagPptxToPngResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="convertDocumentPptxToTxt"></a>
 # **convertDocumentPptxToTxt**
 > SwagTextConversionResult convertDocumentPptxToTxt(inputFile)
@@ -1525,6 +2056,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentXlsxToPng"></a>
+# **convertDocumentXlsxToPng**
+> SwagXlsxToPngResult convertDocumentXlsxToPng(inputFile)
+
+Convert Excel XLSX spreadsheet to PNG image array
+
+Converts an Excel Spreadsheet (XLSX) file to an array of PNG images, one for each page.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagXlsxToPngResult result = api.convertDocumentXlsxToPng(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagXlsxToPngResult**](SwagXlsxToPngResult.md)
 
 ### Authorization
 

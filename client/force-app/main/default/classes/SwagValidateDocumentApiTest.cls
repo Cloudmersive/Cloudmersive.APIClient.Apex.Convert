@@ -100,6 +100,39 @@ private class SwagValidateDocumentApiTest {
     }
 
     /**
+     * Validate if an EML file is executable
+     *
+     * Validate if an input file is an EML email file; if the document is not valid
+     */
+    @isTest
+    private static void validateDocumentEmlValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentEmlValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Validate if a file is executable
      *
      * Validate if an input file is a binary executable file; if the document is not valid
@@ -195,6 +228,39 @@ private class SwagValidateDocumentApiTest {
         res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
         expectedResponse = SwagDocumentValidationResult.getExample();
         response = (SwagDocumentValidationResult) api.validateDocumentJsonValidation(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Validate if an MSG file is executable
+     *
+     * Validate if an input file is an MSG email file; if the document is not valid
+     */
+    @isTest
+    private static void validateDocumentMsgValidationTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagValidateDocumentApi api;
+        SwagDocumentValidationResult response;
+        SwagDocumentValidationResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagValidateDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "WarningCount" : 6,\r\n  "DocumentIsValid" : true,\r\n  "ErrorsAndWarnings" : [ {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  }, {\r\n    "Path" : "Path",\r\n    "Description" : "Description",\r\n    "IsError" : true,\r\n    "Uri" : "Uri"\r\n  } ],\r\n  "PasswordProtected" : true,\r\n  "ErrorCount" : 0\r\n}');
+        expectedResponse = SwagDocumentValidationResult.getExample();
+        response = (SwagDocumentValidationResult) api.validateDocumentMsgValidation(params);
         System.assertEquals(expectedResponse, response);
     }
 
