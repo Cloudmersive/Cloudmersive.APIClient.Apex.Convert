@@ -51,28 +51,16 @@ public class SwagEmlToHtmlResult implements Swagger.MappedProperties {
     public String cc { get; set; }
 
     /**
-     * The BCC recipients of the EML file\'s email
-     * @return bcc
+     * The date and time that the EML file\'s email was sent
+     * @return dateSent
      */
-    public String bcc { get; set; }
-
-    /**
-     * The time that the EML file\'s email was received
-     * @return receivedTime
-     */
-    public String receivedTime { get; set; }
+    public String dateSent { get; set; }
 
     /**
      * The subject of the EML file\'s email
      * @return subject
      */
     public String subject { get; set; }
-
-    /**
-     * The Organization of the EML file\'s email
-     * @return organization
-     */
-    public String organization { get; set; }
 
     /**
      * List of all attachments for the EML file
@@ -87,10 +75,8 @@ public class SwagEmlToHtmlResult implements Swagger.MappedProperties {
         'From' => 'r_from',
         'To' => 'to',
         'Cc' => 'cc',
-        'Bcc' => 'bcc',
-        'ReceivedTime' => 'receivedTime',
+        'DateSent' => 'dateSent',
         'Subject' => 'subject',
-        'Organization' => 'organization',
         'Attachments' => 'attachments'
     };
 
@@ -110,10 +96,8 @@ public class SwagEmlToHtmlResult implements Swagger.MappedProperties {
         emlToHtmlResult.r_from = 'aeiou';
         emlToHtmlResult.to = 'aeiou';
         emlToHtmlResult.cc = 'aeiou';
-        emlToHtmlResult.bcc = 'aeiou';
-        emlToHtmlResult.receivedTime = 'aeiou';
+        emlToHtmlResult.dateSent = 'aeiou';
         emlToHtmlResult.subject = 'aeiou';
-        emlToHtmlResult.organization = 'aeiou';
         emlToHtmlResult.attachments = new List<SwagEmlAttachment>{SwagEmlAttachment.getExample()};
         return emlToHtmlResult;
     }
@@ -127,10 +111,8 @@ public class SwagEmlToHtmlResult implements Swagger.MappedProperties {
                 && this.r_from == emlToHtmlResult.r_from
                 && this.to == emlToHtmlResult.to
                 && this.cc == emlToHtmlResult.cc
-                && this.bcc == emlToHtmlResult.bcc
-                && this.receivedTime == emlToHtmlResult.receivedTime
+                && this.dateSent == emlToHtmlResult.dateSent
                 && this.subject == emlToHtmlResult.subject
-                && this.organization == emlToHtmlResult.organization
                 && this.attachments == emlToHtmlResult.attachments;
         }
         return false;
@@ -144,10 +126,8 @@ public class SwagEmlToHtmlResult implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (r_from == null ? 0 : System.hashCode(r_from));
         hashCode = (17 * hashCode) + (to == null ? 0 : System.hashCode(to));
         hashCode = (17 * hashCode) + (cc == null ? 0 : System.hashCode(cc));
-        hashCode = (17 * hashCode) + (bcc == null ? 0 : System.hashCode(bcc));
-        hashCode = (17 * hashCode) + (receivedTime == null ? 0 : System.hashCode(receivedTime));
+        hashCode = (17 * hashCode) + (dateSent == null ? 0 : System.hashCode(dateSent));
         hashCode = (17 * hashCode) + (subject == null ? 0 : System.hashCode(subject));
-        hashCode = (17 * hashCode) + (organization == null ? 0 : System.hashCode(organization));
         hashCode = (17 * hashCode) + (attachments == null ? 0 : System.hashCode(attachments));
         return hashCode;
     }

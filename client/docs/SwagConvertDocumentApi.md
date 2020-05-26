@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**convertDocumentEmlToHtml**](SwagConvertDocumentApi.md#convertDocumentEmlToHtml) | **POST** /convert/eml/to/html | Convert Email EML file to HTML string
 [**convertDocumentEmlToPdf**](SwagConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
 [**convertDocumentGetFileTypeIcon**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
-[**convertDocumentGetFileTypeIconAdvanced**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon-advanced | Get PNG icon byte array for the file extension
+[**convertDocumentGetFileTypeIconAdvanced**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon/advanced | Get PNG icon byte array for the file extension
 [**convertDocumentHtmlToPdf**](SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
 [**convertDocumentHtmlToPng**](SwagConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML document file to PNG image array
 [**convertDocumentHtmlToTxt**](SwagConvertDocumentApi.md#convertDocumentHtmlToTxt) | **POST** /convert/html/to/txt | HTML Document file to Text (txt)
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentAutodetectToThumbnail"></a>
 # **convertDocumentAutodetectToThumbnail**
-> Object convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension)
+> Blob convertDocumentAutodetectToThumbnail(inputFile, maxWidth, maxHeight, extension)
 
 Convert File to Thumbnail Image
 
@@ -221,7 +221,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.convertDocumentAutodetectToThumbnail(params);
+    Blob result = api.convertDocumentAutodetectToThumbnail(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 
@@ -758,7 +758,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentEmlToPdf"></a>
 # **convertDocumentEmlToPdf**
-> Object convertDocumentEmlToPdf(inputFile, bodyOnly)
+> Blob convertDocumentEmlToPdf(inputFile, bodyOnly)
 
 Convert Email EML file to PDF document
 
@@ -780,7 +780,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.convertDocumentEmlToPdf(params);
+    Blob result = api.convertDocumentEmlToPdf(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 
@@ -809,7 +809,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentGetFileTypeIcon"></a>
 # **convertDocumentGetFileTypeIcon**
-> Object convertDocumentGetFileTypeIcon(fileExtension, iconSize)
+> Blob convertDocumentGetFileTypeIcon(fileExtension, iconSize)
 
 Get PNG icon file for the file extension
 
@@ -831,7 +831,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.convertDocumentGetFileTypeIcon(params);
+    Blob result = api.convertDocumentGetFileTypeIcon(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -847,7 +847,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 
@@ -1111,7 +1111,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentMsgToPdf"></a>
 # **convertDocumentMsgToPdf**
-> Object convertDocumentMsgToPdf(inputFile, bodyOnly)
+> Blob convertDocumentMsgToPdf(inputFile, bodyOnly)
 
 Convert Email MSG file to PDF document
 
@@ -1133,7 +1133,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.convertDocumentMsgToPdf(params);
+    Blob result = api.convertDocumentMsgToPdf(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -1149,7 +1149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 

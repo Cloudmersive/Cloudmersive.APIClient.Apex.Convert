@@ -88,10 +88,8 @@ private class SwagEmlToHtmlResultTest {
         System.assertEquals('r_from', propertyMappings.get('From'));
         System.assertEquals('to', propertyMappings.get('To'));
         System.assertEquals('cc', propertyMappings.get('Cc'));
-        System.assertEquals('bcc', propertyMappings.get('Bcc'));
-        System.assertEquals('receivedTime', propertyMappings.get('ReceivedTime'));
+        System.assertEquals('dateSent', propertyMappings.get('DateSent'));
         System.assertEquals('subject', propertyMappings.get('Subject'));
-        System.assertEquals('organization', propertyMappings.get('Organization'));
         System.assertEquals('attachments', propertyMappings.get('Attachments'));
     }
 
@@ -105,9 +103,7 @@ private class SwagEmlToHtmlResultTest {
         System.assertEquals(null, emlToHtmlResult.r_from);
         System.assertEquals(null, emlToHtmlResult.to);
         System.assertEquals(null, emlToHtmlResult.cc);
-        System.assertEquals(null, emlToHtmlResult.bcc);
-        System.assertEquals(null, emlToHtmlResult.receivedTime);
+        System.assertEquals(null, emlToHtmlResult.dateSent);
         System.assertEquals(null, emlToHtmlResult.subject);
-        System.assertEquals(null, emlToHtmlResult.organization);
     }
 }

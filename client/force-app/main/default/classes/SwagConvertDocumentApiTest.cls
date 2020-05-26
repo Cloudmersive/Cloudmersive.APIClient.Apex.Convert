@@ -120,8 +120,8 @@ private class SwagConvertDocumentApiTest {
 
         SwagClient client;
         SwagConvertDocumentApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagConvertDocumentApi(client);
@@ -129,9 +129,9 @@ private class SwagConvertDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.convertDocumentAutodetectToThumbnail(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentAutodetectToThumbnail(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -467,7 +467,7 @@ private class SwagConvertDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('{\r\n  "Cc" : "Cc",\r\n  "Bcc" : "Bcc",\r\n  "Organization" : "Organization",\r\n  "Content" : "Content",\r\n  "From" : "From",\r\n  "To" : "To",\r\n  "ReceivedTime" : "ReceivedTime",\r\n  "Successful" : true,\r\n  "Body" : "Body",\r\n  "Attachments" : [ {\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Name" : "Name"\r\n  }, {\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Name" : "Name"\r\n  } ],\r\n  "Subject" : "Subject"\r\n}');
+        res.setBody('{\r\n  "Cc" : "Cc",\r\n  "DateSent" : "DateSent",\r\n  "Content" : "Content",\r\n  "From" : "From",\r\n  "To" : "To",\r\n  "Successful" : true,\r\n  "Body" : "Body",\r\n  "Attachments" : [ {\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Name" : "Name"\r\n  }, {\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Name" : "Name"\r\n  } ],\r\n  "Subject" : "Subject"\r\n}');
         expectedResponse = SwagEmlToHtmlResult.getExample();
         response = (SwagEmlToHtmlResult) api.convertDocumentEmlToHtml(params);
         System.assertEquals(expectedResponse, response);
@@ -492,8 +492,8 @@ private class SwagConvertDocumentApiTest {
 
         SwagClient client;
         SwagConvertDocumentApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagConvertDocumentApi(client);
@@ -501,9 +501,9 @@ private class SwagConvertDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.convertDocumentEmlToPdf(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentEmlToPdf(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -526,8 +526,8 @@ private class SwagConvertDocumentApiTest {
 
         SwagClient client;
         SwagConvertDocumentApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagConvertDocumentApi(client);
@@ -535,9 +535,9 @@ private class SwagConvertDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.convertDocumentGetFileTypeIcon(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentGetFileTypeIcon(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -728,8 +728,8 @@ private class SwagConvertDocumentApiTest {
 
         SwagClient client;
         SwagConvertDocumentApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagConvertDocumentApi(client);
@@ -737,9 +737,9 @@ private class SwagConvertDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.convertDocumentMsgToPdf(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentMsgToPdf(params);
         System.assertEquals(expectedResponse, response);
     }
 

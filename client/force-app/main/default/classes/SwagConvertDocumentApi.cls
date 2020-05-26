@@ -110,10 +110,10 @@ public class SwagConvertDocumentApi {
      * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
      * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
      * @param extension Optional; Specify the file extension of the inputFile. This will improve the response time in most cases. Also allows unsupported files without extensions to still return a corresponding generic icon. (optional)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDocumentAutodetectToThumbnail(Map<String, Object> params) {
+    public Blob convertDocumentAutodetectToThumbnail(Map<String, Object> params) {
         client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
@@ -121,7 +121,7 @@ public class SwagConvertDocumentApi {
         // cast form params to verify their expected type
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/autodetect/to/thumbnail', '',
             query, form,
             new Map<String, Object>(),
@@ -133,7 +133,7 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -421,10 +421,10 @@ public class SwagConvertDocumentApi {
      * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
      * @param inputFile Input file to perform the operation on. (required)
      * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDocumentEmlToPdf(Map<String, Object> params) {
+    public Blob convertDocumentEmlToPdf(Map<String, Object> params) {
         client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
@@ -432,7 +432,7 @@ public class SwagConvertDocumentApi {
         // cast form params to verify their expected type
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/eml/to/pdf', '',
             query, form,
             new Map<String, Object>(),
@@ -442,7 +442,7 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -450,15 +450,15 @@ public class SwagConvertDocumentApi {
      * Returns a PNG icon for the given file format extension as a file for download. User may specify the icon size. Supports over 100 file formats, with a generic icon for unsupported formats.
      * @param fileExtension Required; The file extension to be used for the icon. Limited to 4 AlphaNumeric characters. (required)
      * @param iconSize Optional; The desired width of the icon, preserving its aspect ratio. (optional)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDocumentGetFileTypeIcon(Map<String, Object> params) {
+    public Blob convertDocumentGetFileTypeIcon(Map<String, Object> params) {
         client.assertNotNull(params.get('fileExtension'), 'fileExtension');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/autodetect/get-icon', '',
             query, form,
             new Map<String, Object>(),
@@ -469,7 +469,7 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -486,7 +486,7 @@ public class SwagConvertDocumentApi {
         List<Swagger.Param> form = new List<Swagger.Param>();
 
         return (SwagGetFileTypeIconResult) client.invoke(
-            'POST', '/convert/autodetect/get-icon-advanced', '',
+            'POST', '/convert/autodetect/get-icon/advanced', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>{
@@ -613,10 +613,10 @@ public class SwagConvertDocumentApi {
      * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
      * @param inputFile Input file to perform the operation on. (required)
      * @param bodyOnly Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. (optional)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDocumentMsgToPdf(Map<String, Object> params) {
+    public Blob convertDocumentMsgToPdf(Map<String, Object> params) {
         client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
@@ -624,7 +624,7 @@ public class SwagConvertDocumentApi {
         // cast form params to verify their expected type
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/msg/to/pdf', '',
             query, form,
             new Map<String, Object>(),
@@ -634,7 +634,7 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
