@@ -172,7 +172,9 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentFinishEditing**](docs/SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Finish editing document, and download result from document editing
 *SwagEditDocumentApi* | [**editDocumentPptxDeleteSlides**](docs/SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 *SwagEditDocumentApi* | [**editDocumentPptxReplace**](docs/SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
+*SwagEditDocumentApi* | [**editDocumentXlsxAppendRow**](docs/SwagEditDocumentApi.md#editDocumentXlsxAppendRow) | **POST** /convert/edit/xlsx/append-row | Append row to a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxClearCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxClearCellByIndex) | **POST** /convert/edit/xlsx/clear-cell/by-index | Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+*SwagEditDocumentApi* | [**editDocumentXlsxClearRow**](docs/SwagEditDocumentApi.md#editDocumentXlsxClearRow) | **POST** /convert/edit/xlsx/clear-row | Clear row from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateBlankSpreadsheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxCreateSpreadsheetFromData**](docs/SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 *SwagEditDocumentApi* | [**editDocumentXlsxDeleteWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
@@ -183,9 +185,11 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentXlsxGetColumns**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get columns from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetImages**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetImages) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetRowsAndCells**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetRowsAndCells) | **POST** /convert/edit/xlsx/get-rows-and-cells | Get rows and cells from a Excel XLSX spreadsheet, worksheet
+*SwagEditDocumentApi* | [**editDocumentXlsxGetSpecificRow**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetSpecificRow) | **POST** /convert/edit/xlsx/get-specific-row | Get a specific row from a Excel XLSX spreadsheet, worksheet by path
 *SwagEditDocumentApi* | [**editDocumentXlsxGetStyles**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetStyles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
 *SwagEditDocumentApi* | [**editDocumentXlsxGetWorksheets**](docs/SwagEditDocumentApi.md#editDocumentXlsxGetWorksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxInsertWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxInsertWorksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
+*SwagEditDocumentApi* | [**editDocumentXlsxRenameWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxRenameWorksheet) | **POST** /convert/edit/xlsx/rename-worksheet | Rename a specific worksheet in a Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxSetCellByIdentifier**](docs/SwagEditDocumentApi.md#editDocumentXlsxSetCellByIdentifier) | **POST** /convert/edit/xlsx/set-cell/by-identifier | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
 *SwagEditDocumentApi* | [**editDocumentXlsxSetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxSetCellByIndex) | **POST** /convert/edit/xlsx/set-cell/by-index | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
 *SwagEditPdfApi* | [**editPdfAddAnnotations**](docs/SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
@@ -264,6 +268,8 @@ Class | Method | HTTP request | Description
 
  - [SwagAddPdfAnnotationRequest](docs/SwagAddPdfAnnotationRequest.md)
  - [SwagAlternateFileFormatCandidate](docs/SwagAlternateFileFormatCandidate.md)
+ - [SwagAppendXlsxRowRequest](docs/SwagAppendXlsxRowRequest.md)
+ - [SwagAppendXlsxRowResponse](docs/SwagAppendXlsxRowResponse.md)
  - [SwagAutodetectDocumentValidationResu](docs/SwagAutodetectDocumentValidationResu.md)
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
  - [SwagAutodetectToPngResult](docs/SwagAutodetectToPngResult.md)
@@ -277,6 +283,8 @@ Class | Method | HTTP request | Description
  - [SwagChangeLineEndingResponse](docs/SwagChangeLineEndingResponse.md)
  - [SwagClearXlsxCellRequest](docs/SwagClearXlsxCellRequest.md)
  - [SwagClearXlsxCellResponse](docs/SwagClearXlsxCellResponse.md)
+ - [SwagClearXlsxRowRequest](docs/SwagClearXlsxRowRequest.md)
+ - [SwagClearXlsxRowResponse](docs/SwagClearXlsxRowResponse.md)
  - [SwagConvertedPngPage](docs/SwagConvertedPngPage.md)
  - [SwagCreateBlankDocxRequest](docs/SwagCreateBlankDocxRequest.md)
  - [SwagCreateBlankDocxResponse](docs/SwagCreateBlankDocxResponse.md)
@@ -374,6 +382,8 @@ Class | Method | HTTP request | Description
  - [SwagGetXlsxImagesResponse](docs/SwagGetXlsxImagesResponse.md)
  - [SwagGetXlsxRowsAndCellsRequest](docs/SwagGetXlsxRowsAndCellsRequest.md)
  - [SwagGetXlsxRowsAndCellsResponse](docs/SwagGetXlsxRowsAndCellsResponse.md)
+ - [SwagGetXlsxSpecificRowRequest](docs/SwagGetXlsxSpecificRowRequest.md)
+ - [SwagGetXlsxSpecificRowResponse](docs/SwagGetXlsxSpecificRowResponse.md)
  - [SwagGetXlsxStylesRequest](docs/SwagGetXlsxStylesRequest.md)
  - [SwagGetXlsxStylesResponse](docs/SwagGetXlsxStylesResponse.md)
  - [SwagGetXlsxWorksheetsRequest](docs/SwagGetXlsxWorksheetsRequest.md)
@@ -419,6 +429,8 @@ Class | Method | HTTP request | Description
  - [SwagRemoveWhitespaceFromTextRequest](docs/SwagRemoveWhitespaceFromTextRequest.md)
  - [SwagRemoveWhitespaceFromTextResponse](docs/SwagRemoveWhitespaceFromTextResponse.md)
  - [SwagRemoveXlsxWorksheetRequest](docs/SwagRemoveXlsxWorksheetRequest.md)
+ - [SwagRenameXlsxWorksheetRequest](docs/SwagRenameXlsxWorksheetRequest.md)
+ - [SwagRenameXlsxWorksheetResponse](docs/SwagRenameXlsxWorksheetResponse.md)
  - [SwagReplaceDocxParagraphRequest](docs/SwagReplaceDocxParagraphRequest.md)
  - [SwagReplaceDocxParagraphResponse](docs/SwagReplaceDocxParagraphResponse.md)
  - [SwagReplaceStringRegexRequest](docs/SwagReplaceStringRegexRequest.md)

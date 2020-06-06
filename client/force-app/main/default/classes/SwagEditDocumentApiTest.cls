@@ -1123,6 +1123,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Append row to a Excel XLSX spreadsheet, worksheet
+     *
+     * Appends a row to the end of an Excel Spreadsheet worksheet.
+     */
+    @isTest
+    private static void editDocumentXlsxAppendRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagAppendXlsxRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagAppendXlsxRowResponse response;
+        SwagAppendXlsxRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagAppendXlsxRowResponse.getExample();
+        response = (SwagAppendXlsxRowResponse) api.editDocumentXlsxAppendRow(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
      *
      * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
@@ -1152,6 +1185,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagClearXlsxCellResponse.getExample();
         response = (SwagClearXlsxCellResponse) api.editDocumentXlsxClearCellByIndex(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Clear row from a Excel XLSX spreadsheet, worksheet
+     *
+     * Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+     */
+    @isTest
+    private static void editDocumentXlsxClearRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagClearXlsxRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagClearXlsxRowResponse response;
+        SwagClearXlsxRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagClearXlsxRowResponse.getExample();
+        response = (SwagClearXlsxRowResponse) api.editDocumentXlsxClearRow(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -1239,8 +1305,8 @@ private class SwagEditDocumentApiTest {
 
         SwagClient client;
         SwagEditDocumentApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagEditDocumentApi(client);
@@ -1248,9 +1314,9 @@ private class SwagEditDocumentApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.editDocumentXlsxDeleteWorksheet(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentXlsxDeleteWorksheet(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -1486,6 +1552,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+     *
+     * Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+     */
+    @isTest
+    private static void editDocumentXlsxGetSpecificRowTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagGetXlsxSpecificRowRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagGetXlsxSpecificRowResponse response;
+        SwagGetXlsxSpecificRowResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Row" : {\r\n    "Path" : "Path",\r\n    "Cells" : [ {\r\n      "Path" : "Path",\r\n      "Formula" : "Formula",\r\n      "StyleIndex" : 0,\r\n      "TextValue" : "TextValue",\r\n      "CellIdentifier" : "CellIdentifier"\r\n    }, {\r\n      "Path" : "Path",\r\n      "Formula" : "Formula",\r\n      "StyleIndex" : 0,\r\n      "TextValue" : "TextValue",\r\n      "CellIdentifier" : "CellIdentifier"\r\n    } ]\r\n  },\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagGetXlsxSpecificRowResponse.getExample();
+        response = (SwagGetXlsxSpecificRowResponse) api.editDocumentXlsxGetSpecificRow(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get styles from a Excel XLSX spreadsheet, worksheet
      *
      * Returns the style defined in the Excel Spreadsheet
@@ -1581,6 +1680,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagInsertXlsxWorksheetResponse.getExample();
         response = (SwagInsertXlsxWorksheetResponse) api.editDocumentXlsxInsertWorksheet(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Rename a specific worksheet in a Excel XLSX spreadsheet
+     *
+     * Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+     */
+    @isTest
+    private static void editDocumentXlsxRenameWorksheetTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'input' => SwagRenameXlsxWorksheetRequest.getExample()
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        SwagRenameXlsxWorksheetResponse response;
+        SwagRenameXlsxWorksheetResponse expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
+        expectedResponse = SwagRenameXlsxWorksheetResponse.getExample();
+        response = (SwagRenameXlsxWorksheetResponse) api.editDocumentXlsxRenameWorksheet(params);
         System.assertEquals(expectedResponse, response);
     }
 

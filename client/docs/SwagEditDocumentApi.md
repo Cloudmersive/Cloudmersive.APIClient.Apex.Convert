@@ -38,7 +38,9 @@ Method | HTTP request | Description
 [**editDocumentFinishEditing**](SwagEditDocumentApi.md#editDocumentFinishEditing) | **POST** /convert/edit/finish-editing | Finish editing document, and download result from document editing
 [**editDocumentPptxDeleteSlides**](SwagEditDocumentApi.md#editDocumentPptxDeleteSlides) | **POST** /convert/edit/pptx/delete-slides | Delete, remove slides from a PowerPoint PPTX presentation document
 [**editDocumentPptxReplace**](SwagEditDocumentApi.md#editDocumentPptxReplace) | **POST** /convert/edit/pptx/replace-all | Replace string in PowerPoint PPTX presentation
+[**editDocumentXlsxAppendRow**](SwagEditDocumentApi.md#editDocumentXlsxAppendRow) | **POST** /convert/edit/xlsx/append-row | Append row to a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxClearCellByIndex**](SwagEditDocumentApi.md#editDocumentXlsxClearCellByIndex) | **POST** /convert/edit/xlsx/clear-cell/by-index | Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
+[**editDocumentXlsxClearRow**](SwagEditDocumentApi.md#editDocumentXlsxClearRow) | **POST** /convert/edit/xlsx/clear-row | Clear row from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxCreateBlankSpreadsheet**](SwagEditDocumentApi.md#editDocumentXlsxCreateBlankSpreadsheet) | **POST** /convert/edit/xlsx/create/blank | Create a blank Excel XLSX spreadsheet
 [**editDocumentXlsxCreateSpreadsheetFromData**](SwagEditDocumentApi.md#editDocumentXlsxCreateSpreadsheetFromData) | **POST** /convert/edit/xlsx/create/from/data | Create a new Excel XLSX spreadsheet from column and row data
 [**editDocumentXlsxDeleteWorksheet**](SwagEditDocumentApi.md#editDocumentXlsxDeleteWorksheet) | **POST** /convert/edit/xlsx/delete-worksheet | Delete, remove worksheet from an Excel XLSX spreadsheet document
@@ -49,9 +51,11 @@ Method | HTTP request | Description
 [**editDocumentXlsxGetColumns**](SwagEditDocumentApi.md#editDocumentXlsxGetColumns) | **POST** /convert/edit/xlsx/get-columns | Get columns from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetImages**](SwagEditDocumentApi.md#editDocumentXlsxGetImages) | **POST** /convert/edit/xlsx/get-images | Get images from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetRowsAndCells**](SwagEditDocumentApi.md#editDocumentXlsxGetRowsAndCells) | **POST** /convert/edit/xlsx/get-rows-and-cells | Get rows and cells from a Excel XLSX spreadsheet, worksheet
+[**editDocumentXlsxGetSpecificRow**](SwagEditDocumentApi.md#editDocumentXlsxGetSpecificRow) | **POST** /convert/edit/xlsx/get-specific-row | Get a specific row from a Excel XLSX spreadsheet, worksheet by path
 [**editDocumentXlsxGetStyles**](SwagEditDocumentApi.md#editDocumentXlsxGetStyles) | **POST** /convert/edit/xlsx/get-styles | Get styles from a Excel XLSX spreadsheet, worksheet
 [**editDocumentXlsxGetWorksheets**](SwagEditDocumentApi.md#editDocumentXlsxGetWorksheets) | **POST** /convert/edit/xlsx/get-worksheets | Get worksheets from a Excel XLSX spreadsheet
 [**editDocumentXlsxInsertWorksheet**](SwagEditDocumentApi.md#editDocumentXlsxInsertWorksheet) | **POST** /convert/edit/xlsx/insert-worksheet | Insert a new worksheet into an Excel XLSX spreadsheet
+[**editDocumentXlsxRenameWorksheet**](SwagEditDocumentApi.md#editDocumentXlsxRenameWorksheet) | **POST** /convert/edit/xlsx/rename-worksheet | Rename a specific worksheet in a Excel XLSX spreadsheet
 [**editDocumentXlsxSetCellByIdentifier**](SwagEditDocumentApi.md#editDocumentXlsxSetCellByIdentifier) | **POST** /convert/edit/xlsx/set-cell/by-identifier | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
 [**editDocumentXlsxSetCellByIndex**](SwagEditDocumentApi.md#editDocumentXlsxSetCellByIndex) | **POST** /convert/edit/xlsx/set-cell/by-index | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
 
@@ -1722,6 +1726,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="editDocumentXlsxAppendRow"></a>
+# **editDocumentXlsxAppendRow**
+> SwagAppendXlsxRowResponse editDocumentXlsxAppendRow(input)
+
+Append row to a Excel XLSX spreadsheet, worksheet
+
+Appends a row to the end of an Excel Spreadsheet worksheet.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagAppendXlsxRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagAppendXlsxRowResponse result = api.editDocumentXlsxAppendRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagAppendXlsxRowRequest**](SwagAppendXlsxRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagAppendXlsxRowResponse**](SwagAppendXlsxRowResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="editDocumentXlsxClearCellByIndex"></a>
 # **editDocumentXlsxClearCellByIndex**
 > SwagClearXlsxCellResponse editDocumentXlsxClearCellByIndex(input)
@@ -1761,6 +1814,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagClearXlsxCellResponse**](SwagClearXlsxCellResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentXlsxClearRow"></a>
+# **editDocumentXlsxClearRow**
+> SwagClearXlsxRowResponse editDocumentXlsxClearRow(input)
+
+Clear row from a Excel XLSX spreadsheet, worksheet
+
+Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagClearXlsxRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagClearXlsxRowResponse result = api.editDocumentXlsxClearRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagClearXlsxRowRequest**](SwagClearXlsxRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagClearXlsxRowResponse**](SwagClearXlsxRowResponse.md)
 
 ### Authorization
 
@@ -1871,7 +1973,7 @@ Name | Type | Description  | Notes
 
 <a name="editDocumentXlsxDeleteWorksheet"></a>
 # **editDocumentXlsxDeleteWorksheet**
-> Object editDocumentXlsxDeleteWorksheet(reqConfig)
+> Blob editDocumentXlsxDeleteWorksheet(reqConfig)
 
 Delete, remove worksheet from an Excel XLSX spreadsheet document
 
@@ -1892,7 +1994,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.editDocumentXlsxDeleteWorksheet(params);
+    Blob result = api.editDocumentXlsxDeleteWorksheet(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -1907,7 +2009,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 
@@ -2261,6 +2363,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="editDocumentXlsxGetSpecificRow"></a>
+# **editDocumentXlsxGetSpecificRow**
+> SwagGetXlsxSpecificRowResponse editDocumentXlsxGetSpecificRow(input)
+
+Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+
+Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagGetXlsxSpecificRowRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagGetXlsxSpecificRowResponse result = api.editDocumentXlsxGetSpecificRow(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagGetXlsxSpecificRowRequest**](SwagGetXlsxSpecificRowRequest.md)| Document input request |
+
+### Return type
+
+[**SwagGetXlsxSpecificRowResponse**](SwagGetXlsxSpecificRowResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="editDocumentXlsxGetStyles"></a>
 # **editDocumentXlsxGetStyles**
 > SwagGetXlsxStylesResponse editDocumentXlsxGetStyles(input)
@@ -2398,6 +2549,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagInsertXlsxWorksheetResponse**](SwagInsertXlsxWorksheetResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentXlsxRenameWorksheet"></a>
+# **editDocumentXlsxRenameWorksheet**
+> SwagRenameXlsxWorksheetResponse editDocumentXlsxRenameWorksheet(input)
+
+Rename a specific worksheet in a Excel XLSX spreadsheet
+
+Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagRenameXlsxWorksheetRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagRenameXlsxWorksheetResponse result = api.editDocumentXlsxRenameWorksheet(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagRenameXlsxWorksheetRequest**](SwagRenameXlsxWorksheetRequest.md)| Document input request |
+
+### Return type
+
+[**SwagRenameXlsxWorksheetResponse**](SwagRenameXlsxWorksheetResponse.md)
 
 ### Authorization
 

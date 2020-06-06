@@ -844,6 +844,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Append row to a Excel XLSX spreadsheet, worksheet
+     * Appends a row to the end of an Excel Spreadsheet worksheet.
+     * @param input Document input request (required)
+     * @return SwagAppendXlsxRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagAppendXlsxRowResponse editDocumentXlsxAppendRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagAppendXlsxRowResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/append-row',
+            (SwagAppendXlsxRowRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagAppendXlsxRowResponse.class
+        );
+    }
+    /**
      * Clear cell contents in an Excel XLSX spreadsheet, worksheet by index
      * Clears, sets to blank, the contents of a specific cell in an Excel XLSX spreadsheet, worksheet
      * @param input Document input request (required)
@@ -865,6 +889,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagClearXlsxCellResponse.class
+        );
+    }
+    /**
+     * Clear row from a Excel XLSX spreadsheet, worksheet
+     * Clears data from a specific row in the Excel Spreadsheet worksheet, leaving a blank row. Use the Get Rows And Cells API to enumerate available rows in a spreadsheet.
+     * @param input Document input request (required)
+     * @return SwagClearXlsxRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagClearXlsxRowResponse editDocumentXlsxClearRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagClearXlsxRowResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/clear-row',
+            (SwagClearXlsxRowRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagClearXlsxRowResponse.class
         );
     }
     /**
@@ -919,15 +967,15 @@ public class SwagEditDocumentApi {
      * Delete, remove worksheet from an Excel XLSX spreadsheet document
      * Edits the input Excel XLSX spreadsheet document to remove the specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
      * @param reqConfig Spreadsheet input request (required)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object editDocumentXlsxDeleteWorksheet(Map<String, Object> params) {
+    public Blob editDocumentXlsxDeleteWorksheet(Map<String, Object> params) {
         client.assertNotNull(params.get('reqConfig'), 'reqConfig');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/edit/xlsx/delete-worksheet',
             (SwagRemoveXlsxWorksheetRequest) params.get('reqConfig'),
             query, form,
@@ -936,7 +984,7 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -1108,6 +1156,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get a specific row from a Excel XLSX spreadsheet, worksheet by path
+     * Returns the specific row and its cells defined in the Excel Spreadsheet worksheet based on the specified path.
+     * @param input Document input request (required)
+     * @return SwagGetXlsxSpecificRowResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetXlsxSpecificRowResponse editDocumentXlsxGetSpecificRow(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagGetXlsxSpecificRowResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/get-specific-row',
+            (SwagGetXlsxSpecificRowRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagGetXlsxSpecificRowResponse.class
+        );
+    }
+    /**
      * Get styles from a Excel XLSX spreadsheet, worksheet
      * Returns the style defined in the Excel Spreadsheet
      * @param input Document input request (required)
@@ -1177,6 +1249,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagInsertXlsxWorksheetResponse.class
+        );
+    }
+    /**
+     * Rename a specific worksheet in a Excel XLSX spreadsheet
+     * Edits the input Excel XLSX spreadsheet document to rename a specified worksheet (tab).  Use the Get Worksheets API to enumerate available worksheets in a spreadsheet.
+     * @param input Document input request (required)
+     * @return SwagRenameXlsxWorksheetResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagRenameXlsxWorksheetResponse editDocumentXlsxRenameWorksheet(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagRenameXlsxWorksheetResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/rename-worksheet',
+            (SwagRenameXlsxWorksheetRequest) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagRenameXlsxWorksheetResponse.class
         );
     }
     /**
