@@ -675,6 +675,39 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Keynote Presentation (KEY) to PDF
+     *
+     * Convert Mac Keynote Presentation (KEY) to standard PDF
+     */
+    @isTest
+    private static void convertDocumentKeynoteToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentKeynoteToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Email MSG file to HTML string
      *
      * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
@@ -740,6 +773,138 @@ private class SwagConvertDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertDocumentMsgToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Office Open Document Presentation ODP to PDF
+     *
+     * Convert Office Open Document Presentation (ODP) to standard PDF
+     */
+    @isTest
+    private static void convertDocumentOdpToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentOdpToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Office Open Document Spreadsheet ODS to PDF
+     *
+     * Convert Office Open Document Spreadsheet (ODS) to standard PDF
+     */
+    @isTest
+    private static void convertDocumentOdsToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentOdsToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Office Open Document ODT to Word DOCX
+     *
+     * Convert Office Open Document Text File (ODT) to Word DOCX Document
+     */
+    @isTest
+    private static void convertDocumentOdtToDocxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentOdtToDocx(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Office Open Document ODT to PDF
+     *
+     * Convert Office Open Document Text File (ODT) to standard PDF
+     */
+    @isTest
+    private static void convertDocumentOdtToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentOdtToPdf(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -1146,6 +1311,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('{\r\n  "TextResult" : "TextResult",\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagTextConversionResult.getExample();
         response = (SwagTextConversionResult) api.convertDocumentPptxToTxt(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Rich Text Format RTF to PDF
+     *
+     * Convert Rich Text Format Document (RTF) to standard PDF
+     */
+    @isTest
+    private static void convertDocumentRtfToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentRtfToPdf(params);
         System.assertEquals(expectedResponse, response);
     }
 

@@ -24,8 +24,13 @@ Method | HTTP request | Description
 [**convertDocumentHtmlToPdf**](SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
 [**convertDocumentHtmlToPng**](SwagConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML document file to PNG image array
 [**convertDocumentHtmlToTxt**](SwagConvertDocumentApi.md#convertDocumentHtmlToTxt) | **POST** /convert/html/to/txt | HTML Document file to Text (txt)
+[**convertDocumentKeynoteToPdf**](SwagConvertDocumentApi.md#convertDocumentKeynoteToPdf) | **POST** /convert/keynote/to/pdf | Convert Keynote Presentation (KEY) to PDF
 [**convertDocumentMsgToHtml**](SwagConvertDocumentApi.md#convertDocumentMsgToHtml) | **POST** /convert/msg/to/html | Convert Email MSG file to HTML string
 [**convertDocumentMsgToPdf**](SwagConvertDocumentApi.md#convertDocumentMsgToPdf) | **POST** /convert/msg/to/pdf | Convert Email MSG file to PDF document
+[**convertDocumentOdpToPdf**](SwagConvertDocumentApi.md#convertDocumentOdpToPdf) | **POST** /convert/odp/to/pdf | Convert Office Open Document Presentation ODP to PDF
+[**convertDocumentOdsToPdf**](SwagConvertDocumentApi.md#convertDocumentOdsToPdf) | **POST** /convert/ods/to/pdf | Convert Office Open Document Spreadsheet ODS to PDF
+[**convertDocumentOdtToDocx**](SwagConvertDocumentApi.md#convertDocumentOdtToDocx) | **POST** /convert/odt/to/docx | Convert Office Open Document ODT to Word DOCX
+[**convertDocumentOdtToPdf**](SwagConvertDocumentApi.md#convertDocumentOdtToPdf) | **POST** /convert/odt/to/pdf | Convert Office Open Document ODT to PDF
 [**convertDocumentPdfToDocx**](SwagConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 [**convertDocumentPdfToDocxRasterize**](SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 [**convertDocumentPdfToPngArray**](SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
@@ -38,6 +43,7 @@ Method | HTTP request | Description
 [**convertDocumentPptxToPdf**](SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
 [**convertDocumentPptxToPng**](SwagConvertDocumentApi.md#convertDocumentPptxToPng) | **POST** /convert/pptx/to/png | Convert PowerPoint PPTX to PNG image array
 [**convertDocumentPptxToTxt**](SwagConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | Convert PowerPoint PPTX Presentation to Text (txt)
+[**convertDocumentRtfToPdf**](SwagConvertDocumentApi.md#convertDocumentRtfToPdf) | **POST** /convert/rtf/to/pdf | Convert Rich Text Format RTF to PDF
 [**convertDocumentXlsToCsv**](SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 [**convertDocumentXlsToPdf**](SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 [**convertDocumentXlsToXlsx**](SwagConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
@@ -1056,6 +1062,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="convertDocumentKeynoteToPdf"></a>
+# **convertDocumentKeynoteToPdf**
+> Blob convertDocumentKeynoteToPdf(inputFile)
+
+Convert Keynote Presentation (KEY) to PDF
+
+Convert Mac Keynote Presentation (KEY) to standard PDF
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentKeynoteToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="convertDocumentMsgToHtml"></a>
 # **convertDocumentMsgToHtml**
 > SwagMsgToHtmlResult convertDocumentMsgToHtml(inputFile, bodyOnly, includeAttachments)
@@ -1146,6 +1201,202 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
  **bodyOnly** | **Boolean**| Optional; If true, the HTML string will only include the body of the email. Other information such as subject will still be given as properties in the response object. Default is false. | [optional]
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentOdpToPdf"></a>
+# **convertDocumentOdpToPdf**
+> Blob convertDocumentOdpToPdf(inputFile)
+
+Convert Office Open Document Presentation ODP to PDF
+
+Convert Office Open Document Presentation (ODP) to standard PDF
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentOdpToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentOdsToPdf"></a>
+# **convertDocumentOdsToPdf**
+> Blob convertDocumentOdsToPdf(inputFile)
+
+Convert Office Open Document Spreadsheet ODS to PDF
+
+Convert Office Open Document Spreadsheet (ODS) to standard PDF
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentOdsToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentOdtToDocx"></a>
+# **convertDocumentOdtToDocx**
+> Blob convertDocumentOdtToDocx(inputFile)
+
+Convert Office Open Document ODT to Word DOCX
+
+Convert Office Open Document Text File (ODT) to Word DOCX Document
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentOdtToDocx(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentOdtToPdf"></a>
+# **convertDocumentOdtToPdf**
+> Blob convertDocumentOdtToPdf(inputFile)
+
+Convert Office Open Document ODT to PDF
+
+Convert Office Open Document Text File (ODT) to standard PDF
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentOdtToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
 
 ### Return type
 
@@ -1758,6 +2009,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagTextConversionResult**](SwagTextConversionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentRtfToPdf"></a>
+# **convertDocumentRtfToPdf**
+> Blob convertDocumentRtfToPdf(inputFile)
+
+Convert Rich Text Format RTF to PDF
+
+Convert Rich Text Format Document (RTF) to standard PDF
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentRtfToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
 
 ### Authorization
 

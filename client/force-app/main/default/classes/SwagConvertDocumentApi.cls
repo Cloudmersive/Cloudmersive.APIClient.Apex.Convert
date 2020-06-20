@@ -578,6 +578,32 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Keynote Presentation (KEY) to PDF
+     * Convert Mac Keynote Presentation (KEY) to standard PDF
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentKeynoteToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/keynote/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Convert Email MSG file to HTML string
      * Convert Outlook Email MSG file to HTML string and attachments. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
      * @param inputFile Input file to perform the operation on. (required)
@@ -631,6 +657,110 @@ public class SwagConvertDocumentApi {
             new Map<String, Object>{
                 'bodyOnly' => (Boolean) params.get('bodyOnly')
             },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Office Open Document Presentation ODP to PDF
+     * Convert Office Open Document Presentation (ODP) to standard PDF
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentOdpToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/odp/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Office Open Document Spreadsheet ODS to PDF
+     * Convert Office Open Document Spreadsheet (ODS) to standard PDF
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentOdsToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/ods/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Office Open Document ODT to Word DOCX
+     * Convert Office Open Document Text File (ODT) to Word DOCX Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentOdtToDocx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/odt/to/docx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Office Open Document ODT to PDF
+     * Convert Office Open Document Text File (ODT) to standard PDF
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentOdtToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/odt/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
@@ -969,6 +1099,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagTextConversionResult.class
+        );
+    }
+    /**
+     * Convert Rich Text Format RTF to PDF
+     * Convert Rich Text Format Document (RTF) to standard PDF
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentRtfToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/rtf/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**
