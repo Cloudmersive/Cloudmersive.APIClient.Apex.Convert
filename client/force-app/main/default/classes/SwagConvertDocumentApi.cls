@@ -52,6 +52,35 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Document to JPG/JPEG image array
+     * Automatically detect file type and convert it to an array of JPG/JPEG Images.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagAutodetectToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagAutodetectToJpgResult convertDocumentAutodetectToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagAutodetectToJpgResult) client.invoke(
+            'POST', '/convert/autodetect/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagAutodetectToJpgResult.class
+        );
+    }
+    /**
      * Convert Document to PDF
      * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
      * @param inputFile Input file to perform the operation on. (required)
@@ -105,7 +134,7 @@ public class SwagConvertDocumentApi {
     }
     /**
      * Convert File to Thumbnail Image
-     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
      * @param inputFile Input file to perform the operation on. (required)
      * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
      * @param maxHeight Optional; Maximum height of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
@@ -138,7 +167,7 @@ public class SwagConvertDocumentApi {
     }
     /**
      * Convert File to Thumbnail Image Object
-     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
      * @param inputFile Input file to perform the operation on. (required)
      * @param pages Optional; Specify how many pages of the document will be converted to thumbnails. Default is 1 page. (optional)
      * @param maxWidth Optional; Maximum width of the output thumbnail - final image will be as large as possible while less than or equal to this width. Default is 128. (optional)
@@ -305,6 +334,61 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Word DOCX Document to HTML Document
+     * Convert Office Word Document (DOCX) to HTML Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentDocxToHtml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/docx/to/html', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Word DOCX Document to JPG/JPEG image array
+     * Converts an Office Word Document (DOCX) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagDocxToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocxToJpgResult convertDocumentDocxToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocxToJpgResult) client.invoke(
+            'POST', '/convert/docx/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocxToJpgResult.class
+        );
+    }
+    /**
      * Convert Word DOCX Document to PDF
      * Convert Office Word Documents (docx) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
@@ -331,7 +415,7 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert DOCX document to PNG image array
+     * Convert Word DOCX Document to PNG image array
      * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagDocxToPngResult
@@ -354,6 +438,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagDocxToPngResult.class
+        );
+    }
+    /**
+     * Convert Word DOCX Document to RTF
+     * Convert an Office Word Document (DOCX) to Rich Text Format Document (RTF)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentDocxToRtf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/docx/to/rtf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**
@@ -417,6 +527,35 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Email EML file to JPG/JPEG image array
+     * Converts an Outlook Email File (EML) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagEmlToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEmlToJpgResult convertDocumentEmlToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagEmlToJpgResult) client.invoke(
+            'POST', '/convert/eml/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagEmlToJpgResult.class
+        );
+    }
+    /**
      * Convert Email EML file to PDF document
      * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
      * @param inputFile Input file to perform the operation on. (required)
@@ -443,6 +582,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert Email EML file to PNG image array
+     * Converts an Outlook Email File (EML) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagEmlToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEmlToPngResult convertDocumentEmlToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagEmlToPngResult) client.invoke(
+            'POST', '/convert/eml/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagEmlToPngResult.class
         );
     }
     /**
@@ -578,6 +743,35 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Keynote Presentation (KEY) to JPG/JPEG image array
+     * Converts a Mac Keynote Presentation (KEY) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagKeynoteToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagKeynoteToJpgResult convertDocumentKeynoteToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagKeynoteToJpgResult) client.invoke(
+            'POST', '/convert/key/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagKeynoteToJpgResult.class
+        );
+    }
+    /**
      * Convert Keynote Presentation (KEY) to PDF
      * Convert Mac Keynote Presentation (KEY) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
@@ -593,7 +787,59 @@ public class SwagConvertDocumentApi {
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
         return (Blob) client.invoke(
-            'POST', '/convert/keynote/to/pdf', '',
+            'POST', '/convert/key/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Keynote Presentation (KEY) to PNG image array
+     * Converts a Mac Keynote Presentation (KEY) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagKeynoteToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagKeynoteToPngResult convertDocumentKeynoteToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagKeynoteToPngResult) client.invoke(
+            'POST', '/convert/key/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagKeynoteToPngResult.class
+        );
+    }
+    /**
+     * Convert Keynote Presentation (KEY) to PPTX
+     * Convert Mac Keynote Presentation (KEY) to PowerPoint Presentation (PPTX)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentKeynoteToPptx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/key/to/pptx', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
@@ -635,6 +881,35 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Email MSG file to JPG/JPEG image array
+     * Converts an Outlook Message File (MSG) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagMsgToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagMsgToJpgResult convertDocumentMsgToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagMsgToJpgResult) client.invoke(
+            'POST', '/convert/msg/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagMsgToJpgResult.class
+        );
+    }
+    /**
      * Convert Email MSG file to PDF document
      * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
      * @param inputFile Input file to perform the operation on. (required)
@@ -664,7 +939,62 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Office Open Document Presentation ODP to PDF
+     * Convert Email MSG file to PNG image array
+     * Converts an Outlook Email Message File (MSG) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagMsgToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagMsgToPngResult convertDocumentMsgToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagMsgToPngResult) client.invoke(
+            'POST', '/convert/msg/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagMsgToPngResult.class
+        );
+    }
+    /**
+     * Convert ODP Presentation to JPG/JPEG image array
+     * Converts an Open Document Presentation (ODP) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagOdpToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagOdpToJpgResult convertDocumentOdpToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagOdpToJpgResult) client.invoke(
+            'POST', '/convert/odp/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagOdpToJpgResult.class
+        );
+    }
+    /**
+     * Convert ODP Presentation to PDF
      * Convert Office Open Document Presentation (ODP) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -690,7 +1020,88 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Office Open Document Spreadsheet ODS to PDF
+     * Convert ODP Presentation to PNG image array
+     * Converts an Office Open Document Presentation (ODP) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagOdpToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagOdpToPngResult convertDocumentOdpToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagOdpToPngResult) client.invoke(
+            'POST', '/convert/odp/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagOdpToPngResult.class
+        );
+    }
+    /**
+     * Convert ODP Presentation to PPTX
+     * Convert Office Open Document Presentation (ODP) to PowerPoint Presentation (PPTX)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentOdpToPptx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/odp/to/pptx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert ODS Spreadsheet to JPG/JPEG image array
+     * Converts an Open Document Spreadsheet (ODS) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagOdsToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagOdsToJpgResult convertDocumentOdsToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagOdsToJpgResult) client.invoke(
+            'POST', '/convert/ods/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagOdsToJpgResult.class
+        );
+    }
+    /**
+     * Convert ODS Spreadsheet to PDF
      * Convert Office Open Document Spreadsheet (ODS) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -716,7 +1127,59 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Office Open Document ODT to Word DOCX
+     * Convert ODS Spreadsheet to PNG image array
+     * Converts an Office Open Document Spreadsheet (ODS) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagOdsToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagOdsToPngResult convertDocumentOdsToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagOdsToPngResult) client.invoke(
+            'POST', '/convert/ods/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagOdsToPngResult.class
+        );
+    }
+    /**
+     * Convert ODS Spreadsheet to XLSX
+     * Convert Office Open Document Spreadsheet (ODS) to Excel Spreadsheet (XLSX)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentOdsToXlsx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/ods/to/xlsx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert ODT Text File to Word DOCX
      * Convert Office Open Document Text File (ODT) to Word DOCX Document
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -742,7 +1205,36 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
-     * Convert Office Open Document ODT to PDF
+     * Convert ODT Text File to JPG/JPEG image array
+     * Converts an Open Document Text File (ODT) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagOdtToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagOdtToJpgResult convertDocumentOdtToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagOdtToJpgResult) client.invoke(
+            'POST', '/convert/odt/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagOdtToJpgResult.class
+        );
+    }
+    /**
+     * Convert ODT Text File to PDF
      * Convert Office Open Document Text File (ODT) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
@@ -765,6 +1257,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert ODT Text File to PNG image array
+     * Converts an Office Open Document Text File (ODT) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagOdtToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagOdtToPngResult convertDocumentOdtToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagOdtToPngResult) client.invoke(
+            'POST', '/convert/odt/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagOdtToPngResult.class
         );
     }
     /**
@@ -1102,6 +1620,87 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Rich Text Format RTF to DOCX Document
+     * Convert Rich Text Format Document (RTF) to Word DOCX Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentRtfToDocx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/rtf/to/docx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Rich Text Format RTF to HTML Document
+     * Convert Rich Text Format Document (RTF) to HTML Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentRtfToHtml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/rtf/to/html', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert Rich Text Format RTF to JPG/JPEG image array
+     * Converts a Rich Text Format Document (RTF) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagRtfToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagRtfToJpgResult convertDocumentRtfToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagRtfToJpgResult) client.invoke(
+            'POST', '/convert/rtf/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagRtfToJpgResult.class
+        );
+    }
+    /**
      * Convert Rich Text Format RTF to PDF
      * Convert Rich Text Format Document (RTF) to standard PDF
      * @param inputFile Input file to perform the operation on. (required)
@@ -1125,6 +1724,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert Rich Text Format RTF to PNG image array
+     * Converts a Rich Text Format Document (RTF) to an array of PNG images, one for each page.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagRtfToPngResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagRtfToPngResult convertDocumentRtfToPng(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagRtfToPngResult) client.invoke(
+            'POST', '/convert/rtf/to/png', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagRtfToPngResult.class
         );
     }
     /**

@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDataApi* | [**convertDataXmlToJson**](docs/SwagConvertDataApi.md#convertDataXmlToJson) | **POST** /convert/xml/to/json | Convert XML to JSON conversion
 *SwagConvertDataApi* | [**convertDataXmlTransformWithXsltToXml**](docs/SwagConvertDataApi.md#convertDataXmlTransformWithXsltToXml) | **POST** /convert/xml/transform/xslt/to/xml | Transform XML document file with XSLT into a new XML document
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectGetInfo**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectGetInfo) | **POST** /convert/autodetect/get-info | Get document type information
+*SwagConvertDocumentApi* | [**convertDocumentAutodetectToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToJpg) | **POST** /convert/autodetect/to/jpg | Convert Document to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToThumbnail**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
@@ -92,23 +93,41 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentDocToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 *SwagConvertDocumentApi* | [**convertDocumentDocToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
 *SwagConvertDocumentApi* | [**convertDocumentDocToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentDocToTxt) | **POST** /convert/doc/to/txt | Convert Word DOC (97-03) Document to Text (txt)
+*SwagConvertDocumentApi* | [**convertDocumentDocxToHtml**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToHtml) | **POST** /convert/docx/to/html | Convert Word DOCX Document to HTML Document
+*SwagConvertDocumentApi* | [**convertDocumentDocxToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToJpg) | **POST** /convert/docx/to/jpg | Convert Word DOCX Document to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentDocxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToPdf) | **POST** /convert/docx/to/pdf | Convert Word DOCX Document to PDF
-*SwagConvertDocumentApi* | [**convertDocumentDocxToPng**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToPng) | **POST** /convert/docx/to/png | Convert DOCX document to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentDocxToPng**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToPng) | **POST** /convert/docx/to/png | Convert Word DOCX Document to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentDocxToRtf**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToRtf) | **POST** /convert/docx/to/rtf | Convert Word DOCX Document to RTF
 *SwagConvertDocumentApi* | [**convertDocumentDocxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentDocxToTxt) | **POST** /convert/docx/to/txt | Convert Word DOCX Document to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentEmlToHtml**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToHtml) | **POST** /convert/eml/to/html | Convert Email EML file to HTML string
+*SwagConvertDocumentApi* | [**convertDocumentEmlToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToJpg) | **POST** /convert/eml/to/jpg | Convert Email EML file to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentEmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
+*SwagConvertDocumentApi* | [**convertDocumentEmlToPng**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToPng) | **POST** /convert/eml/to/png | Convert Email EML file to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentGetFileTypeIcon**](docs/SwagConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
 *SwagConvertDocumentApi* | [**convertDocumentGetFileTypeIconAdvanced**](docs/SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon/advanced | Get PNG icon byte array for the file extension
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToPng**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToPng) | **POST** /convert/html/to/png | Convert HTML document file to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToTxt) | **POST** /convert/html/to/txt | HTML Document file to Text (txt)
-*SwagConvertDocumentApi* | [**convertDocumentKeynoteToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentKeynoteToPdf) | **POST** /convert/keynote/to/pdf | Convert Keynote Presentation (KEY) to PDF
+*SwagConvertDocumentApi* | [**convertDocumentKeynoteToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentKeynoteToJpg) | **POST** /convert/key/to/jpg | Convert Keynote Presentation (KEY) to JPG/JPEG image array
+*SwagConvertDocumentApi* | [**convertDocumentKeynoteToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentKeynoteToPdf) | **POST** /convert/key/to/pdf | Convert Keynote Presentation (KEY) to PDF
+*SwagConvertDocumentApi* | [**convertDocumentKeynoteToPng**](docs/SwagConvertDocumentApi.md#convertDocumentKeynoteToPng) | **POST** /convert/key/to/png | Convert Keynote Presentation (KEY) to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentKeynoteToPptx**](docs/SwagConvertDocumentApi.md#convertDocumentKeynoteToPptx) | **POST** /convert/key/to/pptx | Convert Keynote Presentation (KEY) to PPTX
 *SwagConvertDocumentApi* | [**convertDocumentMsgToHtml**](docs/SwagConvertDocumentApi.md#convertDocumentMsgToHtml) | **POST** /convert/msg/to/html | Convert Email MSG file to HTML string
+*SwagConvertDocumentApi* | [**convertDocumentMsgToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentMsgToJpg) | **POST** /convert/msg/to/jpg | Convert Email MSG file to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentMsgToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentMsgToPdf) | **POST** /convert/msg/to/pdf | Convert Email MSG file to PDF document
-*SwagConvertDocumentApi* | [**convertDocumentOdpToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentOdpToPdf) | **POST** /convert/odp/to/pdf | Convert Office Open Document Presentation ODP to PDF
-*SwagConvertDocumentApi* | [**convertDocumentOdsToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentOdsToPdf) | **POST** /convert/ods/to/pdf | Convert Office Open Document Spreadsheet ODS to PDF
-*SwagConvertDocumentApi* | [**convertDocumentOdtToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToDocx) | **POST** /convert/odt/to/docx | Convert Office Open Document ODT to Word DOCX
-*SwagConvertDocumentApi* | [**convertDocumentOdtToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToPdf) | **POST** /convert/odt/to/pdf | Convert Office Open Document ODT to PDF
+*SwagConvertDocumentApi* | [**convertDocumentMsgToPng**](docs/SwagConvertDocumentApi.md#convertDocumentMsgToPng) | **POST** /convert/msg/to/png | Convert Email MSG file to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentOdpToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentOdpToJpg) | **POST** /convert/odp/to/jpg | Convert ODP Presentation to JPG/JPEG image array
+*SwagConvertDocumentApi* | [**convertDocumentOdpToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentOdpToPdf) | **POST** /convert/odp/to/pdf | Convert ODP Presentation to PDF
+*SwagConvertDocumentApi* | [**convertDocumentOdpToPng**](docs/SwagConvertDocumentApi.md#convertDocumentOdpToPng) | **POST** /convert/odp/to/png | Convert ODP Presentation to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentOdpToPptx**](docs/SwagConvertDocumentApi.md#convertDocumentOdpToPptx) | **POST** /convert/odp/to/pptx | Convert ODP Presentation to PPTX
+*SwagConvertDocumentApi* | [**convertDocumentOdsToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentOdsToJpg) | **POST** /convert/ods/to/jpg | Convert ODS Spreadsheet to JPG/JPEG image array
+*SwagConvertDocumentApi* | [**convertDocumentOdsToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentOdsToPdf) | **POST** /convert/ods/to/pdf | Convert ODS Spreadsheet to PDF
+*SwagConvertDocumentApi* | [**convertDocumentOdsToPng**](docs/SwagConvertDocumentApi.md#convertDocumentOdsToPng) | **POST** /convert/ods/to/png | Convert ODS Spreadsheet to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentOdsToXlsx**](docs/SwagConvertDocumentApi.md#convertDocumentOdsToXlsx) | **POST** /convert/ods/to/xlsx | Convert ODS Spreadsheet to XLSX
+*SwagConvertDocumentApi* | [**convertDocumentOdtToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToDocx) | **POST** /convert/odt/to/docx | Convert ODT Text File to Word DOCX
+*SwagConvertDocumentApi* | [**convertDocumentOdtToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToJpg) | **POST** /convert/odt/to/jpg | Convert ODT Text File to JPG/JPEG image array
+*SwagConvertDocumentApi* | [**convertDocumentOdtToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToPdf) | **POST** /convert/odt/to/pdf | Convert ODT Text File to PDF
+*SwagConvertDocumentApi* | [**convertDocumentOdtToPng**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToPng) | **POST** /convert/odt/to/png | Convert ODT Text File to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocxRasterize**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
@@ -121,7 +140,11 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentPptxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
 *SwagConvertDocumentApi* | [**convertDocumentPptxToPng**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToPng) | **POST** /convert/pptx/to/png | Convert PowerPoint PPTX to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentPptxToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToTxt) | **POST** /convert/pptx/to/txt | Convert PowerPoint PPTX Presentation to Text (txt)
+*SwagConvertDocumentApi* | [**convertDocumentRtfToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToDocx) | **POST** /convert/rtf/to/docx | Convert Rich Text Format RTF to DOCX Document
+*SwagConvertDocumentApi* | [**convertDocumentRtfToHtml**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToHtml) | **POST** /convert/rtf/to/html | Convert Rich Text Format RTF to HTML Document
+*SwagConvertDocumentApi* | [**convertDocumentRtfToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToJpg) | **POST** /convert/rtf/to/jpg | Convert Rich Text Format RTF to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentRtfToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToPdf) | **POST** /convert/rtf/to/pdf | Convert Rich Text Format RTF to PDF
+*SwagConvertDocumentApi* | [**convertDocumentRtfToPng**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToPng) | **POST** /convert/rtf/to/png | Convert Rich Text Format RTF to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentXlsToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 *SwagConvertDocumentApi* | [**convertDocumentXlsToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 *SwagConvertDocumentApi* | [**convertDocumentXlsToXlsx**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
@@ -278,6 +301,7 @@ Class | Method | HTTP request | Description
  - [SwagAppendXlsxRowResponse](docs/SwagAppendXlsxRowResponse.md)
  - [SwagAutodetectDocumentValidationResu](docs/SwagAutodetectDocumentValidationResu.md)
  - [SwagAutodetectGetInfoResult](docs/SwagAutodetectGetInfoResult.md)
+ - [SwagAutodetectToJpgResult](docs/SwagAutodetectToJpgResult.md)
  - [SwagAutodetectToPngResult](docs/SwagAutodetectToPngResult.md)
  - [SwagAutodetectToThumbnailsResult](docs/SwagAutodetectToThumbnailsResult.md)
  - [SwagBase64DecodeRequest](docs/SwagBase64DecodeRequest.md)
@@ -291,6 +315,7 @@ Class | Method | HTTP request | Description
  - [SwagClearXlsxCellResponse](docs/SwagClearXlsxCellResponse.md)
  - [SwagClearXlsxRowRequest](docs/SwagClearXlsxRowRequest.md)
  - [SwagClearXlsxRowResponse](docs/SwagClearXlsxRowResponse.md)
+ - [SwagConvertedJpgPage](docs/SwagConvertedJpgPage.md)
  - [SwagConvertedPngPage](docs/SwagConvertedPngPage.md)
  - [SwagCreateBlankDocxRequest](docs/SwagCreateBlankDocxRequest.md)
  - [SwagCreateBlankDocxResponse](docs/SwagCreateBlankDocxResponse.md)
@@ -337,10 +362,13 @@ Class | Method | HTTP request | Description
  - [SwagDocxTemplateApplicationRequest](docs/SwagDocxTemplateApplicationRequest.md)
  - [SwagDocxTemplateOperation](docs/SwagDocxTemplateOperation.md)
  - [SwagDocxText](docs/SwagDocxText.md)
+ - [SwagDocxToJpgResult](docs/SwagDocxToJpgResult.md)
  - [SwagDocxToPngResult](docs/SwagDocxToPngResult.md)
  - [SwagDocxTopLevelComment](docs/SwagDocxTopLevelComment.md)
  - [SwagEmlAttachment](docs/SwagEmlAttachment.md)
  - [SwagEmlToHtmlResult](docs/SwagEmlToHtmlResult.md)
+ - [SwagEmlToJpgResult](docs/SwagEmlToJpgResult.md)
+ - [SwagEmlToPngResult](docs/SwagEmlToPngResult.md)
  - [SwagEnableSharedWorkbookRequest](docs/SwagEnableSharedWorkbookRequest.md)
  - [SwagEnableSharedWorkbookResponse](docs/SwagEnableSharedWorkbookResponse.md)
  - [SwagExifValue](docs/SwagExifValue.md)
@@ -412,9 +440,19 @@ Class | Method | HTTP request | Description
  - [SwagInsertDocxTablesResponse](docs/SwagInsertDocxTablesResponse.md)
  - [SwagInsertXlsxWorksheetRequest](docs/SwagInsertXlsxWorksheetRequest.md)
  - [SwagInsertXlsxWorksheetResponse](docs/SwagInsertXlsxWorksheetResponse.md)
+ - [SwagKeynoteToJpgResult](docs/SwagKeynoteToJpgResult.md)
+ - [SwagKeynoteToPngResult](docs/SwagKeynoteToPngResult.md)
  - [SwagMsgAttachment](docs/SwagMsgAttachment.md)
  - [SwagMsgToHtmlResult](docs/SwagMsgToHtmlResult.md)
+ - [SwagMsgToJpgResult](docs/SwagMsgToJpgResult.md)
+ - [SwagMsgToPngResult](docs/SwagMsgToPngResult.md)
  - [SwagMultipageImageFormatConversionRe](docs/SwagMultipageImageFormatConversionRe.md)
+ - [SwagOdpToJpgResult](docs/SwagOdpToJpgResult.md)
+ - [SwagOdpToPngResult](docs/SwagOdpToPngResult.md)
+ - [SwagOdsToJpgResult](docs/SwagOdsToJpgResult.md)
+ - [SwagOdsToPngResult](docs/SwagOdsToPngResult.md)
+ - [SwagOdtToJpgResult](docs/SwagOdtToJpgResult.md)
+ - [SwagOdtToPngResult](docs/SwagOdtToPngResult.md)
  - [SwagPageConversionResult](docs/SwagPageConversionResult.md)
  - [SwagPdfAnnotation](docs/SwagPdfAnnotation.md)
  - [SwagPdfDocument](docs/SwagPdfDocument.md)
@@ -444,6 +482,8 @@ Class | Method | HTTP request | Description
  - [SwagReplaceStringRequest](docs/SwagReplaceStringRequest.md)
  - [SwagReplaceStringSimpleRequest](docs/SwagReplaceStringSimpleRequest.md)
  - [SwagReplaceStringSimpleResponse](docs/SwagReplaceStringSimpleResponse.md)
+ - [SwagRtfToJpgResult](docs/SwagRtfToJpgResult.md)
+ - [SwagRtfToPngResult](docs/SwagRtfToPngResult.md)
  - [SwagScreenshotRequest](docs/SwagScreenshotRequest.md)
  - [SwagSetFormFieldValue](docs/SwagSetFormFieldValue.md)
  - [SwagSetPdfFormFieldsRequest](docs/SwagSetPdfFormFieldsRequest.md)

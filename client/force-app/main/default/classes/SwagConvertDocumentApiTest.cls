@@ -34,6 +34,40 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Document to JPG/JPEG image array
+     *
+     * Automatically detect file type and convert it to an array of JPG/JPEG Images.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentAutodetectToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagAutodetectToJpgResult response;
+        SwagAutodetectToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagAutodetectToJpgResult.getExample();
+        response = (SwagAutodetectToJpgResult) api.convertDocumentAutodetectToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Document to PDF
      *
      * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
@@ -102,7 +136,7 @@ private class SwagConvertDocumentApiTest {
     /**
      * Convert File to Thumbnail Image
      *
-     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * Automatically detect file type and convert it to a PNG thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
      */
     @isTest
     private static void convertDocumentAutodetectToThumbnailTest() {
@@ -138,7 +172,7 @@ private class SwagConvertDocumentApiTest {
     /**
      * Convert File to Thumbnail Image Object
      *
-     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats.
+     * Automatically detect file type and convert it to an array of PNG thumbnails, returned as an object. May specify the number of pages for multiple thumbnails; default is one thumbnail. Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files. Returns a generic PNG thumbnail for unsupported formats. Maximum thumbnail size is 2048x2048.
      */
     @isTest
     private static void convertDocumentAutodetectToThumbnailsAdvancedTest() {
@@ -339,6 +373,73 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Word DOCX Document to HTML Document
+     *
+     * Convert Office Word Document (DOCX) to HTML Document
+     */
+    @isTest
+    private static void convertDocumentDocxToHtmlTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentDocxToHtml(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Word DOCX Document to JPG/JPEG image array
+     *
+     * Converts an Office Word Document (DOCX) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentDocxToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagDocxToJpgResult response;
+        SwagDocxToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagDocxToJpgResult.getExample();
+        response = (SwagDocxToJpgResult) api.convertDocumentDocxToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Word DOCX Document to PDF
      *
      * Convert Office Word Documents (docx) to standard PDF
@@ -372,7 +473,7 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert DOCX document to PNG image array
+     * Convert Word DOCX Document to PNG image array
      *
      * Converts an Office Word Document (DOCX) file to an array of PNG images, one for each page.
      */
@@ -401,6 +502,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagDocxToPngResult.getExample();
         response = (SwagDocxToPngResult) api.convertDocumentDocxToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Word DOCX Document to RTF
+     *
+     * Convert an Office Word Document (DOCX) to Rich Text Format Document (RTF)
+     */
+    @isTest
+    private static void convertDocumentDocxToRtfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentDocxToRtf(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -474,6 +608,40 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Email EML file to JPG/JPEG image array
+     *
+     * Converts an Outlook Email File (EML) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentEmlToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagEmlToJpgResult response;
+        SwagEmlToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagEmlToJpgResult.getExample();
+        response = (SwagEmlToJpgResult) api.convertDocumentEmlToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Email EML file to PDF document
      *
      * Convert Outlook Email EML file to PDF document. Supports images if they are base 64 inline.
@@ -504,6 +672,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertDocumentEmlToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Email EML file to PNG image array
+     *
+     * Converts an Outlook Email File (EML) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentEmlToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagEmlToPngResult response;
+        SwagEmlToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagEmlToPngResult.getExample();
+        response = (SwagEmlToPngResult) api.convertDocumentEmlToPng(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -675,6 +876,40 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Keynote Presentation (KEY) to JPG/JPEG image array
+     *
+     * Converts a Mac Keynote Presentation (KEY) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentKeynoteToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagKeynoteToJpgResult response;
+        SwagKeynoteToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagKeynoteToJpgResult.getExample();
+        response = (SwagKeynoteToJpgResult) api.convertDocumentKeynoteToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Keynote Presentation (KEY) to PDF
      *
      * Convert Mac Keynote Presentation (KEY) to standard PDF
@@ -704,6 +939,72 @@ private class SwagConvertDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertDocumentKeynoteToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Keynote Presentation (KEY) to PNG image array
+     *
+     * Converts a Mac Keynote Presentation (KEY) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentKeynoteToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagKeynoteToPngResult response;
+        SwagKeynoteToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagKeynoteToPngResult.getExample();
+        response = (SwagKeynoteToPngResult) api.convertDocumentKeynoteToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Keynote Presentation (KEY) to PPTX
+     *
+     * Convert Mac Keynote Presentation (KEY) to PowerPoint Presentation (PPTX)
+     */
+    @isTest
+    private static void convertDocumentKeynoteToPptxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentKeynoteToPptx(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -743,6 +1044,40 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Email MSG file to JPG/JPEG image array
+     *
+     * Converts an Outlook Message File (MSG) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentMsgToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagMsgToJpgResult response;
+        SwagMsgToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagMsgToJpgResult.getExample();
+        response = (SwagMsgToJpgResult) api.convertDocumentMsgToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Email MSG file to PDF document
      *
      * Convert Outlook Email MSG file to PDF document. Supports images if they are base 64 inline. Supports most, but not all, RTF bodied MSG files.
@@ -777,7 +1112,74 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Office Open Document Presentation ODP to PDF
+     * Convert Email MSG file to PNG image array
+     *
+     * Converts an Outlook Email Message File (MSG) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentMsgToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagMsgToPngResult response;
+        SwagMsgToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagMsgToPngResult.getExample();
+        response = (SwagMsgToPngResult) api.convertDocumentMsgToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODP Presentation to JPG/JPEG image array
+     *
+     * Converts an Open Document Presentation (ODP) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentOdpToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagOdpToJpgResult response;
+        SwagOdpToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagOdpToJpgResult.getExample();
+        response = (SwagOdpToJpgResult) api.convertDocumentOdpToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODP Presentation to PDF
      *
      * Convert Office Open Document Presentation (ODP) to standard PDF
      */
@@ -810,7 +1212,107 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Office Open Document Spreadsheet ODS to PDF
+     * Convert ODP Presentation to PNG image array
+     *
+     * Converts an Office Open Document Presentation (ODP) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentOdpToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagOdpToPngResult response;
+        SwagOdpToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagOdpToPngResult.getExample();
+        response = (SwagOdpToPngResult) api.convertDocumentOdpToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODP Presentation to PPTX
+     *
+     * Convert Office Open Document Presentation (ODP) to PowerPoint Presentation (PPTX)
+     */
+    @isTest
+    private static void convertDocumentOdpToPptxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentOdpToPptx(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODS Spreadsheet to JPG/JPEG image array
+     *
+     * Converts an Open Document Spreadsheet (ODS) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentOdsToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagOdsToJpgResult response;
+        SwagOdsToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagOdsToJpgResult.getExample();
+        response = (SwagOdsToJpgResult) api.convertDocumentOdsToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODS Spreadsheet to PDF
      *
      * Convert Office Open Document Spreadsheet (ODS) to standard PDF
      */
@@ -843,7 +1345,73 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Office Open Document ODT to Word DOCX
+     * Convert ODS Spreadsheet to PNG image array
+     *
+     * Converts an Office Open Document Spreadsheet (ODS) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentOdsToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagOdsToPngResult response;
+        SwagOdsToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagOdsToPngResult.getExample();
+        response = (SwagOdsToPngResult) api.convertDocumentOdsToPng(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODS Spreadsheet to XLSX
+     *
+     * Convert Office Open Document Spreadsheet (ODS) to Excel Spreadsheet (XLSX)
+     */
+    @isTest
+    private static void convertDocumentOdsToXlsxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentOdsToXlsx(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODT Text File to Word DOCX
      *
      * Convert Office Open Document Text File (ODT) to Word DOCX Document
      */
@@ -876,7 +1444,41 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
-     * Convert Office Open Document ODT to PDF
+     * Convert ODT Text File to JPG/JPEG image array
+     *
+     * Converts an Open Document Text File (ODT) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentOdtToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagOdtToJpgResult response;
+        SwagOdtToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagOdtToJpgResult.getExample();
+        response = (SwagOdtToJpgResult) api.convertDocumentOdtToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODT Text File to PDF
      *
      * Convert Office Open Document Text File (ODT) to standard PDF
      */
@@ -905,6 +1507,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertDocumentOdtToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert ODT Text File to PNG image array
+     *
+     * Converts an Office Open Document Text File (ODT) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentOdtToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagOdtToPngResult response;
+        SwagOdtToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagOdtToPngResult.getExample();
+        response = (SwagOdtToPngResult) api.convertDocumentOdtToPng(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -1315,6 +1950,106 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Rich Text Format RTF to DOCX Document
+     *
+     * Convert Rich Text Format Document (RTF) to Word DOCX Document
+     */
+    @isTest
+    private static void convertDocumentRtfToDocxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentRtfToDocx(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Rich Text Format RTF to HTML Document
+     *
+     * Convert Rich Text Format Document (RTF) to HTML Document
+     */
+    @isTest
+    private static void convertDocumentRtfToHtmlTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentRtfToHtml(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Rich Text Format RTF to JPG/JPEG image array
+     *
+     * Converts a Rich Text Format Document (RTF) to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentRtfToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagRtfToJpgResult response;
+        SwagRtfToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagRtfToJpgResult.getExample();
+        response = (SwagRtfToJpgResult) api.convertDocumentRtfToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert Rich Text Format RTF to PDF
      *
      * Convert Rich Text Format Document (RTF) to standard PDF
@@ -1344,6 +2079,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
         expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
         response = (Blob) api.convertDocumentRtfToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Rich Text Format RTF to PNG image array
+     *
+     * Converts a Rich Text Format Document (RTF) to an array of PNG images, one for each page.
+     */
+    @isTest
+    private static void convertDocumentRtfToPngTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagRtfToPngResult response;
+        SwagRtfToPngResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "PngResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "URL" : "URL"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagRtfToPngResult.getExample();
+        response = (SwagRtfToPngResult) api.convertDocumentRtfToPng(params);
         System.assertEquals(expectedResponse, response);
     }
 
