@@ -1338,6 +1338,35 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert PDF to JPG/JPEG image array
+     * Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. (optional)
+     * @return SwagPdfToJpgResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPdfToJpgResult convertDocumentPdfToJpg(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagPdfToJpgResult) client.invoke(
+            'POST', '/convert/pdf/to/jpg', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Integer) params.get('quality')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagPdfToJpgResult.class
+        );
+    }
+    /**
      * Convert PDF to PNG Image Array
      * Convert PDF document to PNG array, one image per page.
      * @param inputFile Input file to perform the operation on. (required)

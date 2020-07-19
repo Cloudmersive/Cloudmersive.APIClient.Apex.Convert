@@ -1610,6 +1610,40 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert PDF to JPG/JPEG image array
+     *
+     * Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+     */
+    @isTest
+    private static void convertDocumentPdfToJpgTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'quality' => 56
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        SwagPdfToJpgResult response;
+        SwagPdfToJpgResult expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{\r\n  "JpgResultPages" : [ {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Content" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"\r\n  } ],\r\n  "Successful" : true\r\n}');
+        expectedResponse = SwagPdfToJpgResult.getExample();
+        response = (SwagPdfToJpgResult) api.convertDocumentPdfToJpg(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert PDF to PNG Image Array
      *
      * Convert PDF document to PNG array, one image per page.

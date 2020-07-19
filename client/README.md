@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentOdtToPng**](docs/SwagConvertDocumentApi.md#convertDocumentOdtToPng) | **POST** /convert/odt/to/png | Convert ODT Text File to PNG image array
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocx**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocxRasterize**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
+*SwagConvertDocumentApi* | [**convertDocumentPdfToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToJpg) | **POST** /convert/pdf/to/jpg | Convert PDF to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPngSingle**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPptx**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
@@ -461,6 +462,7 @@ Class | Method | HTTP request | Description
  - [SwagPdfMetadata](docs/SwagPdfMetadata.md)
  - [SwagPdfPageText](docs/SwagPdfPageText.md)
  - [SwagPdfTextByPageResult](docs/SwagPdfTextByPageResult.md)
+ - [SwagPdfToJpgResult](docs/SwagPdfToJpgResult.md)
  - [SwagPdfToPngResult](docs/SwagPdfToPngResult.md)
  - [SwagPptxToPngResult](docs/SwagPptxToPngResult.md)
  - [SwagPresentationResult](docs/SwagPresentationResult.md)

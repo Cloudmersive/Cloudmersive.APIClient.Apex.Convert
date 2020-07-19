@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inputRequest** | [**SwagHtmlToOfficeRequest**](SwagHtmlToOfficeRequest.md)| HTL input to convert to DOCX |
+ **inputRequest** | [**SwagHtmlToOfficeRequest**](SwagHtmlToOfficeRequest.md)| HTML input to convert to DOCX |
 
 ### Return type
 

@@ -28,7 +28,7 @@ public class SwagConvertWebApi {
     /**
      * Convert HTML to Word DOCX Document
      * Convert HTML to Office Word Document (DOCX) format
-     * @param inputRequest HTL input to convert to DOCX (required)
+     * @param inputRequest HTML input to convert to DOCX (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */

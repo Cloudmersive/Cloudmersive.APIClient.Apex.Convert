@@ -52,6 +52,7 @@ Method | HTTP request | Description
 [**convertDocumentOdtToPng**](SwagConvertDocumentApi.md#convertDocumentOdtToPng) | **POST** /convert/odt/to/png | Convert ODT Text File to PNG image array
 [**convertDocumentPdfToDocx**](SwagConvertDocumentApi.md#convertDocumentPdfToDocx) | **POST** /convert/pdf/to/docx | Convert PDF to Word DOCX Document
 [**convertDocumentPdfToDocxRasterize**](SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
+[**convertDocumentPdfToJpg**](SwagConvertDocumentApi.md#convertDocumentPdfToJpg) | **POST** /convert/pdf/to/jpg | Convert PDF to JPG/JPEG image array
 [**convertDocumentPdfToPngArray**](SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
 [**convertDocumentPdfToPngSingle**](SwagConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 [**convertDocumentPdfToPptx**](SwagConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
@@ -2469,6 +2470,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentPdfToJpg"></a>
+# **convertDocumentPdfToJpg**
+> SwagPdfToJpgResult convertDocumentPdfToJpg(inputFile, quality)
+
+Convert PDF to JPG/JPEG image array
+
+Converts a PDF Document to an array of JPG/JPEG images, one for each page. Customize image quality using quality header.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'quality' => 56
+};
+
+try {
+    // cross your fingers
+    SwagPdfToJpgResult result = api.convertDocumentPdfToJpg(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **quality** | **Integer**| Optional; Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75. Default value is 75. | [optional]
+
+### Return type
+
+[**SwagPdfToJpgResult**](SwagPdfToJpgResult.md)
 
 ### Authorization
 
