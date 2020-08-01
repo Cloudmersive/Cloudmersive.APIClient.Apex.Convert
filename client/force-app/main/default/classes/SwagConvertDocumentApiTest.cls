@@ -241,6 +241,115 @@ private class SwagConvertDocumentApiTest {
     }
 
     /**
+     * Convert Multiple CSV Files into a Single XLSX Spreadsheet
+     *
+     * Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+     */
+    @isTest
+    private static void convertDocumentCsvMultiToXlsxTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+            'inputFile10' => Blob.valueOf('Sample text file\nContents'),
+            'worksheetNames' => 'worksheetNames_example'
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentCsvMultiToXlsx(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert CSV to HTML document
+     *
+     * Convert Comma-Separated Values (CSV) file to HTML document.
+     */
+    @isTest
+    private static void convertDocumentCsvToHtmlTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentCsvToHtml(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert CSV to PDF document
+     *
+     * Convert Comma-Separated Values (CSV) file to PDF document.
+     */
+    @isTest
+    private static void convertDocumentCsvToPdfTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentCsvToPdf(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Convert CSV to Excel XLSX Spreadsheet
      *
      * Convert CSV file to Office Excel XLSX Workbooks file format.
@@ -789,7 +898,9 @@ private class SwagConvertDocumentApiTest {
         Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'inputFile' => Blob.valueOf('Sample text file\nContents')
+            'inputFile' => Blob.valueOf('Sample text file\nContents'),
+            'includeBackgroundGraphics' => true,
+            'scaleFactor' => 56
         };
 
         SwagClient client;
@@ -2313,6 +2424,39 @@ private class SwagConvertDocumentApiTest {
         res.setBody('{\r\n  "CsvFiles" : [ {\r\n    "FileContents" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Title" : "Title"\r\n  }, {\r\n    "FileContents" : "VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu",\r\n    "Title" : "Title"\r\n  } ],\r\n  "FileCount" : 0,\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagCsvCollection.getExample();
         response = (SwagCsvCollection) api.convertDocumentXlsxToCsvMulti(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Convert Excel XLSX Spreadsheet to HTML Document
+     *
+     * Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+     */
+    @isTest
+    private static void convertDocumentXlsxToHtmlTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagConvertDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagConvertDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertDocumentXlsxToHtml(params);
         System.assertEquals(expectedResponse, response);
     }
 

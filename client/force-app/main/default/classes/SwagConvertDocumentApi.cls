@@ -230,6 +230,106 @@ public class SwagConvertDocumentApi {
         );
     }
     /**
+     * Convert Multiple CSV Files into a Single XLSX Spreadsheet
+     * Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param inputFile2 Second input file to perform the operation on. (required)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @param worksheetNames Optional; Specify the name of each CSV\&#39;s worksheet in order, separated with commas (e.g. &quot;worksheet1,worksheet2,worksheet3&quot;). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentCsvMultiToXlsx(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile1'), 'inputFile1');
+        client.assertNotNull(params.get('inputFile2'), 'inputFile2');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
+        form.addAll(client.makeParam('inputFile2', (Blob) params.get('inputFile2')));
+        form.addAll(client.makeParam('inputFile3', (Blob) params.get('inputFile3')));
+        form.addAll(client.makeParam('inputFile4', (Blob) params.get('inputFile4')));
+        form.addAll(client.makeParam('inputFile5', (Blob) params.get('inputFile5')));
+        form.addAll(client.makeParam('inputFile6', (Blob) params.get('inputFile6')));
+        form.addAll(client.makeParam('inputFile7', (Blob) params.get('inputFile7')));
+        form.addAll(client.makeParam('inputFile8', (Blob) params.get('inputFile8')));
+        form.addAll(client.makeParam('inputFile9', (Blob) params.get('inputFile9')));
+        form.addAll(client.makeParam('inputFile10', (Blob) params.get('inputFile10')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/csv/multi/to/xlsx', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'worksheetNames' => (String) params.get('worksheetNames')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert CSV to HTML document
+     * Convert Comma-Separated Values (CSV) file to HTML document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentCsvToHtml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/csv/to/html', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert CSV to PDF document
+     * Convert Comma-Separated Values (CSV) file to PDF document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentCsvToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/csv/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Convert CSV to Excel XLSX Spreadsheet
      * Convert CSV file to Office Excel XLSX Workbooks file format.
      * @param inputFile Input file to perform the operation on. (required)
@@ -668,6 +768,8 @@ public class SwagConvertDocumentApi {
      * Convert HTML document file to PDF Document
      * Convert standard HTML, with full support for CSS, JavaScript, Images, and other complex behavior to PDF.  To use external files such as images, use an absolute URL to the file.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param includeBackgroundGraphics Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true. (optional)
+     * @param scaleFactor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -683,7 +785,10 @@ public class SwagConvertDocumentApi {
             'POST', '/convert/html/to/pdf', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'includeBackgroundGraphics' => (Boolean) params.get('includeBackgroundGraphics'),
+                'scaleFactor' => (Integer) params.get('scaleFactor')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
@@ -1915,6 +2020,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagCsvCollection.class
+        );
+    }
+    /**
+     * Convert Excel XLSX Spreadsheet to HTML Document
+     * Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentXlsxToHtml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/xlsx/to/html', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**

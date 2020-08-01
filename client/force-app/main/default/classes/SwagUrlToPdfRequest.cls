@@ -21,7 +21,7 @@ public class SwagUrlToPdfRequest implements Swagger.MappedProperties {
     public String url { get; set; }
 
     /**
-     * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds)
+     * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.  Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 20000 milliseconds (20 seconds).
      * @return extraLoadingWait
      */
     public Integer extraLoadingWait { get; set; }
@@ -33,7 +33,7 @@ public class SwagUrlToPdfRequest implements Swagger.MappedProperties {
     public Boolean includeBackgroundGraphics { get; set; }
 
     /**
-     * Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%
+     * Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%
      * @return scaleFactor
      */
     public Integer scaleFactor { get; set; }

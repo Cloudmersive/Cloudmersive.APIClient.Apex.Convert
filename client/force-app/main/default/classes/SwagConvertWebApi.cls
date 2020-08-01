@@ -77,15 +77,15 @@ public class SwagConvertWebApi {
      * Convert HTML string to PNG screenshot
      * Fully renders a website and returns a PNG (screenshot) of the HTML.  Javascript, HTML5, CSS and other advanced features are all supported.
      * @param input HTML to PNG request parameters (required)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertWebHtmlToPng(Map<String, Object> params) {
+    public Blob convertWebHtmlToPng(Map<String, Object> params) {
         client.assertNotNull(params.get('input'), 'input');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/web/html/to/png',
             (SwagHtmlToPngRequest) params.get('input'),
             query, form,
@@ -94,7 +94,7 @@ public class SwagConvertWebApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**

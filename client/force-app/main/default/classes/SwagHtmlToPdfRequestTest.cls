@@ -84,5 +84,7 @@ private class SwagHtmlToPdfRequestTest {
         Map<String, String> propertyMappings = htmlToPdfRequest.getPropertyMappings();
         System.assertEquals('html', propertyMappings.get('Html'));
         System.assertEquals('extraLoadingWait', propertyMappings.get('ExtraLoadingWait'));
+        System.assertEquals('includeBackgroundGraphics', propertyMappings.get('IncludeBackgroundGraphics'));
+        System.assertEquals('scaleFactor', propertyMappings.get('ScaleFactor'));
     }
 }

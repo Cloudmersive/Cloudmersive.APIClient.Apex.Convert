@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 <a name="convertWebHtmlToPng"></a>
 # **convertWebHtmlToPng**
-> Object convertWebHtmlToPng(input)
+> Blob convertWebHtmlToPng(input)
 
 Convert HTML string to PNG screenshot
 
@@ -135,7 +135,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.convertWebHtmlToPng(params);
+    Blob result = api.convertWebHtmlToPng(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 

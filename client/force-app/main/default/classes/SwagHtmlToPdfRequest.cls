@@ -21,14 +21,28 @@ public class SwagHtmlToPdfRequest implements Swagger.MappedProperties {
     public String html { get; set; }
 
     /**
-     * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites.
+     * Optional: Additional number of milliseconds to wait once the web page has finished loading before taking the screenshot.  Can be helpful for highly asynchronous websites. Provide a value of 0 for the default of 5000 milliseconds (5 seconds). Maximum is 30000 milliseconds (30 seconds).
      * @return extraLoadingWait
      */
     public Integer extraLoadingWait { get; set; }
 
+    /**
+     * Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true.
+     * @return includeBackgroundGraphics
+     */
+    public Boolean includeBackgroundGraphics { get; set; }
+
+    /**
+     * Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%.
+     * @return scaleFactor
+     */
+    public Integer scaleFactor { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Html' => 'html',
-        'ExtraLoadingWait' => 'extraLoadingWait'
+        'ExtraLoadingWait' => 'extraLoadingWait',
+        'IncludeBackgroundGraphics' => 'includeBackgroundGraphics',
+        'ScaleFactor' => 'scaleFactor'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -39,6 +53,8 @@ public class SwagHtmlToPdfRequest implements Swagger.MappedProperties {
         SwagHtmlToPdfRequest htmlToPdfRequest = new SwagHtmlToPdfRequest();
         htmlToPdfRequest.html = 'aeiou';
         htmlToPdfRequest.extraLoadingWait = 123;
+        htmlToPdfRequest.includeBackgroundGraphics = true;
+        htmlToPdfRequest.scaleFactor = 123;
         return htmlToPdfRequest;
     }
 
@@ -46,7 +62,9 @@ public class SwagHtmlToPdfRequest implements Swagger.MappedProperties {
         if (obj instanceof SwagHtmlToPdfRequest) {
             SwagHtmlToPdfRequest htmlToPdfRequest = (SwagHtmlToPdfRequest) obj;
             return this.html == htmlToPdfRequest.html
-                && this.extraLoadingWait == htmlToPdfRequest.extraLoadingWait;
+                && this.extraLoadingWait == htmlToPdfRequest.extraLoadingWait
+                && this.includeBackgroundGraphics == htmlToPdfRequest.includeBackgroundGraphics
+                && this.scaleFactor == htmlToPdfRequest.scaleFactor;
         }
         return false;
     }
@@ -55,6 +73,8 @@ public class SwagHtmlToPdfRequest implements Swagger.MappedProperties {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (html == null ? 0 : System.hashCode(html));
         hashCode = (17 * hashCode) + (extraLoadingWait == null ? 0 : System.hashCode(extraLoadingWait));
+        hashCode = (17 * hashCode) + (includeBackgroundGraphics == null ? 0 : System.hashCode(includeBackgroundGraphics));
+        hashCode = (17 * hashCode) + (scaleFactor == null ? 0 : System.hashCode(scaleFactor));
         return hashCode;
     }
 }

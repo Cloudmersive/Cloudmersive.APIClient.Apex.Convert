@@ -84,8 +84,8 @@ private class SwagConvertWebApiTest {
 
         SwagClient client;
         SwagConvertWebApi api;
-        Object response;
-        Object expectedResponse;
+        Blob response;
+        Blob expectedResponse;
 
         client = new SwagClient();
         api = new SwagConvertWebApi(client);
@@ -93,9 +93,9 @@ private class SwagConvertWebApiTest {
             client.setApiKey('foo-bar-api-key');
 
         res.setHeader('Content-Type', 'application/json');
-        res.setBody('"{}"');
-        expectedResponse = null;
-        response = (Object) api.convertWebHtmlToPng(params);
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.convertWebHtmlToPng(params);
         System.assertEquals(expectedResponse, response);
     }
 

@@ -628,6 +628,30 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Replace multiple strings in Word DOCX document
+     * Replace all instances of multiple strings in an Office Word Document (docx)
+     * @param reqConfig Document string replacement configuration input (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxReplaceMulti(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/replace-all/multi',
+            (SwagMultiReplaceStringRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Replace matching paragraphs in a Word DOCX document
      * Returns the edited Word Document (DOCX) format file with the matching paragraphs replaced as requested.  Replace a paragraph with another object such as an image.  Useful for performing templating operations.
      * @param reqConfig Document input request (required)

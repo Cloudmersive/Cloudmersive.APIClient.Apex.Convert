@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**convertDocumentAutodetectToThumbnail**](SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
 [**convertDocumentAutodetectToThumbnailsAdvanced**](SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnailsAdvanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
 [**convertDocumentAutodetectToTxt**](SwagConvertDocumentApi.md#convertDocumentAutodetectToTxt) | **POST** /convert/autodetect/to/txt | Convert Document to Text (txt)
+[**convertDocumentCsvMultiToXlsx**](SwagConvertDocumentApi.md#convertDocumentCsvMultiToXlsx) | **POST** /convert/csv/multi/to/xlsx | Convert Multiple CSV Files into a Single XLSX Spreadsheet
+[**convertDocumentCsvToHtml**](SwagConvertDocumentApi.md#convertDocumentCsvToHtml) | **POST** /convert/csv/to/html | Convert CSV to HTML document
+[**convertDocumentCsvToPdf**](SwagConvertDocumentApi.md#convertDocumentCsvToPdf) | **POST** /convert/csv/to/pdf | Convert CSV to PDF document
 [**convertDocumentCsvToXlsx**](SwagConvertDocumentApi.md#convertDocumentCsvToXlsx) | **POST** /convert/csv/to/xlsx | Convert CSV to Excel XLSX Spreadsheet
 [**convertDocumentDocToDocx**](SwagConvertDocumentApi.md#convertDocumentDocToDocx) | **POST** /convert/doc/to/docx | Convert Word DOC (97-03) Document to DOCX
 [**convertDocumentDocToPdf**](SwagConvertDocumentApi.md#convertDocumentDocToPdf) | **POST** /convert/doc/to/pdf | Convert Word DOC (97-03) Document to PDF
@@ -73,6 +76,7 @@ Method | HTTP request | Description
 [**convertDocumentXlsToXlsx**](SwagConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
 [**convertDocumentXlsxToCsv**](SwagConvertDocumentApi.md#convertDocumentXlsxToCsv) | **POST** /convert/xlsx/to/csv | Convert Excel XLSX Spreadsheet to CSV, Single Worksheet
 [**convertDocumentXlsxToCsvMulti**](SwagConvertDocumentApi.md#convertDocumentXlsxToCsvMulti) | **POST** /convert/xlsx/to/csv/multi | Convert Excel XLSX Spreadsheet to CSV, Multiple Worksheets
+[**convertDocumentXlsxToHtml**](SwagConvertDocumentApi.md#convertDocumentXlsxToHtml) | **POST** /convert/xlsx/to/html | Convert Excel XLSX Spreadsheet to HTML Document
 [**convertDocumentXlsxToPdf**](SwagConvertDocumentApi.md#convertDocumentXlsxToPdf) | **POST** /convert/xlsx/to/pdf | Convert Excel XLSX Spreadsheet to PDF
 [**convertDocumentXlsxToPng**](SwagConvertDocumentApi.md#convertDocumentXlsxToPng) | **POST** /convert/xlsx/to/png | Convert Excel XLSX spreadsheet to PNG image array
 [**convertDocumentXlsxToTxt**](SwagConvertDocumentApi.md#convertDocumentXlsxToTxt) | **POST** /convert/xlsx/to/txt | Convert Excel XLSX Spreadsheet to Text (txt)
@@ -429,6 +433,173 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagTextConversionResult**](SwagTextConversionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentCsvMultiToXlsx"></a>
+# **convertDocumentCsvMultiToXlsx**
+> Blob convertDocumentCsvMultiToXlsx(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10, worksheetNames)
+
+Convert Multiple CSV Files into a Single XLSX Spreadsheet
+
+Convert multiple Comma-Separated Values (CSV) files into a single Excel XLSX Spreadsheet, with one worksheet corresponding to each CSV file.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile10' => Blob.valueOf('Sample text file\nContents'),
+    'worksheetNames' => 'worksheetNames_example'
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentCsvMultiToXlsx(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on. |
+ **inputFile3** | **Blob**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **Blob**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **Blob**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **Blob**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **Blob**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **Blob**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **Blob**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **Blob**| Tenth input file to perform the operation on. | [optional]
+ **worksheetNames** | **String**| Optional; Specify the name of each CSV\&#39;s worksheet in order, separated with commas (e.g. &quot;worksheet1,worksheet2,worksheet3&quot;). Defaults to the names of the input CSV files. Recommended when inputting the files directly, without file names. | [optional]
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentCsvToHtml"></a>
+# **convertDocumentCsvToHtml**
+> Blob convertDocumentCsvToHtml(inputFile)
+
+Convert CSV to HTML document
+
+Convert Comma-Separated Values (CSV) file to HTML document.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentCsvToHtml(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentCsvToPdf"></a>
+# **convertDocumentCsvToPdf**
+> Blob convertDocumentCsvToPdf(inputFile)
+
+Convert CSV to PDF document
+
+Convert Comma-Separated Values (CSV) file to PDF document.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentCsvToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
 
 ### Authorization
 
@@ -1241,7 +1412,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentHtmlToPdf"></a>
 # **convertDocumentHtmlToPdf**
-> Blob convertDocumentHtmlToPdf(inputFile)
+> Blob convertDocumentHtmlToPdf(inputFile, includeBackgroundGraphics, scaleFactor)
 
 Convert HTML document file to PDF Document
 
@@ -1257,7 +1428,9 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'includeBackgroundGraphics' => true,
+    'scaleFactor' => 56
 };
 
 try {
@@ -1274,6 +1447,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **includeBackgroundGraphics** | **Boolean**| Optional: Set to true to include background graphics in the PDF, or false to not include.  Default is true. | [optional]
+ **scaleFactor** | **Integer**| Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. | [optional]
 
 ### Return type
 
@@ -3527,6 +3702,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagCsvCollection**](SwagCsvCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentXlsxToHtml"></a>
+# **convertDocumentXlsxToHtml**
+> Blob convertDocumentXlsxToHtml(inputFile)
+
+Convert Excel XLSX Spreadsheet to HTML Document
+
+Convert Office Excel Spreadsheet (XLSX) to HTML Document.  Converts all worksheets to HTML.  Supports both XLSX and XLSB Excel file formats.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentXlsxToHtml(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
 
 ### Authorization
 
