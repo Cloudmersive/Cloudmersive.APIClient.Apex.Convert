@@ -231,6 +231,7 @@ Class | Method | HTTP request | Description
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendImageFromUrl**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendImageFromUrl) | **POST** /convert/edit/html/append/image/from-url | Append an Image to an HTML Document from a URL
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendImageInline**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendImageInline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendParagraph**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendParagraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
+*SwagEditHtmlApi* | [**editHtmlHtmlCreateBlankDocument**](docs/SwagEditHtmlApi.md#editHtmlHtmlCreateBlankDocument) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
 *SwagEditPdfApi* | [**editPdfAddAnnotations**](docs/SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 *SwagEditPdfApi* | [**editPdfDecrypt**](docs/SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 *SwagEditPdfApi* | [**editPdfDeletePages**](docs/SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove, delete pages from a PDF document
@@ -243,6 +244,7 @@ Class | Method | HTTP request | Description
 *SwagEditPdfApi* | [**editPdfRasterize**](docs/SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 *SwagEditPdfApi* | [**editPdfRemoveAllAnnotations**](docs/SwagEditPdfApi.md#editPdfRemoveAllAnnotations) | **POST** /convert/edit/pdf/annotations/remove-all | Remove all PDF annotations, including comments in the document
 *SwagEditPdfApi* | [**editPdfRemoveAnnotationItem**](docs/SwagEditPdfApi.md#editPdfRemoveAnnotationItem) | **POST** /convert/edit/pdf/annotations/remove-item | Remove a specific PDF annotation, comment in the document
+*SwagEditPdfApi* | [**editPdfResize**](docs/SwagEditPdfApi.md#editPdfResize) | **POST** /convert/edit/pdf/resize | Change PDF Document\&#39;s Paper Size
 *SwagEditPdfApi* | [**editPdfRotateAllPages**](docs/SwagEditPdfApi.md#editPdfRotateAllPages) | **POST** /convert/edit/pdf/pages/rotate/all | Rotate all pages in a PDF document
 *SwagEditPdfApi* | [**editPdfRotatePageRange**](docs/SwagEditPdfApi.md#editPdfRotatePageRange) | **POST** /convert/edit/pdf/pages/rotate/page-range | Rotate a range, subset of pages in a PDF document
 *SwagEditPdfApi* | [**editPdfSetFormFields**](docs/SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values

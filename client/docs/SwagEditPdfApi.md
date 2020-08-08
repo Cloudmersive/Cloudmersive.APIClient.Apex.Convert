@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**editPdfRasterize**](SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
 [**editPdfRemoveAllAnnotations**](SwagEditPdfApi.md#editPdfRemoveAllAnnotations) | **POST** /convert/edit/pdf/annotations/remove-all | Remove all PDF annotations, including comments in the document
 [**editPdfRemoveAnnotationItem**](SwagEditPdfApi.md#editPdfRemoveAnnotationItem) | **POST** /convert/edit/pdf/annotations/remove-item | Remove a specific PDF annotation, comment in the document
+[**editPdfResize**](SwagEditPdfApi.md#editPdfResize) | **POST** /convert/edit/pdf/resize | Change PDF Document\&#39;s Paper Size
 [**editPdfRotateAllPages**](SwagEditPdfApi.md#editPdfRotateAllPages) | **POST** /convert/edit/pdf/pages/rotate/all | Rotate all pages in a PDF document
 [**editPdfRotatePageRange**](SwagEditPdfApi.md#editPdfRotatePageRange) | **POST** /convert/edit/pdf/pages/rotate/page-range | Rotate a range, subset of pages in a PDF document
 [**editPdfSetFormFields**](SwagEditPdfApi.md#editPdfSetFormFields) | **POST** /convert/edit/pdf/form/set-fields | Sets ands fills PDF Form field values
@@ -622,6 +623,57 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
  **annotationIndex** | **Integer**| The 0-based index of the annotation in the document |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editPdfResize"></a>
+# **editPdfResize**
+> Blob editPdfResize(inputFile, paperSize)
+
+Change PDF Document\&#39;s Paper Size
+
+Resizes a PDF document\&#39;s paper size.
+
+### Example
+```java
+SwagEditPdfApi api = new SwagEditPdfApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'paperSize' => 'paperSize_example'
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editPdfResize(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **paperSize** | **String**| The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). |
 
 ### Return type
 

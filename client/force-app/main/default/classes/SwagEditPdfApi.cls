@@ -374,6 +374,36 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Change PDF Document\&#39;s Paper Size
+     * Resizes a PDF document\&#39;s paper size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param paperSize The desired paper size for the resized PDF document. Size ranges from A7 (smallest) to A0 (largest). (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfResize(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('paperSize'), 'paperSize');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/resize', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'paperSize' => (String) params.get('paperSize')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Rotate all pages in a PDF document
      * Rotate all of the pages in a PDF document by a multiple of 90 degrees
      * @param inputFile Input file to perform the operation on. (required)

@@ -30,8 +30,9 @@ public class SwagEditHtmlApi {
      * Appends a heading to the end of an HTML document.
      * @param headingText The text content to be used in the header. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
-     * @param headingSize Optional: The heading size number. Default is 1. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param headingSize Optional: The heading size number. Default is 1. Accepts values between 1 and 6. (optional)
+     * @param cssStyle Optional: The CSS style for the heading. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -50,7 +51,8 @@ public class SwagEditHtmlApi {
             new Map<String, Object>{
                 'inputFileUrl' => (String) params.get('inputFileUrl'),
                 'headingText' => (String) params.get('headingText'),
-                'headingSize' => (Integer) params.get('headingSize')
+                'headingSize' => (Integer) params.get('headingSize'),
+                'cssStyle' => (String) params.get('cssStyle')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
@@ -63,7 +65,7 @@ public class SwagEditHtmlApi {
      * Appends an image to the end of an HTML document using a URL.
      * @param imageUrl The URL for the image. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
@@ -95,11 +97,11 @@ public class SwagEditHtmlApi {
      * Append a Base64 Inline Image to an HTML Document
      * Appends a base64 inline image to the end of an HTML document from an input file or URL.
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
      * @param imageFile Optional: Image file to be appended as base64 inline image. (optional)
      * @param imageUrl Optional: Image URL to be appended as base64 inline image. (optional)
      * @param cssStyle Optional: CSS style for the image. (optional)
-     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading a file directly, such as with a byte array. If no extension can be determined, will default to JPG. (optional)
+     * @param imageExtension Optional: The extension (JPG, PNG, GIF, etc.) of the image file. Recommended if uploading an imageFile directly, instead of using imageUrl. If no extension can be determined, will default to JPG. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -132,7 +134,8 @@ public class SwagEditHtmlApi {
      * Appends a paragraph to the end of an HTML document.
      * @param paragraphText The text content to be used in the paragraph. (required)
      * @param inputFile Optional: Input file to perform the operation on. (optional)
-     * @param inputFileUrl Optional: URL of a file to operate on as input.  This can be a public URL, or you can also use the begin-editing API (part of EditDocumentApi) to upload a document and pass in the secure URL result from that operation as the URL here (this URL is not public). (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param cssStyle Optional: The CSS style for the paragraph. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -150,10 +153,43 @@ public class SwagEditHtmlApi {
             new Map<String, Object>(),
             new Map<String, Object>{
                 'inputFileUrl' => (String) params.get('inputFileUrl'),
-                'paragraphText' => (String) params.get('paragraphText')
+                'paragraphText' => (String) params.get('paragraphText'),
+                'cssStyle' => (String) params.get('cssStyle')
             },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Create a Blank HTML Document
+     * Returns a blank HTML Document format file.  The file is blank, with no contents by default.  Use the optional input parameters to add various starting elements.  Use additional editing commands such as Append Header, Append Paragraph or Append Image from URL to populate the document.
+     * @param title Optional: The title of the HTML document (optional)
+     * @param cssUrl Optional: A CSS style URL to be added to the document. (optional)
+     * @param cssInline Optional: An inline CSS style to be added to the document. (optional)
+     * @param javascriptUrl Optional: Javascript URL to be added to the document. (optional)
+     * @param javascriptInline Optional: Inline Javascript to be added to the document. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editHtmlHtmlCreateBlankDocument(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/html/create/blank', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'title' => (String) params.get('title'),
+                'cssUrl' => (String) params.get('cssUrl'),
+                'cssInline' => (String) params.get('cssInline'),
+                'javascriptUrl' => (String) params.get('javascriptUrl'),
+                'javascriptInline' => (String) params.get('javascriptInline')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             Blob.class
         );
