@@ -52,6 +52,32 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Accept all tracked changes, revisions in a Word DOCX document
+     * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxAcceptAllTrackChanges(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/track-changes/accept-all', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Get body from a Word DOCX document
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
      * @param reqConfig Document input request (required)
@@ -169,6 +195,58 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagDeleteDocxTableRowRangeResponse.class
+        );
+    }
+    /**
+     * Disable track changes, revisions in a Word DOCX document
+     * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxDisableTrackChanges(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/track-changes/disable', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Enable track changes, revisions in a Word DOCX document
+     * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxEnableTrackChanges(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/track-changes/enable', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**
@@ -553,6 +631,32 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagGetDocxPagesResponse.class
+        );
+    }
+    /**
+     * Remove all comments from a Word DOCX document
+     * Removes all of the comments from a Word Document.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxRemoveAllComments(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/comments/remove-all', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**

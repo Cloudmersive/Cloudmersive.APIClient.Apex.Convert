@@ -34,6 +34,39 @@ private class SwagEditDocumentApiTest {
     }
 
     /**
+     * Accept all tracked changes, revisions in a Word DOCX document
+     *
+     * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+     */
+    @isTest
+    private static void editDocumentDocxAcceptAllTrackChangesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentDocxAcceptAllTrackChanges(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
      * Get body from a Word DOCX document
      *
      * Returns the body defined in the Word Document (DOCX) format file; this is the main content part of a DOCX document
@@ -195,6 +228,72 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Successful" : true,\r\n  "EditedDocumentURL" : "EditedDocumentURL"\r\n}');
         expectedResponse = SwagDeleteDocxTableRowRangeResponse.getExample();
         response = (SwagDeleteDocxTableRowRangeResponse) api.editDocumentDocxDeleteTableRowRange(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Disable track changes, revisions in a Word DOCX document
+     *
+     * Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+     */
+    @isTest
+    private static void editDocumentDocxDisableTrackChangesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentDocxDisableTrackChanges(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Enable track changes, revisions in a Word DOCX document
+     *
+     * Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+     */
+    @isTest
+    private static void editDocumentDocxEnableTrackChangesTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentDocxEnableTrackChanges(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -723,6 +822,39 @@ private class SwagEditDocumentApiTest {
         res.setBody('{\r\n  "Pages" : [ {\r\n    "PageNumber" : 0,\r\n    "Paragraphs" : [ {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    }, {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    } ]\r\n  }, {\r\n    "PageNumber" : 0,\r\n    "Paragraphs" : [ {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    }, {\r\n      "Path" : "Path",\r\n      "ContentRuns" : [ {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      }, {\r\n        "Path" : "Path",\r\n        "RunIndex" : 5,\r\n        "FontFamily" : "FontFamily",\r\n        "Italic" : true,\r\n        "FontSize" : "FontSize",\r\n        "TextItems" : [ {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        }, {\r\n          "Path" : "Path",\r\n          "TextIndex" : 5,\r\n          "TextContent" : "TextContent"\r\n        } ],\r\n        "Underline" : "Underline",\r\n        "Bold" : true\r\n      } ],\r\n      "ParagraphIndex" : 1,\r\n      "StyleID" : "StyleID"\r\n    } ]\r\n  } ],\r\n  "PageCount" : 6,\r\n  "Successful" : true\r\n}');
         expectedResponse = SwagGetDocxPagesResponse.getExample();
         response = (SwagGetDocxPagesResponse) api.editDocumentDocxPages(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Remove all comments from a Word DOCX document
+     *
+     * Removes all of the comments from a Word Document.
+     */
+    @isTest
+    private static void editDocumentDocxRemoveAllCommentsTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new SwaggerResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'inputFile' => Blob.valueOf('Sample text file\nContents')
+        };
+
+        SwagClient client;
+        SwagEditDocumentApi api;
+        Blob response;
+        Blob expectedResponse;
+
+        client = new SwagClient();
+        api = new SwagEditDocumentApi(client);
+        ((Swagger.ApiKeyAuth) client.getAuthentication('Apikey');
+            client.setApiKey('foo-bar-api-key');
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('"VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu"');
+        expectedResponse = EncodingUtil.base64Decode('VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wZWQgb3ZlciB0aGUgbGF6eSBkb2cu');
+        response = (Blob) api.editDocumentDocxRemoveAllComments(params);
         System.assertEquals(expectedResponse, response);
     }
 

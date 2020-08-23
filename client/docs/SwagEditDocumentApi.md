@@ -5,11 +5,14 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editDocumentBeginEditing**](SwagEditDocumentApi.md#editDocumentBeginEditing) | **POST** /convert/edit/begin-editing | Begin editing a document
+[**editDocumentDocxAcceptAllTrackChanges**](SwagEditDocumentApi.md#editDocumentDocxAcceptAllTrackChanges) | **POST** /convert/edit/docx/track-changes/accept-all | Accept all tracked changes, revisions in a Word DOCX document
 [**editDocumentDocxBody**](SwagEditDocumentApi.md#editDocumentDocxBody) | **POST** /convert/edit/docx/get-body | Get body from a Word DOCX document
 [**editDocumentDocxCreateBlankDocument**](SwagEditDocumentApi.md#editDocumentDocxCreateBlankDocument) | **POST** /convert/edit/docx/create/blank | Create a blank Word DOCX document
 [**editDocumentDocxDeletePages**](SwagEditDocumentApi.md#editDocumentDocxDeletePages) | **POST** /convert/edit/docx/delete-pages | Delete, remove pages from a Word DOCX document
 [**editDocumentDocxDeleteTableRow**](SwagEditDocumentApi.md#editDocumentDocxDeleteTableRow) | **POST** /convert/edit/docx/delete-table-row | Deletes a table row in an existing table in a Word DOCX document
 [**editDocumentDocxDeleteTableRowRange**](SwagEditDocumentApi.md#editDocumentDocxDeleteTableRowRange) | **POST** /convert/edit/docx/delete-table-row/range | Deletes a range of multiple table rows in an existing table in a Word DOCX document
+[**editDocumentDocxDisableTrackChanges**](SwagEditDocumentApi.md#editDocumentDocxDisableTrackChanges) | **POST** /convert/edit/docx/track-changes/disable | Disable track changes, revisions in a Word DOCX document
+[**editDocumentDocxEnableTrackChanges**](SwagEditDocumentApi.md#editDocumentDocxEnableTrackChanges) | **POST** /convert/edit/docx/track-changes/enable | Enable track changes, revisions in a Word DOCX document
 [**editDocumentDocxFindParagraph**](SwagEditDocumentApi.md#editDocumentDocxFindParagraph) | **POST** /convert/edit/docx/find/paragraph | Find matching paragraphs in a Word DOCX document
 [**editDocumentDocxGetComments**](SwagEditDocumentApi.md#editDocumentDocxGetComments) | **POST** /convert/edit/docx/get-comments/flat-list | Get comments from a Word DOCX document as a flat list
 [**editDocumentDocxGetCommentsHierarchical**](SwagEditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
@@ -26,6 +29,7 @@ Method | HTTP request | Description
 [**editDocumentDocxInsertTable**](SwagEditDocumentApi.md#editDocumentDocxInsertTable) | **POST** /convert/edit/docx/insert-table | Insert a new table into a Word DOCX document
 [**editDocumentDocxInsertTableRow**](SwagEditDocumentApi.md#editDocumentDocxInsertTableRow) | **POST** /convert/edit/docx/insert-table-row | Insert a new row into an existing table in a Word DOCX document
 [**editDocumentDocxPages**](SwagEditDocumentApi.md#editDocumentDocxPages) | **POST** /convert/edit/docx/get-pages | Get pages and content from a Word DOCX document
+[**editDocumentDocxRemoveAllComments**](SwagEditDocumentApi.md#editDocumentDocxRemoveAllComments) | **POST** /convert/edit/docx/comments/remove-all | Remove all comments from a Word DOCX document
 [**editDocumentDocxRemoveHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxRemoveHeadersAndFooters) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 [**editDocumentDocxRemoveObject**](SwagEditDocumentApi.md#editDocumentDocxRemoveObject) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 [**editDocumentDocxReplace**](SwagEditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
@@ -100,6 +104,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editDocumentDocxAcceptAllTrackChanges"></a>
+# **editDocumentDocxAcceptAllTrackChanges**
+> Blob editDocumentDocxAcceptAllTrackChanges(inputFile)
+
+Accept all tracked changes, revisions in a Word DOCX document
+
+Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentDocxAcceptAllTrackChanges(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
 
 ### Authorization
 
@@ -353,6 +406,104 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxDisableTrackChanges"></a>
+# **editDocumentDocxDisableTrackChanges**
+> Blob editDocumentDocxDisableTrackChanges(inputFile)
+
+Disable track changes, revisions in a Word DOCX document
+
+Diables tracking of changes and revisions in a Word DOCX document, and accepts any pending changes.  Users editing the document will no longer see changes tracked automatically.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentDocxDisableTrackChanges(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="editDocumentDocxEnableTrackChanges"></a>
+# **editDocumentDocxEnableTrackChanges**
+> Blob editDocumentDocxEnableTrackChanges(inputFile)
+
+Enable track changes, revisions in a Word DOCX document
+
+Enables tracking of changes and revisions in a Word DOCX document.  Users editing the document will see changes tracked automatically, with edits highlighted, and the ability to accept or reject changes made to the document.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentDocxEnableTrackChanges(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="editDocumentDocxFindParagraph"></a>
@@ -1137,6 +1288,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxRemoveAllComments"></a>
+# **editDocumentDocxRemoveAllComments**
+> Blob editDocumentDocxRemoveAllComments(inputFile)
+
+Remove all comments from a Word DOCX document
+
+Removes all of the comments from a Word Document.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentDocxRemoveAllComments(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="editDocumentDocxRemoveHeadersAndFooters"></a>
