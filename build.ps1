@@ -6,4 +6,6 @@
 # (Get-Content ./client/README.md).replace('- Build package: io.swagger.codegen.languages.JavascriptClientCodegen', '') | Set-Content ./client/README.md
 # & npm build ./client
 
+Get-ChildItem ./client/force-app/main/default/classes/*Test* | foreach { Remove-Item -Path $_.FullName }
+
 Copy-Item ./client/README.md ./README.md
