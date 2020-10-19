@@ -94,6 +94,56 @@ public class SwagZipArchiveApi {
         );
     }
     /**
+     * Compress files to create a new, encrypted and password-protected zip archive
+     * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip.
+     * @param password Password to place on the Zip file; the longer the password, the more secure (required)
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param encryptionAlgorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. (optional)
+     * @param inputFile2 Second input file to perform the operation on. (optional)
+     * @param inputFile3 Third input file to perform the operation on. (optional)
+     * @param inputFile4 Fourth input file to perform the operation on. (optional)
+     * @param inputFile5 Fifth input file to perform the operation on. (optional)
+     * @param inputFile6 Sixth input file to perform the operation on. (optional)
+     * @param inputFile7 Seventh input file to perform the operation on. (optional)
+     * @param inputFile8 Eighth input file to perform the operation on. (optional)
+     * @param inputFile9 Ninth input file to perform the operation on. (optional)
+     * @param inputFile10 Tenth input file to perform the operation on. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob zipArchiveZipCreateEncrypted(Map<String, Object> params) {
+        client.assertNotNull(params.get('password'), 'password');
+        client.assertNotNull(params.get('inputFile1'), 'inputFile1');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
+        form.addAll(client.makeParam('inputFile2', (Blob) params.get('inputFile2')));
+        form.addAll(client.makeParam('inputFile3', (Blob) params.get('inputFile3')));
+        form.addAll(client.makeParam('inputFile4', (Blob) params.get('inputFile4')));
+        form.addAll(client.makeParam('inputFile5', (Blob) params.get('inputFile5')));
+        form.addAll(client.makeParam('inputFile6', (Blob) params.get('inputFile6')));
+        form.addAll(client.makeParam('inputFile7', (Blob) params.get('inputFile7')));
+        form.addAll(client.makeParam('inputFile8', (Blob) params.get('inputFile8')));
+        form.addAll(client.makeParam('inputFile9', (Blob) params.get('inputFile9')));
+        form.addAll(client.makeParam('inputFile10', (Blob) params.get('inputFile10')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/archive/zip/create/encrypted', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'password' => (String) params.get('password'),
+                'encryptionAlgorithm' => (String) params.get('encryptionAlgorithm')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Decrypt and remove password protection on a zip file
      * Decrypts and removes password protection from an encrypted zip file with the specified password
      * @param inputFile Input file to perform the operation on. (required)
