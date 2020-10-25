@@ -50,6 +50,35 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Convert a PDF file to PDF/A
+     * Converts the input PDF file to a PDF/A-1b or PDF/A-2b standardized PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param conformanceLevel Optional: Select the conformance level for PDF/A - specify \&#39;1b\&#39; for PDF/A-1b or specify \&#39;2b\&#39; for PDF/A-2b; default is PDF/A-1b (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfConvertToPdfA(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/optimize/pdf-a', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'conformanceLevel' => (String) params.get('conformanceLevel')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Decrypt and password-protect a PDF
      * Decrypt a PDF document with a password.  Decrypted PDF will no longer require a password to open.
      * @param password Valid password for the PDF file (required)
@@ -292,6 +321,32 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Linearize and optimize a PDF for streaming download
+     * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfLinearize(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/optimize/linearize', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Rasterize a PDF to an image-based PDF
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
      * @param inputFile Input file to perform the operation on. (required)
@@ -308,6 +363,32 @@ public class SwagEditPdfApi {
 
         return (Blob) client.invoke(
             'POST', '/convert/edit/pdf/rasterize', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Reduce the file size and optimize a PDF
+     * Reduces the file size and optimizes the content of a PDF to minimize its file size.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editPdfReduceFileSize(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/pdf/optimize/reduce-file-size', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

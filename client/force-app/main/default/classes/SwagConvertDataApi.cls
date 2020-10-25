@@ -55,6 +55,35 @@ public class SwagConvertDataApi {
         );
     }
     /**
+     * Convert CSV to XML conversion
+     * Convert a CSV file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param columnNamesFromFirstRow Optional; If true, the first row will be used as the labels for the columns; if false, columns will be named Column0, Column1, etc.  Default is true.  Set to false if you are not using column headings, or have an irregular column structure. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDataCsvToXml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/csv/to/xml', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'columnNamesFromFirstRow' => (Boolean) params.get('columnNamesFromFirstRow')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Convert JSON to XML conversion
      * Convert a JSON object into XML
      * @param jsonObject Input JSON to convert to XML (required)
@@ -108,10 +137,10 @@ public class SwagConvertDataApi {
      * Convert Excel XLSX to JSON conversion
      * Convert an Excel XLSX file to a JSON object array
      * @param inputFile Input file to perform the operation on. (required)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDataXlsxToJson(Map<String, Object> params) {
+    public Blob convertDataXlsxToJson(Map<String, Object> params) {
         client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
@@ -119,7 +148,7 @@ public class SwagConvertDataApi {
         // cast form params to verify their expected type
         form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/xlsx/to/json', '',
             query, form,
             new Map<String, Object>(),
@@ -127,7 +156,33 @@ public class SwagConvertDataApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
+        );
+    }
+    /**
+     * Convert Excel XLSX to XML conversion
+     * Convert an Excel XLSX file to a XML file
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDataXlsxToXml(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/xlsx/to/xml', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**
