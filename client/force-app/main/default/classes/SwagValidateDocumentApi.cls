@@ -390,6 +390,32 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Validate an TXT file
+     * Validate an TXT document file; if the document is not valid, identifies the errors in the document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentTxtValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/txt', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
      * Validate a Excel document (XLSX)
      * Validate a Excel document (XLSX); if the document is not valid, identifies the errors in the document
      * @param inputFile Input file to perform the operation on. (required)

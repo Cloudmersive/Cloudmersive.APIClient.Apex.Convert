@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="viewerToolsCreateSimple"></a>
 # **viewerToolsCreateSimple**
-> SwagViewerResponse viewerToolsCreateSimple(inputFile)
+> SwagViewerResponse viewerToolsCreateSimple(inputFile, width, height)
 
 Create a web-based viewer
 
@@ -25,7 +25,9 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'width' => 56,
+    'height' => 56
 };
 
 try {
@@ -42,6 +44,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **width** | **Integer**| Optional; width of the output viewer in pixels | [optional]
+ **height** | **Integer**| Optional; height of the output viewer in pixels | [optional]
 
 ### Return type
 

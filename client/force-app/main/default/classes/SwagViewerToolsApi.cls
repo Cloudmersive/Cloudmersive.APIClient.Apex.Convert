@@ -29,6 +29,8 @@ public class SwagViewerToolsApi {
      * Create a web-based viewer
      * Creates an HTML embed code for a simple web-based viewer of a document; supports Office document types and PDF.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param width Optional; width of the output viewer in pixels (optional)
+     * @param height Optional; height of the output viewer in pixels (optional)
      * @return SwagViewerResponse
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -44,7 +46,10 @@ public class SwagViewerToolsApi {
             'POST', '/convert/viewer/create/web/simple', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'width' => (Integer) params.get('width'),
+                'height' => (Integer) params.get('height')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
