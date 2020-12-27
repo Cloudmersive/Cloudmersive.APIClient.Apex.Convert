@@ -191,6 +191,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxGetCommentsHierarchical**](docs/SwagEditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
 *SwagEditDocumentApi* | [**editDocumentDocxGetHeadersAndFooters**](docs/SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetImages**](docs/SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxGetMetadataProperties**](docs/SwagEditDocumentApi.md#editDocumentDocxGetMetadataProperties) | **POST** /convert/edit/docx/get-metadata | Get all metadata properties in Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetSections**](docs/SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetStyles**](docs/SwagEditDocumentApi.md#editDocumentDocxGetStyles) | **POST** /convert/edit/docx/get-styles | Get styles from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetTableByIndex**](docs/SwagEditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
@@ -208,6 +209,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxReplace**](docs/SwagEditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxReplaceMulti**](docs/SwagEditDocumentApi.md#editDocumentDocxReplaceMulti) | **POST** /convert/edit/docx/replace-all/multi | Replace multiple strings in Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxReplaceParagraph**](docs/SwagEditDocumentApi.md#editDocumentDocxReplaceParagraph) | **POST** /convert/edit/docx/replace/paragraph | Replace matching paragraphs in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxSetCustomMetadataProperties**](docs/SwagEditDocumentApi.md#editDocumentDocxSetCustomMetadataProperties) | **POST** /convert/edit/docx/set-metadata/custom-property | Set custom property metadata properties in Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetFooter**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetFooterAddPageNumber**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFooterAddPageNumber) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetHeader**](docs/SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
@@ -374,12 +376,14 @@ Class | Method | HTTP request | Description
  - [SwagDocxInsertCommentOnParagraphRequ](docs/SwagDocxInsertCommentOnParagraphRequ.md)
  - [SwagDocxInsertImageRequest](docs/SwagDocxInsertImageRequest.md)
  - [SwagDocxInsertImageResponse](docs/SwagDocxInsertImageResponse.md)
+ - [SwagDocxMetadataCustomProperty](docs/SwagDocxMetadataCustomProperty.md)
  - [SwagDocxPage](docs/SwagDocxPage.md)
  - [SwagDocxParagraph](docs/SwagDocxParagraph.md)
  - [SwagDocxRemoveObjectRequest](docs/SwagDocxRemoveObjectRequest.md)
  - [SwagDocxRemoveObjectResponse](docs/SwagDocxRemoveObjectResponse.md)
  - [SwagDocxRun](docs/SwagDocxRun.md)
  - [SwagDocxSection](docs/SwagDocxSection.md)
+ - [SwagDocxSetCustomMetadataPropertiesR](docs/SwagDocxSetCustomMetadataPropertiesR.md)
  - [SwagDocxSetFooterAddPageNumberReques](docs/SwagDocxSetFooterAddPageNumberReques.md)
  - [SwagDocxSetFooterRequest](docs/SwagDocxSetFooterRequest.md)
  - [SwagDocxSetFooterResponse](docs/SwagDocxSetFooterResponse.md)
@@ -421,6 +425,7 @@ Class | Method | HTTP request | Description
  - [SwagGetDocxHeadersAndFootersResponse](docs/SwagGetDocxHeadersAndFootersResponse.md)
  - [SwagGetDocxImagesRequest](docs/SwagGetDocxImagesRequest.md)
  - [SwagGetDocxImagesResponse](docs/SwagGetDocxImagesResponse.md)
+ - [SwagGetDocxMetadataPropertiesRespons](docs/SwagGetDocxMetadataPropertiesRespons.md)
  - [SwagGetDocxPagesRequest](docs/SwagGetDocxPagesRequest.md)
  - [SwagGetDocxPagesResponse](docs/SwagGetDocxPagesResponse.md)
  - [SwagGetDocxSectionsRequest](docs/SwagGetDocxSectionsRequest.md)

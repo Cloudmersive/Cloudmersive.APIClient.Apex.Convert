@@ -370,6 +370,32 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get all metadata properties in Word DOCX document
+     * Returns all the metadata properties in an Office Word Document (docx)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetDocxMetadataPropertiesRespons
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxMetadataPropertiesRespons editDocumentDocxGetMetadataProperties(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetDocxMetadataPropertiesRespons) client.invoke(
+            'POST', '/convert/edit/docx/get-metadata', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxMetadataPropertiesRespons.class
+        );
+    }
+    /**
      * Get sections from a Word DOCX document
      * Returns the sections defined in the Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -777,6 +803,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagReplaceDocxParagraphResponse.class
+        );
+    }
+    /**
+     * Set custom property metadata properties in Word DOCX document
+     * Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+     * @param input  (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxSetCustomMetadataProperties(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/set-metadata/custom-property',
+            (SwagDocxSetCustomMetadataPropertiesR) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**

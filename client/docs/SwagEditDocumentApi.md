@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**editDocumentDocxGetCommentsHierarchical**](SwagEditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
 [**editDocumentDocxGetHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 [**editDocumentDocxGetImages**](SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
+[**editDocumentDocxGetMetadataProperties**](SwagEditDocumentApi.md#editDocumentDocxGetMetadataProperties) | **POST** /convert/edit/docx/get-metadata | Get all metadata properties in Word DOCX document
 [**editDocumentDocxGetSections**](SwagEditDocumentApi.md#editDocumentDocxGetSections) | **POST** /convert/edit/docx/get-sections | Get sections from a Word DOCX document
 [**editDocumentDocxGetStyles**](SwagEditDocumentApi.md#editDocumentDocxGetStyles) | **POST** /convert/edit/docx/get-styles | Get styles from a Word DOCX document
 [**editDocumentDocxGetTableByIndex**](SwagEditDocumentApi.md#editDocumentDocxGetTableByIndex) | **POST** /convert/edit/docx/get-table/by-index | Get a specific table by index in a Word DOCX document
@@ -35,6 +36,7 @@ Method | HTTP request | Description
 [**editDocumentDocxReplace**](SwagEditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
 [**editDocumentDocxReplaceMulti**](SwagEditDocumentApi.md#editDocumentDocxReplaceMulti) | **POST** /convert/edit/docx/replace-all/multi | Replace multiple strings in Word DOCX document
 [**editDocumentDocxReplaceParagraph**](SwagEditDocumentApi.md#editDocumentDocxReplaceParagraph) | **POST** /convert/edit/docx/replace/paragraph | Replace matching paragraphs in a Word DOCX document
+[**editDocumentDocxSetCustomMetadataProperties**](SwagEditDocumentApi.md#editDocumentDocxSetCustomMetadataProperties) | **POST** /convert/edit/docx/set-metadata/custom-property | Set custom property metadata properties in Word DOCX document
 [**editDocumentDocxSetFooter**](SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
 [**editDocumentDocxSetFooterAddPageNumber**](SwagEditDocumentApi.md#editDocumentDocxSetFooterAddPageNumber) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
 [**editDocumentDocxSetHeader**](SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
@@ -749,6 +751,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxGetMetadataProperties"></a>
+# **editDocumentDocxGetMetadataProperties**
+> SwagGetDocxMetadataPropertiesRespons editDocumentDocxGetMetadataProperties(inputFile)
+
+Get all metadata properties in Word DOCX document
+
+Returns all the metadata properties in an Office Word Document (docx)
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagGetDocxMetadataPropertiesRespons result = api.editDocumentDocxGetMetadataProperties(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagGetDocxMetadataPropertiesRespons**](SwagGetDocxMetadataPropertiesRespons.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="editDocumentDocxGetSections"></a>
@@ -1574,6 +1625,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagReplaceDocxParagraphResponse**](SwagReplaceDocxParagraphResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxSetCustomMetadataProperties"></a>
+# **editDocumentDocxSetCustomMetadataProperties**
+> Blob editDocumentDocxSetCustomMetadataProperties(input)
+
+Set custom property metadata properties in Word DOCX document
+
+Sets the custom property metadata for the metadata properties in an Office Word Document (docx)
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'input' => SwagDocxSetCustomMetadataPropertiesR.getExample()
+};
+
+try {
+    // cross your fingers
+    Blob result = api.editDocumentDocxSetCustomMetadataProperties(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input** | [**SwagDocxSetCustomMetadataPropertiesR**](SwagDocxSetCustomMetadataPropertiesR.md)|  |
+
+### Return type
+
+**Blob**
 
 ### Authorization
 
