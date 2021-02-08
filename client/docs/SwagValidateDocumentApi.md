@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**validateDocumentEmlValidation**](SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 [**validateDocumentExecutableValidation**](SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
 [**validateDocumentGZipValidation**](SwagValidateDocumentApi.md#validateDocumentGZipValidation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
+[**validateDocumentHtmlSsrfValidation**](SwagValidateDocumentApi.md#validateDocumentHtmlSsrfValidation) | **POST** /convert/validate/html/ssrf-threat-check | Validate an HTML file and checks for SSRF threats
 [**validateDocumentHtmlValidation**](SwagValidateDocumentApi.md#validateDocumentHtmlValidation) | **POST** /convert/validate/html | Validate an HTML file
 [**validateDocumentImageValidation**](SwagValidateDocumentApi.md#validateDocumentImageValidation) | **POST** /convert/validate/image | Validate an Image File
 [**validateDocumentJpgValidation**](SwagValidateDocumentApi.md#validateDocumentJpgValidation) | **POST** /convert/validate/jpg | Validate a JPG File
@@ -310,6 +311,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="validateDocumentHtmlSsrfValidation"></a>
+# **validateDocumentHtmlSsrfValidation**
+> SwagHtmlSsrfThreatCheckResult validateDocumentHtmlSsrfValidation(inputFile)
+
+Validate an HTML file and checks for SSRF threats
+
+Validate an HTML document file and checks for SSRF (Server-side Request Forgery) threats in the file; if the document is not valid, identifies the errors in the document
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagHtmlSsrfThreatCheckResult result = api.validateDocumentHtmlSsrfValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagHtmlSsrfThreatCheckResult**](SwagHtmlSsrfThreatCheckResult.md)
 
 ### Authorization
 

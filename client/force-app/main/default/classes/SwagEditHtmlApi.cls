@@ -194,4 +194,34 @@ public class SwagEditHtmlApi {
             Blob.class
         );
     }
+    /**
+     * Extract resolved link URLs from HTML File
+     * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @param baseUrl Optional: Base URL of the page, such as https://mydomain.com (optional)
+     * @return SwagHtmlGetLinksResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagHtmlGetLinksResponse editHtmlHtmlGetLinks(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagHtmlGetLinksResponse) client.invoke(
+            'POST', '/convert/edit/html/extract/links', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl'),
+                'baseUrl' => (String) params.get('baseUrl')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagHtmlGetLinksResponse.class
+        );
+    }
 }

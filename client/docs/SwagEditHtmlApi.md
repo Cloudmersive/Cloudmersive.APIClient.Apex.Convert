@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**editHtmlHtmlAppendImageInline**](SwagEditHtmlApi.md#editHtmlHtmlAppendImageInline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 [**editHtmlHtmlAppendParagraph**](SwagEditHtmlApi.md#editHtmlHtmlAppendParagraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
 [**editHtmlHtmlCreateBlankDocument**](SwagEditHtmlApi.md#editHtmlHtmlCreateBlankDocument) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
+[**editHtmlHtmlGetLinks**](SwagEditHtmlApi.md#editHtmlHtmlGetLinks) | **POST** /convert/edit/html/extract/links | Extract resolved link URLs from HTML File
 
 
 <a name="editHtmlHtmlAppendHeading"></a>
@@ -292,5 +293,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editHtmlHtmlGetLinks"></a>
+# **editHtmlHtmlGetLinks**
+> SwagHtmlGetLinksResponse editHtmlHtmlGetLinks(inputFile, inputFileUrl, baseUrl)
+
+Extract resolved link URLs from HTML File
+
+Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
+
+### Example
+```java
+SwagEditHtmlApi api = new SwagEditHtmlApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'inputFileUrl' => 'inputFileUrl_example',
+    'baseUrl' => 'baseUrl_example'
+};
+
+try {
+    // cross your fingers
+    SwagHtmlGetLinksResponse result = api.editHtmlHtmlGetLinks(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Optional: Input file to perform the operation on. | [optional]
+ **inputFileUrl** | **String**| Optional: URL of a file to operate on as input. | [optional]
+ **baseUrl** | **String**| Optional: Base URL of the page, such as https://mydomain.com | [optional]
+
+### Return type
+
+[**SwagHtmlGetLinksResponse**](SwagHtmlGetLinksResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 

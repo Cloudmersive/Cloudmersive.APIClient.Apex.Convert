@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**mergeDocumentDocx**](SwagMergeDocumentApi.md#mergeDocumentDocx) | **POST** /convert/merge/docx | Merge Two Word DOCX Together
 [**mergeDocumentDocxMulti**](SwagMergeDocumentApi.md#mergeDocumentDocxMulti) | **POST** /convert/merge/docx/multi | Merge Multple Word DOCX Together
+[**mergeDocumentHtml**](SwagMergeDocumentApi.md#mergeDocumentHtml) | **POST** /convert/merge/html | Merge Two HTML (HTM) Files Together
+[**mergeDocumentHtmlMulti**](SwagMergeDocumentApi.md#mergeDocumentHtmlMulti) | **POST** /convert/merge/html/multi | Merge Multple HTML (HTM) Files Together
 [**mergeDocumentPdf**](SwagMergeDocumentApi.md#mergeDocumentPdf) | **POST** /convert/merge/pdf | Merge Two PDF Files Together
 [**mergeDocumentPdfMulti**](SwagMergeDocumentApi.md#mergeDocumentPdfMulti) | **POST** /convert/merge/pdf/multi | Merge Multple PDF Files Together
 [**mergeDocumentPng**](SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Two PNG Files Together
@@ -102,6 +104,124 @@ Map<String, Object> params = new Map<String, Object>{
 try {
     // cross your fingers
     Blob result = api.mergeDocumentDocxMulti(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on. |
+ **inputFile3** | **Blob**| Third input file to perform the operation on. | [optional]
+ **inputFile4** | **Blob**| Fourth input file to perform the operation on. | [optional]
+ **inputFile5** | **Blob**| Fifth input file to perform the operation on. | [optional]
+ **inputFile6** | **Blob**| Sixth input file to perform the operation on. | [optional]
+ **inputFile7** | **Blob**| Seventh input file to perform the operation on. | [optional]
+ **inputFile8** | **Blob**| Eighth input file to perform the operation on. | [optional]
+ **inputFile9** | **Blob**| Ninth input file to perform the operation on. | [optional]
+ **inputFile10** | **Blob**| Tenth input file to perform the operation on. | [optional]
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="mergeDocumentHtml"></a>
+# **mergeDocumentHtml**
+> Object mergeDocumentHtml(inputFile1, inputFile2)
+
+Merge Two HTML (HTM) Files Together
+
+Combine two HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+
+### Example
+```java
+SwagMergeDocumentApi api = new SwagMergeDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Object result = api.mergeDocumentHtml(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **inputFile2** | **Blob**| Second input file to perform the operation on (more than 2 can be supplied). |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="mergeDocumentHtmlMulti"></a>
+# **mergeDocumentHtmlMulti**
+> Blob mergeDocumentHtmlMulti(inputFile1, inputFile2, inputFile3, inputFile4, inputFile5, inputFile6, inputFile7, inputFile8, inputFile9, inputFile10)
+
+Merge Multple HTML (HTM) Files Together
+
+Combine multiple HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+
+### Example
+```java
+SwagMergeDocumentApi api = new SwagMergeDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile3' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile4' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile5' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile6' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile7' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile8' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile9' => Blob.valueOf('Sample text file\nContents'),
+    'inputFile10' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    Blob result = api.mergeDocumentHtmlMulti(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions

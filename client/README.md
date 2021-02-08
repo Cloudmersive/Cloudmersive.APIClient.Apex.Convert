@@ -243,6 +243,7 @@ Class | Method | HTTP request | Description
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendImageInline**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendImageInline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendParagraph**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendParagraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlCreateBlankDocument**](docs/SwagEditHtmlApi.md#editHtmlHtmlCreateBlankDocument) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
+*SwagEditHtmlApi* | [**editHtmlHtmlGetLinks**](docs/SwagEditHtmlApi.md#editHtmlHtmlGetLinks) | **POST** /convert/edit/html/extract/links | Extract resolved link URLs from HTML File
 *SwagEditPdfApi* | [**editPdfAddAnnotations**](docs/SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 *SwagEditPdfApi* | [**editPdfConvertToPdfA**](docs/SwagEditPdfApi.md#editPdfConvertToPdfA) | **POST** /convert/edit/pdf/optimize/pdf-a | Convert a PDF file to PDF/A
 *SwagEditPdfApi* | [**editPdfDecrypt**](docs/SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
@@ -280,6 +281,8 @@ Class | Method | HTTP request | Description
 *SwagEditTextApi* | [**editTextTrimWhitespace**](docs/SwagEditTextApi.md#editTextTrimWhitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
 *SwagMergeDocumentApi* | [**mergeDocumentDocx**](docs/SwagMergeDocumentApi.md#mergeDocumentDocx) | **POST** /convert/merge/docx | Merge Two Word DOCX Together
 *SwagMergeDocumentApi* | [**mergeDocumentDocxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentDocxMulti) | **POST** /convert/merge/docx/multi | Merge Multple Word DOCX Together
+*SwagMergeDocumentApi* | [**mergeDocumentHtml**](docs/SwagMergeDocumentApi.md#mergeDocumentHtml) | **POST** /convert/merge/html | Merge Two HTML (HTM) Files Together
+*SwagMergeDocumentApi* | [**mergeDocumentHtmlMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentHtmlMulti) | **POST** /convert/merge/html/multi | Merge Multple HTML (HTM) Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentPdf**](docs/SwagMergeDocumentApi.md#mergeDocumentPdf) | **POST** /convert/merge/pdf | Merge Two PDF Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentPdfMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentPdfMulti) | **POST** /convert/merge/pdf/multi | Merge Multple PDF Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentPng**](docs/SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Two PNG Files Together
@@ -304,6 +307,7 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentEmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 *SwagValidateDocumentApi* | [**validateDocumentExecutableValidation**](docs/SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
 *SwagValidateDocumentApi* | [**validateDocumentGZipValidation**](docs/SwagValidateDocumentApi.md#validateDocumentGZipValidation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
+*SwagValidateDocumentApi* | [**validateDocumentHtmlSsrfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentHtmlSsrfValidation) | **POST** /convert/validate/html/ssrf-threat-check | Validate an HTML file and checks for SSRF threats
 *SwagValidateDocumentApi* | [**validateDocumentHtmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentHtmlValidation) | **POST** /convert/validate/html | Validate an HTML file
 *SwagValidateDocumentApi* | [**validateDocumentImageValidation**](docs/SwagValidateDocumentApi.md#validateDocumentImageValidation) | **POST** /convert/validate/image | Validate an Image File
 *SwagValidateDocumentApi* | [**validateDocumentJpgValidation**](docs/SwagValidateDocumentApi.md#validateDocumentJpgValidation) | **POST** /convert/validate/jpg | Validate a JPG File
@@ -459,10 +463,14 @@ Class | Method | HTTP request | Description
  - [SwagGetXlsxStylesResponse](docs/SwagGetXlsxStylesResponse.md)
  - [SwagGetXlsxWorksheetsRequest](docs/SwagGetXlsxWorksheetsRequest.md)
  - [SwagGetXlsxWorksheetsResponse](docs/SwagGetXlsxWorksheetsResponse.md)
+ - [SwagHtmlGetLinksResponse](docs/SwagHtmlGetLinksResponse.md)
+ - [SwagHtmlHyperlink](docs/SwagHtmlHyperlink.md)
  - [SwagHtmlMdResult](docs/SwagHtmlMdResult.md)
+ - [SwagHtmlSsrfThreatCheckResult](docs/SwagHtmlSsrfThreatCheckResult.md)
  - [SwagHtmlTemplateApplicationRequest](docs/SwagHtmlTemplateApplicationRequest.md)
  - [SwagHtmlTemplateApplicationResponse](docs/SwagHtmlTemplateApplicationResponse.md)
  - [SwagHtmlTemplateOperation](docs/SwagHtmlTemplateOperation.md)
+ - [SwagHtmlThreatLink](docs/SwagHtmlThreatLink.md)
  - [SwagHtmlToOfficeRequest](docs/SwagHtmlToOfficeRequest.md)
  - [SwagHtmlToPdfRequest](docs/SwagHtmlToPdfRequest.md)
  - [SwagHtmlToPngRequest](docs/SwagHtmlToPngRequest.md)
