@@ -370,6 +370,32 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get macro information from a Word DOCX/DOCM document
+     * Returns information about the Macros (e.g. VBA) defined in the Word Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetMacrosResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetMacrosResponse editDocumentDocxGetMacroInformation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetMacrosResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-macros', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetMacrosResponse.class
+        );
+    }
+    /**
      * Get all metadata properties in Word DOCX document
      * Returns all the metadata properties in an Office Word Document (docx)
      * @param inputFile Input file to perform the operation on. (required)
@@ -998,6 +1024,32 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get macro information from a PowerPoint PPTX/PPTM presentation document
+     * Returns information about the Macros (e.g. VBA) defined in the PowerPoint Document
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetMacrosResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetMacrosResponse editDocumentPptxGetMacroInformation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetMacrosResponse) client.invoke(
+            'POST', '/convert/edit/pptx/get-macros', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetMacrosResponse.class
+        );
+    }
+    /**
      * Replace string in PowerPoint PPTX presentation
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      * @param reqConfig Replacement document configuration input (required)
@@ -1307,6 +1359,32 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagGetXlsxImagesResponse.class
+        );
+    }
+    /**
+     * Get macro information from a Excel XLSX/XLSM spreadsheet, worksheet
+     * Returns information about the Macros (e.g. VBA) defined in the Excel Spreadsheet
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetMacrosResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetMacrosResponse editDocumentXlsxGetMacroInformation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetMacrosResponse) client.invoke(
+            'POST', '/convert/edit/xlsx/get-macros', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetMacrosResponse.class
         );
     }
     /**
