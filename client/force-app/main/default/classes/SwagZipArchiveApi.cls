@@ -144,6 +144,27 @@ public class SwagZipArchiveApi {
         );
     }
     /**
+     * Create an encrypted zip file to quarantine a dangerous file
+     * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object zipArchiveZipCreateQuarantine() {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/archive/zip/create/quarantine', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
      * Decrypt and remove password protection on a zip file
      * Decrypts and removes password protection from an encrypted zip file with the specified password
      * @param inputFile Input file to perform the operation on. (required)

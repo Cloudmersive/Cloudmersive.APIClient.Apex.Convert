@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**validateDocumentTxtValidation**](SwagValidateDocumentApi.md#validateDocumentTxtValidation) | **POST** /convert/validate/txt | Validate an TXT file
 [**validateDocumentXlsxValidation**](SwagValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 [**validateDocumentXmlValidation**](SwagValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
+[**validateDocumentXmlXxeThreatValidation**](SwagValidateDocumentApi.md#validateDocumentXmlXxeThreatValidation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
 [**validateDocumentZipValidation**](SwagValidateDocumentApi.md#validateDocumentZipValidation) | **POST** /convert/validate/zip | Validate a Zip Archive file (zip)
 
 
@@ -997,6 +998,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="validateDocumentXmlXxeThreatValidation"></a>
+# **validateDocumentXmlXxeThreatValidation**
+> SwagXxeThreatDetectionResult validateDocumentXmlXxeThreatValidation(inputFile)
+
+Validate an XML file for XML External Entity (XXE) threats
+
+Validate an XML document file for XML External Entity (XXE) threats; if the document is not valid, identifies the errors in the document.  XXE threats are a type of threat that exploits vulnerabilities in the XML standard relating to external or local entity URIs in XML documents.
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagXxeThreatDetectionResult result = api.validateDocumentXmlXxeThreatValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagXxeThreatDetectionResult**](SwagXxeThreatDetectionResult.md)
 
 ### Authorization
 

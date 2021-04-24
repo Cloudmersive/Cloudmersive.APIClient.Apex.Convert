@@ -546,6 +546,32 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Validate an XML file for XML External Entity (XXE) threats
+     * Validate an XML document file for XML External Entity (XXE) threats; if the document is not valid, identifies the errors in the document.  XXE threats are a type of threat that exploits vulnerabilities in the XML standard relating to external or local entity URIs in XML documents.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagXxeThreatDetectionResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagXxeThreatDetectionResult validateDocumentXmlXxeThreatValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagXxeThreatDetectionResult) client.invoke(
+            'POST', '/convert/validate/xml/xxe-threats', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagXxeThreatDetectionResult.class
+        );
+    }
+    /**
      * Validate a Zip Archive file (zip)
      * Validate a Zip archive file (ZIP)
      * @param inputFile Input file to perform the operation on. (required)

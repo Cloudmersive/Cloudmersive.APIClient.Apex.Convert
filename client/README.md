@@ -324,11 +324,13 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentTxtValidation**](docs/SwagValidateDocumentApi.md#validateDocumentTxtValidation) | **POST** /convert/validate/txt | Validate an TXT file
 *SwagValidateDocumentApi* | [**validateDocumentXlsxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 *SwagValidateDocumentApi* | [**validateDocumentXmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
+*SwagValidateDocumentApi* | [**validateDocumentXmlXxeThreatValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlXxeThreatValidation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
 *SwagValidateDocumentApi* | [**validateDocumentZipValidation**](docs/SwagValidateDocumentApi.md#validateDocumentZipValidation) | **POST** /convert/validate/zip | Validate a Zip Archive file (zip)
 *SwagViewerToolsApi* | [**viewerToolsCreateSimple**](docs/SwagViewerToolsApi.md#viewerToolsCreateSimple) | **POST** /convert/viewer/create/web/simple | Create a web-based viewer
 *SwagZipArchiveApi* | [**zipArchiveZipCreate**](docs/SwagZipArchiveApi.md#zipArchiveZipCreate) | **POST** /convert/archive/zip/create | Compress files to create a new zip archive
 *SwagZipArchiveApi* | [**zipArchiveZipCreateAdvanced**](docs/SwagZipArchiveApi.md#zipArchiveZipCreateAdvanced) | **POST** /convert/archive/zip/create/advanced | Compress files and folders to create a new zip archive with advanced options
 *SwagZipArchiveApi* | [**zipArchiveZipCreateEncrypted**](docs/SwagZipArchiveApi.md#zipArchiveZipCreateEncrypted) | **POST** /convert/archive/zip/create/encrypted | Compress files to create a new, encrypted and password-protected zip archive
+*SwagZipArchiveApi* | [**zipArchiveZipCreateQuarantine**](docs/SwagZipArchiveApi.md#zipArchiveZipCreateQuarantine) | **POST** /convert/archive/zip/create/quarantine | Create an encrypted zip file to quarantine a dangerous file
 *SwagZipArchiveApi* | [**zipArchiveZipDecrypt**](docs/SwagZipArchiveApi.md#zipArchiveZipDecrypt) | **POST** /convert/archive/zip/decrypt | Decrypt and remove password protection on a zip file
 *SwagZipArchiveApi* | [**zipArchiveZipEncryptAdvanced**](docs/SwagZipArchiveApi.md#zipArchiveZipEncryptAdvanced) | **POST** /convert/archive/zip/encrypt/advanced | Encrypt and password protect a zip file
 *SwagZipArchiveApi* | [**zipArchiveZipExtract**](docs/SwagZipArchiveApi.md#zipArchiveZipExtract) | **POST** /convert/archive/zip/extract | Extract, decompress files and folders from a zip archive
@@ -580,6 +582,7 @@ Class | Method | HTTP request | Description
  - [SwagXmlRemoveWithXPathResult](docs/SwagXmlRemoveWithXPathResult.md)
  - [SwagXmlReplaceWithXPathResult](docs/SwagXmlReplaceWithXPathResult.md)
  - [SwagXmlSetValueWithXPathResult](docs/SwagXmlSetValueWithXPathResult.md)
+ - [SwagXxeThreatDetectionResult](docs/SwagXxeThreatDetectionResult.md)
  - [SwagZipDirectory](docs/SwagZipDirectory.md)
  - [SwagZipEncryptionAdvancedRequest](docs/SwagZipEncryptionAdvancedRequest.md)
  - [SwagZipExtractResponse](docs/SwagZipExtractResponse.md)

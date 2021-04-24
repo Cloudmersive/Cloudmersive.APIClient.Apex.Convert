@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**zipArchiveZipCreate**](SwagZipArchiveApi.md#zipArchiveZipCreate) | **POST** /convert/archive/zip/create | Compress files to create a new zip archive
 [**zipArchiveZipCreateAdvanced**](SwagZipArchiveApi.md#zipArchiveZipCreateAdvanced) | **POST** /convert/archive/zip/create/advanced | Compress files and folders to create a new zip archive with advanced options
 [**zipArchiveZipCreateEncrypted**](SwagZipArchiveApi.md#zipArchiveZipCreateEncrypted) | **POST** /convert/archive/zip/create/encrypted | Compress files to create a new, encrypted and password-protected zip archive
+[**zipArchiveZipCreateQuarantine**](SwagZipArchiveApi.md#zipArchiveZipCreateQuarantine) | **POST** /convert/archive/zip/create/quarantine | Create an encrypted zip file to quarantine a dangerous file
 [**zipArchiveZipDecrypt**](SwagZipArchiveApi.md#zipArchiveZipDecrypt) | **POST** /convert/archive/zip/decrypt | Decrypt and remove password protection on a zip file
 [**zipArchiveZipEncryptAdvanced**](SwagZipArchiveApi.md#zipArchiveZipEncryptAdvanced) | **POST** /convert/archive/zip/encrypt/advanced | Encrypt and password protect a zip file
 [**zipArchiveZipExtract**](SwagZipArchiveApi.md#zipArchiveZipExtract) | **POST** /convert/archive/zip/extract | Extract, decompress files and folders from a zip archive
@@ -197,6 +198,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="zipArchiveZipCreateQuarantine"></a>
+# **zipArchiveZipCreateQuarantine**
+> Object zipArchiveZipCreateQuarantine()
+
+Create an encrypted zip file to quarantine a dangerous file
+
+Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+
+### Example
+```java
+SwagZipArchiveApi api = new SwagZipArchiveApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+try {
+    // cross your fingers
+    Object result = api.zipArchiveZipCreateQuarantine();
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="zipArchiveZipDecrypt"></a>
