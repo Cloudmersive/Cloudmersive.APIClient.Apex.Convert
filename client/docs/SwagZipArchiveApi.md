@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 <a name="zipArchiveZipCreateQuarantine"></a>
 # **zipArchiveZipCreateQuarantine**
-> Object zipArchiveZipCreateQuarantine()
+> Object zipArchiveZipCreateQuarantine(password, inputFile1, encryptionAlgorithm)
 
 Create an encrypted zip file to quarantine a dangerous file
 
@@ -217,9 +217,15 @@ SwagClient client = api.getClient();
 ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
+Map<String, Object> params = new Map<String, Object>{
+    'password' => 'password_example',
+    'inputFile1' => Blob.valueOf('Sample text file\nContents'),
+    'encryptionAlgorithm' => 'encryptionAlgorithm_example'
+};
+
 try {
     // cross your fingers
-    Object result = api.zipArchiveZipCreateQuarantine();
+    Object result = api.zipArchiveZipCreateQuarantine(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -227,7 +233,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **password** | **String**| Password to place on the Zip file; the longer the password, the more secure |
+ **inputFile1** | **Blob**| First input file to perform the operation on. |
+ **encryptionAlgorithm** | **String**| Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. | [optional]
 
 ### Return type
 
@@ -239,7 +250,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="zipArchiveZipDecrypt"></a>

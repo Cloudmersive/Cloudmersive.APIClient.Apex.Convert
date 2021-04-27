@@ -146,20 +146,31 @@ public class SwagZipArchiveApi {
     /**
      * Create an encrypted zip file to quarantine a dangerous file
      * Create a new zip archive by compressing input files, and also applies encryption and password protection to the zip, for the purposes of quarantining the underlyikng file.
+     * @param password Password to place on the Zip file; the longer the password, the more secure (required)
+     * @param inputFile1 First input file to perform the operation on. (required)
+     * @param encryptionAlgorithm Encryption algorithm to use; possible values are AES-256 (recommended), AES-128, and PK-Zip (not recommended; legacy, weak encryption algorithm). Default is AES-256. (optional)
      * @return Object
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object zipArchiveZipCreateQuarantine() {
+    public Object zipArchiveZipCreateQuarantine(Map<String, Object> params) {
+        client.assertNotNull(params.get('password'), 'password');
+        client.assertNotNull(params.get('inputFile1'), 'inputFile1');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
 
         return (Object) client.invoke(
             'POST', '/convert/archive/zip/create/quarantine', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'password' => (String) params.get('password'),
+                'encryptionAlgorithm' => (String) params.get('encryptionAlgorithm')
+            },
             new List<String>{ 'application/json' },
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Object.class
         );
