@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 <a name="mergeDocumentHtml"></a>
 # **mergeDocumentHtml**
-> Object mergeDocumentHtml(inputFile1, inputFile2)
+> Blob mergeDocumentHtml(inputFile1, inputFile2)
 
 Merge Two HTML (HTM) Files Together
 
@@ -162,7 +162,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.mergeDocumentHtml(params);
+    Blob result = api.mergeDocumentHtml(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 

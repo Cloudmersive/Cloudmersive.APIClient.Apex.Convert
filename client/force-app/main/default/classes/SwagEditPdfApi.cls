@@ -376,6 +376,7 @@ public class SwagEditPdfApi {
      * Reduce the file size and optimize a PDF
      * Reduces the file size and optimizes the content of a PDF to minimize its file size.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param quality Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -391,7 +392,9 @@ public class SwagEditPdfApi {
             'POST', '/convert/edit/pdf/optimize/reduce-file-size', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'quality' => (Double) params.get('quality')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },

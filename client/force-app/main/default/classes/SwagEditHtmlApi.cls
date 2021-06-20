@@ -26,6 +26,37 @@ public class SwagEditHtmlApi {
     }
 
     /**
+     * Append an HTML tag to the HEAD section of an HTML Document
+     * Appends an HTML tag to the HEAD section of an HTML document.
+     * @param htmlTag The HTML tag to append. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editHtmlHtmlAppendHeaderTag(Map<String, Object> params) {
+        client.assertNotNull(params.get('htmlTag'), 'htmlTag');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/html/head/append/tag', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl'),
+                'htmlTag' => (String) params.get('htmlTag')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Append a Heading to an HTML Document
      * Appends a heading to the end of an HTML document.
      * @param headingText The text content to be used in the header. (required)
@@ -195,6 +226,34 @@ public class SwagEditHtmlApi {
         );
     }
     /**
+     * Gets the language for the HTML document
+     * Retrieves the language code (e.g. &quot;en&quot; or &quot;de&quot;) of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return SwagHtmlGetLanguageResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagHtmlGetLanguageResult editHtmlHtmlGetLanguage(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagHtmlGetLanguageResult) client.invoke(
+            'POST', '/convert/edit/html/head/get/language', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagHtmlGetLanguageResult.class
+        );
+    }
+    /**
      * Extract resolved link URLs from HTML File
      * Extracts the resolved link URLs, fully-qualified if possible, from an input HTML file.
      * @param inputFile Optional: Input file to perform the operation on. (optional)
@@ -222,6 +281,155 @@ public class SwagEditHtmlApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagHtmlGetLinksResponse.class
+        );
+    }
+    /**
+     * Gets the rel canonical URL for the HTML document
+     * Gets the rel canonical URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return SwagHtmlGetRelCanonicalUrlResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagHtmlGetRelCanonicalUrlResult editHtmlHtmlGetRelCanonical(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagHtmlGetRelCanonicalUrlResult) client.invoke(
+            'POST', '/convert/edit/html/head/get/rel-canonical-url', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagHtmlGetRelCanonicalUrlResult.class
+        );
+    }
+    /**
+     * Gets the sitemap URL for the HTML document
+     * Gets the sitemap link URL of an HTML document.
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return SwagHtmlGetSitemapUrlResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagHtmlGetSitemapUrlResult editHtmlHtmlGetSitemap(Map<String, Object> params) {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagHtmlGetSitemapUrlResult) client.invoke(
+            'POST', '/convert/edit/html/head/get/sitemap-url', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagHtmlGetSitemapUrlResult.class
+        );
+    }
+    /**
+     * Sets the language for the HTML document
+     * Sets the language code of an HTML document.
+     * @param languageCode The HTML langauge code to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editHtmlHtmlSetLanguage(Map<String, Object> params) {
+        client.assertNotNull(params.get('languageCode'), 'languageCode');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/html/head/set/language', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl'),
+                'languageCode' => (String) params.get('languageCode')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Sets the rel canonical URL for the HTML document
+     * Sets the rel canonical URL of an HTML document.  This is useful for telling search engines and other indexers which pages are duplicates of eachother; any pages with the rel&#x3D;canonical tag will be treated as duplicates of the canonical URL.
+     * @param canonicalUrl The HTML canonical URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editHtmlHtmlSetRelCanonical(Map<String, Object> params) {
+        client.assertNotNull(params.get('canonicalUrl'), 'canonicalUrl');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/html/head/set/rel-canonical-url', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl'),
+                'canonicalUrl' => (String) params.get('canonicalUrl')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Sets the sitemap URL for the HTML document
+     * Sets the sitemap URL of an HTML document.
+     * @param sitemapUrl The HTML sitemap URL to set. (required)
+     * @param inputFile Optional: Input file to perform the operation on. (optional)
+     * @param inputFileUrl Optional: URL of a file to operate on as input. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editHtmlHtmlSetSitemapUrl(Map<String, Object> params) {
+        client.assertNotNull(params.get('sitemapUrl'), 'sitemapUrl');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/html/head/set/sitemap-url', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'inputFileUrl' => (String) params.get('inputFileUrl'),
+                'sitemapUrl' => (String) params.get('sitemapUrl')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
 }

@@ -642,7 +642,7 @@ Name | Type | Description  | Notes
 
 <a name="editPdfReduceFileSize"></a>
 # **editPdfReduceFileSize**
-> Blob editPdfReduceFileSize(inputFile)
+> Blob editPdfReduceFileSize(inputFile, quality)
 
 Reduce the file size and optimize a PDF
 
@@ -658,7 +658,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'quality' => 8.14
 };
 
 try {
@@ -675,6 +676,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **quality** | **Double**| Quality level for the images in the PDF, ranging from 0.0 (low quality) to 1.0 (high quality); default is 0.3 | [optional]
 
 ### Return type
 

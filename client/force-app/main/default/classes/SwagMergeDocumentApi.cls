@@ -104,10 +104,10 @@ public class SwagMergeDocumentApi {
      * Combine two HTML (.HTM) files into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
-     * @return Object
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object mergeDocumentHtml(Map<String, Object> params) {
+    public Blob mergeDocumentHtml(Map<String, Object> params) {
         client.assertNotNull(params.get('inputFile1'), 'inputFile1');
         client.assertNotNull(params.get('inputFile2'), 'inputFile2');
         List<Swagger.Param> query = new List<Swagger.Param>();
@@ -117,7 +117,7 @@ public class SwagMergeDocumentApi {
         form.addAll(client.makeParam('inputFile1', (Blob) params.get('inputFile1')));
         form.addAll(client.makeParam('inputFile2', (Blob) params.get('inputFile2')));
 
-        return (Object) client.invoke(
+        return (Blob) client.invoke(
             'POST', '/convert/merge/html', '',
             query, form,
             new Map<String, Object>(),
@@ -125,7 +125,7 @@ public class SwagMergeDocumentApi {
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**

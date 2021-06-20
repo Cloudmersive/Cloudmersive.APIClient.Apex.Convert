@@ -241,12 +241,19 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentXlsxRenameWorksheet**](docs/SwagEditDocumentApi.md#editDocumentXlsxRenameWorksheet) | **POST** /convert/edit/xlsx/rename-worksheet | Rename a specific worksheet in a Excel XLSX spreadsheet
 *SwagEditDocumentApi* | [**editDocumentXlsxSetCellByIdentifier**](docs/SwagEditDocumentApi.md#editDocumentXlsxSetCellByIdentifier) | **POST** /convert/edit/xlsx/set-cell/by-identifier | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by cell identifier
 *SwagEditDocumentApi* | [**editDocumentXlsxSetCellByIndex**](docs/SwagEditDocumentApi.md#editDocumentXlsxSetCellByIndex) | **POST** /convert/edit/xlsx/set-cell/by-index | Set, update cell contents in an Excel XLSX spreadsheet, worksheet by index
+*SwagEditHtmlApi* | [**editHtmlHtmlAppendHeaderTag**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendHeaderTag) | **POST** /convert/edit/html/head/append/tag | Append an HTML tag to the HEAD section of an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendHeading**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendHeading) | **POST** /convert/edit/html/append/heading | Append a Heading to an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendImageFromUrl**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendImageFromUrl) | **POST** /convert/edit/html/append/image/from-url | Append an Image to an HTML Document from a URL
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendImageInline**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendImageInline) | **POST** /convert/edit/html/append/image/inline | Append a Base64 Inline Image to an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlAppendParagraph**](docs/SwagEditHtmlApi.md#editHtmlHtmlAppendParagraph) | **POST** /convert/edit/html/append/paragraph | Append a Paragraph to an HTML Document
 *SwagEditHtmlApi* | [**editHtmlHtmlCreateBlankDocument**](docs/SwagEditHtmlApi.md#editHtmlHtmlCreateBlankDocument) | **POST** /convert/edit/html/create/blank | Create a Blank HTML Document
+*SwagEditHtmlApi* | [**editHtmlHtmlGetLanguage**](docs/SwagEditHtmlApi.md#editHtmlHtmlGetLanguage) | **POST** /convert/edit/html/head/get/language | Gets the language for the HTML document
 *SwagEditHtmlApi* | [**editHtmlHtmlGetLinks**](docs/SwagEditHtmlApi.md#editHtmlHtmlGetLinks) | **POST** /convert/edit/html/extract/links | Extract resolved link URLs from HTML File
+*SwagEditHtmlApi* | [**editHtmlHtmlGetRelCanonical**](docs/SwagEditHtmlApi.md#editHtmlHtmlGetRelCanonical) | **POST** /convert/edit/html/head/get/rel-canonical-url | Gets the rel canonical URL for the HTML document
+*SwagEditHtmlApi* | [**editHtmlHtmlGetSitemap**](docs/SwagEditHtmlApi.md#editHtmlHtmlGetSitemap) | **POST** /convert/edit/html/head/get/sitemap-url | Gets the sitemap URL for the HTML document
+*SwagEditHtmlApi* | [**editHtmlHtmlSetLanguage**](docs/SwagEditHtmlApi.md#editHtmlHtmlSetLanguage) | **POST** /convert/edit/html/head/set/language | Sets the language for the HTML document
+*SwagEditHtmlApi* | [**editHtmlHtmlSetRelCanonical**](docs/SwagEditHtmlApi.md#editHtmlHtmlSetRelCanonical) | **POST** /convert/edit/html/head/set/rel-canonical-url | Sets the rel canonical URL for the HTML document
+*SwagEditHtmlApi* | [**editHtmlHtmlSetSitemapUrl**](docs/SwagEditHtmlApi.md#editHtmlHtmlSetSitemapUrl) | **POST** /convert/edit/html/head/set/sitemap-url | Sets the sitemap URL for the HTML document
 *SwagEditPdfApi* | [**editPdfAddAnnotations**](docs/SwagEditPdfApi.md#editPdfAddAnnotations) | **POST** /convert/edit/pdf/annotations/add-item | Add one or more PDF annotations, comments in the PDF document
 *SwagEditPdfApi* | [**editPdfConvertToPdfA**](docs/SwagEditPdfApi.md#editPdfConvertToPdfA) | **POST** /convert/edit/pdf/optimize/pdf-a | Convert a PDF file to PDF/A
 *SwagEditPdfApi* | [**editPdfDecrypt**](docs/SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
@@ -469,7 +476,10 @@ Class | Method | HTTP request | Description
  - [SwagGetXlsxStylesResponse](docs/SwagGetXlsxStylesResponse.md)
  - [SwagGetXlsxWorksheetsRequest](docs/SwagGetXlsxWorksheetsRequest.md)
  - [SwagGetXlsxWorksheetsResponse](docs/SwagGetXlsxWorksheetsResponse.md)
+ - [SwagHtmlGetLanguageResult](docs/SwagHtmlGetLanguageResult.md)
  - [SwagHtmlGetLinksResponse](docs/SwagHtmlGetLinksResponse.md)
+ - [SwagHtmlGetRelCanonicalUrlResult](docs/SwagHtmlGetRelCanonicalUrlResult.md)
+ - [SwagHtmlGetSitemapUrlResult](docs/SwagHtmlGetSitemapUrlResult.md)
  - [SwagHtmlHyperlink](docs/SwagHtmlHyperlink.md)
  - [SwagHtmlMdResult](docs/SwagHtmlMdResult.md)
  - [SwagHtmlSsrfThreatCheckResult](docs/SwagHtmlSsrfThreatCheckResult.md)
