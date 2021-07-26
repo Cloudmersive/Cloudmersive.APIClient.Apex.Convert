@@ -310,6 +310,7 @@ Class | Method | HTTP request | Description
 *SwagSplitDocumentApi* | [**splitDocumentTxtByString**](docs/SwagSplitDocumentApi.md#splitDocumentTxtByString) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 *SwagSplitDocumentApi* | [**splitDocumentXlsx**](docs/SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 *SwagTransformDocumentApi* | [**transformDocumentDocxReplace**](docs/SwagTransformDocumentApi.md#transformDocumentDocxReplace) | **POST** /convert/transform/docx/replace-all | Replace string in Word DOCX document
+*SwagTransformDocumentApi* | [**transformDocumentDocxTableFillIn**](docs/SwagTransformDocumentApi.md#transformDocumentDocxTableFillIn) | **POST** /convert/transform/docx/table/fill/data | Fill in data in a table in a Word DOCX document
 *SwagTransformDocumentApi* | [**transformDocumentPptxReplace**](docs/SwagTransformDocumentApi.md#transformDocumentPptxReplace) | **POST** /convert/transform/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentCsvValidation**](docs/SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
@@ -411,6 +412,9 @@ Class | Method | HTTP request | Description
  - [SwagDocxTable](docs/SwagDocxTable.md)
  - [SwagDocxTableCell](docs/SwagDocxTableCell.md)
  - [SwagDocxTableRow](docs/SwagDocxTableRow.md)
+ - [SwagDocxTableTableFillRequest](docs/SwagDocxTableTableFillRequest.md)
+ - [SwagDocxTableTableFillTableCell](docs/SwagDocxTableTableFillTableCell.md)
+ - [SwagDocxTableTableFillTableRow](docs/SwagDocxTableTableFillTableRow.md)
  - [SwagDocxTemplateApplicationRequest](docs/SwagDocxTemplateApplicationRequest.md)
  - [SwagDocxTemplateOperation](docs/SwagDocxTemplateOperation.md)
  - [SwagDocxText](docs/SwagDocxText.md)

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**transformDocumentDocxReplace**](SwagTransformDocumentApi.md#transformDocumentDocxReplace) | **POST** /convert/transform/docx/replace-all | Replace string in Word DOCX document
+[**transformDocumentDocxTableFillIn**](SwagTransformDocumentApi.md#transformDocumentDocxTableFillIn) | **POST** /convert/transform/docx/table/fill/data | Fill in data in a table in a Word DOCX document
 [**transformDocumentPptxReplace**](SwagTransformDocumentApi.md#transformDocumentPptxReplace) | **POST** /convert/transform/pptx/replace-all | Replace string in PowerPoint PPTX presentation
 
 
@@ -63,6 +64,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="transformDocumentDocxTableFillIn"></a>
+# **transformDocumentDocxTableFillIn**
+> Blob transformDocumentDocxTableFillIn(request)
+
+Fill in data in a table in a Word DOCX document
+
+Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
+
+### Example
+```java
+SwagTransformDocumentApi api = new SwagTransformDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagDocxTableTableFillRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    Blob result = api.transformDocumentDocxTableFillIn(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagDocxTableTableFillRequest**](SwagDocxTableTableFillRequest.md)|  |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="transformDocumentPptxReplace"></a>

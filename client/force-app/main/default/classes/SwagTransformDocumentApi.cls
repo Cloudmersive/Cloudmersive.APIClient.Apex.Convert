@@ -62,6 +62,30 @@ public class SwagTransformDocumentApi {
         );
     }
     /**
+     * Fill in data in a table in a Word DOCX document
+     * Replace placeholder rows ina  table in an Office Word Document (docx) using one or more templates
+     * @param request  (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob transformDocumentDocxTableFillIn(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/transform/docx/table/fill/data',
+            (SwagDocxTableTableFillRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Replace string in PowerPoint PPTX presentation
      * Replace all instances of a string in an Office PowerPoint Document (pptx)
      * @param matchString String to search for and match against, to be replaced (required)
