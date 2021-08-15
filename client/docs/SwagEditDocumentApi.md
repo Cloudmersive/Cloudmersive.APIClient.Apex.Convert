@@ -35,7 +35,8 @@ Method | HTTP request | Description
 [**editDocumentDocxRemoveHeadersAndFooters**](SwagEditDocumentApi.md#editDocumentDocxRemoveHeadersAndFooters) | **POST** /convert/edit/docx/remove-headers-and-footers | Remove headers and footers from Word DOCX document
 [**editDocumentDocxRemoveObject**](SwagEditDocumentApi.md#editDocumentDocxRemoveObject) | **POST** /convert/edit/docx/remove-object | Delete any object in a Word DOCX document
 [**editDocumentDocxReplace**](SwagEditDocumentApi.md#editDocumentDocxReplace) | **POST** /convert/edit/docx/replace-all | Replace string in Word DOCX document
-[**editDocumentDocxReplaceMulti**](SwagEditDocumentApi.md#editDocumentDocxReplaceMulti) | **POST** /convert/edit/docx/replace-all/multi | Replace multiple strings in Word DOCX document
+[**editDocumentDocxReplaceMulti**](SwagEditDocumentApi.md#editDocumentDocxReplaceMulti) | **POST** /convert/edit/docx/replace-all/multi | Replace multiple strings in Word DOCX document, return result
+[**editDocumentDocxReplaceMultiEditSession**](SwagEditDocumentApi.md#editDocumentDocxReplaceMultiEditSession) | **POST** /convert/edit/docx/replace-all/multi/edit-session | Replace multiple strings in Word DOCX document, return edit session
 [**editDocumentDocxReplaceParagraph**](SwagEditDocumentApi.md#editDocumentDocxReplaceParagraph) | **POST** /convert/edit/docx/replace/paragraph | Replace matching paragraphs in a Word DOCX document
 [**editDocumentDocxSetCustomMetadataProperties**](SwagEditDocumentApi.md#editDocumentDocxSetCustomMetadataProperties) | **POST** /convert/edit/docx/set-metadata/custom-property | Set custom property metadata properties in Word DOCX document
 [**editDocumentDocxSetFooter**](SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
@@ -1593,7 +1594,7 @@ Name | Type | Description  | Notes
 # **editDocumentDocxReplaceMulti**
 > Blob editDocumentDocxReplaceMulti(reqConfig)
 
-Replace multiple strings in Word DOCX document
+Replace multiple strings in Word DOCX document, return result
 
 Replace all instances of multiple strings in an Office Word Document (docx)
 
@@ -1628,6 +1629,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="editDocumentDocxReplaceMultiEditSession"></a>
+# **editDocumentDocxReplaceMultiEditSession**
+> SwagDocumentEditingEditSession editDocumentDocxReplaceMultiEditSession(reqConfig)
+
+Replace multiple strings in Word DOCX document, return edit session
+
+Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+
+### Example
+```java
+SwagEditDocumentApi api = new SwagEditDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'reqConfig' => SwagMultiReplaceStringRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagDocumentEditingEditSession result = api.editDocumentDocxReplaceMultiEditSession(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reqConfig** | [**SwagMultiReplaceStringRequest**](SwagMultiReplaceStringRequest.md)| Document string replacement configuration input |
+
+### Return type
+
+[**SwagDocumentEditingEditSession**](SwagDocumentEditingEditSession.md)
 
 ### Authorization
 

@@ -784,7 +784,7 @@ public class SwagEditDocumentApi {
         );
     }
     /**
-     * Replace multiple strings in Word DOCX document
+     * Replace multiple strings in Word DOCX document, return result
      * Replace all instances of multiple strings in an Office Word Document (docx)
      * @param reqConfig Document string replacement configuration input (required)
      * @return Blob
@@ -805,6 +805,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Replace multiple strings in Word DOCX document, return edit session
+     * Replace all instances of multiple strings in an Office Word Document (docx).  Returns an edit session URL so that you can chain together multiple edit operations without having to send the entire document contents back and forth multiple times.  Call the Finish Editing API to retrieve the final document once editing is complete.
+     * @param reqConfig Document string replacement configuration input (required)
+     * @return SwagDocumentEditingEditSession
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentEditingEditSession editDocumentDocxReplaceMultiEditSession(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagDocumentEditingEditSession) client.invoke(
+            'POST', '/convert/edit/docx/replace-all/multi/edit-session',
+            (SwagMultiReplaceStringRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagDocumentEditingEditSession.class
         );
     }
     /**
