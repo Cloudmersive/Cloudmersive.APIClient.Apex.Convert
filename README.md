@@ -314,6 +314,7 @@ Class | Method | HTTP request | Description
 *SwagTransformDocumentApi* | [**transformDocumentDocxReplaceEditSession**](docs/SwagTransformDocumentApi.md#transformDocumentDocxReplaceEditSession) | **POST** /convert/transform/docx/replace-all/edit-session | Replace string in Word DOCX document, return edit session
 *SwagTransformDocumentApi* | [**transformDocumentDocxTableFillIn**](docs/SwagTransformDocumentApi.md#transformDocumentDocxTableFillIn) | **POST** /convert/transform/docx/table/fill/data | Fill in data in a table in a Word DOCX document, return result
 *SwagTransformDocumentApi* | [**transformDocumentDocxTableFillInEditSession**](docs/SwagTransformDocumentApi.md#transformDocumentDocxTableFillInEditSession) | **POST** /convert/transform/docx/table/fill/data/edit-session | Fill in data in a table in a Word DOCX document, return edit session
+*SwagTransformDocumentApi* | [**transformDocumentDocxTableFillInMulti**](docs/SwagTransformDocumentApi.md#transformDocumentDocxTableFillInMulti) | **POST** /convert/transform/docx/table/fill/data/multi | Fill in data in multiple tables in a Word DOCX document, return result
 *SwagTransformDocumentApi* | [**transformDocumentPptxReplace**](docs/SwagTransformDocumentApi.md#transformDocumentPptxReplace) | **POST** /convert/transform/pptx/replace-all | Replace string in PowerPoint PPTX presentation, return result
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentCsvValidation**](docs/SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
@@ -417,6 +418,8 @@ Class | Method | HTTP request | Description
  - [SwagDocxTable](docs/SwagDocxTable.md)
  - [SwagDocxTableCell](docs/SwagDocxTableCell.md)
  - [SwagDocxTableRow](docs/SwagDocxTableRow.md)
+ - [SwagDocxTableSingleTableFill](docs/SwagDocxTableSingleTableFill.md)
+ - [SwagDocxTableTableFillMultiRequest](docs/SwagDocxTableTableFillMultiRequest.md)
  - [SwagDocxTableTableFillRequest](docs/SwagDocxTableTableFillRequest.md)
  - [SwagDocxTableTableFillTableCell](docs/SwagDocxTableTableFillTableCell.md)
  - [SwagDocxTableTableFillTableRow](docs/SwagDocxTableTableFillTableRow.md)

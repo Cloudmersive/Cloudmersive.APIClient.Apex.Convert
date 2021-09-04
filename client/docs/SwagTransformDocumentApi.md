@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**transformDocumentDocxReplaceEditSession**](SwagTransformDocumentApi.md#transformDocumentDocxReplaceEditSession) | **POST** /convert/transform/docx/replace-all/edit-session | Replace string in Word DOCX document, return edit session
 [**transformDocumentDocxTableFillIn**](SwagTransformDocumentApi.md#transformDocumentDocxTableFillIn) | **POST** /convert/transform/docx/table/fill/data | Fill in data in a table in a Word DOCX document, return result
 [**transformDocumentDocxTableFillInEditSession**](SwagTransformDocumentApi.md#transformDocumentDocxTableFillInEditSession) | **POST** /convert/transform/docx/table/fill/data/edit-session | Fill in data in a table in a Word DOCX document, return edit session
+[**transformDocumentDocxTableFillInMulti**](SwagTransformDocumentApi.md#transformDocumentDocxTableFillInMulti) | **POST** /convert/transform/docx/table/fill/data/multi | Fill in data in multiple tables in a Word DOCX document, return result
 [**transformDocumentPptxReplace**](SwagTransformDocumentApi.md#transformDocumentPptxReplace) | **POST** /convert/transform/pptx/replace-all | Replace string in PowerPoint PPTX presentation, return result
 
 
@@ -213,6 +214,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagDocumentTransformEditSession**](SwagDocumentTransformEditSession.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="transformDocumentDocxTableFillInMulti"></a>
+# **transformDocumentDocxTableFillInMulti**
+> Object transformDocumentDocxTableFillInMulti(request)
+
+Fill in data in multiple tables in a Word DOCX document, return result
+
+Replace placeholder rows in multiple tables in an Office Word Document (docx) using one or more templates
+
+### Example
+```java
+SwagTransformDocumentApi api = new SwagTransformDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagDocxTableTableFillMultiRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    Object result = api.transformDocumentDocxTableFillInMulti(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagDocxTableTableFillMultiRequest**](SwagDocxTableTableFillMultiRequest.md)|  |
+
+### Return type
+
+**Object**
 
 ### Authorization
 
