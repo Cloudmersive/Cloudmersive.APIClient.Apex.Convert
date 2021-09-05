@@ -322,6 +322,58 @@ public class SwagEditDocumentApi {
         );
     }
     /**
+     * Get all content controls (form fields) and values in a Word DOCX document
+     * Returns all the content controls, used for creating form fields, in a Office Word Document (docx)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetDocxContentControlsResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxContentControlsResponse editDocumentDocxGetContentControls(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetDocxContentControlsResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-content-controls', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxContentControlsResponse.class
+        );
+    }
+    /**
+     * Get all form fields in a Word DOCX document
+     * Returns all the content controls, used for creating form fields, as well as handlebar style text-based form fields such as &quot;{{FieldName}}&quot;, in a Office Word Document (docx)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagGetDocxGetFormFieldsResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagGetDocxGetFormFieldsResponse editDocumentDocxGetFormFields(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagGetDocxGetFormFieldsResponse) client.invoke(
+            'POST', '/convert/edit/docx/get-form-fields', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagGetDocxGetFormFieldsResponse.class
+        );
+    }
+    /**
      * Get content of a footer from a Word DOCX document
      * Returns the footer content from a Word Document (DOCX) format file
      * @param reqConfig Document input request (required)
@@ -925,6 +977,30 @@ public class SwagEditDocumentApi {
             new List<String>{ 'application/json' },
             new List<String> { 'Apikey' },
             SwagDocxSetFooterResponse.class
+        );
+    }
+    /**
+     * Set and fill values for form fields in a Word DOCX document
+     * Modifies a Office Word Document (docx) by filling in form fields using the provided values.
+     * @param reqConfig  (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob editDocumentDocxSetFormFields(Map<String, Object> params) {
+        client.assertNotNull(params.get('reqConfig'), 'reqConfig');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Blob) client.invoke(
+            'POST', '/convert/edit/docx/set-form-fields',
+            (SwagDocxSetFormFieldsRequest) params.get('reqConfig'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**

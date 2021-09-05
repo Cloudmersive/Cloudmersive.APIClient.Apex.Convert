@@ -189,6 +189,8 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxFindParagraph**](docs/SwagEditDocumentApi.md#editDocumentDocxFindParagraph) | **POST** /convert/edit/docx/find/paragraph | Find matching paragraphs in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetComments**](docs/SwagEditDocumentApi.md#editDocumentDocxGetComments) | **POST** /convert/edit/docx/get-comments/flat-list | Get comments from a Word DOCX document as a flat list
 *SwagEditDocumentApi* | [**editDocumentDocxGetCommentsHierarchical**](docs/SwagEditDocumentApi.md#editDocumentDocxGetCommentsHierarchical) | **POST** /convert/edit/docx/get-comments/hierarchical | Get comments from a Word DOCX document hierarchically
+*SwagEditDocumentApi* | [**editDocumentDocxGetContentControls**](docs/SwagEditDocumentApi.md#editDocumentDocxGetContentControls) | **POST** /convert/edit/docx/get-content-controls | Get all content controls (form fields) and values in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxGetFormFields**](docs/SwagEditDocumentApi.md#editDocumentDocxGetFormFields) | **POST** /convert/edit/docx/get-form-fields | Get all form fields in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetHeadersAndFooters**](docs/SwagEditDocumentApi.md#editDocumentDocxGetHeadersAndFooters) | **POST** /convert/edit/docx/get-headers-and-footers | Get content of a footer from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetImages**](docs/SwagEditDocumentApi.md#editDocumentDocxGetImages) | **POST** /convert/edit/docx/get-images | Get images from a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxGetMacroInformation**](docs/SwagEditDocumentApi.md#editDocumentDocxGetMacroInformation) | **POST** /convert/edit/docx/get-macros | Get macro information from a Word DOCX/DOCM document
@@ -214,6 +216,7 @@ Class | Method | HTTP request | Description
 *SwagEditDocumentApi* | [**editDocumentDocxSetCustomMetadataProperties**](docs/SwagEditDocumentApi.md#editDocumentDocxSetCustomMetadataProperties) | **POST** /convert/edit/docx/set-metadata/custom-property | Set custom property metadata properties in Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetFooter**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFooter) | **POST** /convert/edit/docx/set-footer | Set the footer in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetFooterAddPageNumber**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFooterAddPageNumber) | **POST** /convert/edit/docx/set-footer/add-page-number | Add page number to footer in a Word DOCX document
+*SwagEditDocumentApi* | [**editDocumentDocxSetFormFields**](docs/SwagEditDocumentApi.md#editDocumentDocxSetFormFields) | **POST** /convert/edit/docx/set-form-fields | Set and fill values for form fields in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxSetHeader**](docs/SwagEditDocumentApi.md#editDocumentDocxSetHeader) | **POST** /convert/edit/docx/set-header | Set the header in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxUpdateTableCell**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableCell) | **POST** /convert/edit/docx/update-table-cell | Update, set contents of a table cell in an existing table in a Word DOCX document
 *SwagEditDocumentApi* | [**editDocumentDocxUpdateTableRow**](docs/SwagEditDocumentApi.md#editDocumentDocxUpdateTableRow) | **POST** /convert/edit/docx/update-table-row | Update, set contents of a table row in an existing table in a Word DOCX document
@@ -395,6 +398,7 @@ Class | Method | HTTP request | Description
  - [SwagDocxBody](docs/SwagDocxBody.md)
  - [SwagDocxCellStyle](docs/SwagDocxCellStyle.md)
  - [SwagDocxComment](docs/SwagDocxComment.md)
+ - [SwagDocxContentControl](docs/SwagDocxContentControl.md)
  - [SwagDocxFooter](docs/SwagDocxFooter.md)
  - [SwagDocxHeader](docs/SwagDocxHeader.md)
  - [SwagDocxImage](docs/SwagDocxImage.md)
@@ -412,6 +416,7 @@ Class | Method | HTTP request | Description
  - [SwagDocxSetFooterAddPageNumberReques](docs/SwagDocxSetFooterAddPageNumberReques.md)
  - [SwagDocxSetFooterRequest](docs/SwagDocxSetFooterRequest.md)
  - [SwagDocxSetFooterResponse](docs/SwagDocxSetFooterResponse.md)
+ - [SwagDocxSetFormFieldsRequest](docs/SwagDocxSetFormFieldsRequest.md)
  - [SwagDocxSetHeaderRequest](docs/SwagDocxSetHeaderRequest.md)
  - [SwagDocxSetHeaderResponse](docs/SwagDocxSetHeaderResponse.md)
  - [SwagDocxStyle](docs/SwagDocxStyle.md)
@@ -436,6 +441,7 @@ Class | Method | HTTP request | Description
  - [SwagEnableSharedWorkbookRequest](docs/SwagEnableSharedWorkbookRequest.md)
  - [SwagEnableSharedWorkbookResponse](docs/SwagEnableSharedWorkbookResponse.md)
  - [SwagExifValue](docs/SwagExifValue.md)
+ - [SwagFillHandlebarFormField](docs/SwagFillHandlebarFormField.md)
  - [SwagFindDocxParagraphRequest](docs/SwagFindDocxParagraphRequest.md)
  - [SwagFindDocxParagraphResponse](docs/SwagFindDocxParagraphResponse.md)
  - [SwagFindRegexMatch](docs/SwagFindRegexMatch.md)
@@ -449,8 +455,10 @@ Class | Method | HTTP request | Description
  - [SwagGetDocxBodyResponse](docs/SwagGetDocxBodyResponse.md)
  - [SwagGetDocxCommentsHierarchicalRespo](docs/SwagGetDocxCommentsHierarchicalRespo.md)
  - [SwagGetDocxCommentsResponse](docs/SwagGetDocxCommentsResponse.md)
+ - [SwagGetDocxContentControlsResponse](docs/SwagGetDocxContentControlsResponse.md)
  - [SwagGetDocxGetCommentsHierarchicalRe](docs/SwagGetDocxGetCommentsHierarchicalRe.md)
  - [SwagGetDocxGetCommentsRequest](docs/SwagGetDocxGetCommentsRequest.md)
+ - [SwagGetDocxGetFormFieldsResponse](docs/SwagGetDocxGetFormFieldsResponse.md)
  - [SwagGetDocxHeadersAndFootersRequest](docs/SwagGetDocxHeadersAndFootersRequest.md)
  - [SwagGetDocxHeadersAndFootersResponse](docs/SwagGetDocxHeadersAndFootersResponse.md)
  - [SwagGetDocxImagesRequest](docs/SwagGetDocxImagesRequest.md)
@@ -488,6 +496,7 @@ Class | Method | HTTP request | Description
  - [SwagGetXlsxStylesResponse](docs/SwagGetXlsxStylesResponse.md)
  - [SwagGetXlsxWorksheetsRequest](docs/SwagGetXlsxWorksheetsRequest.md)
  - [SwagGetXlsxWorksheetsResponse](docs/SwagGetXlsxWorksheetsResponse.md)
+ - [SwagHandlebarFormField](docs/SwagHandlebarFormField.md)
  - [SwagHtmlGetLanguageResult](docs/SwagHtmlGetLanguageResult.md)
  - [SwagHtmlGetLinksResponse](docs/SwagHtmlGetLinksResponse.md)
  - [SwagHtmlGetRelCanonicalUrlResult](docs/SwagHtmlGetRelCanonicalUrlResult.md)
