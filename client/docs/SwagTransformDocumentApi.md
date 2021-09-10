@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 <a name="transformDocumentDocxTableFillInMulti"></a>
 # **transformDocumentDocxTableFillInMulti**
-> Object transformDocumentDocxTableFillInMulti(request)
+> Blob transformDocumentDocxTableFillInMulti(request)
 
 Fill in data in multiple tables in a Word DOCX document, return result
 
@@ -247,7 +247,7 @@ Map<String, Object> params = new Map<String, Object>{
 
 try {
     // cross your fingers
-    Object result = api.transformDocumentDocxTableFillInMulti(params);
+    Blob result = api.transformDocumentDocxTableFillInMulti(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 
