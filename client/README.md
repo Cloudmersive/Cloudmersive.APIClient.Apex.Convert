@@ -321,6 +321,7 @@ Class | Method | HTTP request | Description
 *SwagTransformDocumentApi* | [**transformDocumentPptxReplace**](docs/SwagTransformDocumentApi.md#transformDocumentPptxReplace) | **POST** /convert/transform/pptx/replace-all | Replace string in PowerPoint PPTX presentation, return result
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentCsvValidation**](docs/SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
+*SwagValidateDocumentApi* | [**validateDocumentDocValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocValidation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
 *SwagValidateDocumentApi* | [**validateDocumentDocxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
 *SwagValidateDocumentApi* | [**validateDocumentEmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 *SwagValidateDocumentApi* | [**validateDocumentExecutableValidation**](docs/SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
@@ -333,10 +334,13 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentMsgValidation**](docs/SwagValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
 *SwagValidateDocumentApi* | [**validateDocumentPdfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPdfValidation) | **POST** /convert/validate/pdf | Validate a PDF document file
 *SwagValidateDocumentApi* | [**validateDocumentPngValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPngValidation) | **POST** /convert/validate/png | Validate a PNG File
+*SwagValidateDocumentApi* | [**validateDocumentPptValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPptValidation) | **POST** /convert/validate/ppt | Validate a PowerPoint 97-2003 Legacy presentation (PPT)
 *SwagValidateDocumentApi* | [**validateDocumentPptxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPptxValidation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 *SwagValidateDocumentApi* | [**validateDocumentRarValidation**](docs/SwagValidateDocumentApi.md#validateDocumentRarValidation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
+*SwagValidateDocumentApi* | [**validateDocumentRtfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentRtfValidation) | **POST** /convert/validate/rtf | Validate a Rich Text Format document (RTF)
 *SwagValidateDocumentApi* | [**validateDocumentTarValidation**](docs/SwagValidateDocumentApi.md#validateDocumentTarValidation) | **POST** /convert/validate/tar | Validate a TAR Tarball Archive file (TAR)
 *SwagValidateDocumentApi* | [**validateDocumentTxtValidation**](docs/SwagValidateDocumentApi.md#validateDocumentTxtValidation) | **POST** /convert/validate/txt | Validate an TXT file
+*SwagValidateDocumentApi* | [**validateDocumentXlsValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXlsValidation) | **POST** /convert/validate/xls | Validate a Excel 97-2003 Legacy spreadsheet (XLS)
 *SwagValidateDocumentApi* | [**validateDocumentXlsxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 *SwagValidateDocumentApi* | [**validateDocumentXmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
 *SwagValidateDocumentApi* | [**validateDocumentXmlXxeThreatValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlXxeThreatValidation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats

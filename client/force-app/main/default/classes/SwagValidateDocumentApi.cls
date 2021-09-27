@@ -78,6 +78,32 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Validate a Word 97-2003 Legacy document (DOC)
+     * Validate a Word 97-2003 Legacy document (DOC)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentDocValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/doc', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
      * Validate a Word document (DOCX)
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
      * @param inputFile Input file to perform the operation on. (required)
@@ -390,6 +416,32 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+     * Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentPptValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/ppt', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
      * Validate a PowerPoint presentation (PPTX)
      * Validate a PowerPoint presentation (PPTX); if the document is not valid, identifies the errors in the document
      * @param inputFile Input file to perform the operation on. (required)
@@ -442,6 +494,32 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Validate a Rich Text Format document (RTF)
+     * Validate a Rich Text Format document (RTF)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentRtfValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/rtf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
      * Validate a TAR Tarball Archive file (TAR)
      * Validate a TAR tarball archive file (TAR)
      * @param inputFile Input file to perform the operation on. (required)
@@ -484,6 +562,32 @@ public class SwagValidateDocumentApi {
 
         return (SwagDocumentValidationResult) client.invoke(
             'POST', '/convert/validate/txt', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagDocumentValidationResult.class
+        );
+    }
+    /**
+     * Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+     * Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagDocumentValidationResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagDocumentValidationResult validateDocumentXlsValidation(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagDocumentValidationResult) client.invoke(
+            'POST', '/convert/validate/xls', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

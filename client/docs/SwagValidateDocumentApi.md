@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**validateDocumentAutodetectValidation**](SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 [**validateDocumentCsvValidation**](SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
+[**validateDocumentDocValidation**](SwagValidateDocumentApi.md#validateDocumentDocValidation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
 [**validateDocumentDocxValidation**](SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
 [**validateDocumentEmlValidation**](SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
 [**validateDocumentExecutableValidation**](SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
@@ -18,10 +19,13 @@ Method | HTTP request | Description
 [**validateDocumentMsgValidation**](SwagValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
 [**validateDocumentPdfValidation**](SwagValidateDocumentApi.md#validateDocumentPdfValidation) | **POST** /convert/validate/pdf | Validate a PDF document file
 [**validateDocumentPngValidation**](SwagValidateDocumentApi.md#validateDocumentPngValidation) | **POST** /convert/validate/png | Validate a PNG File
+[**validateDocumentPptValidation**](SwagValidateDocumentApi.md#validateDocumentPptValidation) | **POST** /convert/validate/ppt | Validate a PowerPoint 97-2003 Legacy presentation (PPT)
 [**validateDocumentPptxValidation**](SwagValidateDocumentApi.md#validateDocumentPptxValidation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 [**validateDocumentRarValidation**](SwagValidateDocumentApi.md#validateDocumentRarValidation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
+[**validateDocumentRtfValidation**](SwagValidateDocumentApi.md#validateDocumentRtfValidation) | **POST** /convert/validate/rtf | Validate a Rich Text Format document (RTF)
 [**validateDocumentTarValidation**](SwagValidateDocumentApi.md#validateDocumentTarValidation) | **POST** /convert/validate/tar | Validate a TAR Tarball Archive file (TAR)
 [**validateDocumentTxtValidation**](SwagValidateDocumentApi.md#validateDocumentTxtValidation) | **POST** /convert/validate/txt | Validate an TXT file
+[**validateDocumentXlsValidation**](SwagValidateDocumentApi.md#validateDocumentXlsValidation) | **POST** /convert/validate/xls | Validate a Excel 97-2003 Legacy spreadsheet (XLS)
 [**validateDocumentXlsxValidation**](SwagValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 [**validateDocumentXmlValidation**](SwagValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
 [**validateDocumentXmlXxeThreatValidation**](SwagValidateDocumentApi.md#validateDocumentXmlXxeThreatValidation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
@@ -101,6 +105,55 @@ Map<String, Object> params = new Map<String, Object>{
 try {
     // cross your fingers
     SwagDocumentValidationResult result = api.validateDocumentCsvValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="validateDocumentDocValidation"></a>
+# **validateDocumentDocValidation**
+> SwagDocumentValidationResult validateDocumentDocValidation(inputFile)
+
+Validate a Word 97-2003 Legacy document (DOC)
+
+Validate a Word 97-2003 Legacy document (DOC)
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagDocumentValidationResult result = api.validateDocumentDocValidation(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -714,6 +767,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="validateDocumentPptValidation"></a>
+# **validateDocumentPptValidation**
+> SwagDocumentValidationResult validateDocumentPptValidation(inputFile)
+
+Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+
+Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagDocumentValidationResult result = api.validateDocumentPptValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="validateDocumentPptxValidation"></a>
 # **validateDocumentPptxValidation**
 > SwagDocumentValidationResult validateDocumentPptxValidation(inputFile)
@@ -812,6 +914,55 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="validateDocumentRtfValidation"></a>
+# **validateDocumentRtfValidation**
+> SwagDocumentValidationResult validateDocumentRtfValidation(inputFile)
+
+Validate a Rich Text Format document (RTF)
+
+Validate a Rich Text Format document (RTF)
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagDocumentValidationResult result = api.validateDocumentRtfValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
 <a name="validateDocumentTarValidation"></a>
 # **validateDocumentTarValidation**
 > SwagDocumentValidationResult validateDocumentTarValidation(inputFile)
@@ -885,6 +1036,55 @@ Map<String, Object> params = new Map<String, Object>{
 try {
     // cross your fingers
     SwagDocumentValidationResult result = api.validateDocumentTxtValidation(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagDocumentValidationResult**](SwagDocumentValidationResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="validateDocumentXlsValidation"></a>
+# **validateDocumentXlsValidation**
+> SwagDocumentValidationResult validateDocumentXlsValidation(inputFile)
+
+Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+
+Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+
+### Example
+```java
+SwagValidateDocumentApi api = new SwagValidateDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagDocumentValidationResult result = api.validateDocumentXlsValidation(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
