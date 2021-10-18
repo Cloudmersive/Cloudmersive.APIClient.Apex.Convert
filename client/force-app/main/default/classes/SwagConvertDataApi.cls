@@ -84,9 +84,36 @@ public class SwagConvertDataApi {
         );
     }
     /**
-     * Convert JSON to XML conversion
+     * Convert JSON String to XML conversion
      * Convert a JSON object into XML
-     * @param jsonObject Input JSON to convert to XML (required)
+     * @param jsonString Input JSON String to convert to XML (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDataJsonStringToXml(Map<String, Object> params) {
+        client.assertNotNull(params.get('jsonString'), 'jsonString');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('JsonString', (String) params.get('jsonString')));
+
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/json-string/to/xml', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Convert JSON Object to XML conversion
+     * Convert a JSON object into XML
+     * @param jsonObject Input JSON Object to convert to XML (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */

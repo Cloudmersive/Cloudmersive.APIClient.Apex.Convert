@@ -6,7 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**convertDataCsvToJson**](SwagConvertDataApi.md#convertDataCsvToJson) | **POST** /convert/csv/to/json | Convert CSV to JSON conversion
 [**convertDataCsvToXml**](SwagConvertDataApi.md#convertDataCsvToXml) | **POST** /convert/csv/to/xml | Convert CSV to XML conversion
-[**convertDataJsonToXml**](SwagConvertDataApi.md#convertDataJsonToXml) | **POST** /convert/json/to/xml | Convert JSON to XML conversion
+[**convertDataJsonStringToXml**](SwagConvertDataApi.md#convertDataJsonStringToXml) | **POST** /convert/json-string/to/xml | Convert JSON String to XML conversion
+[**convertDataJsonToXml**](SwagConvertDataApi.md#convertDataJsonToXml) | **POST** /convert/json/to/xml | Convert JSON Object to XML conversion
 [**convertDataXlsToJson**](SwagConvertDataApi.md#convertDataXlsToJson) | **POST** /convert/xls/to/json | Convert Excel (97-2003) XLS to JSON conversion
 [**convertDataXlsxToJson**](SwagConvertDataApi.md#convertDataXlsxToJson) | **POST** /convert/xlsx/to/json | Convert Excel XLSX to JSON conversion
 [**convertDataXlsxToXml**](SwagConvertDataApi.md#convertDataXlsxToXml) | **POST** /convert/xlsx/to/xml | Convert Excel XLSX to XML conversion
@@ -125,11 +126,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
+<a name="convertDataJsonStringToXml"></a>
+# **convertDataJsonStringToXml**
+> Object convertDataJsonStringToXml(jsonString)
+
+Convert JSON String to XML conversion
+
+Convert a JSON object into XML
+
+### Example
+```java
+SwagConvertDataApi api = new SwagConvertDataApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'jsonString' => 'jsonString_example'
+};
+
+try {
+    // cross your fingers
+    Object result = api.convertDataJsonStringToXml(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **jsonString** | **String**| Input JSON String to convert to XML |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="convertDataJsonToXml"></a>
 # **convertDataJsonToXml**
 > Blob convertDataJsonToXml(jsonObject)
 
-Convert JSON to XML conversion
+Convert JSON Object to XML conversion
 
 Convert a JSON object into XML
 
@@ -159,7 +209,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **jsonObject** | **Object**| Input JSON to convert to XML |
+ **jsonObject** | **Object**| Input JSON Object to convert to XML |
 
 ### Return type
 
