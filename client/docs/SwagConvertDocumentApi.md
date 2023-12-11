@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**convertDocumentAutodetectGetInfo**](SwagConvertDocumentApi.md#convertDocumentAutodetectGetInfo) | **POST** /convert/autodetect/get-info | Get document type information
 [**convertDocumentAutodetectToJpg**](SwagConvertDocumentApi.md#convertDocumentAutodetectToJpg) | **POST** /convert/autodetect/to/jpg | Convert Document to JPG/JPEG image array
 [**convertDocumentAutodetectToPdf**](SwagConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
+[**convertDocumentAutodetectToPdfBatchJob**](SwagConvertDocumentApi.md#convertDocumentAutodetectToPdfBatchJob) | **POST** /convert/autodetect/to/pdf/batch-job | Convert Document to PDF as Batch Job
 [**convertDocumentAutodetectToPngArray**](SwagConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
 [**convertDocumentAutodetectToThumbnail**](SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
 [**convertDocumentAutodetectToThumbnailsAdvanced**](SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnailsAdvanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
@@ -29,6 +30,7 @@ Method | HTTP request | Description
 [**convertDocumentEmlToJpg**](SwagConvertDocumentApi.md#convertDocumentEmlToJpg) | **POST** /convert/eml/to/jpg | Convert Email EML file to JPG/JPEG image array
 [**convertDocumentEmlToPdf**](SwagConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
 [**convertDocumentEmlToPng**](SwagConvertDocumentApi.md#convertDocumentEmlToPng) | **POST** /convert/eml/to/png | Convert Email EML file to PNG image array
+[**convertDocumentGetAsyncJobStatus**](SwagConvertDocumentApi.md#convertDocumentGetAsyncJobStatus) | **GET** /convert/batch-job/status | Get the status and result of a Convert Document Batch Job
 [**convertDocumentGetFileTypeIcon**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
 [**convertDocumentGetFileTypeIconAdvanced**](SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon/advanced | Get PNG icon byte array for the file extension
 [**convertDocumentHtmlToPdf**](SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
@@ -58,10 +60,13 @@ Method | HTTP request | Description
 [**convertDocumentPdfToDocxRasterize**](SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 [**convertDocumentPdfToJpg**](SwagConvertDocumentApi.md#convertDocumentPdfToJpg) | **POST** /convert/pdf/to/jpg | Convert PDF to JPG/JPEG image array
 [**convertDocumentPdfToPngArray**](SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
+[**convertDocumentPdfToPngArrayDirect**](SwagConvertDocumentApi.md#convertDocumentPdfToPngArrayDirect) | **POST** /convert/pdf/to/png/direct | Convert PDF to PNG Image Array (Direct)
 [**convertDocumentPdfToPngSingle**](SwagConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 [**convertDocumentPdfToPptx**](SwagConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
+[**convertDocumentPdfToTiff**](SwagConvertDocumentApi.md#convertDocumentPdfToTiff) | **POST** /convert/pdf/to/tiff | Convert PDF to TIFF image
 [**convertDocumentPdfToTxt**](SwagConvertDocumentApi.md#convertDocumentPdfToTxt) | **POST** /convert/pdf/to/txt | Convert PDF Document to Text (txt)
 [**convertDocumentPngArrayToPdf**](SwagConvertDocumentApi.md#convertDocumentPngArrayToPdf) | **POST** /convert/png/to/pdf | Convert PNG Array to PDF
+[**convertDocumentPngArrayToPdfFlattenTransparency**](SwagConvertDocumentApi.md#convertDocumentPngArrayToPdfFlattenTransparency) | **POST** /convert/png/to/pdf/remove-transparency | Convert PNG Array to PDF and remove transparency
 [**convertDocumentPptToPdf**](SwagConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | Convert PowerPoint PPT (97-03) Presentation to PDF
 [**convertDocumentPptToPptx**](SwagConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
 [**convertDocumentPptxToPdf**](SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
@@ -73,6 +78,7 @@ Method | HTTP request | Description
 [**convertDocumentRtfToJpg**](SwagConvertDocumentApi.md#convertDocumentRtfToJpg) | **POST** /convert/rtf/to/jpg | Convert Rich Text Format RTF to JPG/JPEG image array
 [**convertDocumentRtfToPdf**](SwagConvertDocumentApi.md#convertDocumentRtfToPdf) | **POST** /convert/rtf/to/pdf | Convert Rich Text Format RTF to PDF
 [**convertDocumentRtfToPng**](SwagConvertDocumentApi.md#convertDocumentRtfToPng) | **POST** /convert/rtf/to/png | Convert Rich Text Format RTF to PNG image array
+[**convertDocumentTxtToPdf**](SwagConvertDocumentApi.md#convertDocumentTxtToPdf) | **POST** /convert/txt/to/pdf | Convert TXT text file to PDF Document
 [**convertDocumentXlsToCsv**](SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 [**convertDocumentXlsToPdf**](SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 [**convertDocumentXlsToXlsx**](SwagConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
@@ -191,7 +197,7 @@ Name | Type | Description  | Notes
 
 Convert Document to PDF
 
-Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
 
 ### Example
 ```java
@@ -224,6 +230,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentAutodetectToPdfBatchJob"></a>
+# **convertDocumentAutodetectToPdfBatchJob**
+> SwagConvertDocumentBatchJobCreateRes convertDocumentAutodetectToPdfBatchJob(inputFile)
+
+Convert Document to PDF as Batch Job
+
+Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
+try {
+    // cross your fingers
+    SwagConvertDocumentBatchJobCreateRes result = api.convertDocumentAutodetectToPdfBatchJob(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+[**SwagConvertDocumentBatchJobCreateRes**](SwagConvertDocumentBatchJobCreateRes.md)
 
 ### Authorization
 
@@ -1358,6 +1413,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentGetAsyncJobStatus"></a>
+# **convertDocumentGetAsyncJobStatus**
+> SwagConvertDocumentJobStatusResult convertDocumentGetAsyncJobStatus(asyncJobID)
+
+Get the status and result of a Convert Document Batch Job
+
+Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'asyncJobID' => 'asyncJobID_example'
+};
+
+try {
+    // cross your fingers
+    SwagConvertDocumentJobStatusResult result = api.convertDocumentGetAsyncJobStatus(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asyncJobID** | **String**|  |
+
+### Return type
+
+[**SwagConvertDocumentJobStatusResult**](SwagConvertDocumentJobStatusResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="convertDocumentGetFileTypeIcon"></a>
@@ -2760,11 +2864,11 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentPdfToPngArray"></a>
 # **convertDocumentPdfToPngArray**
-> SwagPdfToPngResult convertDocumentPdfToPngArray(inputFile)
+> SwagPdfToPngResult convertDocumentPdfToPngArray(inputFile, dpi)
 
 Convert PDF to PNG Image Array
 
-Convert PDF document to PNG array, one image per page.
+Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
 
 ### Example
 ```java
@@ -2776,7 +2880,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'dpi' => 56
 };
 
 try {
@@ -2793,10 +2898,62 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **dpi** | **Integer**| Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. | [optional]
 
 ### Return type
 
 [**SwagPdfToPngResult**](SwagPdfToPngResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentPdfToPngArrayDirect"></a>
+# **convertDocumentPdfToPngArrayDirect**
+> SwagPdfToPngDirectResult convertDocumentPdfToPngArrayDirect(inputFile, dpi)
+
+Convert PDF to PNG Image Array (Direct)
+
+Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'dpi' => 56
+};
+
+try {
+    // cross your fingers
+    SwagPdfToPngDirectResult result = api.convertDocumentPdfToPngArrayDirect(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **dpi** | **Integer**| Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. | [optional]
+
+### Return type
+
+[**SwagPdfToPngDirectResult**](SwagPdfToPngDirectResult.md)
 
 ### Authorization
 
@@ -2891,6 +3048,59 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+
+### Return type
+
+**Blob**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentPdfToTiff"></a>
+# **convertDocumentPdfToTiff**
+> Blob convertDocumentPdfToTiff(inputFile, dpi, lzwCompression)
+
+Convert PDF to TIFF image
+
+Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'dpi' => 56,
+    'lzwCompression' => true
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentPdfToTiff(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **dpi** | **Integer**| Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. | [optional]
+ **lzwCompression** | **Boolean**| Optional; Enables LZW compression to reduce the size of the output image. | [optional]
 
 ### Return type
 
@@ -3021,6 +3231,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentPngArrayToPdfFlattenTransparency"></a>
+# **convertDocumentPngArrayToPdfFlattenTransparency**
+> Object convertDocumentPngArrayToPdfFlattenTransparency()
+
+Convert PNG Array to PDF and remove transparency
+
+Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+try {
+    // cross your fingers
+    Object result = api.convertDocumentPngArrayToPdfFlattenTransparency();
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="convertDocumentPptToPdf"></a>
@@ -3221,7 +3473,7 @@ Name | Type | Description  | Notes
 
 <a name="convertDocumentPptxToPpt"></a>
 # **convertDocumentPptxToPpt**
-> Object convertDocumentPptxToPpt()
+> Blob convertDocumentPptxToPpt(inputFile)
 
 Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
 
@@ -3236,9 +3488,13 @@ SwagClient client = api.getClient();
 ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents')
+};
+
 try {
     // cross your fingers
-    Object result = api.convertDocumentPptxToPpt();
+    Blob result = api.convertDocumentPptxToPpt(params);
     System.debug(result);
 } catch (Swagger.ApiException e) {
     // ...handle your exceptions
@@ -3246,11 +3502,14 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
 
 ### Return type
 
-**Object**
+**Blob**
 
 ### Authorization
 
@@ -3258,7 +3517,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 <a name="convertDocumentPptxToTxt"></a>
@@ -3547,6 +3806,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SwagRtfToPngResult**](SwagRtfToPngResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="convertDocumentTxtToPdf"></a>
+# **convertDocumentTxtToPdf**
+> Blob convertDocumentTxtToPdf(inputFile, scaleFactor)
+
+Convert TXT text file to PDF Document
+
+Convert simple text files to PDF.
+
+### Example
+```java
+SwagConvertDocumentApi api = new SwagConvertDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'scaleFactor' => 56
+};
+
+try {
+    // cross your fingers
+    Blob result = api.convertDocumentTxtToPdf(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **scaleFactor** | **Integer**| Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. | [optional]
+
+### Return type
+
+**Blob**
 
 ### Authorization
 

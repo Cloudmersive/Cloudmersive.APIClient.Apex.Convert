@@ -142,6 +142,39 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Remove, delete pages from a PDF document as Batch Job
+     * Remove one or more pages from a PDF document.  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param pageStart Page number (1 based) to start deleting pages from (inclusive). (required)
+     * @param pageEnd Page number (1 based) to stop deleting pages from (inclusive). (required)
+     * @return SwagEditPdfBatchJobCreateResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEditPdfBatchJobCreateResult editPdfDeletePagesBatchJob(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        client.assertNotNull(params.get('pageStart'), 'pageStart');
+        client.assertNotNull(params.get('pageEnd'), 'pageEnd');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagEditPdfBatchJobCreateResult) client.invoke(
+            'POST', '/convert/edit/pdf/pages/delete/batch-job', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'pageStart' => (Integer) params.get('pageStart'),
+                'pageEnd' => (Integer) params.get('pageEnd')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagEditPdfBatchJobCreateResult.class
+        );
+    }
+    /**
      * Encrypt and password-protect a PDF
      * Encrypt a PDF document with a password.  Set an owner password to control owner (editor/creator) permissions, and set a user (reader) password to control the viewer of the PDF.  Set the password fields null to omit the given password.
      * @param inputFile Input file to perform the operation on. (required)
@@ -198,6 +231,33 @@ public class SwagEditPdfApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagGetPdfAnnotationsResult.class
+        );
+    }
+    /**
+     * Get the status and result of a PDF Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return SwagEditPdfJobStatusResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEditPdfJobStatusResult editPdfGetAsyncJobStatus(Map<String, Object> params) {
+        client.assertNotNull(params.get('asyncJobID'), 'asyncJobID');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('AsyncJobID', (String) params.get('asyncJobID')));
+
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagEditPdfJobStatusResult) client.invoke(
+            'GET', '/convert/edit/pdf/batch-job/status', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagEditPdfJobStatusResult.class
         );
     }
     /**
@@ -321,6 +381,45 @@ public class SwagEditPdfApi {
         );
     }
     /**
+     * Insert, copy pages from one PDF document into another as a batch job
+     * Copy one or more pages from one PDF document (source document) and insert them into a second PDF document (destination document).  Runs as a batch job async and returns a batch job ID that you can check the status of to get the result.  Requires Cloudmersive Private Cloud or Managed Instance.
+     * @param sourceFile Source PDF file to copy pages from. (required)
+     * @param destinationFile Destination PDF file to copy pages into. (required)
+     * @param pageStartSource Page number (1 based) to start copying pages from (inclusive) in the Source file. (required)
+     * @param pageEndSource Page number (1 based) to stop copying pages pages from (inclusive) in the Source file. (required)
+     * @param pageInsertBeforeDesitnation Page number (1 based) to insert the pages before in the Destination file. (required)
+     * @return SwagEditPdfBatchJobCreateResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEditPdfBatchJobCreateResult editPdfInsertPagesBatchJob(Map<String, Object> params) {
+        client.assertNotNull(params.get('sourceFile'), 'sourceFile');
+        client.assertNotNull(params.get('destinationFile'), 'destinationFile');
+        client.assertNotNull(params.get('pageStartSource'), 'pageStartSource');
+        client.assertNotNull(params.get('pageEndSource'), 'pageEndSource');
+        client.assertNotNull(params.get('pageInsertBeforeDesitnation'), 'pageInsertBeforeDesitnation');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('sourceFile', (Blob) params.get('sourceFile')));
+        form.addAll(client.makeParam('destinationFile', (Blob) params.get('destinationFile')));
+
+        return (SwagEditPdfBatchJobCreateResult) client.invoke(
+            'POST', '/convert/edit/pdf/pages/insert/batch-job', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'pageStartSource' => (Integer) params.get('pageStartSource'),
+                'pageEndSource' => (Integer) params.get('pageEndSource'),
+                'pageInsertBeforeDesitnation' => (Integer) params.get('pageInsertBeforeDesitnation')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagEditPdfBatchJobCreateResult.class
+        );
+    }
+    /**
      * Linearize and optimize a PDF for streaming download
      * Linearizes the content of a PDF to optimize it for streaming download, particularly over web streaming.
      * @param inputFile Input file to perform the operation on. (required)
@@ -350,6 +449,7 @@ public class SwagEditPdfApi {
      * Rasterize a PDF to an image-based PDF
      * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -365,11 +465,39 @@ public class SwagEditPdfApi {
             'POST', '/convert/edit/pdf/rasterize', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'dpi' => (Integer) params.get('dpi')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Rasterize a PDF to an image-based PDF as Batch Job
+     * Rasterize a PDF into an image-based PDF.  The output is a PDF where each page is comprised of a high-resolution image, with all text, figures and other components removed.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagEditPdfBatchJobCreateResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagEditPdfBatchJobCreateResult editPdfRasterizeBatchJob(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagEditPdfBatchJobCreateResult) client.invoke(
+            'POST', '/convert/edit/pdf/rasterize/batch-job', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagEditPdfBatchJobCreateResult.class
         );
     }
     /**

@@ -48,7 +48,8 @@ SwagClient client = api.getClient();
 
 Map<String, Object> params = new Map<String, Object>{
     'inputFile1' => Blob.valueOf('Sample text file\nContents'),
-    'inputFile2' => Blob.valueOf('Sample text file\nContents')
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'autorepair' => true
 };
 
 try {
@@ -88,6 +89,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectGetInfo**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectGetInfo) | **POST** /convert/autodetect/get-info | Get document type information
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToJpg) | **POST** /convert/autodetect/to/jpg | Convert Document to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPdf) | **POST** /convert/autodetect/to/pdf | Convert Document to PDF
+*SwagConvertDocumentApi* | [**convertDocumentAutodetectToPdfBatchJob**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPdfBatchJob) | **POST** /convert/autodetect/to/pdf/batch-job | Convert Document to PDF as Batch Job
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToPngArray) | **POST** /convert/autodetect/to/png | Convert Document to PNG array
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToThumbnail**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnail) | **POST** /convert/autodetect/to/thumbnail | Convert File to Thumbnail Image
 *SwagConvertDocumentApi* | [**convertDocumentAutodetectToThumbnailsAdvanced**](docs/SwagConvertDocumentApi.md#convertDocumentAutodetectToThumbnailsAdvanced) | **POST** /convert/autodetect/to/thumbnail/advanced | Convert File to Thumbnail Image Object
@@ -110,6 +112,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentEmlToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToJpg) | **POST** /convert/eml/to/jpg | Convert Email EML file to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentEmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToPdf) | **POST** /convert/eml/to/pdf | Convert Email EML file to PDF document
 *SwagConvertDocumentApi* | [**convertDocumentEmlToPng**](docs/SwagConvertDocumentApi.md#convertDocumentEmlToPng) | **POST** /convert/eml/to/png | Convert Email EML file to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentGetAsyncJobStatus**](docs/SwagConvertDocumentApi.md#convertDocumentGetAsyncJobStatus) | **GET** /convert/batch-job/status | Get the status and result of a Convert Document Batch Job
 *SwagConvertDocumentApi* | [**convertDocumentGetFileTypeIcon**](docs/SwagConvertDocumentApi.md#convertDocumentGetFileTypeIcon) | **POST** /convert/autodetect/get-icon | Get PNG icon file for the file extension
 *SwagConvertDocumentApi* | [**convertDocumentGetFileTypeIconAdvanced**](docs/SwagConvertDocumentApi.md#convertDocumentGetFileTypeIconAdvanced) | **POST** /convert/autodetect/get-icon/advanced | Get PNG icon byte array for the file extension
 *SwagConvertDocumentApi* | [**convertDocumentHtmlToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentHtmlToPdf) | **POST** /convert/html/to/pdf | Convert HTML document file to PDF Document
@@ -139,10 +142,13 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentPdfToDocxRasterize**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToDocxRasterize) | **POST** /convert/pdf/to/docx/rasterize | Convert PDF to Word DOCX Document based on rasterized version of the PDF
 *SwagConvertDocumentApi* | [**convertDocumentPdfToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToJpg) | **POST** /convert/pdf/to/jpg | Convert PDF to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPngArray**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngArray) | **POST** /convert/pdf/to/png | Convert PDF to PNG Image Array
+*SwagConvertDocumentApi* | [**convertDocumentPdfToPngArrayDirect**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngArrayDirect) | **POST** /convert/pdf/to/png/direct | Convert PDF to PNG Image Array (Direct)
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPngSingle**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPngSingle) | **POST** /convert/pdf/to/png/merge-single | Convert PDF to Single PNG image
 *SwagConvertDocumentApi* | [**convertDocumentPdfToPptx**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToPptx) | **POST** /convert/pdf/to/pptx | Convert PDF to PowerPoint PPTX Presentation
+*SwagConvertDocumentApi* | [**convertDocumentPdfToTiff**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToTiff) | **POST** /convert/pdf/to/tiff | Convert PDF to TIFF image
 *SwagConvertDocumentApi* | [**convertDocumentPdfToTxt**](docs/SwagConvertDocumentApi.md#convertDocumentPdfToTxt) | **POST** /convert/pdf/to/txt | Convert PDF Document to Text (txt)
 *SwagConvertDocumentApi* | [**convertDocumentPngArrayToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentPngArrayToPdf) | **POST** /convert/png/to/pdf | Convert PNG Array to PDF
+*SwagConvertDocumentApi* | [**convertDocumentPngArrayToPdfFlattenTransparency**](docs/SwagConvertDocumentApi.md#convertDocumentPngArrayToPdfFlattenTransparency) | **POST** /convert/png/to/pdf/remove-transparency | Convert PNG Array to PDF and remove transparency
 *SwagConvertDocumentApi* | [**convertDocumentPptToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentPptToPdf) | **POST** /convert/ppt/to/pdf | Convert PowerPoint PPT (97-03) Presentation to PDF
 *SwagConvertDocumentApi* | [**convertDocumentPptToPptx**](docs/SwagConvertDocumentApi.md#convertDocumentPptToPptx) | **POST** /convert/ppt/to/pptx | Convert PowerPoint PPT (97-03) Presentation to PPTX
 *SwagConvertDocumentApi* | [**convertDocumentPptxToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentPptxToPdf) | **POST** /convert/pptx/to/pdf | Convert PowerPoint PPTX Presentation to PDF
@@ -154,6 +160,7 @@ Class | Method | HTTP request | Description
 *SwagConvertDocumentApi* | [**convertDocumentRtfToJpg**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToJpg) | **POST** /convert/rtf/to/jpg | Convert Rich Text Format RTF to JPG/JPEG image array
 *SwagConvertDocumentApi* | [**convertDocumentRtfToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToPdf) | **POST** /convert/rtf/to/pdf | Convert Rich Text Format RTF to PDF
 *SwagConvertDocumentApi* | [**convertDocumentRtfToPng**](docs/SwagConvertDocumentApi.md#convertDocumentRtfToPng) | **POST** /convert/rtf/to/png | Convert Rich Text Format RTF to PNG image array
+*SwagConvertDocumentApi* | [**convertDocumentTxtToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentTxtToPdf) | **POST** /convert/txt/to/pdf | Convert TXT text file to PDF Document
 *SwagConvertDocumentApi* | [**convertDocumentXlsToCsv**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToCsv) | **POST** /convert/xls/to/csv | Convert Excel XLS (97-03) Spreadsheet to CSV
 *SwagConvertDocumentApi* | [**convertDocumentXlsToPdf**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToPdf) | **POST** /convert/xls/to/pdf | Convert Excel XLS (97-03) Spreadsheet to PDF
 *SwagConvertDocumentApi* | [**convertDocumentXlsToXlsx**](docs/SwagConvertDocumentApi.md#convertDocumentXlsToXlsx) | **POST** /convert/xls/to/xlsx | Convert Excel XLS (97-03) Spreadsheet to XLSX
@@ -263,14 +270,18 @@ Class | Method | HTTP request | Description
 *SwagEditPdfApi* | [**editPdfConvertToPdfA**](docs/SwagEditPdfApi.md#editPdfConvertToPdfA) | **POST** /convert/edit/pdf/optimize/pdf-a | Convert a PDF file to PDF/A
 *SwagEditPdfApi* | [**editPdfDecrypt**](docs/SwagEditPdfApi.md#editPdfDecrypt) | **POST** /convert/edit/pdf/decrypt | Decrypt and password-protect a PDF
 *SwagEditPdfApi* | [**editPdfDeletePages**](docs/SwagEditPdfApi.md#editPdfDeletePages) | **POST** /convert/edit/pdf/pages/delete | Remove, delete pages from a PDF document
+*SwagEditPdfApi* | [**editPdfDeletePagesBatchJob**](docs/SwagEditPdfApi.md#editPdfDeletePagesBatchJob) | **POST** /convert/edit/pdf/pages/delete/batch-job | Remove, delete pages from a PDF document as Batch Job
 *SwagEditPdfApi* | [**editPdfEncrypt**](docs/SwagEditPdfApi.md#editPdfEncrypt) | **POST** /convert/edit/pdf/encrypt | Encrypt and password-protect a PDF
 *SwagEditPdfApi* | [**editPdfGetAnnotations**](docs/SwagEditPdfApi.md#editPdfGetAnnotations) | **POST** /convert/edit/pdf/annotations/list | Get PDF annotations, including comments in the document
+*SwagEditPdfApi* | [**editPdfGetAsyncJobStatus**](docs/SwagEditPdfApi.md#editPdfGetAsyncJobStatus) | **GET** /convert/edit/pdf/batch-job/status | Get the status and result of a PDF Batch Job
 *SwagEditPdfApi* | [**editPdfGetFormFields**](docs/SwagEditPdfApi.md#editPdfGetFormFields) | **POST** /convert/edit/pdf/form/get-fields | Gets PDF Form fields and values
 *SwagEditPdfApi* | [**editPdfGetMetadata**](docs/SwagEditPdfApi.md#editPdfGetMetadata) | **POST** /convert/edit/pdf/get-metadata | Get PDF document metadata
 *SwagEditPdfApi* | [**editPdfGetPdfTextByPages**](docs/SwagEditPdfApi.md#editPdfGetPdfTextByPages) | **POST** /convert/edit/pdf/pages/get-text | Get text in a PDF document by page
 *SwagEditPdfApi* | [**editPdfInsertPages**](docs/SwagEditPdfApi.md#editPdfInsertPages) | **POST** /convert/edit/pdf/pages/insert | Insert, copy pages from one PDF document into another
+*SwagEditPdfApi* | [**editPdfInsertPagesBatchJob**](docs/SwagEditPdfApi.md#editPdfInsertPagesBatchJob) | **POST** /convert/edit/pdf/pages/insert/batch-job | Insert, copy pages from one PDF document into another as a batch job
 *SwagEditPdfApi* | [**editPdfLinearize**](docs/SwagEditPdfApi.md#editPdfLinearize) | **POST** /convert/edit/pdf/optimize/linearize | Linearize and optimize a PDF for streaming download
 *SwagEditPdfApi* | [**editPdfRasterize**](docs/SwagEditPdfApi.md#editPdfRasterize) | **POST** /convert/edit/pdf/rasterize | Rasterize a PDF to an image-based PDF
+*SwagEditPdfApi* | [**editPdfRasterizeBatchJob**](docs/SwagEditPdfApi.md#editPdfRasterizeBatchJob) | **POST** /convert/edit/pdf/rasterize/batch-job | Rasterize a PDF to an image-based PDF as Batch Job
 *SwagEditPdfApi* | [**editPdfReduceFileSize**](docs/SwagEditPdfApi.md#editPdfReduceFileSize) | **POST** /convert/edit/pdf/optimize/reduce-file-size | Reduce the file size and optimize a PDF
 *SwagEditPdfApi* | [**editPdfRemoveAllAnnotations**](docs/SwagEditPdfApi.md#editPdfRemoveAllAnnotations) | **POST** /convert/edit/pdf/annotations/remove-all | Remove all PDF annotations, including comments in the document
 *SwagEditPdfApi* | [**editPdfRemoveAnnotationItem**](docs/SwagEditPdfApi.md#editPdfRemoveAnnotationItem) | **POST** /convert/edit/pdf/annotations/remove-item | Remove a specific PDF annotation, comment in the document
@@ -294,23 +305,34 @@ Class | Method | HTTP request | Description
 *SwagEditTextApi* | [**editTextReplaceSimple**](docs/SwagEditTextApi.md#editTextReplaceSimple) | **POST** /convert/edit/text/replace/string | Replace a string in text with another string value
 *SwagEditTextApi* | [**editTextTextEncodingDetect**](docs/SwagEditTextApi.md#editTextTextEncodingDetect) | **POST** /convert/edit/text/encoding/detect | Detect text encoding of file
 *SwagEditTextApi* | [**editTextTrimWhitespace**](docs/SwagEditTextApi.md#editTextTrimWhitespace) | **POST** /convert/edit/text/remove/whitespace/trim | Trim leading and trailing whitespace from text string
+*SwagMergeDocumentApi* | [**mergeDocumentBatchJobCreate**](docs/SwagMergeDocumentApi.md#mergeDocumentBatchJobCreate) | **POST** /convert/merge/batch-job/create | Merge an array of Documents into a Single Document by Page as a Batch Job
 *SwagMergeDocumentApi* | [**mergeDocumentDocx**](docs/SwagMergeDocumentApi.md#mergeDocumentDocx) | **POST** /convert/merge/docx | Merge Two Word DOCX Together
 *SwagMergeDocumentApi* | [**mergeDocumentDocxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentDocxMulti) | **POST** /convert/merge/docx/multi | Merge Multple Word DOCX Together
+*SwagMergeDocumentApi* | [**mergeDocumentDocxMultiArray**](docs/SwagMergeDocumentApi.md#mergeDocumentDocxMultiArray) | **POST** /convert/merge/docx/multi/array | Merge Multple Word DOCX Together from an array
+*SwagMergeDocumentApi* | [**mergeDocumentGetAsyncJobStatus**](docs/SwagMergeDocumentApi.md#mergeDocumentGetAsyncJobStatus) | **GET** /convert/merge/batch-job/status | Get the status and result of a Merge Document Batch Job
 *SwagMergeDocumentApi* | [**mergeDocumentHtml**](docs/SwagMergeDocumentApi.md#mergeDocumentHtml) | **POST** /convert/merge/html | Merge Two HTML (HTM) Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentHtmlMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentHtmlMulti) | **POST** /convert/merge/html/multi | Merge Multple HTML (HTM) Files Together
+*SwagMergeDocumentApi* | [**mergeDocumentHtmlMultiArray**](docs/SwagMergeDocumentApi.md#mergeDocumentHtmlMultiArray) | **POST** /convert/merge/html/multi/array | Merge Multple HTML (HTM) Files Together from an array
 *SwagMergeDocumentApi* | [**mergeDocumentPdf**](docs/SwagMergeDocumentApi.md#mergeDocumentPdf) | **POST** /convert/merge/pdf | Merge Two PDF Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentPdfMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentPdfMulti) | **POST** /convert/merge/pdf/multi | Merge Multple PDF Files Together
+*SwagMergeDocumentApi* | [**mergeDocumentPdfMultiArray**](docs/SwagMergeDocumentApi.md#mergeDocumentPdfMultiArray) | **POST** /convert/merge/pdf/multi/array | Merge Multple PDF Files Together from an array
 *SwagMergeDocumentApi* | [**mergeDocumentPng**](docs/SwagMergeDocumentApi.md#mergeDocumentPng) | **POST** /convert/merge/png/vertical | Merge Two PNG Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentPngMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentPngMulti) | **POST** /convert/merge/png/vertical/multi | Merge Multple PNG Files Together
+*SwagMergeDocumentApi* | [**mergeDocumentPngMultiArray**](docs/SwagMergeDocumentApi.md#mergeDocumentPngMultiArray) | **POST** /convert/merge/png/vertical/multi/array | Merge Multple PNG Files Together from an array
 *SwagMergeDocumentApi* | [**mergeDocumentPptx**](docs/SwagMergeDocumentApi.md#mergeDocumentPptx) | **POST** /convert/merge/pptx | Merge Two PowerPoint PPTX Together
 *SwagMergeDocumentApi* | [**mergeDocumentPptxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentPptxMulti) | **POST** /convert/merge/pptx/multi | Merge Multple PowerPoint PPTX Together
+*SwagMergeDocumentApi* | [**mergeDocumentPptxMultiArray**](docs/SwagMergeDocumentApi.md#mergeDocumentPptxMultiArray) | **POST** /convert/merge/pptx/multi/array | Merge Multple PowerPoint PPTX Together from an array
 *SwagMergeDocumentApi* | [**mergeDocumentTxt**](docs/SwagMergeDocumentApi.md#mergeDocumentTxt) | **POST** /convert/merge/txt | Merge Two Text (TXT) Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentTxtMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentTxtMulti) | **POST** /convert/merge/txt/multi | Merge Multple Text (TXT) Files Together
 *SwagMergeDocumentApi* | [**mergeDocumentXlsx**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsx) | **POST** /convert/merge/xlsx | Merge Two Excel XLSX Together
 *SwagMergeDocumentApi* | [**mergeDocumentXlsxMulti**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsxMulti) | **POST** /convert/merge/xlsx/multi | Merge Multple Excel XLSX Together
+*SwagMergeDocumentApi* | [**mergeDocumentXlsxMultiArray**](docs/SwagMergeDocumentApi.md#mergeDocumentXlsxMultiArray) | **POST** /convert/merge/xlsx/multi/array | Merge Multple Excel XLSX Together from an Array
+*SwagSplitDocumentApi* | [**splitDocumentBatchJobCreate**](docs/SwagSplitDocumentApi.md#splitDocumentBatchJobCreate) | **POST** /convert/split/batch-job/create | Split a single Document into Separate Documents by Page as a Batch Job
 *SwagSplitDocumentApi* | [**splitDocumentDocx**](docs/SwagSplitDocumentApi.md#splitDocumentDocx) | **POST** /convert/split/docx | Split a single Word Document DOCX into Separate Documents by Page
+*SwagSplitDocumentApi* | [**splitDocumentGetAsyncJobStatus**](docs/SwagSplitDocumentApi.md#splitDocumentGetAsyncJobStatus) | **GET** /convert/split/batch-job/status | Get the status and result of a Split Document Batch Job
 *SwagSplitDocumentApi* | [**splitDocumentPdfByPage**](docs/SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 *SwagSplitDocumentApi* | [**splitDocumentPptx**](docs/SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
+*SwagSplitDocumentApi* | [**splitDocumentPptxAdvanced**](docs/SwagSplitDocumentApi.md#splitDocumentPptxAdvanced) | **POST** /convert/split/pptx/advanced | Split a single PowerPoint Presentation PPTX into Separate Presentations
 *SwagSplitDocumentApi* | [**splitDocumentTxtByLine**](docs/SwagSplitDocumentApi.md#splitDocumentTxtByLine) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
 *SwagSplitDocumentApi* | [**splitDocumentTxtByString**](docs/SwagSplitDocumentApi.md#splitDocumentTxtByString) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 *SwagSplitDocumentApi* | [**splitDocumentXlsx**](docs/SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
@@ -323,8 +345,9 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentAutodetectValidation**](docs/SwagValidateDocumentApi.md#validateDocumentAutodetectValidation) | **POST** /convert/validate/autodetect | Autodetect content type and validate
 *SwagValidateDocumentApi* | [**validateDocumentCsvValidation**](docs/SwagValidateDocumentApi.md#validateDocumentCsvValidation) | **POST** /convert/validate/csv | Validate a CSV file document (CSV)
 *SwagValidateDocumentApi* | [**validateDocumentDocValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocValidation) | **POST** /convert/validate/doc | Validate a Word 97-2003 Legacy document (DOC)
+*SwagValidateDocumentApi* | [**validateDocumentDocxRepair**](docs/SwagValidateDocumentApi.md#validateDocumentDocxRepair) | **POST** /convert/validate/docx/repair | Repair a Word document (DOCX) that contains errors
 *SwagValidateDocumentApi* | [**validateDocumentDocxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentDocxValidation) | **POST** /convert/validate/docx | Validate a Word document (DOCX)
-*SwagValidateDocumentApi* | [**validateDocumentEmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if an EML file is executable
+*SwagValidateDocumentApi* | [**validateDocumentEmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentEmlValidation) | **POST** /convert/validate/eml | Validate if input file is a valid EML file
 *SwagValidateDocumentApi* | [**validateDocumentExecutableValidation**](docs/SwagValidateDocumentApi.md#validateDocumentExecutableValidation) | **POST** /convert/validate/executable | Validate if a file is executable
 *SwagValidateDocumentApi* | [**validateDocumentGZipValidation**](docs/SwagValidateDocumentApi.md#validateDocumentGZipValidation) | **POST** /convert/validate/gzip | Validate a GZip Archive file (gzip or gz)
 *SwagValidateDocumentApi* | [**validateDocumentHtmlSsrfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentHtmlSsrfValidation) | **POST** /convert/validate/html/ssrf-threat-check | Validate an HTML file and checks for SSRF threats
@@ -332,16 +355,18 @@ Class | Method | HTTP request | Description
 *SwagValidateDocumentApi* | [**validateDocumentImageValidation**](docs/SwagValidateDocumentApi.md#validateDocumentImageValidation) | **POST** /convert/validate/image | Validate an Image File
 *SwagValidateDocumentApi* | [**validateDocumentJpgValidation**](docs/SwagValidateDocumentApi.md#validateDocumentJpgValidation) | **POST** /convert/validate/jpg | Validate a JPG File
 *SwagValidateDocumentApi* | [**validateDocumentJsonValidation**](docs/SwagValidateDocumentApi.md#validateDocumentJsonValidation) | **POST** /convert/validate/json | Validate a JSON file
-*SwagValidateDocumentApi* | [**validateDocumentMsgValidation**](docs/SwagValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if an MSG file is executable
+*SwagValidateDocumentApi* | [**validateDocumentMsgValidation**](docs/SwagValidateDocumentApi.md#validateDocumentMsgValidation) | **POST** /convert/validate/msg | Validate if input file is a valid MSG file
 *SwagValidateDocumentApi* | [**validateDocumentPdfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPdfValidation) | **POST** /convert/validate/pdf | Validate a PDF document file
 *SwagValidateDocumentApi* | [**validateDocumentPngValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPngValidation) | **POST** /convert/validate/png | Validate a PNG File
 *SwagValidateDocumentApi* | [**validateDocumentPptValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPptValidation) | **POST** /convert/validate/ppt | Validate a PowerPoint 97-2003 Legacy presentation (PPT)
+*SwagValidateDocumentApi* | [**validateDocumentPptxRepair**](docs/SwagValidateDocumentApi.md#validateDocumentPptxRepair) | **POST** /convert/validate/pptx/repair | Repair a PowerPoint presentation (PPTX) that contains errors
 *SwagValidateDocumentApi* | [**validateDocumentPptxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentPptxValidation) | **POST** /convert/validate/pptx | Validate a PowerPoint presentation (PPTX)
 *SwagValidateDocumentApi* | [**validateDocumentRarValidation**](docs/SwagValidateDocumentApi.md#validateDocumentRarValidation) | **POST** /convert/validate/rar | Validate a RAR Archive file (RAR)
 *SwagValidateDocumentApi* | [**validateDocumentRtfValidation**](docs/SwagValidateDocumentApi.md#validateDocumentRtfValidation) | **POST** /convert/validate/rtf | Validate a Rich Text Format document (RTF)
 *SwagValidateDocumentApi* | [**validateDocumentTarValidation**](docs/SwagValidateDocumentApi.md#validateDocumentTarValidation) | **POST** /convert/validate/tar | Validate a TAR Tarball Archive file (TAR)
 *SwagValidateDocumentApi* | [**validateDocumentTxtValidation**](docs/SwagValidateDocumentApi.md#validateDocumentTxtValidation) | **POST** /convert/validate/txt | Validate an TXT file
 *SwagValidateDocumentApi* | [**validateDocumentXlsValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXlsValidation) | **POST** /convert/validate/xls | Validate a Excel 97-2003 Legacy spreadsheet (XLS)
+*SwagValidateDocumentApi* | [**validateDocumentXlsxRepair**](docs/SwagValidateDocumentApi.md#validateDocumentXlsxRepair) | **POST** /convert/validate/xlsx/repair | Repair an Excel spreadsheet (XLSX) that contains errors
 *SwagValidateDocumentApi* | [**validateDocumentXlsxValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXlsxValidation) | **POST** /convert/validate/xlsx | Validate a Excel document (XLSX)
 *SwagValidateDocumentApi* | [**validateDocumentXmlValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlValidation) | **POST** /convert/validate/xml | Validate an XML file
 *SwagValidateDocumentApi* | [**validateDocumentXmlXxeThreatValidation**](docs/SwagValidateDocumentApi.md#validateDocumentXmlXxeThreatValidation) | **POST** /convert/validate/xml/xxe-threats | Validate an XML file for XML External Entity (XXE) threats
@@ -378,7 +403,10 @@ Class | Method | HTTP request | Description
  - [SwagClearXlsxCellResponse](docs/SwagClearXlsxCellResponse.md)
  - [SwagClearXlsxRowRequest](docs/SwagClearXlsxRowRequest.md)
  - [SwagClearXlsxRowResponse](docs/SwagClearXlsxRowResponse.md)
+ - [SwagConvertDocumentBatchJobCreateRes](docs/SwagConvertDocumentBatchJobCreateRes.md)
+ - [SwagConvertDocumentJobStatusResult](docs/SwagConvertDocumentJobStatusResult.md)
  - [SwagConvertedJpgPage](docs/SwagConvertedJpgPage.md)
+ - [SwagConvertedPngDirectPage](docs/SwagConvertedPngDirectPage.md)
  - [SwagConvertedPngPage](docs/SwagConvertedPngPage.md)
  - [SwagCreateBlankDocxRequest](docs/SwagCreateBlankDocxRequest.md)
  - [SwagCreateBlankDocxResponse](docs/SwagCreateBlankDocxResponse.md)
@@ -396,7 +424,9 @@ Class | Method | HTTP request | Description
  - [SwagDetectLineEndingsResponse](docs/SwagDetectLineEndingsResponse.md)
  - [SwagDisableSharedWorkbookRequest](docs/SwagDisableSharedWorkbookRequest.md)
  - [SwagDisableSharedWorkbookResponse](docs/SwagDisableSharedWorkbookResponse.md)
+ - [SwagDocumentArrayInput](docs/SwagDocumentArrayInput.md)
  - [SwagDocumentEditingEditSession](docs/SwagDocumentEditingEditSession.md)
+ - [SwagDocumentItem](docs/SwagDocumentItem.md)
  - [SwagDocumentTransformEditSession](docs/SwagDocumentTransformEditSession.md)
  - [SwagDocumentValidationError](docs/SwagDocumentValidationError.md)
  - [SwagDocumentValidationResult](docs/SwagDocumentValidationResult.md)
@@ -439,6 +469,8 @@ Class | Method | HTTP request | Description
  - [SwagDocxToJpgResult](docs/SwagDocxToJpgResult.md)
  - [SwagDocxToPngResult](docs/SwagDocxToPngResult.md)
  - [SwagDocxTopLevelComment](docs/SwagDocxTopLevelComment.md)
+ - [SwagEditPdfBatchJobCreateResult](docs/SwagEditPdfBatchJobCreateResult.md)
+ - [SwagEditPdfJobStatusResult](docs/SwagEditPdfJobStatusResult.md)
  - [SwagEmlAttachment](docs/SwagEmlAttachment.md)
  - [SwagEmlToHtmlResult](docs/SwagEmlToHtmlResult.md)
  - [SwagEmlToJpgResult](docs/SwagEmlToJpgResult.md)
@@ -527,8 +559,11 @@ Class | Method | HTTP request | Description
  - [SwagInsertDocxTablesResponse](docs/SwagInsertDocxTablesResponse.md)
  - [SwagInsertXlsxWorksheetRequest](docs/SwagInsertXlsxWorksheetRequest.md)
  - [SwagInsertXlsxWorksheetResponse](docs/SwagInsertXlsxWorksheetResponse.md)
+ - [SwagJobStatusResult](docs/SwagJobStatusResult.md)
  - [SwagKeynoteToJpgResult](docs/SwagKeynoteToJpgResult.md)
  - [SwagKeynoteToPngResult](docs/SwagKeynoteToPngResult.md)
+ - [SwagMergeBatchJobCreateResult](docs/SwagMergeBatchJobCreateResult.md)
+ - [SwagMergeJobStatusResult](docs/SwagMergeJobStatusResult.md)
  - [SwagMsgAttachment](docs/SwagMsgAttachment.md)
  - [SwagMsgToHtmlResult](docs/SwagMsgToHtmlResult.md)
  - [SwagMsgToJpgResult](docs/SwagMsgToJpgResult.md)
@@ -550,8 +585,12 @@ Class | Method | HTTP request | Description
  - [SwagPdfPageText](docs/SwagPdfPageText.md)
  - [SwagPdfTextByPageResult](docs/SwagPdfTextByPageResult.md)
  - [SwagPdfToJpgResult](docs/SwagPdfToJpgResult.md)
+ - [SwagPdfToPngDirectResult](docs/SwagPdfToPngDirectResult.md)
  - [SwagPdfToPngResult](docs/SwagPdfToPngResult.md)
+ - [SwagPptxSplitAdvancedRequest](docs/SwagPptxSplitAdvancedRequest.md)
+ - [SwagPptxSplitAdvancedResponse](docs/SwagPptxSplitAdvancedResponse.md)
  - [SwagPptxToPngResult](docs/SwagPptxToPngResult.md)
+ - [SwagPresentationAdvancedResult](docs/SwagPresentationAdvancedResult.md)
  - [SwagPresentationResult](docs/SwagPresentationResult.md)
  - [SwagRemoveDocxHeadersAndFootersReque](docs/SwagRemoveDocxHeadersAndFootersReque.md)
  - [SwagRemoveDocxHeadersAndFootersRespo](docs/SwagRemoveDocxHeadersAndFootersRespo.md)
@@ -582,6 +621,7 @@ Class | Method | HTTP request | Description
  - [SwagSetXlsxCellRequest](docs/SwagSetXlsxCellRequest.md)
  - [SwagSetXlsxCellResponse](docs/SwagSetXlsxCellResponse.md)
  - [SwagSingleReplaceString](docs/SwagSingleReplaceString.md)
+ - [SwagSplitBatchJobCreateResult](docs/SwagSplitBatchJobCreateResult.md)
  - [SwagSplitDocumentResult](docs/SwagSplitDocumentResult.md)
  - [SwagSplitDocxDocumentResult](docs/SwagSplitDocxDocumentResult.md)
  - [SwagSplitPdfResult](docs/SwagSplitPdfResult.md)

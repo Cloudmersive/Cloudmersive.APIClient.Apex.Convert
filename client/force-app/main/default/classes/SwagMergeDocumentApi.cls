@@ -26,6 +26,30 @@ public class SwagMergeDocumentApi {
     }
 
     /**
+     * Merge an array of Documents into a Single Document by Page as a Batch Job
+     * Merge an array of Documents (PDF supported), into a single document.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param input  (required)
+     * @return SwagMergeBatchJobCreateResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagMergeBatchJobCreateResult mergeDocumentBatchJobCreate(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagMergeBatchJobCreateResult) client.invoke(
+            'POST', '/convert/merge/batch-job/create',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagMergeBatchJobCreateResult.class
+        );
+    }
+    /**
      * Merge Two Word DOCX Together
      * Combine two Office Word Documents (docx) into one single Office Word document
      * @param inputFile1 First input file to perform the operation on. (required)
@@ -97,6 +121,57 @@ public class SwagMergeDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Merge Multple Word DOCX Together from an array
+     * Combine multiple Office Word Documents (docx), stored in an array, into one single Office Word document
+     * @param input Array of input files (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object mergeDocumentDocxMultiArray(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/merge/docx/multi/array',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
+     * Get the status and result of a Merge Document Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return SwagMergeJobStatusResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagMergeJobStatusResult mergeDocumentGetAsyncJobStatus(Map<String, Object> params) {
+        client.assertNotNull(params.get('asyncJobID'), 'asyncJobID');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('AsyncJobID', (String) params.get('asyncJobID')));
+
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagMergeJobStatusResult) client.invoke(
+            'GET', '/convert/merge/batch-job/status', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagMergeJobStatusResult.class
         );
     }
     /**
@@ -174,6 +249,30 @@ public class SwagMergeDocumentApi {
         );
     }
     /**
+     * Merge Multple HTML (HTM) Files Together from an array
+     * Combine multiple HTML (.HTM) files, from an array, into a single text document, preserving the order of the input documents in the combined document by stacking them vertically.  The title will be taken from the first document.
+     * @param input Array of input files (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object mergeDocumentHtmlMultiArray(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/merge/html/multi/array',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
      * Merge Two PDF Files Together
      * Combine two PDF files (pdf) into a single PDF document, preserving the order of the input documents in the combined document
      * @param inputFile1 First input file to perform the operation on. (required)
@@ -245,6 +344,30 @@ public class SwagMergeDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Merge Multple PDF Files Together from an array
+     * Combine multiple PDF files (pdf), as an array, into a single PDF document, preserving the order of the input documents in the combined document
+     * @param input Array of input files (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object mergeDocumentPdfMultiArray(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/merge/pdf/multi/array',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
         );
     }
     /**
@@ -322,6 +445,30 @@ public class SwagMergeDocumentApi {
         );
     }
     /**
+     * Merge Multple PNG Files Together from an array
+     * Combine multiple PNG files, from an array, into a single PNG document, preserving the order of the input documents in the combined document by stacking them vertically
+     * @param input Array of input files (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object mergeDocumentPngMultiArray(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/merge/png/vertical/multi/array',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
+        );
+    }
+    /**
      * Merge Two PowerPoint PPTX Together
      * Combine two Office PowerPoint presentations (pptx) into one single Office PowerPoint presentation
      * @param inputFile1 First input file to perform the operation on. (required)
@@ -393,6 +540,30 @@ public class SwagMergeDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Merge Multple PowerPoint PPTX Together from an array
+     * Combine multiple Office PowerPoint presentations (pptx), from an array, into one single Office PowerPoint presentation
+     * @param input Array of input files (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object mergeDocumentPptxMultiArray(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/merge/pptx/multi/array',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
         );
     }
     /**
@@ -541,6 +712,30 @@ public class SwagMergeDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Merge Multple Excel XLSX Together from an Array
+     * Combine multiple Office Excel spreadsheets (xlsx), as an array, into a single Office Excel spreadsheet
+     * @param input Array of input files (required)
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object mergeDocumentXlsxMultiArray(Map<String, Object> params) {
+        client.assertNotNull(params.get('input'), 'input');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/merge/xlsx/multi/array',
+            (SwagDocumentArrayInput) params.get('input'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
         );
     }
 }

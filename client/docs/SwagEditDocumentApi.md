@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 <a name="editDocumentDocxAcceptAllTrackChanges"></a>
 # **editDocumentDocxAcceptAllTrackChanges**
-> Blob editDocumentDocxAcceptAllTrackChanges(inputFile)
+> Blob editDocumentDocxAcceptAllTrackChanges(inputFile, autorepair)
 
 Accept all tracked changes, revisions in a Word DOCX document
 
@@ -141,7 +141,8 @@ ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
 Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
-    'inputFile' => Blob.valueOf('Sample text file\nContents')
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'autorepair' => true
 };
 
 try {
@@ -158,6 +159,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile** | **Blob**| Input file to perform the operation on. |
+ **autorepair** | **Boolean**| Optional; automatically repair input documents that have errors (default is true) | [optional]
 
 ### Return type
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="compareDocumentDocx"></a>
 # **compareDocumentDocx**
-> Blob compareDocumentDocx(inputFile1, inputFile2)
+> Blob compareDocumentDocx(inputFile1, inputFile2, autorepair)
 
 Compare Two Word DOCX
 
@@ -26,7 +26,8 @@ Apikey.setApiKey('YOUR API KEY');
 
 Map<String, Object> params = new Map<String, Object>{
     'inputFile1' => Blob.valueOf('Sample text file\nContents'),
-    'inputFile2' => Blob.valueOf('Sample text file\nContents')
+    'inputFile2' => Blob.valueOf('Sample text file\nContents'),
+    'autorepair' => true
 };
 
 try {
@@ -44,6 +45,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inputFile1** | **Blob**| First input file to perform the operation on. |
  **inputFile2** | **Blob**| Second input file to perform the operation on (more than 2 can be supplied). |
+ **autorepair** | **Boolean**| Optional; automatically repair input documents that have errors (default is true) | [optional]
 
 ### Return type
 

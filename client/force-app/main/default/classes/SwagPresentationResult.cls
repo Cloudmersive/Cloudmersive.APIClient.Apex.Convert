@@ -11,7 +11,7 @@
  */
 
 /**
- * A single Excel XLSX file corresponding to one worksheet (tab) in the original spreadsheet
+ * A single PowerPoint PPTX file corresponding to one slide in the original presentation
  */
 public class SwagPresentationResult implements Swagger.MappedProperties {
     /**

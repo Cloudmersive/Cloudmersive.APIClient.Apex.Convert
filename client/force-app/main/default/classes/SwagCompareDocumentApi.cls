@@ -30,6 +30,7 @@ public class SwagCompareDocumentApi {
      * Compare two Office Word Documents (docx) files and highlight the differences
      * @param inputFile1 First input file to perform the operation on. (required)
      * @param inputFile2 Second input file to perform the operation on (more than 2 can be supplied). (required)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -47,7 +48,9 @@ public class SwagCompareDocumentApi {
             'POST', '/convert/compare/docx', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'autorepair' => (Boolean) params.get('autorepair')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },

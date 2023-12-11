@@ -104,6 +104,35 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
+     * Repair a Word document (DOCX) that contains errors
+     * Repair a Word document (DOCX) that contains errors or corruption, if possible.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param repairMode Optional; Set to advanced to apply the most advanced repair mode, basic for basic repair mode.  Default is advanced. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob validateDocumentDocxRepair(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/validate/docx/repair', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'repairMode' => (String) params.get('repairMode')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
      * Validate a Word document (DOCX)
      * Validate a Word document (DOCX); if the document is not valid, identifies the errors in the document
      * @param inputFile Input file to perform the operation on. (required)
@@ -130,7 +159,7 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
-     * Validate if an EML file is executable
+     * Validate if input file is a valid EML file
      * Validate if an input file is an EML email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagDocumentValidationResult
@@ -338,7 +367,7 @@ public class SwagValidateDocumentApi {
         );
     }
     /**
-     * Validate if an MSG file is executable
+     * Validate if input file is a valid MSG file
      * Validate if an input file is an MSG email file; if the document is not valid
      * @param inputFile Input file to perform the operation on. (required)
      * @return SwagDocumentValidationResult
@@ -439,6 +468,32 @@ public class SwagValidateDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagDocumentValidationResult.class
+        );
+    }
+    /**
+     * Repair a PowerPoint presentation (PPTX) that contains errors
+     * Repair a PowerPoint presentation document (PPTX) that contains errors or corruption, if possible.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob validateDocumentPptxRepair(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/validate/pptx/repair', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**
@@ -595,6 +650,32 @@ public class SwagValidateDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagDocumentValidationResult.class
+        );
+    }
+    /**
+     * Repair an Excel spreadsheet (XLSX) that contains errors
+     * Repair an Excel spreadsheet document (XLSX) that contains errors or corruption, if possible.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob validateDocumentXlsxRepair(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/validate/xlsx/repair', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**

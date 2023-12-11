@@ -55,6 +55,7 @@ public class SwagEditDocumentApi {
      * Accept all tracked changes, revisions in a Word DOCX document
      * Accepts all tracked changes and revisions in a Word DOCX document.  This will accept all pending changes in the document when tracked changes is turned on.  Track changes will remain on (if it is on) after this oepration is completed.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param autorepair Optional; automatically repair input documents that have errors (default is true) (optional)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -70,7 +71,9 @@ public class SwagEditDocumentApi {
             'POST', '/convert/edit/docx/track-changes/accept-all', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'autorepair' => (Boolean) params.get('autorepair')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },

@@ -26,6 +26,35 @@ public class SwagSplitDocumentApi {
     }
 
     /**
+     * Split a single Document into Separate Documents by Page as a Batch Job
+     * Split a Document (PPTX supported), comprised of multiple pages into separate files, with each containing exactly one page.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param returnDocumentContents Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. (optional)
+     * @return SwagSplitBatchJobCreateResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagSplitBatchJobCreateResult splitDocumentBatchJobCreate(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagSplitBatchJobCreateResult) client.invoke(
+            'POST', '/convert/split/batch-job/create', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'returnDocumentContents' => (Boolean) params.get('returnDocumentContents')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagSplitBatchJobCreateResult.class
+        );
+    }
+    /**
      * Split a single Word Document DOCX into Separate Documents by Page
      * Split a Word DOCX Document, comprised of multiple pages into separate Word DOCX document files, with each containing exactly one page.
      * @param inputFile Input file to perform the operation on. (required)
@@ -52,6 +81,33 @@ public class SwagSplitDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagSplitDocxDocumentResult.class
+        );
+    }
+    /**
+     * Get the status and result of a Split Document Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return SwagJobStatusResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagJobStatusResult splitDocumentGetAsyncJobStatus(Map<String, Object> params) {
+        client.assertNotNull(params.get('asyncJobID'), 'asyncJobID');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('AsyncJobID', (String) params.get('asyncJobID')));
+
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagJobStatusResult) client.invoke(
+            'GET', '/convert/split/batch-job/status', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagJobStatusResult.class
         );
     }
     /**
@@ -110,6 +166,30 @@ public class SwagSplitDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagSplitPptxPresentationResult.class
+        );
+    }
+    /**
+     * Split a single PowerPoint Presentation PPTX into Separate Presentations
+     * Split a PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentations of customizeable size.
+     * @param request  (required)
+     * @return SwagPptxSplitAdvancedResponse
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPptxSplitAdvancedResponse splitDocumentPptxAdvanced(Map<String, Object> params) {
+        client.assertNotNull(params.get('request'), 'request');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagPptxSplitAdvancedResponse) client.invoke(
+            'POST', '/convert/split/pptx/advanced',
+            (SwagPptxSplitAdvancedRequest) params.get('request'),
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagPptxSplitAdvancedResponse.class
         );
     }
     /**

@@ -82,7 +82,7 @@ public class SwagConvertDocumentApi {
     }
     /**
      * Convert Document to PDF
-     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, and even multi-page TIFF files.
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.
      * @param inputFile Input file to perform the operation on. (required)
      * @return Blob
      * @throws Swagger.ApiException if fails to make API call
@@ -104,6 +104,32 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert Document to PDF as Batch Job
+     * Automatically detect file type and convert it to PDF.  Supports all of the major Office document file formats including Word (DOCX, DOC), Excel (XLSX, XLS), PowerPoint (PPTX, PPT), over 100 image formats, HTML files, text files, and even multi-page TIFF files.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return SwagConvertDocumentBatchJobCreateRes
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagConvertDocumentBatchJobCreateRes convertDocumentAutodetectToPdfBatchJob(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagConvertDocumentBatchJobCreateRes) client.invoke(
+            'POST', '/convert/autodetect/to/pdf/batch-job', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagConvertDocumentBatchJobCreateRes.class
         );
     }
     /**
@@ -734,6 +760,33 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagEmlToPngResult.class
+        );
+    }
+    /**
+     * Get the status and result of a Convert Document Batch Job
+     * Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+     * @param asyncJobID  (required)
+     * @return SwagConvertDocumentJobStatusResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagConvertDocumentJobStatusResult convertDocumentGetAsyncJobStatus(Map<String, Object> params) {
+        client.assertNotNull(params.get('asyncJobID'), 'asyncJobID');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+
+        // cast query params to verify their expected type
+        query.addAll(client.makeParam('AsyncJobID', (String) params.get('asyncJobID')));
+
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (SwagConvertDocumentJobStatusResult) client.invoke(
+            'GET', '/convert/batch-job/status', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            SwagConvertDocumentJobStatusResult.class
         );
     }
     /**
@@ -1499,8 +1552,9 @@ public class SwagConvertDocumentApi {
     }
     /**
      * Convert PDF to PNG Image Array
-     * Convert PDF document to PNG array, one image per page.
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images as temporary expiring URLs.
      * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
      * @return SwagPdfToPngResult
      * @throws Swagger.ApiException if fails to make API call
      */
@@ -1516,11 +1570,42 @@ public class SwagConvertDocumentApi {
             'POST', '/convert/pdf/to/png', '',
             query, form,
             new Map<String, Object>(),
-            new Map<String, Object>(),
+            new Map<String, Object>{
+                'dpi' => (Integer) params.get('dpi')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagPdfToPngResult.class
+        );
+    }
+    /**
+     * Convert PDF to PNG Image Array (Direct)
+     * Convert PDF document to PNG array, one image per page.  Returns PNG images directly in the response objects.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @return SwagPdfToPngDirectResult
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public SwagPdfToPngDirectResult convertDocumentPdfToPngArrayDirect(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (SwagPdfToPngDirectResult) client.invoke(
+            'POST', '/convert/pdf/to/png/direct', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'dpi' => (Integer) params.get('dpi')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            SwagPdfToPngDirectResult.class
         );
     }
     /**
@@ -1569,6 +1654,37 @@ public class SwagConvertDocumentApi {
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
+        );
+    }
+    /**
+     * Convert PDF to TIFF image
+     * Converts a PDF Document to a TIFF image.  If the PDF contains multiple pages, these pages will be represented as separate pages within the output TIFF image.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param dpi Optional; configures the pixel density in Dots per Inch (DPI) (default is 300).  This parameter can only be used with Cloudmersive Managed Instance and Private Cloud. (optional)
+     * @param lzwCompression Optional; Enables LZW compression to reduce the size of the output image. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentPdfToTiff(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/pdf/to/tiff', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'dpi' => (Integer) params.get('dpi'),
+                'lzwCompression' => (Boolean) params.get('lzwCompression')
+            },
             new List<String>{ 'application/json' },
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
@@ -1647,6 +1763,27 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             Blob.class
+        );
+    }
+    /**
+     * Convert PNG Array to PDF and remove transparency
+     * Convert an array of PNG images, remove transparency in source images, one image per page, into a newly-created PDF.  Supports images of different sizes as input.
+     * @return Object
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Object convertDocumentPngArrayToPdfFlattenTransparency() {
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        return (Object) client.invoke(
+            'POST', '/convert/png/to/pdf/remove-transparency', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json' },
+            new List<String> { 'Apikey' },
+            Object.class
         );
     }
     /**
@@ -1756,22 +1893,27 @@ public class SwagConvertDocumentApi {
     /**
      * Convert PowerPoint PPTX presentation to Legacy PowerPoint PPT (97-03)
      * Convert/downgrade modern Office PowerPoint PPTX Presentation to the legacy PowerPoint PPT (97-2003 Format) format
-     * @return Object
+     * @param inputFile Input file to perform the operation on. (required)
+     * @return Blob
      * @throws Swagger.ApiException if fails to make API call
      */
-    public Object convertDocumentPptxToPpt() {
+    public Blob convertDocumentPptxToPpt(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
         List<Swagger.Param> query = new List<Swagger.Param>();
         List<Swagger.Param> form = new List<Swagger.Param>();
 
-        return (Object) client.invoke(
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
             'POST', '/convert/pptx/to/ppt', '',
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
-            Object.class
+            Blob.class
         );
     }
     /**
@@ -1931,6 +2073,35 @@ public class SwagConvertDocumentApi {
             new List<String>{ 'application/x-www-form-urlencoded' },
             new List<String> { 'Apikey' },
             SwagRtfToPngResult.class
+        );
+    }
+    /**
+     * Convert TXT text file to PDF Document
+     * Convert simple text files to PDF.
+     * @param inputFile Input file to perform the operation on. (required)
+     * @param scaleFactor Optional: Set to 100 to scale at 100%, set to 50% to scale down to 50% scale, set to 200% to scale up to 200% scale, etc.  Default is 100%. Maximum is 1000%. (optional)
+     * @return Blob
+     * @throws Swagger.ApiException if fails to make API call
+     */
+    public Blob convertDocumentTxtToPdf(Map<String, Object> params) {
+        client.assertNotNull(params.get('inputFile'), 'inputFile');
+        List<Swagger.Param> query = new List<Swagger.Param>();
+        List<Swagger.Param> form = new List<Swagger.Param>();
+
+        // cast form params to verify their expected type
+        form.addAll(client.makeParam('inputFile', (Blob) params.get('inputFile')));
+
+        return (Blob) client.invoke(
+            'POST', '/convert/txt/to/pdf', '',
+            query, form,
+            new Map<String, Object>(),
+            new Map<String, Object>{
+                'scaleFactor' => (Integer) params.get('scaleFactor')
+            },
+            new List<String>{ 'application/json' },
+            new List<String>{ 'application/x-www-form-urlencoded' },
+            new List<String> { 'Apikey' },
+            Blob.class
         );
     }
     /**

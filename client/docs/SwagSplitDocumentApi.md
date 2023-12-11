@@ -4,13 +4,67 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**splitDocumentBatchJobCreate**](SwagSplitDocumentApi.md#splitDocumentBatchJobCreate) | **POST** /convert/split/batch-job/create | Split a single Document into Separate Documents by Page as a Batch Job
 [**splitDocumentDocx**](SwagSplitDocumentApi.md#splitDocumentDocx) | **POST** /convert/split/docx | Split a single Word Document DOCX into Separate Documents by Page
+[**splitDocumentGetAsyncJobStatus**](SwagSplitDocumentApi.md#splitDocumentGetAsyncJobStatus) | **GET** /convert/split/batch-job/status | Get the status and result of a Split Document Batch Job
 [**splitDocumentPdfByPage**](SwagSplitDocumentApi.md#splitDocumentPdfByPage) | **POST** /convert/split/pdf | Split a PDF file into separate PDF files, one per page
 [**splitDocumentPptx**](SwagSplitDocumentApi.md#splitDocumentPptx) | **POST** /convert/split/pptx | Split a single PowerPoint Presentation PPTX into Separate Slides
+[**splitDocumentPptxAdvanced**](SwagSplitDocumentApi.md#splitDocumentPptxAdvanced) | **POST** /convert/split/pptx/advanced | Split a single PowerPoint Presentation PPTX into Separate Presentations
 [**splitDocumentTxtByLine**](SwagSplitDocumentApi.md#splitDocumentTxtByLine) | **POST** /convert/split/txt/by-line | Split a single Text file (txt) into lines
 [**splitDocumentTxtByString**](SwagSplitDocumentApi.md#splitDocumentTxtByString) | **POST** /convert/split/txt/by-string | Split a single Text file (txt) by a string delimiter
 [**splitDocumentXlsx**](SwagSplitDocumentApi.md#splitDocumentXlsx) | **POST** /convert/split/xlsx | Split a single Excel XLSX into Separate Worksheets
 
+
+<a name="splitDocumentBatchJobCreate"></a>
+# **splitDocumentBatchJobCreate**
+> SwagSplitBatchJobCreateResult splitDocumentBatchJobCreate(inputFile, returnDocumentContents)
+
+Split a single Document into Separate Documents by Page as a Batch Job
+
+Split a Document (PPTX supported), comprised of multiple pages into separate files, with each containing exactly one page.  This API is designed for large jobs that could take a long time to create and so runs as a batch job that returns a Job ID that you can use with the GetAsyncJobStatus API to check on the status of the Job and ultimately get the output result.  This API automatically detects the document type and then performs the split by using the document type-specific API needed to perform the split.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+
+### Example
+```java
+SwagSplitDocumentApi api = new SwagSplitDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'inputFile' => Blob.valueOf('Sample text file\nContents'),
+    'returnDocumentContents' => true
+};
+
+try {
+    // cross your fingers
+    SwagSplitBatchJobCreateResult result = api.splitDocumentBatchJobCreate(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inputFile** | **Blob**| Input file to perform the operation on. |
+ **returnDocumentContents** | **Boolean**| Set to true to return the contents of each presentation directly, set to false to only return URLs to each resulting presentation.  Default is true. | [optional]
+
+### Return type
+
+[**SwagSplitBatchJobCreateResult**](SwagSplitBatchJobCreateResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
 
 <a name="splitDocumentDocx"></a>
 # **splitDocumentDocx**
@@ -61,6 +115,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="splitDocumentGetAsyncJobStatus"></a>
+# **splitDocumentGetAsyncJobStatus**
+> SwagJobStatusResult splitDocumentGetAsyncJobStatus(asyncJobID)
+
+Get the status and result of a Split Document Batch Job
+
+Returns the result of the Async Job - possible states can be STARTED or COMPLETED.  This API is only available for Cloudmersive Managed Instance and Private Cloud deployments.
+
+### Example
+```java
+SwagSplitDocumentApi api = new SwagSplitDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'asyncJobID' => 'asyncJobID_example'
+};
+
+try {
+    // cross your fingers
+    SwagJobStatusResult result = api.splitDocumentGetAsyncJobStatus(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **asyncJobID** | **String**|  |
+
+### Return type
+
+[**SwagJobStatusResult**](SwagJobStatusResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="splitDocumentPdfByPage"></a>
@@ -163,6 +266,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+<a name="splitDocumentPptxAdvanced"></a>
+# **splitDocumentPptxAdvanced**
+> SwagPptxSplitAdvancedResponse splitDocumentPptxAdvanced(request)
+
+Split a single PowerPoint Presentation PPTX into Separate Presentations
+
+Split a PowerPoint PPTX Presentation, comprised of multiple slides into separate PowerPoint PPTX presentations of customizeable size.
+
+### Example
+```java
+SwagSplitDocumentApi api = new SwagSplitDocumentApi();
+SwagClient client = api.getClient();
+
+// Configure API key authorization: Apikey
+ApiKeyAuth Apikey = (ApiKeyAuth) client.getAuthentication('Apikey');
+Apikey.setApiKey('YOUR API KEY');
+
+Map<String, Object> params = new Map<String, Object>{
+    'request' => SwagPptxSplitAdvancedRequest.getExample()
+};
+
+try {
+    // cross your fingers
+    SwagPptxSplitAdvancedResponse result = api.splitDocumentPptxAdvanced(params);
+    System.debug(result);
+} catch (Swagger.ApiException e) {
+    // ...handle your exceptions
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**SwagPptxSplitAdvancedRequest**](SwagPptxSplitAdvancedRequest.md)|  |
+
+### Return type
+
+[**SwagPptxSplitAdvancedResponse**](SwagPptxSplitAdvancedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="splitDocumentTxtByLine"></a>

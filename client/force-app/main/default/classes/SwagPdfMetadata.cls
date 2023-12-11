@@ -21,6 +21,12 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
     public Boolean successful { get; set; }
 
     /**
+     * Details of any errors if the operation was unsucessful
+     * @return errorDetails
+     */
+    public String errorDetails { get; set; }
+
+    /**
      * Title of the document
      * @return title
      */
@@ -68,8 +74,15 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
      */
     public Integer pageCount { get; set; }
 
+    /**
+     * True if the PDF document is encrypted, false otherwise
+     * @return encrypted
+     */
+    public Boolean encrypted { get; set; }
+
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'Successful' => 'successful',
+        'ErrorDetails' => 'errorDetails',
         'Title' => 'title',
         'Keywords' => 'keywords',
         'Subject' => 'subject',
@@ -77,7 +90,8 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         'Creator' => 'creator',
         'DateModified' => 'dateModified',
         'DateCreated' => 'dateCreated',
-        'PageCount' => 'pageCount'
+        'PageCount' => 'pageCount',
+        'Encrypted' => 'encrypted'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -87,6 +101,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
     public static SwagPdfMetadata getExample() {
         SwagPdfMetadata pdfMetadata = new SwagPdfMetadata();
         pdfMetadata.successful = true;
+        pdfMetadata.errorDetails = 'aeiou';
         pdfMetadata.title = 'aeiou';
         pdfMetadata.keywords = 'aeiou';
         pdfMetadata.subject = 'aeiou';
@@ -95,6 +110,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         pdfMetadata.dateModified = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
         pdfMetadata.dateCreated = Datetime.newInstanceGmt(2000, 1, 23, 4, 56, 7);
         pdfMetadata.pageCount = 123;
+        pdfMetadata.encrypted = true;
         return pdfMetadata;
     }
 
@@ -102,6 +118,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         if (obj instanceof SwagPdfMetadata) {
             SwagPdfMetadata pdfMetadata = (SwagPdfMetadata) obj;
             return this.successful == pdfMetadata.successful
+                && this.errorDetails == pdfMetadata.errorDetails
                 && this.title == pdfMetadata.title
                 && this.keywords == pdfMetadata.keywords
                 && this.subject == pdfMetadata.subject
@@ -109,7 +126,8 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
                 && this.creator == pdfMetadata.creator
                 && this.dateModified == pdfMetadata.dateModified
                 && this.dateCreated == pdfMetadata.dateCreated
-                && this.pageCount == pdfMetadata.pageCount;
+                && this.pageCount == pdfMetadata.pageCount
+                && this.encrypted == pdfMetadata.encrypted;
         }
         return false;
     }
@@ -117,6 +135,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (successful == null ? 0 : System.hashCode(successful));
+        hashCode = (17 * hashCode) + (errorDetails == null ? 0 : System.hashCode(errorDetails));
         hashCode = (17 * hashCode) + (title == null ? 0 : System.hashCode(title));
         hashCode = (17 * hashCode) + (keywords == null ? 0 : System.hashCode(keywords));
         hashCode = (17 * hashCode) + (subject == null ? 0 : System.hashCode(subject));
@@ -125,6 +144,7 @@ public class SwagPdfMetadata implements Swagger.MappedProperties {
         hashCode = (17 * hashCode) + (dateModified == null ? 0 : System.hashCode(dateModified));
         hashCode = (17 * hashCode) + (dateCreated == null ? 0 : System.hashCode(dateCreated));
         hashCode = (17 * hashCode) + (pageCount == null ? 0 : System.hashCode(pageCount));
+        hashCode = (17 * hashCode) + (encrypted == null ? 0 : System.hashCode(encrypted));
         return hashCode;
     }
 }
